@@ -1,14 +1,14 @@
 
 
-SOURCEDIR=../../../source
-references = ../../../source/core/libyui/doc/YUI_builtins.xml
-references+=  ../../../source/core/libyui/doc/YUI_widgets.xml
-references+= ../../../source/core/libyui/doc/YUI_special_widgets.xml
-references+= ../../../source/core/libyui/doc/events/event-builtins.xml
-appendix=../../../source/core/libyui/doc/YCP-UI-richtext.xml
-sections=../../../source/core/libyui/doc/events/event-intro.xml
-sections+=../../../source/core/libyui/doc/YCP-UI-layout.xml
-EXAMPLEDIR=../../../source/core/libyui/doc/examples
+SOURCEDIR=../../../
+references = ../../../core/libyui/doc/YUI_builtins.xml
+references+=  ../../../core/libyui/doc/YUI_widgets.xml
+references+= ../../../core/libyui/doc/YUI_special_widgets.xml
+references+= ../../../core/libyui/doc/events/event-builtins.xml
+appendix=../../../core/libyui/doc/YCP-UI-richtext.xml
+sections=../../../core/libyui/doc/events/event-intro.xml
+sections+=../../../core/libyui/doc/YCP-UI-layout.xml
+EXAMPLEDIR=../../../core/libyui/doc/examples
 
 
 all-local: xml examples

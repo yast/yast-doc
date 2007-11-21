@@ -76,7 +76,7 @@
 	<tocentry id="autoinstall" href="autoinstall/index.html">
             <title>AutoYaST</title>
         </tocentry>
-	<tocentry id="autoinstall" href="autoinstall/devel/index.html">
+	<tocentry id="autoinstall-devel" href="autoinstall/devel/index.html">
             <title>AutoYaST for Devel.</title>
         </tocentry>
 	<tocentry id="download_all" href="download/yast-documentation.tgz">
