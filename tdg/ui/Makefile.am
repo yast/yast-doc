@@ -2,8 +2,7 @@
 
 SOURCEDIR=../../../
 references = ../../../core/libyui/doc/YUI_builtins.xml
-references+=  ../../../core/libyui/doc/YUI_widgets.xml
-references+= ../../../core/libyui/doc/YUI_special_widgets.xml
+references+=  ../../../core/libyui/doc/YCPDialogParser.xml
 references+= ../../../core/libyui/doc/events/event-builtins.xml
 appendix=../../../core/libyui/doc/YCP-UI-richtext.xml
 sections=../../../core/libyui/doc/events/event-intro.xml
