@@ -1,9 +1,9 @@
 
-SOURCEDIR=../../../source
-sections = $(wildcard ../../../source/devtools/devtools/doc/*-section.xml)
-sections+= $(wildcard ../../../source/devtools/yast2/check_ycp/doc/*-section.xml)
-sections+=../../../source/core/libyui/doc/macro-recorder.xml
-sections+=../../../source/core/libycp/doc/logging.xml
+SOURCEDIR=../../../
+sections = $(wildcard ../../../devtools/devtools/doc/*-section.xml)
+sections+= $(wildcard ../../../devtools/yast2/check_ycp/doc/*-section.xml)
+sections+=../../../core/libyui/doc/macro-recorder.xml
+sections+=../../../core/libycp/doc/logging.xml
 sections+=desktop_files.xml
 EXAMPLEDIR=
 

@@ -1,4 +1,12 @@
 -------------------------------------------------------------------
+Wed Nov 21 17:46:02 CET 2007 - locilka@suse.cz
+
+- A lot of changes / fixes were made to adjust yast2-doc to the new
+  location and new relative location of other YaST modules in SVN.
+- Making it possible to run the build-script without having /work
+  containing all built RPMs.
+
+-------------------------------------------------------------------
 Wed Nov 21 14:20:52 CET 2007 - locilka@suse.cz
 
 - Initial version moved here from old yast-doc SVN

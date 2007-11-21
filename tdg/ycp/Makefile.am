@@ -1,8 +1,8 @@
 
 
-SOURCEDIR=../../../source
-references= $(wildcard ../../../source/core/libycp/doc/*Builtin*.xml)
-references+= $(wildcard ../../../source/core/wfm/doc/Y2WFMComponent.xml)
+SOURCEDIR=../../../
+references= $(wildcard ../../../core/libycp/doc/*Builtin*.xml)
+references+= $(wildcard ../../../core/wfm/doc/Y2WFMComponent.xml)
 EXAMPLEDIR=
 xmlfiles := $(foreach xml,$(references),$(notdir $(xml)))
 

@@ -3,26 +3,32 @@
 # Script for building YaST documentation from SVN
 # Lukas Ocilka <locilka@suse.cz>
 
-# name from /work
+# where available products are located
+SOURCES=$1 # /work/CDs/all/
+
+# name from ${SOURCES}
 # full-10.0-i386, full-10.0-x86_64, full-9.3-i386 etc...
-PRODUCT=$1
-SEARCHPATH=$2 # /yast/doc/SL10.1 for product full-10.1-i386
+PRODUCT=$2
+
+# /yast/doc/SL10.1 for product full-10.1-i386
+SEARCHPATH=$3
+
 SEARCHDOMAIN="forgeftp.novell.com"
 
-# where available products are located
-SOURCES="/work/CDs/all/"
-
-if [ "${PRODUCT}" == "" ] || [ "$SEARCHPATH" == "" ]; then
+if [ "${PRODUCT}" == "" ] || [ "$SEARCHPATH" == "" ] || [ "${SOURCES}" == "" ]; then
     echo
-    echo "Usage: ./_build-www.sh product-name search-path"
+    echo "Usage: ./_build-www.sh product-base-dir product-name search-path"
     echo
     echo "Path: e.g., /yast/doc/SL10.1"
+    echo "Example: ./_build-www.sh /work/CDs/all/ full-10.1-i386 /yast/doc/SL10.1"
     echo
-    echo "List of available products: "
-    for prodname in `ls -1 ${SOURCES}`; do
-        echo "  "${prodname}
-    done
-    echo
+    if [ "${SOURCES}" != "" ]; then
+	echo "List of available products: "
+	for prodname in `ls -1 ${SOURCES}`; do
+    	    echo "  "${prodname}
+	done
+	echo
+    fi
     exit 1;
 fi
 
@@ -32,7 +38,7 @@ DOCDIR=`pwd`"/"
 ### TMP directory
 TMPDIR="/tmp"
 ### Location of YaST sources
-SRCDIR=${DOCDIR}"../source/"
+SRCDIR=${DOCDIR}"../"
 ### Target directory (built webpage)
 TGTDIR=${DOCDIR}"www/"
 ### Build log
@@ -52,6 +58,7 @@ echo -n > ${BUILDLOG}
 
 echo
 echo "*** Backing up www directory ***"
+echo "| Current directory: "`pwd`
 mv -fv ${TGTDIR} ${TGTDIR}../www.backup
 
 echo
@@ -83,6 +90,7 @@ checkforerrors
 echo
 echo "*** REMOVING ALREADY BUILT DOCUMENTATION ***"
 cd ${DOCDIR}
+echo "| Current directory: "`pwd`
 rm -rf ${DOCDIR}tdg/html >> ${BUILDLOG}
 rm -rf ${DOCDIR}faq/html >> ${BUILDLOG}
 rm -rf ${DOCDIR}webpage/html >> ${BUILDLOG}
@@ -95,6 +103,7 @@ make -f Makefile.cvs
 # Cleans up the built HTML pages
 echo
 echo "*** CLEANING ${TGTDIR} ***"
+echo "| Current directory: "`pwd`
 rm -rf ${TGTDIR} >> ${BUILDLOG}
 mkdir -pv ${TGTDIR} >> ${BUILDLOG}
 
@@ -103,10 +112,12 @@ echo
 echo "*** CREATING XML SOURCES IN source/core/libyui/doc ***"
 cd ${SRCDIR}
 cd core
+echo "| Current directory: "`pwd`
 make -f Makefile.cvs >> ${BUILDLOG}
 checkforerrors
 make clean >> ${BUILDLOG}
 cd libyui/doc
+echo "| Current directory: "`pwd`
 make || (echo "2 exiting..." && exit 42)
 checkforerrors
 
@@ -115,6 +126,7 @@ echo
 echo "*** CREATING XML SOURCES IN source/yast2 ***"
 cd ${SRCDIR}
 cd yast2
+echo "| Current directory: "`pwd`
 make -f Makefile.cvs >> ${BUILDLOG}
 checkforerrors
 make clean >> ${BUILDLOG}
@@ -126,6 +138,7 @@ echo
 echo "*** CREATING XML SOURCES IN source/installation ***"
 cd ${SRCDIR}
 cd installation
+echo "| Current directory: "`pwd`
 make -f Makefile.cvs >> ${BUILDLOG}
 checkforerrors
 make clean >> ${BUILDLOG}
@@ -137,14 +150,18 @@ echo
 echo "*** CREATING XML SOURCES IN source/core/wfm/doc ***"
 cd ${SRCDIR}
 cd core/wfm/doc
+echo "| Current directory: "`pwd`
 make clean >> ${BUILDLOG}
-cd libyui/doc
+cd ${SRCDIR}
+cd core/libyui/doc
+echo "| Current directory: "`pwd`
 make || (echo "4 exiting..." && exit 42)
 checkforerrors
 
 # Creates UI builtins
 cd ${SRCDIR}
 cd core/libycp/doc
+echo "| Current directory: "`pwd`
 make || (echo "5 exiting..." && exit 42)
 checkforerrors
 
@@ -153,6 +170,7 @@ checkforerrors
 echo
 echo "*** PREPARING ENVIRONMENT ***"
 cd ${DOCDIR}
+echo "| Current directory: "`pwd`
 make -f Makefile.cvs >> ${BUILDLOG}
 checkforerrors
 make clean >> ${BUILDLOG}
@@ -165,6 +183,7 @@ echo
 echo "*** BUILDING MAIN MENU ***"
 cd ${DOCDIR}
 cd webpage
+echo "| Current directory: "`pwd`
 make clean >> ${BUILDLOG}
 rm -rf html >> ${BUILDLOG}
 # for the search form
@@ -175,6 +194,7 @@ checkforerrors
 echo
 echo "*** BUILDING AUTOYAST DOCUMENTATION ***"
 cd ${SRCDIR}autoinstallation
+echo "| Current directory: "`pwd`
 make -f Makefile.cvs >> ${BUILDLOG}
 make clean
 checkforerrors
@@ -185,6 +205,7 @@ checkforerrors
 echo
 echo "*** BUILDING STYLEGUIDE DOCUMENTATION ***"
 cd ${DOCDIR}styleguide
+echo "| Current directory: "`pwd`
 make clean >> ${BUILDLOG}
 checkforerrors
 make >> ${BUILDLOG} || (echo "9 exiting..." && exit 42)
@@ -194,6 +215,7 @@ checkforerrors
 echo
 echo "*** BUILDING CODINGRULES DOCUMENTATION ***"
 cd ${DOCDIR}codingrules
+echo "| Current directory: "`pwd`
 make clean >> ${BUILDLOG}
 checkforerrors
 make >> ${BUILDLOG} || (echo "10 exiting..." && exit 42)
@@ -203,6 +225,7 @@ checkforerrors
 echo
 echo "*** BUILDING TUTORIALS ***"
 cd ${DOCDIR}tutorials
+echo "| Current directory: "`pwd`
 make clean >> ${BUILDLOG}
 checkforerrors
 make >> ${BUILDLOG} || (echo "11 exiting..." && exit 42)
@@ -211,15 +234,18 @@ checkforerrors
 # Copying built docu into the directory for the final www pages
 echo
 echo "*** COPYING MAIN MENU ***"
+echo "| Current directory: "`pwd`
 cp -arf ${DOCDIR}webpage/html/. ${TGTDIR} >> ${BUILDLOG}
 
 echo
 echo "*** COPYING AUTOINSTALLATION ***"
+echo "| Current directory: "`pwd`
 mkdir -pv ${TGTDIR}autoinstall >> ${BUILDLOG}
 cp -arf ${SRCDIR}autoinstallation/doc/html/. ${TGTDIR}autoinstall/ >> ${BUILDLOG}
 
 echo
 echo "*** COPYING YCP DOCUMENTATION ***"
+echo "| Current directory: "`pwd`
 mkdir -pv ${TGTDIR}tdg >> ${BUILDLOG}
 cp -arf ${DOCDIR}tdg/html/. ${TGTDIR}tdg/ >> ${BUILDLOG}
 mkdir -pv ${TGTDIR}tdg/images/navig/
@@ -229,16 +255,19 @@ cp -arf ${DOCDIR}tdg/ui/examples ${TGTDIR}images/
 
 echo
 echo "*** COPYING STYLEGUIDE ***"
+echo "| Current directory: "`pwd`
 mkdir -pv ${TGTDIR}styleguide >> ${BUILDLOG}
 cp -arf ${DOCDIR}styleguide/html/. ${TGTDIR}styleguide/ >> ${BUILDLOG}
 
 echo
 echo "*** COPYING CODINGRULES ***"
+echo "| Current directory: "`pwd`
 mkdir -pv ${TGTDIR}codingrules >> ${BUILDLOG}
 cp -arf ${DOCDIR}codingrules/html/. ${TGTDIR}codingrules/ >> ${BUILDLOG}
 
 echo
 echo "*** COPYING TUTORIALS ***"
+echo "| Current directory: "`pwd`
 mkdir -pv ${TGTDIR}tutorials >> ${BUILDLOG}
 cp -arf ${DOCDIR}tutorials/html/. ${TGTDIR}tutorials/ >> ${BUILDLOG}
 
@@ -249,8 +278,9 @@ cp -arf ${DOCDIR}tutorials/html/. ${TGTDIR}tutorials/ >> ${BUILDLOG}
 echo
 echo "*** CREATING SCR/MODULES DOC ***"
 cd ${DOCDIR}
-echo "Running autogen/autodoc.sh ${PRODUCT} ${DOCDIR} ${TMPDIR} ${TGTDIR}"
-autogen/autodoc.sh ${PRODUCT} ${DOCDIR} ${TMPDIR} ${TGTDIR} >> ${BUILDLOG}
+echo "| Current directory: "`pwd`
+echo "Running autogen/autodoc.sh ${PRODUCT} ${DOCDIR} ${TMPDIR} ${TGTDIR} ${SOURCES}"
+autogen/autodoc.sh ${PRODUCT} ${DOCDIR} ${TMPDIR} ${TGTDIR} ${SOURCES} >> ${BUILDLOG}
 checkforerrors
 
 # Removes all /.svn/... directories from the www pages
@@ -258,11 +288,13 @@ checkforerrors
 echo
 echo "*** REMOVING .svn DIRECTORIES ***"
 cd ${TGTDIR}
+echo "| Current directory: "`pwd`
 for file in `find | grep "\.svn"`; do rm -rf $file; done
 
 echo
 echo "*** Creating TGZ archive '"${PRODUCT}".tgz' from all the documentation ***"
 cd ${TGTDIR}
+echo "| Current directory: "`pwd`
 tar -zcf yast-documentation.tgz *
 mkdir -pv ${TGTDIR}download/
 mv -fv yast-documentation.tgz ${TGTDIR}download/

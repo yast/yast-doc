@@ -8,28 +8,27 @@ OUTPUT=$4
 # or just directory with subdirectories 'scr' and 'modules' including also building scripts...
 DOCSVNDIR=$2
 # directory of products / rpms
-SOURCES="/work/CDs/all/"
+# e.g., /work/CDs/all/
+SOURCES=$5
 
 PRODUCT=$1
 
 ### TESTING >>>
 
-
-
-if [ ! -e ${SOURCES} ]; then
-    echo "Directory ${SOURCES} does not exist"
-    exit 1;
-fi
-
-if [ "${PRODUCT}" == "" ] || [ "${TMPROOT}" == "" ] || [ "${OUTPUT}" == "" ] || [ "${DOCSVNDIR}" == "" ]; then
+if [ "${PRODUCT}" == "" ] || [ "${TMPROOT}" == "" ] || [ "${OUTPUT}" == "" ] || [ "${DOCSVNDIR}" == "" ] || [ "${SOURCES}" == "" ]; then
     echo
-    echo "Usage:   ./autodoc.sh product-name /doc_directory/ /tmp-directory/ /output-directory/"
+    echo "Usage:   ./autodoc.sh product-name /doc_directory/ /tmp-directory/ /output-directory/ /rpms-basedir/"
     echo
     echo "List of available products: "
     for prodname in `ls -1 ${SOURCES}`; do
 	echo "	"${prodname}
     done
     echo
+    exit 1;
+fi
+
+if [ ! -e ${SOURCES} ]; then
+    echo "Directory ${SOURCES} does not exist"
     exit 1;
 fi
 
@@ -67,7 +66,7 @@ echo "Installing all YaST modules from '${SOURCES}' to the temporary directory '
 cd ${SOURCES}
 mkdir -p ${TMPROOT}/var/lib/rpm/
 rpm --initdb --root ${TMPROOT}
-rpm -Uvh --noscripts --ignorearch --force --root ${TMPROOT} --nodeps `grep "yast2" ./find-name-rpm`
+rpm -Uvh --noscripts --ignorearch --force --root ${TMPROOT} --nodeps `find -iname yast2*.rpm; find -iname autoyast*.rpm`
 
 ### Creating YaST Modules
 echo "Creating documentation of YaST Modules"
@@ -125,3 +124,5 @@ for FILE in `find | grep "\.html"`; do
     sed 's#'${TMPROOT}'##g' ${FILE} > .tmpfile
     mv -f .tmpfile ${FILE}
 done
+
+exit 0;

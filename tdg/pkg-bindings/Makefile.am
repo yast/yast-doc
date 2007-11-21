@@ -1,8 +1,8 @@
 
 
-SOURCEDIR=../../../source
-sections = $(wildcard ../../../source/pkg-bindings/doc/*-section.xml)
-references = $(wildcard ../../../source/pkg-bindings/doc/Pkg*.xml)
+SOURCEDIR=../../../
+sections = $(wildcard ../../../pkg-bindings/doc/*-section.xml)
+references = $(wildcard ../../../pkg-bindings/doc/Pkg*.xml)
 
 
 all-local: xml 
