@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding='ISO-8859-1'?>
+<!-- =============================================================== -->
+<!--
+File         : modules.xml
+Author       : Thomas Rölz 
+Initial date : 2002/10/23
+CVS          : $Id: modules.xml 159 2006-06-16 07:07:48Z locilka $
+-->
+<!-- =============================================================== -->
+
+  <book id="Book-YCPModules">
+    <bookinfo>
+      <title>YCP Modules in General</title>
+    </bookinfo>
+  
+    <para>
+      Creating modules for &prog; means extending its functionality. For this
+      being possible it is necessary to follow the infrastructural and
+      functional particularities of &prog; as well as some guidelines regarding
+      the interaction of the module with the user and the rest of the system.
+      In the following we'll have a closer look at these topics .
+    </para>
+
+    <!-- ################################################################### -->
+    
+    <chapter id="id_modules_overview">
+      <title>&lg_t; Modules Overview</title>
+      <para>
+	Throughout this document the term <quote>&lg; module</quote> was
+	mentioned repeatedly without providing a sharp definition. In fact the
+	term <quote>module</quote> is used quite loosely in the &prog; world,
+	because there are several <emphasis>kinds</emphasis> of modules
+	involved in different contexts. The following text shall lighten
+	this topic.
+      </para>
+
+      <itemizedlist>
+	<title>Different kinds of &lg_t; modules</title>
+	<listitem>
+	  <para>
+	    Generic &lg; modules
+	  </para>
+	  <para>
+	    In principle every &lg; file that provides a distinct functionality
+	    can be seen as a module. Typical representatives of this kind of
+	    module are the <literal>inst_xxx.ycp</literal> files that are part
+	    of the &prog; installer. Modules of this kind mostly represent
+	    rather self-contained functionality, e.g like
+	    <literal>inst_keyboard.ycp</literal> that provides the user dialog
+	    for selecting a keyboard during installation. These modules are
+	    usually called via <literal>CallFunction()</literal>.
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    Library modules
+	  </para>
+	  <para>
+	    This kind of module can be seen as what is called a library in
+	    other programming languages. Usually these modules are a collection
+	    of functions that must be <emphasis>included</emphasis> to be used.
+	    As with other programming languages, <emphasis>including</emphasis>
+	    in &lg; means merely text insertion that takes place each and every
+	    time an <literal>include</literal> is stated. This is often
+            adverse with respect to speed and memory consumption. 
+            <!-- OLD 
+            A typical
+	    representative of this sort of modules is
+	    <literal>common_popups.ycp</literal> from the &prog; wizard (see
+            <xref linkend="id_ycp_wizard_elements"/>)
+            -->
+	  </para>
+	</listitem>
+	<listitem>
+	  <para>
+	    True &lg; modules
+	  </para>
+	  <para>
+	    This kind of module is the most interesting one. <emphasis>True
+	      modules</emphasis> represent an <quote>object oriented</quote>
+	    approach to module design. Because the mechanisms associated with
+	    them deserve some special mention, the next section will cover this
+	    topic in more detail. 
+	  </para>
+	</listitem>
+      </itemizedlist>
+    </chapter>
+
+    <!-- ################################################################### -->
+
+    <chapter id="id_true_modules">
+      <title>True &lg_t; Modules</title>
+      <para>
+	True modules are rather new in the &prog; world and it is planned that
+	they will replace the old method of <emphasis>including</emphasis>
+	modules completely (with exception of some rare cases perhaps). The
+	following sections will outline the differences between these concepts.
+      </para>
+
+      <!--Source: /usr/share/doc/packages/yast2-core/libycp/modules.html-->
+      
+      <section id="id_ycp_modules_old">
+        <title>Included Modules</title>
+      <para>
+	  &lg;, originally planned as a functional language, always did dynamic
+	  (i.e. runtime) binding of variables. Although useful in many cases,
+	  it's quite puzzling for someone used to <quote>imperative</quote>
+	  languages. So you could well program the following block and get an
+	  unexpected result.
+	</para>
+
+        <programlisting width="80">
+{
+   integer x = 42;
+
+   define f() ``{ return x; }
+
+   ... // lots of lines
+
+   x = 55;
+
+   return f();  // will return 55 because of runtime binding of x!
+}
+	</programlisting>
+
+	<para>
+	  Another widely misused feature is to include global definitions.
+	  While there was no alternative as long as <literal>include</literal>
+	  was the only referencing instrument, this is certainly not a good
+	  programming practice in view of speed and memory considerations.
+	</para>
+      </section>
+
+      <!-- ################################################################### -->
+
+      <section id="id_ycp_modules_new">
+        <title>True Modules (Imported Modules)</title>
+	<para>
+	  In contrast to included modules, true modules have some distinct
+	  properties that are shown in the list below.
+	</para>
+
+	<itemizedlist>
+	  <listitem>
+	    <para>
+	      Definition-time bindings
+	    </para>
+	    <para>
+	      Definitions are evaluated in the sequence of the program flow.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      One-time inclusion
+	    </para>
+	    <para>
+	      In contrast to <literal>include</literal> the
+	      <literal>import</literal> statement includes the module only once
+	      even if there are more than one <literal>import</literal>
+	      statement in the program flow. Later imports are silently ignored.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Proprietary global namespace
+	    </para>
+	    <para>
+	      The module definition implies a module declaration that
+	      determines the namespace of the module's global variable scope.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Local environment
+	    </para>
+	    <para>
+	      Aside from the data located in the module's global namespace all other
+	      data defined in the module is purely <emphasis>local</emphasis>,
+	      i.e. is invisible from the outside.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Module constructor function
+	    </para>
+	    <para>
+	      Each true module may have a constructor function that is
+	      automatically executed upon first import.
+	    </para>
+	  </listitem>
+        </itemizedlist>
+	
+	<para>
+	  The following listing is a brief sample of a true module.
+	</para>
+
+        <programlisting width="80">
+{
+   // This is a module called "Sample".
+   // Therefore the file name MUST be Sample.ycp
+   // The "module" statement makes the module accessible for 'import'.
+   //
+   module "Sample";
+
+   // This is a local declaration.
+   // It can only be 'seen' inside the module.
+   //
+   integer local_var = 42;
+
+   // This is a global declaration.
+   // It can be accessed from outside with the name space identifier 'Sample::'.
+   //
+   global integer global_var = 27;
+
+   // This is a global function.
+   // It has access to global_var *and* local_var.
+   //
+   global define sample_f () ``{ return local_var + global_var; }
+}
+	</programlisting>
+
+	<para>
+	  The module above can be used with the <literal>import</literal>
+	  statement. The syntax for file inclusion with
+	  <literal>import</literal> is similar to <literal>include</literal>.
+	  The interpreter automatically appends <quote>.ycp</quote> to the
+	  filename and searches below
+	  <literal>/usr/lib/YaST2/modules</literal>. If the filename starts
+	  with <quote>./</quote>, the file is loaded from the local directory.
+	  The global declarations of the module can then be accessed with the
+	  name space identifier <literal>Sample::</literal>.
+	</para>
+
+	<note>
+	  <para>
+	    The file name <emphasis>must</emphasis> match the module
+	    declaration! Inside modules, only variable or function declarations
+	    are allowed. Stand-alone blocks or any kind of evaluation
+	    statements are forbidden.
+	  </para>
+	</note>
+
+        <programlisting width="80">
+{
+    // This imports the 'Sample'-module.
+    //
+    import "Sample";
+
+    // The global function is called with the respective name space identifier.
+    //
+    integer i = Sample::sample_f();     // == 69
+
+    // No access to local module variables.
+    //
+    i = Sample::local_var;              // ERROR, no access possible !
+
+    // No problem with global variables.
+    //
+    i = Sample::global_var;             // == 27
+
+    Sample::global_var = 0;             // This variable is writable !!
+
+    return Sample::sample_f();          // == 42, since global_var is 0
+}
+	</programlisting>
+
+	<note>
+	  <para>
+	    The first encounter of the statement <literal>import
+	      "Sample"</literal>; triggers the loading of
+	    <quote>Sample.ycp</quote>. Subsequent import statements are ignored,
+	    because <quote>Sample</quote> is already defined. Consequently you
+	    can't replace a module during runtime !
+	  </para>
+	</note>
+      </section>
+ 
+      <!-- ################################################################### -->
+
+      <section id="id_modules_constructor">
+	<title>True Modules And Constructors</title>
+	<para>
+	  If a global function with the same name as the module is defined, it
+	  is treated as a constructor. The constructor is called after the
+	  module has been loaded <emphasis>and evaluated</emphasis> for the
+	  first time. Because of this the constructor could (and should) be
+	  defined at the beginning of the module. Despite being located
+	  <quote>on top</quote> it can make use of the functions declared later
+	  in the file.
+	</para>
+	<para>
+	  Module constructors are used mostly for initialization purposes,
+	  e.g. for setting local variables to proper values. However, the
+	  actions within a constructor can be arbitrarily complex.
+	</para>
+
+	<note>
+	  <para>
+	    Constructors can't have any arguments. The result of calling a
+	    constructor from the outside is ignored.	
+	  </para>
+	</note>
+
+        <programlisting width="80">
+{
+   // This is a module called "Class" with a constructor function.
+   //
+   module "Class";
+
+   // A globally accessible variable.
+   //
+   global integer class_var = 42;
+
+   // This is the constructor (same name as the module).
+   //
+   global define Class() ``{ class_var = 12345; }
+}
+
+
+{
+    // The usage of the "Class"-module.
+    //
+    import "Class";
+
+    return Class::class_var;            // will be 12345 !
+}
+	</programlisting>
+      </section>
+    </chapter>
+
+    <!-- ################################################################### -->
+
+    <chapter id="id_module_rules">
+      <title>Some Rules</title>
+      
+      <para>
+	Most often when a &prog; module shall be created, this module will have
+	some interaction with the user. This usually implies the creation of
+	dialogs to be displayed on screen. As you might have noticed the
+	dialogs that come ready-made with &prog; follow a distinct <quote>look
+	  and feel</quote> which is due to the fact that the &prog; developers
+	follow some rules regarding the visual appearance as well as the
+	functional behavior of a dialog. The keywords here are usability and
+	GUI-consistency.
+      </para>
+
+      <section id="id_usability">
+	<title>Usability</title>
+
+	<para>
+	  When it comes to user-interaction one concept that is stressed very
+	  often is <emphasis>usability</emphasis> or - more speaking -
+	  user-friendliness. If you have ever heard s.th. about ergonomics you
+	  may also know the term <emphasis>Human Computer
+	    Interaction</emphasis> (HCI). For us regular folks
+	  <emphasis>usability</emphasis> is probably the best notation because
+	  it best summarizes what's it all about. It means that the program in
+	  question is good <quote>usable</quote> by the user. In general that
+	  means that operating a screen dialog should enjoin as low a burden as
+	  possible on the user.
+	</para>
+	<para>
+	  In order to have a good usability a system should satisfy the following
+	  criteria: 
+	</para>
+
+	<itemizedlist>
+	  <listitem>
+	    <para>
+	      Users must be able to accomplish their goal with minimal effort
+	      and maximum results. 
+	    </para>
+	  </listitem>
+	  
+	  <listitem>
+	    <para>
+	      The system must not treat the user in a hostile fashion or
+	      treat the user as if they do not matter.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      The system can not crash or produce any unexpected results at
+	      any point in the process.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      There must be constraints on the users actions.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      Users should not suffer from information overload.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      The system must be consistent at every point in the process.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      The system must always provide feedback to the user so that
+	      they know and understand what is happening at every point in
+	      the process.
+	    </para>
+	  </listitem>
+	</itemizedlist>
+	
+	<important>
+	  <para>
+	    If you want to create an interactive &prog; module you should try
+	    to heed those rules to ease the users life and to assure your
+	    module fits smoothly into the surrounding &prog; environment which
+	    (hopefully) follows them too.
+	  </para>
+	</important>
+
+	<para>
+	  All that said above in essence is an outline from a very good article
+	  by Todd Burgess. If you are interested in a more elaborate discussion
+	  of usability you may have a look at 
+	  <ulink
+	    url="http://www.osOpinion.com/Opinions/ToddBurgess/ToddBurgess1.html"> 
+	    http://www.osOpinion.com/Opinions/ToddBurgess/ToddBurgess1.html
+	  </ulink>
+	</para>
+      </section>
+
+    </chapter>
+
+    <!-- ################################################################### -->
+
+    <!-- FIXME: Time shortness - Should be explained some day -->
+    <chapter id="id_module_layout" role="tobedonelater">
+      <title>Module Layout</title>
+      <para>
+	FIXME: To be done...
+	<!--Aufnehmen und umschreiben...-->
+	<!--file:///usr/share/doc/packages/yast2-doc/Developers/Modules/module-general-layout.html-->
+      </para>
+
+      <section id="id_module_skeleton">
+	<title>Module Skeleton</title>
+	<para>
+	  FIXME: To be done...
+	</para>
+      </section>
+
+      <section id="id_module_example">
+	<title>Module Example</title>
+	<para>
+	  FIXME: To be done...
+	</para>
+      </section>
+    </chapter>
+  </book>
+
+<!-- ====== Allow emacs psgml to parse the document hierarchy ====== -->
+<!-- ATTENTION * This MUST be at the end of the document * ATTENTION -->
+<!--
+Local Variables:
+sgml-parent-document: ("yast_intro.xml")
+End:
+-->
+<!-- ====== Allow emacs psgml to parse the document hierarchy ====== -->

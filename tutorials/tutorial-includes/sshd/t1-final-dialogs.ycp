@@ -1,0 +1,168 @@
+/**
+ * File:	include/sshd/dialogs.ycp
+ * Package:	Configuration of sshd
+ * Summary:	Dialogs definitions
+ * Authors:	John The Fish <john@thesmallfish.net>
+ *
+ * $Id: dialogs.ycp 13879 2004-02-05 11:29:30Z jtf $
+ */
+
+{
+
+textdomain "sshd";
+
+import "Label";
+import "Wizard";
+import "Sshd";
+
+include "sshd/helps.ycp";
+
+/**
+ * Server Configuration Dialog
+ *
+ * @return any dialog result
+ */
+any ServerConfigurationDialog() {
+
+    /* a dialog caption */
+    string caption = _("SSHD Server Configuration");
+
+    term contents = `VBox (
+	`Left(`Label(_("SSHD TCP Ports"))),
+	`Left(
+	    `VBox (
+		`MinSize( 40, 5,
+		    /* A table header */
+		    `Table(`id("Port"), `header("Port"), [])
+		),
+		`HBox (
+		    /* a push button */
+		    `PushButton(`id("add_port"), _("&Add...")),
+		    /* a push button */
+		    `PushButton(`id("edit_port"), _("&Edit...")),
+		    /* a push button */
+		    `PushButton(`id("delete_port"), _("&Delete"))
+		),
+		`VSpacing(1),
+		`Frame (
+		    /* a dialog frame caption */
+		    _("Server Features"),
+		    `VBox (
+			/* a check box */
+			`Left(`CheckBox(`id("AllowTcpForwarding"), _("Allow &TCP Forwarding"))),
+			/* a check box */
+			`Left(`CheckBox(`id("X11Forwarding"),      _("Allow &X11 Forwarding"))),
+			/* a check box */
+			`Left(`CheckBox(`id("Compression"),        _("Allow &Compression")))
+		    )
+		),
+		`VStretch()
+	    )
+	)
+    );
+
+    Wizard::SetContentsButtons(caption, contents, HELPS["server_configuration"]:"",
+	    Label::BackButton(), Label::NextButton());
+    Wizard::DisableBackButton();
+
+    InitServerConfigurationDialog();
+
+    any ret = nil;
+    while(true) {
+
+	ret = UI::UserInput();
+
+	/* abort? */
+	if(ret == `abort) {
+	    if(Sshd::Abort()) break;
+	    else continue;
+	/* next */
+	} else if(ret == `next) {
+	    StoreServerConfigurationDialog();
+            break;
+	/* add, edit or delete */
+	} else if (ret == "add_port" || ret == "edit_port" || ret == "delete_port") {
+	    HandleServerConfigurationDialog(ret);
+	/* unknown */
+        } else {
+            y2error("unexpected retcode: %1", ret);
+            continue;
+        }
+    }
+
+    Wizard::RestoreBackButton();
+
+    return ret;
+}
+
+/**
+ * Login Settings Dialog
+ *
+ * @return any dialog result
+ */
+any LoginSettingsDialog() {
+
+    /* a dialog caption */
+    string caption = _("SSHD Server Login Settings");
+
+    term contents = `VBox(
+	`Frame (
+	    _("General Login Settings"),
+	    `VBox (
+		/* A check box */
+		`Left(`CheckBox(`id("PrintMotd"),            _("Print &Message of the Day After Login"))),
+		/* A check box */
+		`Left(`CheckBox(`id("PermitRootLogin"),      _("Permi&t Root Login")))
+	    )
+	),
+	`VSpacing(1),
+	`Frame (
+	    _("Authentication Settings"),
+	    `VBox (
+		/* A text entry */
+		`Left(`TextEntry(`id("MaxAuthTries"),           _("Ma&ximum Authentication Tries"))),
+		/* A check box */
+		`Left(`CheckBox (`id("PasswordAuthentication"), _("Pa&sswordAuthentication"))),
+		/* A check box */
+		`Left(`CheckBox (`id("RSAAuthentication"),      _("RSA Authenti&cation"))),
+		/* A check box */
+		`Left(`CheckBox (`id("PubkeyAuthentication"),   _("Public &Key Authentication")))
+	    )
+	),
+	`VStretch()
+    );
+
+    Wizard::SetContentsButtons(caption, contents, HELPS["login_settings"]:"",
+	    Label::BackButton(), Label::NextButton());
+    Wizard::SetNextButton(`next, Label::AcceptButton());
+
+    InitLoginSettingsDialog();
+
+    any ret = nil;
+    while(true) {
+
+	ret = UI::UserInput();
+
+	/* abort? */
+	if(ret == `abort) {
+	    if(Sshd::Abort()) break;
+	    else continue;
+	/* next */
+	} else if(ret == `next) {
+	    StoreLoginSettingsDialog();
+            break;
+	} else if(ret == `back) {
+	    break;
+	/* unknown */
+        } else {
+            y2error("unexpected retcode: %1", ret);
+            continue;
+        }
+    }
+
+    Wizard::RestoreNextButton();
+
+    return ret;
+}
+
+}

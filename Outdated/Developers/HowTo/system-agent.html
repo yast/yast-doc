@@ -1,0 +1,141 @@
+<html>
+<head>
+<title>YaST2 System Agent HowTo</title>
+</head>
+<body bgcolor="#ffffff">
+<p><img src="../../images/heading.png"></p>
+
+<h1>System Agent HowTo</h1>
+
+<p>The main purpose of the system agent is to modify the target (i.e. the
+system to be installed or administered) and is the only means to actually
+<i>do the work</i>.</p>
+
+<p><b>The system agent can be used two different ways:</b></p>
+
+<ul>
+
+<li>
+<p>Via "<tt>SCR (`Execute (.target.bash, ...))</tt>". In that case it run's
+one the same machine and in the same thread as the SCR. This is the normal way
+to access the system agent for run-time modules.</p>
+</li>
+
+<li>
+<p>Via "<tt>Execute (.local.bash, ...)</tt>". This operation is only possible
+in the WFM interpreter and the system agent runs on the same machine as the
+WFM. This operation should only be needed during installation, when you have
+to do something in the system you install from (the inst-sys), e.g.  reading
+<tt>/etc/install.inf</tt>, mounting of the target below <tt>/mnt</tt>, running
+<tt>mkfs</tt>, etc.</p>
+
+<p>This has been done via special WFM commands (Shell, Read, ReadY2, Write,
+WriteY2, MkDir, etc.) is the past. These obsolete commands will disappear
+soon. Have a look on <A HREF="old-wfm.html">how to convert</A> your old ycp
+scripts.</p>
+</li>
+
+</ul>
+
+<p><b>Here is a brief summary of the system agent commands:</b></p>
+
+<p>For more complete and up-to-date informations look at the source code
+(<tt>SystemAgent.cc</tt>).</p>
+
+<ul>
+
+<li>
+Execute a shell command:<br><br>
+<tt>SCR (`Execute (.target.bash, </tt>command-string <i>,
+optional-map-with-shell-environment</i><tt>));</tt><br> e.g. <tt>SCR (`Execute
+(.target.bash, "/bin/touch /var/log/empty_log_file"));</tt><br><br>
+It is important to <b>always</b> give the complete path for a command (use
+<tt>/bin/touch</tt> instead of <tt>touch</tt>).<br><br>
+
+</li>
+
+<li>
+Read a string from a file:<br><br>
+<tt>SCR (`Read (.target.string, </tt>filename<tt>));</tt><br> e.g. <tt>string
+secret = SCR (`Read (.target.string, "/future/stock-price.dat"));</tt><br><br>
+</li>
+
+<li>
+Write a string to a file:<br><br>
+<tt>SCR (`Write (.target.string, </tt>filename, value <tt>));</tt><br>
+e.g. <tt>SCR (`Write (.target.string, "/var/log/empty_log_file", "first
+logline\nsecond logline"));</tt><br><br>
+<br>
+</li>
+
+<li>
+Read a YCP value from a file:<br><br>
+<tt>SCR (`Read (.target.ycp, </tt>filename<tt>));</tt><br> <tt>SCR (`Read
+(.target.yast2, </tt>filename<tt>));</tt><br> e.g. <tt>string logvalue = SCR
+(`Read (.target.ycp, "/var/log/empty_log_file"));</tt><br><br>
+</li>
+
+<li>
+Write a YCP value to a file:<br><br>
+<tt>SCR (`Write (.target.ycp, </tt>filename, value <tt>));</tt><br>
+<tt>SCR (`Write (.target.yast2, </tt>filename, value <tt>));</tt><br>
+e.g. <tt>SCR (`Write (.target.ycp, "/var/log/empty_log_file",
+"first logline\nsecond logline"));</tt><br><br>
+</li>
+
+<li>
+Read a byteblock from a file:<br><br>
+<tt>SCR (`Read (.target.byte, </tt>filename<tt>));</tt><br> e.g. <tt>byteblock
+picture = SCR (`Read (.target.byte, "/pictures/kate-moss.png"));</tt><br><br>
+</li>
+
+<li>
+Read a directory:<br><br>
+<tt>SCR (`Read (.target.dir, </tt>dirname<tt>));</tt><br>
+e.g. <tt>list files = SCR (`Read (.target.dir, "/path/to/dir"));</tt><br><br>
+</li>
+
+<li>
+Read size of a file:<br><br>
+<tt>SCR (`Read (.target.size, </tt>filename<tt>));</tt><br>
+e.g. <tt>integer size = SCR (`Read (.target.size,
+"/var/log/messages"));</tt><br><br>
+</li>
+
+<li>
+Remove a file:<br><br>
+<tt>SCR (`Execute (.target.remove, </tt>filename<tt>));</tt><br>
+e.g. <tt>Execute (.target.remove, "/windows/command.exe"));</tt><br><br>
+</li>
+
+<li>
+Create a symlink:<br><br>
+<tt>SCR (`Execute (.target.symlink, </tt>oldpath<tt>, </tt>newpath<tt>));</tt><br>
+e.g. <tt>SCR (`Execute (.target.symlink, "/music/cold-chisel",
+"/music/jimmy-barnes"));</tt><br><br>
+</li>
+
+<li>
+Create a directory:<br><br>
+<tt>SCR (`Execute (.target.mkdir, </tt>path<tt>, </tt>mode<tt>));</tt><br>
+e.g. <tt>SCR (`Execute (.target.mkdir, "/people/feynman"));</tt><br><br>
+</li>
+
+<li>
+Mount a filesystem:<br><br>
+<tt>SCR (`Execute (.target.mount, </tt>device<tt>, </tt>mountpoint<tt>));</tt><br>
+e.g. <tt>SCR (`Execute (.target.mount, "/dev/fd0", "/floppy"));</tt><br><br>
+</li>
+
+<li>
+Umount a filesystem:<br><br>
+<tt>SCR (`Execute (.target.umount, </tt>mountpoint<tt>));</tt><br>
+e.g. <tt>SCR (`Execute (.target.umount, "/floppy"));</tt><br><br>
+</li>
+
+</ul>
+<p><hr><small>Last change 26-Jun-2001, 14:10, <a href="mailto:arvin@suse.de">Arvin Schnell</a></small><br>
+<small>Copyright &copy; by <a href="http://w3.suse.de">SuSE GmbH</a></small>
+</body>
+</html>
+

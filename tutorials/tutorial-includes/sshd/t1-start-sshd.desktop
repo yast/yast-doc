@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<programlisting>
+[Desktop Entry]
+Type=Application
+...
+X-SuSE-YaST-Group=Misc
+...
+Icon=yast-sshd
+<command>Exec=/sbin/yast2 sshd</command>
+...
+<command>Name=Sshd</command>
+GenericName=sshd
+...
+</programlisting>

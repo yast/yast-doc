@@ -1,0 +1,5760 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=iso-8859-1">
+	<TITLE>Test coverage for new installation test</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffcc">
+<H1>Test coverage for new installation test</H1>
+<P>Comments to <A HREF="mailto:sigi@suse.de">sigi@suse.de</A> or
+<A HREF="mailto:jd@suse.de">jd@suse.de</A></P>
+
+
+<P>
+There is a small postscript diagramm figuring an installation path.
+<BR>
+Next a table is displayed with installation path coverage.
+The path describe the installation source - the state of the hard disk
+at the start of the installation - the software selection - a detailed
+software selection - the location, where LILO should be installed.
+</P>
+
+<TABLE WIDTH=100% BORDER=1 CELLPADDING=3 CELLSPACING=0> <COL WIDTH=16*> <COL WIDTH=248*>
+<TR> <TD COLSPAN=2 WIDTH=100% VALIGN=TOP BGCOLOR="#ffcc99"> 
+      <P><B>installation path coverage</B></P> </TD> </TR>
+<TR VALIGN=TOP> <TD WIDTH=12% BGCOLOR="#ffaaaa"> <P>parted<BR>(jgliem)</P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        IBM Thinkpad 570
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - minimal - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - minimal - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - minimal - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - minimal - () - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - Standard - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - Standard - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - Standard - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - Standard - () - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - Standard Office - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - Standard Office - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - Standard Office - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - Standard Office - () - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - almost everything - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - almost everything - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - almost everything - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - almost everything - () - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - minimal - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - minimal - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - minimal - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - minimal - () - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%  BGCOLOR="#00ff00"> <P>beta8-prof<BR>(msagna)</P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - Standard - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12% BGCOLOR="#00ff00"> <P>beta8-prof<BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - Standard - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - Standard - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - Standard - () - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - Standard Office - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - Standard Office - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - Standard Office - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - Standard Office - () - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12% BGCOLOR="00ff00"> <P>RC-3-prof<BR>(tdenis)</P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - almost everything - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%  BGCOLOR="00ff00"> <P>beta 8<BR>#5774</P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - almost everything - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - almost everything - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - almost everything - () - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - minimal - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - minimal - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - minimal - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - minimal - () - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12% BGCOLOR="#00ff00"> <P>beta8<BR>(jgliem)</P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - Standard - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12% BGCOLOR="#00ff00"> <P>beta2<BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - Standard - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - Standard - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - Standard - () - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - Standard Office - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - Standard Office - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - Standard Office - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - Standard Office - () - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - almost everything - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - almost everything - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - almost everything - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - almost everything - () - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - minimal - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - minimal - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - minimal - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - minimal - () - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12% BGCOLOR="#ccff00"> <P>beta8<BR>(rschmid)<BR>#5793 #5794</P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - Standard - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - Standard - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - Standard - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - Standard - () - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12% BGCOLOR="#00ff00"> <P>beta7<BR>(msagna)</P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - Standard Office - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12% BGCOLOR="#00ff00"> <P>beta8<BR>(tami)</P> </TD>
+		<TD WIDTH=88% BGCOLOR="#44ffff"> 
+                        <P>
+                        CD - customer partitioning - Standard Office - () - MBR - kernel 2.4.0
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - Standard Office - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - Standard Office - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - Standard Office - () - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - almost everything - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - almost everything - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - almost everything - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - almost everything - () - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - minimal - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - minimal - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - minimal - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - minimal - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - Standard - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - Standard - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - Standard - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - Standard - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - Standard Office - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - Standard Office - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - Standard Office - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - Standard Office - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - almost everything - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - almost everything - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - almost everything - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - almost everything - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - minimal - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - minimal - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - minimal - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - minimal - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - Standard - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - Standard - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - Standard - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - Standard - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - Standard Office - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - Standard Office - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - Standard Office - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - Standard Office - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - almost everything - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - almost everything - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - almost everything - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - almost everything - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - minimal - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - minimal - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - minimal - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - minimal - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - Standard - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - Standard - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - Standard - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - Standard - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - Standard Office - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - Standard Office - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - Standard Office - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - Standard Office - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - almost everything - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - almost everything - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - almost everything - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - almost everything - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - minimal - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - minimal - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - minimal - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - minimal - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - Standard - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - Standard - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - Standard - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - Standard - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12% BGCOLOR="#00ff00"> <P>beta8-prof<BR>(tdenis)</P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - Standard Office - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - Standard Office - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - Standard Office - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - Standard Office - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - almost everything - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - almost everything - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - almost everything - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - almost everything - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - minimal - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - minimal - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - minimal - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - minimal - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - Standard - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - Standard - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - Standard - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - Standard - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - Standard Office - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - Standard Office - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - Standard Office - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - Standard Office - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - almost everything - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - almost everything - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - almost everything - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - almost everything - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - minimal - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - minimal - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - minimal - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - minimal - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - Standard - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - Standard - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - Standard - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - Standard - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12% BGCOLOR="#00ff00"> <P>RC1-pers<BR>(tdenis)</P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - Standard Office - (adding packages) - MBR 
+                        <BR>
+                        (also RC3-prof - tdenis)
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - Standard Office - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - Standard Office - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - Standard Office - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - almost everything - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - almost everything - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - almost everything - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - almost everything - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - minimal - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - minimal - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - minimal - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - minimal - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - Standard - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - Standard - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - Standard - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - Standard - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - Standard Office - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - Standard Office - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - Standard Office - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - Standard Office - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - almost everything - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - almost everything - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - almost everything - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - almost everything - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - minimal - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - minimal - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - minimal - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - minimal - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - Standard - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - Standard - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - Standard - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - Standard - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - Standard Office - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - Standard Office - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - Standard Office - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - Standard Office - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12% BGCOLOR="#00ff00"> <P>beta7-pers<BR>beta8-prof<BR>(tdenis)</P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - almost everything - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - almost everything - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - almost everything - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - almost everything - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - minimal - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - minimal - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - minimal - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - minimal - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - Standard - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - Standard - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - Standard - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - Standard - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - Standard Office - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - Standard Office - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - Standard Office - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - Standard Office - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - almost everything - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - almost everything - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - almost everything - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - empty HD - almost everything - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - minimal - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - minimal - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - minimal - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - minimal - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - Standard - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - Standard - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - Standard - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - Standard - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - Standard Office - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - Standard Office - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - Standard Office - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - Standard Office - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - almost everything - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - almost everything - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - almost everything - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - entire HD - almost everything - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - minimal - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - minimal - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - minimal - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - minimal - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - Standard - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - Standard - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - Standard - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - Standard - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - Standard Office - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - Standard Office - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - Standard Office - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - Standard Office - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - almost everything - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - almost everything - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - almost everything - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - part of HD - almost everything - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - minimal - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - minimal - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - minimal - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - minimal - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - Standard - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - Standard - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - Standard - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - Standard - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12% BGCOLOR="#00ff00"> <P>beta8-prof<BR>(tdenis)</P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - Standard Office - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - Standard Office - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - Standard Office - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - Standard Office - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - almost everything - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - almost everything - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - almost everything - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        CD - customer partitioning - almost everything - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - minimal - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - minimal - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - minimal - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - minimal - () - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - Standard - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - Standard - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - Standard - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - Standard - () - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - Standard Office - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - Standard Office - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - Standard Office - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - Standard Office - () - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - almost everything - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - almost everything - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - almost everything - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - almost everything - () - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - minimal - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - minimal - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - minimal - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - minimal - () - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - Standard - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - Standard - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - Standard - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - Standard - () - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - Standard Office - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - Standard Office - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - Standard Office - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - Standard Office - () - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - almost everything - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - almost everything - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - almost everything - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - almost everything - () - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - minimal - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - minimal - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - minimal - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - minimal - () - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - Standard - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - Standard - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - Standard - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - Standard - () - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - Standard Office - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - Standard Office - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - Standard Office - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - Standard Office - () - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - almost everything - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - almost everything - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - almost everything - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - almost everything - () - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - minimal - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - minimal - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - minimal - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - minimal - () - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - Standard - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - Standard - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - Standard - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - Standard - () - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - Standard Office - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - Standard Office - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - Standard Office - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - Standard Office - () - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - almost everything - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - almost everything - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - almost everything - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - almost everything - () - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - minimal - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - minimal - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - minimal - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - minimal - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - Standard - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - Standard - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - Standard - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - Standard - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - Standard Office - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - Standard Office - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - Standard Office - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - Standard Office - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - almost everything - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - almost everything - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - almost everything - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - almost everything - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - minimal - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - minimal - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - minimal - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - minimal - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - Standard - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - Standard - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - Standard - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - Standard - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - Standard Office - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - Standard Office - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - Standard Office - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - Standard Office - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - almost everything - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - almost everything - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - almost everything - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - almost everything - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - minimal - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - minimal - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - minimal - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - minimal - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - Standard - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - Standard - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - Standard - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - Standard - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - Standard Office - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - Standard Office - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - Standard Office - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - Standard Office - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - almost everything - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - almost everything - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - almost everything - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - almost everything - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - minimal - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - minimal - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - minimal - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - minimal - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - Standard - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - Standard - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - Standard - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - Standard - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - Standard Office - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - Standard Office - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - Standard Office - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - Standard Office - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - almost everything - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - almost everything - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - almost everything - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - almost everything - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - minimal - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - minimal - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - minimal - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - minimal - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - Standard - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - Standard - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - Standard - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - Standard - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - Standard Office - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - Standard Office - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - Standard Office - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - Standard Office - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - almost everything - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - almost everything - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - almost everything - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - almost everything - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - minimal - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - minimal - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - minimal - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - minimal - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - Standard - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - Standard - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - Standard - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - Standard - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - Standard Office - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - Standard Office - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - Standard Office - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - Standard Office - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - almost everything - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - almost everything - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - almost everything - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - almost everything - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - minimal - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - minimal - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - minimal - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - minimal - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - Standard - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - Standard - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - Standard - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - Standard - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - Standard Office - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - Standard Office - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - Standard Office - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - Standard Office - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - almost everything - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - almost everything - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - almost everything - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - almost everything - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - minimal - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - minimal - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - minimal - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - minimal - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - Standard - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - Standard - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - Standard - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - Standard - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - Standard Office - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - Standard Office - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - Standard Office - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - Standard Office - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - almost everything - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - almost everything - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - almost everything - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - almost everything - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - minimal - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - minimal - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - minimal - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - minimal - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - Standard - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - Standard - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - Standard - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - Standard - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - Standard Office - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - Standard Office - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - Standard Office - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - Standard Office - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - almost everything - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - almost everything - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - almost everything - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - empty HD - almost everything - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - minimal - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - minimal - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - minimal - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - minimal - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - Standard - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - Standard - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - Standard - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - Standard - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - Standard Office - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - Standard Office - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - Standard Office - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - Standard Office - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - almost everything - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - almost everything - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - almost everything - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - entire HD - almost everything - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - minimal - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - minimal - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - minimal - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - minimal - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - Standard - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - Standard - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - Standard - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - Standard - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - Standard Office - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - Standard Office - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - Standard Office - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - Standard Office - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - almost everything - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - almost everything - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - almost everything - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - part of HD - almost everything - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - minimal - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - minimal - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - minimal - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - minimal - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - Standard - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - Standard - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - Standard - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - Standard - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - Standard Office - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - Standard Office - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - Standard Office - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - Standard Office - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - almost everything - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - almost everything - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - almost everything - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        DVD - customer partitioning - almost everything - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - minimal - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - minimal - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - minimal - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - minimal - () - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - Standard - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - Standard - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - Standard - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - Standard - () - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - Standard Office - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - Standard Office - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - Standard Office - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - Standard Office - () - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - almost everything - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - almost everything - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - almost everything - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - almost everything - () - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - minimal - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - minimal - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - minimal - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - minimal - () - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - Standard - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - Standard - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - Standard - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - Standard - () - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - Standard Office - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - Standard Office - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - Standard Office - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - Standard Office - () - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - almost everything - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - almost everything - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - almost everything - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - almost everything - () - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - minimal - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - minimal - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - minimal - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - minimal - () - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - Standard - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - Standard - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - Standard - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - Standard - () - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - Standard Office - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - Standard Office - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - Standard Office - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - Standard Office - () - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - almost everything - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - almost everything - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - almost everything - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - almost everything - () - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - minimal - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - minimal - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - minimal - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - minimal - () - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - Standard - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - Standard - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - Standard - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - Standard - () - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - Standard Office - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - Standard Office - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - Standard Office - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - Standard Office - () - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - almost everything - () - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - almost everything - () - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - almost everything - () - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - almost everything - () - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - minimal - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - minimal - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - minimal - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - minimal - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - Standard - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - Standard - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - Standard - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - Standard - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - Standard Office - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - Standard Office - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - Standard Office - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - Standard Office - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - almost everything - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - almost everything - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - almost everything - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - almost everything - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - minimal - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - minimal - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - minimal - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - minimal - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - Standard - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - Standard - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - Standard - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - Standard - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - Standard Office - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - Standard Office - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - Standard Office - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - Standard Office - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - almost everything - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - almost everything - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - almost everything - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - almost everything - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - minimal - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - minimal - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - minimal - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - minimal - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - Standard - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - Standard - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - Standard - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - Standard - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - Standard Office - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - Standard Office - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - Standard Office - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - Standard Office - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - almost everything - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - almost everything - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - almost everything - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - almost everything - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - minimal - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - minimal - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - minimal - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - minimal - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - Standard - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - Standard - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - Standard - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - Standard - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - Standard Office - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - Standard Office - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - Standard Office - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - Standard Office - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - almost everything - (adding sources) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - almost everything - (adding sources) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - almost everything - (adding sources) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - almost everything - (adding sources) - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - minimal - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - minimal - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - minimal - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - minimal - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - Standard - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - Standard - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - Standard - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - Standard - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - Standard Office - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - Standard Office - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - Standard Office - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - Standard Office - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - almost everything - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - almost everything - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - almost everything - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - almost everything - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - minimal - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - minimal - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - minimal - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - minimal - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - Standard - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - Standard - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - Standard - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - Standard - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - Standard Office - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - Standard Office - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - Standard Office - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - Standard Office - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - almost everything - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - almost everything - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - almost everything - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - almost everything - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - minimal - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - minimal - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - minimal - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - minimal - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - Standard - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - Standard - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - Standard - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - Standard - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - Standard Office - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - Standard Office - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - Standard Office - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - Standard Office - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - almost everything - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - almost everything - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - almost everything - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - almost everything - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - minimal - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - minimal - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - minimal - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - minimal - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - Standard - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - Standard - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - Standard - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - Standard - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - Standard Office - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - Standard Office - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - Standard Office - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - Standard Office - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - almost everything - (adding packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - almost everything - (adding packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - almost everything - (adding packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - almost everything - (adding packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - minimal - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - minimal - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - minimal - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - minimal - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - Standard - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - Standard - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - Standard - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - Standard - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - Standard Office - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - Standard Office - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - Standard Office - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - Standard Office - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - almost everything - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - almost everything - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - almost everything - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - empty HD - almost everything - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - minimal - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - minimal - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - minimal - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - minimal - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - Standard - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - Standard - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - Standard - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - Standard - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - Standard Office - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - Standard Office - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - Standard Office - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - Standard Office - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - almost everything - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - almost everything - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - almost everything - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - entire HD - almost everything - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - minimal - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - minimal - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - minimal - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - minimal - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - Standard - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - Standard - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - Standard - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - Standard - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - Standard Office - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - Standard Office - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - Standard Office - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - Standard Office - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - almost everything - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - almost everything - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - almost everything - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - part of HD - almost everything - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - minimal - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - minimal - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - minimal - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - minimal - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - Standard - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - Standard - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - Standard - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - Standard - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - Standard Office - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - Standard Office - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - Standard Office - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - Standard Office - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - almost everything - (adding sources and packages) - MBR 
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - almost everything - (adding sources and packages) - boot disk
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - almost everything - (adding sources and packages) - other selection
+			</P>
+		</TD>
+	</TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+		<TD WIDTH=88%> 
+                        <P>
+                        boot disk - customer partitioning - almost everything - (adding sources and packages) - no LILO
+			</P>
+		</TD>
+	</TR>
+
+</TABLE>
+
+<P><BR><BR></P>
+
+<TABLE WIDTH=100% BORDER=1 CELLPADDING=3 CELLSPACING=0> <COL WIDTH=16*> <COL WIDTH=248*>
+<TR> <TD COLSPAN=2 WIDTH=100% VALIGN=TOP BGCOLOR="#ffcc99">
+      <P><B>sound card test coverage</B></P> </TD> </TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+                <TD WIDTH=88%> 
+                        <P> 
+                        Creative Labs Soundblaster Live (emu10k1)
+                        </P>
+                </TD>
+        </TR>
+<TR VALIGN=TOP> <TD WIDTH=12% BGCOLOR="#00ff00"> <P>1274 / 1371 <BR></P> </TD>
+                <TD WIDTH=88%> 
+                        <P> 
+                        Ensoniq ES1371 [AudioPCI-97] (1274 1371)
+                        </P>
+                </TD>
+        </TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+                <TD WIDTH=88%> 
+                        <P> 
+                        Creative Labs Soundblaster PCI 128 (es1371 (CT5880))
+                        </P>
+                </TD>
+        </TR>
+<TR VALIGN=TOP> <TD WIDTH=12% BGCOLOR="#00ff00"> <P><BR></P> </TD>
+                <TD WIDTH=88%> 
+                        <P> 
+                        Creative Labs Soundblaster PCI 128
+                        </P>
+                </TD>
+        </TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+                <TD WIDTH=88%> 
+                        <P> 
+                        C-Media CMI8738
+                        </P>
+                </TD>
+        </TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+                <TD WIDTH=88%> 
+                        <P> 
+                        C-Media CMI8330
+                        </P>
+                </TD>
+        </TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+                <TD WIDTH=88%> 
+                        <P> 
+                        ESS Technology (es1978  (Maestro2e))
+                        </P>
+                </TD>
+        </TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+                <TD WIDTH=88%> 
+                        <P> 
+                        ESS Technology (es1998, es1999  (Maestro3))
+                        </P>
+                </TD>
+        </TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+                <TD WIDTH=88%> 
+                        <P> 
+                        ESS Technology (es1988, es1989  (Allegro))
+                        </P>
+                </TD>
+        </TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+                <TD WIDTH=88%> 
+                        <P> 
+                        Terratec DMX-Xfire 1024  PCI  (cs4624)
+                        </P>
+                </TD>
+        </TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+                <TD WIDTH=88%> 
+                        <P> 
+                        Terratec SoundSystem DMX PCI (es1978  (Maestro2e))
+                        </P>
+                </TD>
+        </TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+                <TD WIDTH=88%> 
+                        <P> 
+                        Yamaha Waveforce 192XG (YMF724)
+                        </P>
+                </TD>
+        </TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+                <TD WIDTH=88%> 
+                        <P> 
+                        VIA (via82c686)
+                        </P>
+                </TD>
+        </TR>
+<TR VALIGN=TOP> <TD WIDTH=12%> <P><BR></P> </TD>
+                <TD WIDTH=88%> 
+                        <P> 
+                        INTEL (i810)
+                        </P>
+                </TD>
+        </TR>
+<TR VALIGN=TOP> <TD WIDTH=12% BGCOLOR="#00ff00"> <P><BR></P> </TD>
+                <TD WIDTH=88%> 
+                        <P> 
+                        onboard Yamaha YMF740C DSL1 Audio Decoder (beta8: tdenis@suse.de)
+                        </P>
+                </TD>
+        </TR>
+<TR VALIGN=TOP> <TD WIDTH=12% BGCOLOR="#00ff00"> <P><BR></P> </TD>
+                <TD WIDTH=88%> 
+                        <P> 
+                        Via Sound AC 97 onboard controler
+                        </P>
+                </TD>
+        </TR>
+</TABLE>
+
+
+<P><BR><BR></P>
+
+<TABLE WIDTH=100% BORDER=1 CELLPADDING=3 CELLSPACING=0> <COL WIDTH=16*> <COL WIDTH=248*>
+<TR> <TD COLSPAN=2 WIDTH=100% VALIGN=TOP BGCOLOR="#ffcc99">
+      <P><B>graphic card test coverage</B></P> </TD> </TR>
+<TR VALIGN=TOP> <TD WIDTH=12% BGCOLOR="#00ff00"> <P><BR></P> </TD>
+                <TD WIDTH=88%>
+                        <P>
+                        Diamond Viper 550 TVout PCI 16MB  (beta7-pers: tdenis@suse.de)
+                        </P>
+                </TD>
+        </TR>
+<TR VALIGN=TOP> <TD WIDTH=12% BGCOLOR="#00ff00"> <P><BR></P> </TD>
+                <TD WIDTH=88%>
+                        <P>
+                        ATI 3D Rage IIC AGP (1002 475A)
+                        </P>
+                </TD>
+        </TR>
+<TR VALIGN=TOP> <TD WIDTH=12% BGCOLOR="#00ff00"> <P><BR></P> </TD>
+                <TD WIDTH=88%>
+                        <P>
+                        S3 Trio64V2/DX or /GX (5333 8901) (beta7: msagna@suse.de)
+                        </P>
+                </TD>
+        </TR>
+<TR VALIGN=TOP> <TD WIDTH=12% BGCOLOR="#00ff00"> <P><BR></P> </TD>
+                <TD WIDTH=88%>
+                        <P>
+                        Nvidia RIVA TNT2 Model 64 (10de 002d) (beta8: tami@suse.de)
+                        </P>
+                </TD>
+        </TR>
+<TR VALIGN=TOP> <TD WIDTH=12% BGCOLOR="#00ff00"> <P><BR></P> </TD>
+                <TD WIDTH=88%>
+                        <P>
+                        ATI 3D Rage Pro AGP 1X/2X (1002 4742 1002 0084 rev 5c) (beta8: rschmid@suse.de)
+                        </P>
+                </TD>
+        </TR>
+<TR VALIGN=TOP> <TD WIDTH=12% BGCOLOR="#00ff00"> <P><BR></P> </TD>
+                <TD WIDTH=88%> 
+                        <P> 
+                        3D Blaster TNT2 ULTRA 32MB AGP (beta8: tdenis@suse.de)
+                        </P>
+                </TD>
+        </TR>
+<TR VALIGN=TOP> <TD WIDTH=12% BGCOLOR="#00ff00"> <P><BR></P> </TD>
+                <TD WIDTH=88%> 
+                        <P> 
+                        Elsa Erazor III LT (beta8: tdenis@suse.de)
+                        </P>
+                </TD>
+        </TR>
+</TABLE>
+
+<P><BR><BR></P>
+
+<TABLE WIDTH=100% BORDER=1 CELLPADDING=3 CELLSPACING=0> <COL WIDTH=16*> <COL WIDTH=248*>
+<TR> <TD COLSPAN=2 WIDTH=100% VALIGN=TOP BGCOLOR="#ffcc99">
+      <P><B>modem card test coverage</B></P> </TD> </TR>
+<TR VALIGN=TOP> <TD WIDTH=12% BGCOLOR="#00ff00"> <P><BR></P> </TD>
+                <TD WIDTH=88%>
+                        <P>
+                        Elsa Microlink  (beta7-pers: tdenis@suse.de)
+                        </P>
+                </TD>
+        </TR>
+</TABLE>
+
+<P><BR><BR></P>
+
+<TABLE WIDTH=100% BORDER=1 CELLPADDING=3 CELLSPACING=0> <COL WIDTH=16*> <COL WIDTH=248*>
+<TR> <TD COLSPAN=2 WIDTH=100% VALIGN=TOP BGCOLOR="#ffcc99">
+      <P><B>printer test coverage</B></P> </TD> </TR>
+<TR VALIGN=TOP> <TD WIDTH=12% BGCOLOR="#00ff00"> <P><BR></P> </TD>
+                <TD WIDTH=88%>
+                        <P>
+                        HP 930 C  (beta7-pers: tdenis@suse.de)
+                        </P>
+                </TD>
+        </TR>
+<TR VALIGN=TOP> <TD WIDTH=12% BGCOLOR="#00ff00"> <P><BR></P> </TD>
+                <TD WIDTH=88%>
+                        <P>
+                        HP 930 C  (beta8-prof: tdenis@suse.de)
+                        </P>
+                </TD>
+        </TR>
+<TR VALIGN=TOP> <TD WIDTH=12% BGCOLOR="#00ff00"> <P><BR></P> </TD>
+                <TD WIDTH=88%>
+                        <P>
+                        HP LaserJet 6L
+                        </P>
+                </TD>
+        </TR>
+<TR VALIGN=TOP> <TD WIDTH=12% BGCOLOR="#00ff00"> <P><BR></P> </TD>
+                <TD WIDTH=88%>
+                        <P>
+                        Canon BJC 2000  (beta8-prof: tdenis@suse.de)
+                        </P>
+                </TD>
+        </TR>
+</TABLE>
+
+<P><BR><BR></P>
+
+<TABLE WIDTH=100% BORDER=1 CELLPADDING=3 CELLSPACING=0> <COL WIDTH=16*> <COL WIDTH=248*>
+<TR> <TD COLSPAN=2 WIDTH=100% VALIGN=TOP BGCOLOR="#ffcc99">
+      <P><B>network(interface) card test coverage</B></P> </TD> </TR>
+<TR VALIGN=TOP> <TD WIDTH=12% BGCOLOR="#ff0000"> <P><BR></P> </TD>
+                <TD WIDTH=88%>
+                        <P>
+                        allied telesyn at1500 NIC ISA  (beta7-pers: tdenis@suse.de)
+                        </P>
+                </TD>
+        </TR>
+<TR VALIGN=TOP> <TD WIDTH=12% BGCOLOR="#00ff00"> <P><BR></P> </TD>
+                <TD WIDTH=88%>
+                        <P>
+                        3com 509 ISA  (beta7-pers: tdenis@suse.de)
+                        </P>
+                </TD>
+        </TR>
+<TR VALIGN=TOP> <TD WIDTH=12% BGCOLOR="#00ff00"> <P><BR></P> </TD>
+                <TD WIDTH=88%>
+                        <P>
+                        D-Link System Inc DFE-500TX Fast Ethernet
+                        </P>
+                </TD>
+        </TR>
+<TR VALIGN=TOP> <TD WIDTH=12% BGCOLOR="#00ff00"> <P><BR></P> </TD>
+                <TD WIDTH=88%>
+                        <P>
+                        VIA (1106 3065 1186 1400  Revision: 0x43) (beta8: tami@suse.de)
+                        </P>
+                </TD>
+        </TR>
+<TR VALIGN=TOP> <TD WIDTH=12% BGCOLOR="#00ff00"> <P><BR></P> </TD>
+                <TD WIDTH=88%>
+                        <P>
+                        AMD PCI LAN Adapter [8139xxx] (beta8: tami@suse.de)
+                        </P>
+                </TD>
+        </TR>
+<TR VALIGN=TOP> <TD WIDTH=12% BGCOLOR="#00ff00"> <P><BR></P> </TD>
+                <TD WIDTH=88%>
+                        <P>
+                        Intel 82559 Fast Ethernet Lan Nic (beta8: tdenis@suse.de)
+                        </P>
+                </TD>
+        </TR>
+<TR VALIGN=TOP> <TD WIDTH=12% BGCOLOR="#00ff00"> <P><BR></P> </TD>
+                <TD WIDTH=88%>
+                        <P>
+                        Digitel DECChip 21142/43 - DHCP (RC1-pers: tdenis@suse.de)
+                        </P>
+                </TD>
+        </TR>
+<TR VALIGN=TOP> <TD WIDTH=12% BGCOLOR="#00ff00"> <P><BR></P> </TD>
+                <TD WIDTH=88%>
+                        <P>
+                        onboard Intel GD82559 NIC (RC3-prof: tdenis@suse.de)
+                        </P>
+                </TD>
+        </TR>
+</TABLE>
+
+<P><BR><BR></P>
+
+<HR>
+<P>Created 2000-12-21 / last edit 2000-1-22</P>
+</BODY>
+</HTML>

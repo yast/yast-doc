@@ -1,0 +1,214 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+ <META NAME="GENERATOR" CONTENT="SGML-Tools 1.0.9">
+ <TITLE>The YaST2 Component Architecture: The Glue - YCP</TITLE>
+ <LINK HREF="Y2Bible-5.html" REL=next>
+ <LINK HREF="Y2Bible-3.html" REL=previous>
+ <LINK HREF="Y2Bible.html#toc4" REL=contents>
+</HEAD>
+<BODY>
+<A HREF="Y2Bible-5.html">Next</A>
+<A HREF="Y2Bible-3.html">Previous</A>
+<A HREF="Y2Bible.html#toc4">Contents</A>
+<HR>
+<H2><A NAME="s4">4. The Glue - YCP</A></H2>
+
+<P>
+<P>
+<H2><A NAME="ss4.1">4.1 Why invent yet another language?!</A>
+</H2>
+
+<P>
+<P>Components need to exchange data. In order to do that, they must speak some
+kind of a common language
+<BLOCKQUOTE>I use this term in a quite general way
+here. The function call mechanism in C can also be viewed upon as a language,
+since it has a defined syntax and semantics.</BLOCKQUOTE>
+. It's a good thing to
+have a concept of <I>datatypes</I> in this language. This clearifies the API
+as well as it helps to encapsulate data and avoid bugs, since type error can
+be checked automatically. If you want components to be able to communicate
+over pipes or network sockets, you also need some byte-stream
+representation. We decided that we needed a human readable ASCII
+representation. A faster and more compact binary serialization can be added
+later on easily if the parsing and generating of ASCII turns out to be a
+performance bottle neck.
+<P>But what I also wanted to make possible was a situation, where components
+communicate via C++ function calls. In this case the components are not
+separate processes but just two objects in a C++ program. This reduces the
+communication overhead drastically. Instead of generating an ASCII stream out
+of a large data structure and parse it again later, you simply pass one
+pointer. Therefore we also needed a C++ representation of the language.
+<P>A third thing we wanted was a scripting language for writing configuration
+modules, that directly operates on these datatypes. We needed an interpreter
+(or compiler) that we could extend to reflect our needs. None of the existing
+languages we knew could fulfill these needs. So I created YCP and the
+libycp. It's implementation is much simpler than you would expect.
+<P>
+<P>
+<H2><A NAME="ss4.2">4.2 YCP</A>
+</H2>
+
+<P>
+<P>YCP
+<BLOCKQUOTE>Ausgesprochen wird das &raquo;<I>Wai&szlig;iepie&laquo;</I>
+;-)</BLOCKQUOTE>
+actually means <I>YaST2 Communication Protocol</I>. But
+usually we just mean the language when we speak about YCP. It is a simple
+language that is a mixture between a imperative and a functional language. The
+syntax is as close to C as possible. The following piece of code calculates
+the faculty of 6:
+<P>
+<BLOCKQUOTE><CODE>
+<PRE>
+{
+    integer result=1;
+    integer x=1;
+    while (x &lt;= 6) {
+        result = result * x;
+        x = x + 1;
+    }
+    return result;
+}
+</PRE>
+</CODE></BLOCKQUOTE>
+<P>The nice thing about YCP is, that there is no distinction between code and
+data. A block of statements as the upper is also a valid YCP value with the
+data type <CODE>block</CODE> and thus can be passed as value among components or
+stored into a file. With the complex data types <CODE>list</CODE>, <CODE>term</CODE>
+and <CODE>map</CODE> you can build complex data structures that can reflect the
+layout of a dialog or the complete package database of the SuSE Linux
+distribution. Such a thing can then be passed as one value from one component
+to another. If the two are in the same C++ program and communicate via
+function calls, this is done very efficient. The following YCP value describes
+a simple dialog and illustrates the use of the datatype <CODE>term</CODE>:
+<P>
+<BLOCKQUOTE><CODE>
+<PRE>
+`VBox(
+    `Heading("Order a Pizza"),
+    `HBox(
+        `SelectionBox(`id(`pizza), "Available Pizzas",
+        [ "Margarita", "Napoli", "Reginella", "Tonno" ]),
+        `VBox(
+            `PushButton(`id(`order), "&amp;Order"),
+            `PushButton(`id(`cancel), "&amp;Cancel"))))
+</PRE>
+</CODE></BLOCKQUOTE>
+<P>The user interface component knows how to deal with such data and can display
+the dialog.
+<P>
+<P>
+<H2><A NAME="ss4.3">4.3 The libycp</A>
+</H2>
+
+<P>
+<P>The libycp is written in C++ and designed for use in C++ programs. It
+contains:
+<P>
+<UL>
+<LI>A hierarchy of classes reflecting the YCP datatypes. It includes an
+automatic memory management. No <CODE>new</CODE> or <CODE>delete</CODE> is needed for
+use with YCP data. You simple create and pass around the YCP value, even
+complex ones such as lists with a thousand entries. The list won't be copied,
+a reference counting mechanism makes sure that the memory is freed after the
+last one leaves the room (i.e. the last reference to the value disappears).
+</LI>
+<LI>A scanner and parser that can create a YCP value out of an ASCII
+representation. You can parse from files, strings or open filedescriptors.
+</LI>
+<LI>An interpreter that evaluates YCP. It resembles the scripting
+functionality of YCP. As long as you just pass around data, you don't need
+it. The interpreter is <I>save</I>. This means that running a YCP program in
+it, can't do any harm to your system. The interpreter has no calls doing any
+IO or system interaction (except debug output).
+</LI>
+</UL>
+<P>Libycp is thoroughly documented. A nice HTMLized documentation can be found on
+<CODE>/usr/doc/packages/yast2</CODE> after installing the package.
+<P>
+<P>
+<H2><A NAME="ss4.4">4.4 The YCP interpreter</A>
+</H2>
+
+<P>
+<P>
+<H3>Evaluation</H3>
+
+<P>
+<P>As introduced above YCP is not only a database representation language but
+has also scripting functionality. You can write conditionals, loops, function
+definitions and so on. The YCP interpreter is a C++ object, that can
+<I>evaluate</I> a YCP value into another one.
+<P>For example the term (1+2) is a valid YCP value. It's not the same as 3. 3 is
+an integer. (1+2) is a term, that is internally represented by
+%plus(1,2). The term's symbol is "%plus", the terms two
+arguments are the integers 1 and 2. But the interpreter can evaluate the
+thing and the result is the integer 3.
+<P>To use this from C++ is very easy. Look how our example looks like in C++:
+<P>
+<BLOCKQUOTE><CODE>
+<PRE>
+main()
+{
+    YCPInterpreter interpreter;
+    YCPTerm term("%plus");
+    term->add(YCPInteger(1));
+    term->add(YCPInteger(2));
+    
+    YCPValue result = interpreter.evaluate(term);
+    
+    printf("The evaluation of %s is %s.\n",
+        term->toString().c_str(),
+        result->toString().c_str());
+}
+</PRE>
+</CODE></BLOCKQUOTE>
+<P>Note, that due to the automatic memory management, the YCP datatype classes
+are always accessed via <CODE>-></CODE>, because they are in fact automatically
+handled pointers. Don't ever ever create a pointer to such an object. Don't
+write YCPTerm *term. This is neither useful nor likely to work out. It doesn't
+gain performance either, since the object YCPTerm encapsulates a pointer
+anyway (to a YCPTermRep object).
+<P>
+<P>
+<H3>Embedding the interpreter</H3>
+
+<P>
+<P>You now may wonder about the purpose of the interpreter, because there are
+surely more convenient ways how to add 1 and 2. Maybe you're right. But good
+thing about the YCP interpreter is, that you can enrich it with special
+functionality and embed it into a component. This is done by subclassing
+YCPInterpreter and overriding the member function
+evaluateInstantiatedTerm(). This is the method that is invoked whenever the
+interpreter evaluates a function call. Such a call has the structure of a
+term. The term's symbol is the function name, the term's arguments are the
+parameters of the function call. A good example is the YUIInterpreter, which is
+the backbone of the Y2 user interfaces:
+<P>
+<BR>
+3 </TD><TD> YUIInterpreter </TD><TD> Evaluates functions like <I>OpenDialog</I> and<I>UserInput</I>. Knows about widgets, constructs dialogs and so on. </TD></TR><TR><TD>
+2 </TD><TD> YCPInterpreter </TD><TD> Evaluates basic operations on the<I>datatypes</I>. Does numerical operations, string concatenation, listoperations and so on. </TD></TR><TR><TD>
+1 </TD><TD> YCPBasicInterpreter </TD><TD> Evaluates blocks, lists, maps and terms. Handlescontrol structures like <I>while</I>, <I>break</I>, <I>continue</I>,<I>return</I>.
+
+<P>One important issue is, that the layers 1 and 2 in this diagram, i.e. the
+YCPBasicInterpreter and the YCPInterpreter don't do any input or output. There
+are no functions for reading or writing files or any other system access. It
+is completely safe to run an arbitrary YCP script in a YCPInterpreter. It can
+do no harm. The actual functionality is implemented in a subclassed
+interpreter like the YUIInterpreter.
+<P>The advantage of having an interpreter in the user interface is, that it
+provides the user interface with much intelligence. It can handle whole dialog
+on it's own. This is especially interesting in situations, where the user
+interface and the actual configuration module are separated by a slow network
+connection or where you want to move load from the machine running the modules
+to the machine running the user interface.
+<P>
+<P>
+<HR>
+<A HREF="Y2Bible-5.html">Next</A>
+<A HREF="Y2Bible-3.html">Previous</A>
+<A HREF="Y2Bible.html#toc4">Contents</A>
+</BODY>
+</HTML>

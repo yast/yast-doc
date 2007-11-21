@@ -1,0 +1,12 @@
+/**
+ * Example for logging
+ * File: y2logs.ycp
+ */
+{
+    y2debug	("debug");
+    y2milestone	("milestone");
+    y2warning	("warning");
+    y2error	("error");
+    y2security	("security");
+    y2internal	("internal");
+}

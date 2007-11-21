@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<programlisting>
+/**
+ * File: include/sshd/dialogs.ycp
+ ...
+ */
+
+{
+
+textdomain "sshd";
+
+<command>import "Label";</command>
+import "Wizard";
+<command>import "Sshd";</command>
+
+<command>include "sshd/helps.ycp";</command>
+
+/**
+ * Configure1 dialog
+ * @return dialog result
+ */
+any <command>Configure1Dialog</command> () {
+
+    /* Sshd configure1 dialog caption */
+    string caption = <command>_("</command>Sshd Configuration<command>")</command>;
+
+    /* Sshd configure1 dialog contents */
+    term contents = `Label (_("First part of configuration of sshd"));
+
+    <command>Wizard::SetContentsButtons(caption, contents, HELPS["c1"]:"",
+	    Label::BackButton(), Label::NextButton());</command>
+
+    any ret = nil;
+    while (true) {
+
+	<command>ret = UI::UserInput();</command>
+
+	/* abort? */
+	if(ret == `abort || ret == `cancel) {
+	    if(ReallyAbort()) break;
+	    else continue;
+	}
+        else if(ret == `next || ret == `back) {
+            break;
+        }
+        else {
+            y2error("unexpected retcode: %1", ret);
+            continue;
+        }
+    }
+
+    <command>return ret;</command>
+}
+
+/**
+ * Configure2 dialog
+ * @return dialog result
+ */
+any Configure2Dialog () {
+    ...
+}
+
+/* EOF */
+}
+</programlisting>

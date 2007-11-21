@@ -1,0 +1,602 @@
+<?xml version="1.0"?>
+<!DOCTYPE article PUBLIC
+  "-//OASIS//DTD DocBook XML V4.3//EN"
+  "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd"
+[
+]>
+
+<article class="whitepaper" lang="en">
+ <title>Style Guide for SUSE Program Texts</title>
+ <articleinfo>
+  <revhistory>
+   <revision>
+    <revnumber>0.991</revnumber>
+    <date>2005-11-02</date><!-- use ISO format, please -->
+    <revdescription>
+     <para>
+      Release Candidate 3
+     </para>
+    </revdescription>
+   </revision>
+  </revhistory>
+ </articleinfo>
+
+ <abstract>
+  <para>
+   This style guide applies to all programs produced by SUSE.  This is
+   primarily YaST and SaX.  It covers the rules and guidelines for writing and
+   editing the original English program texts. 
+   Additionally, some tips are included to help translators of these texts.
+  </para>
+ </abstract>
+
+ <sect1 id="genrules">
+  <title>General Rules</title>
+  <para>
+   Apply rules when they make sense.  Exceptions can occur, but be
+   prepared to defend your decision. If you are unsure, ask others on
+   the team for their opinions.  
+  </para>
+  <para>
+   Write so it can be read and understood by nonnative speakers.  It is quite
+   possible for users to select English instead of their native language.  This
+   also makes it easier for bug testers to use the program before translations
+   are complete.
+  </para>
+  <para>
+   Do not divide texts into multiple strings.  Not all languages work
+   the same, so split strings are often a problem for translators.  It
+   also makes it more difficult to ensure consistency and clarity in
+   the proofreading process.
+  </para>
+  <para>
+   Do not use contractions, such as <emphasis>don't</emphasis> or
+   <emphasis>can't</emphasis>.  This is done for consistency with the
+   manuals and to maintain a professional style.  Also avoid slang and idioms.
+  </para>
+  
+  <para>
+   When working on texts that apply to a group of similar items,
+   such as radio buttons, write all the items in a similar way.  If
+   one item has a verb at the beginning, the others should as well.  This
+   similarity in structure is called
+   <emphasis>parallelism</emphasis>. For
+   example, the following items are  parallel:
+  </para>
+  <itemizedlist>
+   <listitem><para>CUPS Printer</para>
+   </listitem>
+   <listitem><para>IPX Network Server</para></listitem>
+   <listitem><para>Other Setup</para></listitem>
+  </itemizedlist>
+  
+  <para>
+   Allow room for text expansion in GUI design.  Many languages require more
+   words or characters to express something than English does. 
+  </para>
+
+  
+  <sect2 id="genrules.capit">
+   <title>Capitalization</title>
+   <para>There are two systems of capitalization used in program
+   strings.  When to use which system is included in the rules for
+   different situations in <xref linkend="specrules"/>. 
+   </para>
+   <para>
+    When capitalizing, do not change the capitalization of filenames,
+    configuration variables, and similar case-sensitive items.  These
+    should be presented in the case required by the system to avoid
+    confusion.
+   </para>
+   <sect3 id="genrules.capit.title">
+    <title>Title-Style</title>
+    <para>
+     Title-style capitalization is, unfortunately, quite
+     complicated.  Just 
+     do your best to follow these simplified rules.  The rest will be
+     cleaned up in the proofreading process.
+    </para>
+    <orderedlist>
+     <listitem><para>
+      Capitalize the first word no matter what it
+      is
+     </para></listitem>
+     <listitem><para>
+      Capitalize all major words
+     </para></listitem>
+     <listitem><para>
+      Lowercase <emphasis>the</emphasis>,
+      <emphasis>an</emphasis>, <emphasis>a</emphasis>,
+      <emphasis>and</emphasis>, <emphasis>but</emphasis>,
+      <emphasis>for</emphasis>, <emphasis>or</emphasis>,
+      <emphasis>nor</emphasis>, 
+      <emphasis>to</emphasis>, and <emphasis>as</emphasis>
+     </para></listitem>
+     <listitem><para>
+      Lowercase prepositions, such as
+      <emphasis>up</emphasis>, <emphasis>in</emphasis>,
+      <emphasis>down</emphasis>, and <emphasis>of</emphasis>
+     </para></listitem>
+     <listitem><para>
+      Capitalize the last word
+     </para></listitem>
+    </orderedlist>
+    
+    <para>
+     The following are some examples of YaST strings in title-style
+     capitalization.
+    </para>
+    <itemizedlist>
+     <listitem><para>Hostname and Name Server Configuration</para></listitem>
+     <listitem><para>Do Not Use LDAP</para></listitem>
+     <listitem><para>Reload All Patches from Server</para></listitem>
+    </itemizedlist>
+     
+    <para>
+     The specific rule followed in the proofreading process is the
+     <citetitle>Chicago 
+      Manual of Style</citetitle> rule 8.167.  It is also described in
+     both the SUSE and Novell style guides. See <xref linkend="resource"/>.
+    </para>
+   </sect3>
+   <sect3 id="genrules.capit.sent">
+    <title>Sentence-Style</title>
+    <para>
+     Capitalize the first word.  Only capitalize other words if they are
+     proper nouns or names. 
+    </para>
+   </sect3>
+  </sect2>
+  <sect2 id="genrules.punct">
+   <title>Punctuation</title>
+   <para>
+    Do not use spaces before commas (,), periods (.), colons (:), or
+    semicolons (;).  Avoid using exclamation marks at all.  The wording
+    and the type of message provide the needed emphasis.  
+   </para>
+   <para>
+    Avoid using punctuation dashes, called em dashes.  If it cannot be avoided,
+    use --. 
+   </para>
+   <para>
+    Only use / if it is part of a standard term, such as
+    TCP/IP.  Usually <emphasis>or</emphasis> or
+    <emphasis>and</emphasis> should be used where a / is used.
+   </para>
+  </sect2>
+  <sect2 id="genrules.spell">
+   <title>Spelling and Terminology</title>
+   <para>
+    Use American English as the original language for all texts.
+    Many
+    words have multiple "acceptable" spellings, but it has been 
+    necessary for SUSE and Novell to standardize on certain variants for
+    consistency.  The following list is an excerpt of the more extensive lists
+    in the SUSE and Novell Style guides (see <xref linkend="resource"/>).
+    Use the first variant in Webster's dictionary as the standard
+    spelling for anything not on these lists.
+   </para>
+   <itemizedlist>
+    <listitem><para>3D</para></listitem>
+    <listitem><para>back-end</para></listitem>
+    <listitem><para>back up (verb)</para></listitem>
+    <listitem><para>backup (noun)</para></listitem>
+    <listitem><para>boot disk</para></listitem>
+    <listitem><para>boot loader</para></listitem>
+    <listitem><para>cannot</para></listitem>
+    <listitem><para>case-sensitive, case-insensitive</para></listitem>
+    <listitem><para>certificate authority</para></listitem>
+    <listitem><para>client/server</para></listitem>
+    <listitem><para>command line</para></listitem>
+    <listitem><para>e-mail</para></listitem>
+    <listitem><para>filename</para></listitem>
+    <listitem><para>file system</para></listitem>
+    <listitem><para>front-end</para></listitem>
+    <listitem><para>GNOME</para></listitem>
+    <listitem><para>hard disk</para></listitem>
+    <listitem><para>hostname</para></listitem>
+    <listitem><para>hotplug, hotplugging, hotpluggable</para></listitem>
+    <listitem><para>Internet</para></listitem>
+    <listitem><para>intranet</para></listitem>
+    <listitem><para>journaling</para></listitem>
+    <listitem><para>local host (normal), localhost (default name of
+    the local host)</para></listitem>
+    <listitem><para>log file</para></listitem>
+    <listitem><para>log in (verb), login (noun)</para></listitem>
+    <listitem><para>log out (verb), logout(noun)</para></listitem>
+    <listitem><para>mount point</para></listitem>
+    <listitem><para>pathname</para></listitem>
+    <listitem><para>RAM disk</para></listitem>
+    <listitem><para>reconfigure</para></listitem>
+    <listitem><para>re-create</para></listitem>
+    <listitem><para>runlevel</para></listitem>
+    <listitem><para>runtime</para></listitem>
+    <listitem><para>set up (verb), setup (noun)</para></listitem>
+    <listitem><para>stand-alone</para></listitem>
+    <listitem><para>start-up</para></listitem>
+    <listitem><para>uninstall</para></listitem>
+    <listitem><para>username</para></listitem>
+    <listitem><para>Web</para></listitem>
+    <listitem><para>Web page</para></listitem>
+    <listitem><para>Web server</para></listitem>
+    <listitem><para>X Window System (do not shorten to X
+    Windows)</para></listitem> 
+   </itemizedlist>
+  </sect2>
+  <sect2 id="genrules.str_length">
+    <title>String Length</title>
+    <para>It is impossible to make an exact guideline for the maximum length
+    of strings. The appearance should be checked in the UI in both ncurses
+    and Qt.  A basic guideline is that strings that do not wrap themselves
+    have a maximum length of 78 characters.  Using only 54 characters is
+    a nicer length for pop-up dialogs.</para>
+  </sect2>
+ </sect1>
+ <sect1 id="specrules">
+  <title>Rules for Specific Situations</title>
+  <para></para>
+  <sect2 id="specrules.module">
+   <title>Module Names</title>
+   <para>Give modules short noun names.  Use title-style
+   capitalization.  Examples of good module names are:</para>
+   <itemizedlist>
+    <listitem><para>DNS Server</para></listitem>
+    <listitem><para>LDAP Client</para></listitem>
+    <listitem><para>Security Settings</para></listitem>
+   </itemizedlist>
+  </sect2>
+  <sect2 id="specrules.head">
+   <title>Headings, Titles, and Group Labels</title>
+   <para>
+    This includes dialog titles, frame labels, and pop-up titles.
+    Keep the text short and concise.  Do not use ending punctuation (:
+    or .). 
+   </para>
+  </sect2>
+  <sect2 id="specrules.statbar">
+   <title>Status Bar Texts</title>
+   <para>
+    Use sentence-style capitalization.  Do not use any ending
+    punctuation.  Do not use multiple sentences.
+   </para>
+   <para>
+    The status bar texts for the Control Center currently appear in
+    the desktop files after <sgmltag>GenericName=</sgmltag>.
+   </para>
+  </sect2>
+  <sect2 id="specrules.in-com">
+   <title>Input and Command Widgets</title>
+   <para>
+    These rules apply to all input and command widgets. These widgets include
+    check boxes, buttons, radio buttons, and text entry fields. 
+   </para>
+   <para>
+    Keep
+    the labels short and concise.  Use a label like <emphasis>Name</emphasis>
+    instead of <emphasis>Enter Name</emphasis> or <emphasis>Select
+     Name</emphasis>.
+   </para>
+   <para>
+    Ending punctuation, such as : or ., should not be used.  Use
+    ... at the end of command widgets that open a pop-up or new dialog
+    requiring user input.  Do not use ... on navigational buttons,
+    such as <emphasis>Next</emphasis> or <emphasis>Back</emphasis>.  Do
+    not use a space before it.  For example, <emphasis>Detailed
+    Configuration...</emphasis>. 
+   </para>
+   <important>
+    <para>
+     The final button of a wizard should always be
+     <emphasis>Accept</emphasis>.
+    </para>
+   </important>
+  </sect2>
+  <sect2 id="specrules.status">
+   <title>Status Information, Summaries, and Proposals</title>
+   <para>
+    These rules apply when you giving the user information about the
+    current status of a selection or service.  This means it is also
+    used for summaries and proposals.  For example: 
+   </para>
+    <screen>Packages to Update: 4</screen>
+   <para>
+    The category of the information should be title-style
+    (<emphasis>Packages to Update:</emphasis>) because it works like a 
+    header.   End the
+    category in a colon (:).  
+   </para>
+   <para>
+    The information itself should be sentence-style.
+    Keep status information shorter than a sentence and do not end it
+    in a period (.). 
+   </para>
+  </sect2>
+  <sect2 id="specrules.progbar">
+   <title>Progress Bar Labels</title>
+   <para>
+    Label progress bars with a short noun phrase in title-style capitalization.
+    The text should be informative.  Examples:
+   </para>
+   <itemizedlist>
+    <listitem><para>Patch Download</para></listitem>
+    <listitem><para>Package Installation</para></listitem>
+   </itemizedlist>
+   <para>
+    When the process is already described, as in the progress stages of
+    initialization, do not label the progress bar.
+   </para>
+   <remark>rwalter: add shots</remark>
+  </sect2>
+  <sect2 id="specrules.progstage">
+   <title>Progress Stages</title>
+   <para>
+    Progress stages appear in situations like module initialization.
+    They tell the user what YaST does in order.  Write them like a
+    to-do list using sentence-style capitalization.  Do not use any
+    ending punctuation on the stages.
+   </para>
+   <para>
+    Examples of good progress stages include:
+   </para>
+   <itemizedlist>
+    <listitem><para>Read configuration files</para></listitem>
+    <listitem><para>Save configuration</para></listitem>
+   </itemizedlist>
+  </sect2>
+  <sect2 id="specrules.busy">
+   <title>Busy Messages</title>
+   <para>
+    Use these when showing that YaST is currently doing something and the
+    user needs to wait.  Write a phrase using a verb ending in -ing
+    because the thing is currently being done.  End it in ... to show
+    that it is an ongoing operation.  Use sentence-style
+    capitalization.
+   </para>
+   <para>Examples of appropriate busy messages include:
+   </para>
+   <itemizedlist>
+    <listitem><para>Reading package information...</para></listitem>
+    <listitem><para>Writing configuration file...</para></listitem>
+   </itemizedlist>
+  </sect2>
+  <sect2 id="specrules.error">
+   <title>Error Messages</title>
+   <para>
+    Error messages should give the user only as much information as is
+    useful.  Do not confuse the average user with overly technical
+    error messages.  For errors that can be resolved by an experienced user,
+    provide the technical information with a 
+    <guimenu>Details...</guimenu> button.  Errors related to program bugs
+    should have the detailed information placed in the log and not marked for
+    translation. Use the text "Internal error occurred.  See the logs for
+    information." as the error message.
+</para>
+
+   <para>
+    Use sentence style capitalization.  End in a . if
+    it is a complete sentence or more than one sentence.
+   </para>
+   <remark>rwalter: need standard text for bug errors</remark>
+  </sect2>
+  <sect2 id="specrules.warning">
+   <title>Warning Messages</title>
+   <para>
+    Use sentence-style capitalization for warnings.  End in a period (.) if it
+    is a complete sentence or more than one sentence.
+   </para>
+  </sect2>
+  <sect2 id="specrules.conf">
+   <title>Confirmation Messages</title>
+   <para>
+    Confirmation messages should clearly describe the situation to
+    confirm.  Use complete sentences or multiple sentences and end each
+    sentence with a period (.).  The last sentence should be a clear question
+    that can only be answered with the available options.  Clear
+    questions for yes-no confirmations include:
+   </para>
+   <itemizedlist>
+    <listitem><para>Really abort?</para></listitem>
+    <listitem><para>Use this password?</para></listitem>
+   </itemizedlist>
+
+  </sect2>
+  <sect2 id="specrules.table">
+   <title>Tables</title>
+   <para>
+    Use title-style capitalization for column and row headers.  Use
+    sentence-style capitalization for entries. Do not use ending punctuation.
+   </para>
+  </sect2>
+  <sect2 id="specrules.trees">
+   <title>Trees</title>
+   <para>Use title-style capitalization for all tree items.</para>
+  </sect2>
+  <sect2 id="specrules.help">
+   <title>Help Texts</title>
+   <para>
+    Help needs to give the user clear directions on how to use the dialog.
+    Also provide information about specific user input that is required, such
+    as IP addresses, domain names, or text in a restricted character set.
+   </para>
+   <para>
+    Start the help with a concise paragraph describing what the dialog is all
+    about.  It should let the reader know why he would use this dialog.
+   </para>
+   <para>
+    If it works for your dialog, orient the help towards tasks the user may
+    want to perform.  If the layout is complex, describe the
+    elements of the dialog.  If the dialog only addresses a
+    single task, as in the dialogs for editing configuration values,
+    focus on the elements of the dialog.  Provide background
+    information if it is likely to be needed by the average user.  
+   </para>
+
+   <para>
+    Headings should be placed in
+    <sgmltag>big</sgmltag> and <sgmltag>b</sgmltag> tags and
+    capitalized title-style.  All help 
+    texts should have a heading at the top. In many cases, additional
+    headings are unneeded. 
+   </para>
+   <para>
+    The texts should be written in paragraphs (<sgmltag>p</sgmltag>
+    tags) using complete sentences.
+    Do not use <sgmltag>br</sgmltag> to force line breaks.  If possible, have
+    two or more sentences per paragraph.  This is not, however, always
+    reasonable in help texts.
+   </para>
+   <para>
+    Place widget labels in <sgmltag>b</sgmltag> tags.  Use
+    <sgmltag>tt</sgmltag> for example values and URLs.  Because the
+    tags are very attention-grabbing, avoid overusing them.  
+   </para>
+   <para>
+    If you want to use the widget labels like headers when making
+    UI-based help, place the label in <sgmltag>b</sgmltag> tags
+    and follow it with a colon (:). See <xref linkend="help"/>.
+   </para>
+   <example id="help">
+    <title>Example of UI-Based Help</title>
+    <screen>&lt;p>&lt;b>IP Address&lt;/b>: Enter the IP address of the host,
+    such as &lt;tt>10.1.1.100&lt;/tt>.&lt;/p>
+     &lt;p>&lt;b>Hostname&lt;/b>: Enter the hostname for the host,
+    such as &lt;tt>earth&lt;/tt>.&lt;/p></screen>
+   </example>
+  </sect2>
+  <sect2>
+   <title>Command Line Interface</title>
+   <para>
+    The command line interface has its own rules.  For command line
+    help texts, use sentence-style capitalization.  Do not use ending
+    punctuation except in rare cases when  multiple sentences are
+    used.  When multiple 
+    sentences are used, end all sentences in a period (.).
+   </para>
+
+   <para>Headers, summary headers, and similar items should be written
+   title-style and end in a colon (:).  Table headers should not have
+   colons but should be capitalized title-style.
+   </para>
+  </sect2>
+ </sect1>
+ <sect1 id="trans">
+  <title>Translation</title>
+  <para>
+   SUSE program texts are translated to a number of languages. Because
+   of this, it is very important to make program texts
+   translator-friendly. It is unlikely for the translators to have
+   access to the newest program.  All they have is the information
+   provided by the po files. 
+  </para>
+  <para>
+   Different languages require different structures and orders.
+   Splitting a text into multiple strings causes problems and
+   confusion for translators and proofreaders.  Never split strings. 
+  </para>
+  <para>
+   It must be possible for translators to change the order of variables.  The
+   Qt-style numbered variables make this possible.
+  </para>
+  
+  <sect2 id="trans.comm">
+   <title>Comments to Translators</title>
+   <para>
+    Include comments for translators whenever a string might be unclear to the
+    translator.  One-word strings can be confusing if the word can have
+    multiple meanings or be different parts of speech.  For these, provide a
+    comment describing the meaning or context of the string.
+   </para>
+   <para>
+    When a string includes a variable, provide a comment explaining what will
+replace the variable in the final string. Also provide comments for macros
+other than <sgmltag>&amp;product;</sgmltag>.
+</para>
+   <para>
+For the YaST to-do list-like lists of what YaST does in order or similar items,
+mark them progress stages.  
+</para>
+    <para>Provide an appropriate comment for translators when a string should
+    be limited to a certain length.</para>
+  </sect2>
+  <sect2 id="trans.tips">
+   <title>Tips for Translators</title>
+   <para>Never translate the macro <sgmltag>&amp;product;</sgmltag>. It is
+replaced with the name of the product on which YaST is run.  This can be SUSE
+Linux, Novell Linux Desktop, or any other product.</para>
+   <para>
+"Progress stages" are to-do list like-items that display the steps a program
+will take.  Translate these consistently for your language.
+</para>
+   <para>
+Do not translate any string or part of a string that comments specify should
+not be translated. This is done rarely.</para>
+   <para>
+If something is not clear, ask. Although the developers do their best to
+explain things, they may not realize that something is not clear.
+</para>
+    <para>Unless otherwise marked in comments, strings that do not include
+    HTML-like markup are limited to 78 characters.  Error messages, warnings,
+    and other pop-ups should be limited to 54 as much as possible.  When
+    necessary, create  additional line breaks with
+    <emphasis>\n</emphasis>.</para>
+  </sect2>
+ </sect1>
+ <sect1 id="resource">
+  <title>Resources</title>
+  <para>The following are resources that can be useful when writing
+  program texts.</para>
+  <variablelist>
+   <varlistentry>
+    <term>SUSE Documentation Style Guide</term>
+<!-- internal document
+    <listitem>
+     <para>
+      <ulink
+       url="http://w3d.suse.de/Dev/Documentation/Styleguide/SUSEStyleGuide"/>
+     </para>
+    </listitem>
+//-->
+   </varlistentry>
+   <varlistentry>
+    <term>Novell Documentation Style Guide</term>
+<!-- internal document
+    <listitem>
+     <para>
+      <ulink
+    url="https://innerweb.novell.com/organizations/engineering/documentation/stand_guide/docguides/index.html"/>
+     </para>
+    </listitem>
+//-->
+   </varlistentry>
+   <varlistentry>
+    <term>
+     <ulink url="http://www.m-w.com"/></term>
+    <listitem><para>Online version of Merriam-Webster's Dictionary.
+    It is easily searchable.</para></listitem>
+   </varlistentry>
+   <varlistentry>
+    <term><citetitle>Chicago Manual of Style</citetitle>, 15th
+    Edition</term>
+    <listitem>
+     <para>
+      This is the source of the capitalization rules.  It also
+      contains a lot of other useful information.
+<!--
+      The documentation
+      department has this reference.
+//-->
+     </para>
+    </listitem>
+   </varlistentry>
+  </variablelist>
+ </sect1>
+</article>
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: xml
+coding: utf-8
+sgml-indent-step: 1
+End:
+-->
+
+

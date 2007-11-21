@@ -1,0 +1,20 @@
+/**
+ * Example of getting information about services
+ */
+{
+    import "Service";
+    
+    string service = "sshd";
+    
+    // Get service info without peeking if service runs:
+    map info = Service::Info (service);
+    
+    // Get service info and check if service is running:
+    map full = Service::FullInfo (service);
+    
+    // Get service status
+    integer status  = Service::Status (service);
+    
+    // Returns true if link in /etc/init.d/rc?.d/ exists for this service
+    boolean enabled = Service::Enabled (service);
+}

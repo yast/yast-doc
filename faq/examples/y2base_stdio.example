@@ -1,0 +1,8 @@
+`Dir(.sysconfig.network)
+-> (["config", "dhcp", "providers"])
+
+`Read(.sysconfig.network.dhcp.DHCLIENT_SET_HOSTNAME)
+-> ("no")
+
+`Write(.sysconfig.network.dhcp.DHCLIENT_SET_HOSTNAME, "yes")
+-> (true)

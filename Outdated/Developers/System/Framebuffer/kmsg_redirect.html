@@ -1,0 +1,91 @@
+<html>
+<head>
+<title>YaST2: Resources: Framebuffer: Redirect kernel messages</title>
+</head>
+
+<body bgcolor=#ffffff>
+<h1>YaST2: Resources: Framebuffer: Redirect kernel messages</h1>
+ 
+
+<h2>Purpose</h2>
+
+   <ul>
+
+   <p>
+      While booting, messages are written to the console. These
+      messages are created by different instances. </p>
+
+      
+   <p>
+      If a framebuffer exists, a logo for each processor is
+      displayed. Next kernel messages are protocolled via console.
+      Next messages from INIT are displayed. </p>
+
+   <p>
+      To povide an easy-to-install, the kernel messages should
+      be redirected to another tty. There they are available, but
+      normally they are only visible, if the ttys are switched. </p>
+
+   </ul> <p> </p>
+
+<h2>First Starting Point</h2>
+   
+   <ul>
+
+   <p><b>do_syslog()</b></p>
+
+   <p> 
+      The console driver calls this routine during kernel initialization
+      to register the console printing procedure with printk() and to
+      print any messages that were printed by the kernel before the
+      console driver was initialized. <br>
+      void register_console(struct console * console); </p>
+      
+   <p>
+      Within the function register_console() the first statement is
+      do_syslog( 6, NULL, 0 ). Doing this, no kernel messages 
+      are printed. </p>
+
+   <p>Disadvantage: <br>
+      kernel messages are instrumentializations of code to locate
+      errors. If an error occurs, no protocol is available. </p>
+
+   </ul> <p> </p>
+
+<h2>Second Starting Point</h2>
+
+   <ul>
+
+   <p><b>kmsg_redirect</b></p>
+
+   <p>
+      Kernel messages can be redirected to another console,
+      if two changes are done: </p>
+      <ul>
+
+      <li> The number of minimum consoles must be increased: <br>
+           Within the header file /usr/include/linux/tty.h the
+           constant MIN_NR_CONSOLES is defined, this constant
+           must be increased. <p> </p>
+
+      <li> The variable kmsg_redirect must be set within the
+           file /usr/src/linux/drivers/char/console.c. <br>
+           If the variable kmsg_redirect is set to 2, kernel messages
+           are redirected to tty2.
+
+      </ul> <p> </p>
+
+   <p>Disadvantage: <br>
+      kernel messages are displayed only on the other tty, while
+      on the console, there is only a blinking cursor. No information
+      is available, what to to or what the system is doing. </p>
+
+   </ul> <p> </p>
+
+<hr>
+   <small>Last changed 1999-08-04 
+          <a href="mailto:jd@suse.de">Jörg Dippel</a></small><br>
+   <small>Copyright &copy; by 
+          <a href="http://www.suse.de">SuSE GmbH</a></small><hr>
+</body>
+</html>

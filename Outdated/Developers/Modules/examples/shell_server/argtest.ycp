@@ -1,0 +1,14 @@
+// This simple module can be used to test the mechanism
+// thas passes arguments to a client component. It simply
+// displays a dialog with a label displaying the argument list.
+{
+UI(``{
+    define listargs(list a) ``{
+	OpenDialog(`Label(sformat("Args: %1", a)));
+	UserInput();
+	CloseDialog();
+    };
+});
+
+UI(`listargs(Args()));
+}

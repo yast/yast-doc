@@ -1,0 +1,134 @@
+<html>
+<head><title>YaST2: Resources: Framebuffer: Activating</title></head>
+
+<body>
+<h1>YaST2: Resources: Framebuffer: Activating</h1>
+The document describes how to activate and use the framebuffer device<br>
+<h2>What is the framebuffer ?</h2>
+The framebuffer is a kernel based device driver which allows a
+generalized access to pixel-based (instead of text-based) video
+output devices.
+<pr>
+<h2>Using the framebuffer</h2>
+<p>
+To use the framebuffer the kernel has to be compiled. Additionally
+to the normal configuration, some items for console drivers have to be
+selected:
+<pre>
+         [*] Video mode selection support
+         [*] Support for frame buffer devices (EXPERIMENTAL)
+         [*] VESA VGA graphics console
+</pre>
+There is also a description within the SDB, keyword framebuffer.
+</p>
+
+<p>
+On booting this new generated kernel, <tt>/etc/lilo.conf</tt> has to be adapted.
+Within the LILO global section the value for vga has to be set:
+maybe <tt>vga=771</tt> -- this sets the screen to 800x600 using 8 bpp.
+</p>
+
+<p>
+Now on booting the linux logo -- a little tux pixmap of 80x80 -- is 
+displayed within the upper left corner of the screen. 
+The pixmap is defined in <tt>/usr/include/linux/linux_logo.h</tt>.
+</p>
+
+<p>
+The displaying of the logo is done within the source
+<tt>/usr/src/linux/drivers/video/fbcon.c</tt> -- within the function
+<tt>fbcon_show_logo( void )</tt>.
+<br>
+Strongly simplified first the color lookup tables are initalized.
+Then the pixmap is written to the framebuffer directly byte per byte.
+The code is 'for depth 8 or more, packed, with color registers'.
+<br>
+Because scrolling doesn't have an influence on the rigth side of
+the logo this place can be filled. For example, by repetitions of the
+logo.
+</p>
+
+<h2>What has to be changed</h2>
+First part of the inspection was how the logo was displayed 
+<pre>
+#if defined(CONFIG_FBCON_CFB8) || defined(CONFIG_FB_SBUS)
+        if (depth == 8 && p->type == FB_TYPE_PACKED_PIXELS) {
+            /* depth 8 or more, packed, with color registers */
+
+            src = logo;
+            for( y1 = 0; y1 < LOGO_H; y1++ ) {
+                dst = fb + y1*line + x;
+                for( x1 = 0; x1 < LOGO_W; x1++ )
+                    *dst++ = *src++;
+            }
+            done = 1;
+        }
+#endif
+</pre>
+This can be rewritten
+<pre>
+            src = logo; 
+            dst = fb + x;
+            for( y1 = 0; y1 < LOGO_H; y1++ ) {
+                for( x1 = 0; x1 < LOGO_W; x1++ ) {
+                    *dst = *src; 
+                    dst++; 
+                    src++; 
+                }
+                dst += ( line - LOGO_W );
+            }
+</pre>
+First logo is an array where the pixel information is located -- the array has an length 
+of  LOGO_H x LOGO_W.
+<br>
+fb is the address of the framebuffer und x is a defined offset.
+<br>
+Within both loops the content if the array 'logo' is copied to the framebuffer -- the sequence
+is splitted into the lines of the logo.
+</p>
+<p>
+How does it work -- the logo is colored. Each color is represented by three values within a
+color space. Here the RGB color space is used. To represent a one-byte-color there are many 
+ways -- the most used way is to use color lookup tables: the byte represents an index and
+the three values of the lookup tables referenced by this index are representing the color.
+<br>
+These color lookup tables are also defined within the logo header /usr/include/linux/linux_logo.h,
+but there are only definitions for 214 colors.
+</p>
+<p>
+Concluding if the logo within the fixed format should be changed, only both the color lookup
+tables and the pixel information has to be replaced.
+</p>
+
+<h2>What has to be changed if also the format has to be changed</h2>
+<p>
+First the length of the array which contains the pixel information is defined by the rectangular
+format.
+<br>
+Secondly the display function fbcon_show_logo( void ) should return a value, how many lines are
+used for the logo -- but this return value isn't evaluated.
+<p>
+Therefore this problem has to be resolved on scrolling -- but the lines are calculated the same
+way:
+<pre>
+    if (logo) {
+        /* Need to make room for the logo */
+        int cnt;
+        int step;
+
+        logo_lines = (LOGO_H + fontheight(p) - 1) / fontheight(p);
+</pre>
+
+<h2>Remaining doubts</h2>
+<p>
+To check this description, both several logos are displayed side by side and top on top without
+changing the lookup tables.
+<br>
+Additionaly the lookup tables or filled linearly -- all three tables are holding the same values.
+This means in RGB only grey values. As a result the logos are displayed with grey values and the
+tux is still visible.
+<p><hr>
+<SMALL>Last changed 14-7-1999 13:45, <A HREF="mailto:jd@suse.de">Jörg Dippel</A></small><br>
+<SMALL>Copyright &copy; by <A HREF="http://w3.suse.de">SuSE GmbH</A></SMALL>
+</body>
+</html>

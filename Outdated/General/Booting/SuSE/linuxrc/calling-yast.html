@@ -1,0 +1,55 @@
+<HTML>
+<HEAD>
+<TITLE>YaST2: Analysis: Linuxrc: Calling YaST</TITLE>
+</HEAD> 
+
+<BODY>
+<H1>YaST2: Analysis: Linuxrc: Calling YaST</H1>
+
+This is a short description how yast is called by linuxrc --
+the exact procedure calls can be referred within source code.
+<p>
+<h2>Call sequence</h2>
+Following call sequence is defined within install.c:
+</P>
+
+
+<P>
+<PRE>
+inst_start_install()            inst_auto_install()
+        |    (with menue)              |
+        |                              |
+        +-------------+----------------+
+                      |
+                      V
+              inst_execute_yast()
+                      |
+                      V
+              system( /sbin/YaST ... )
+</PRE>
+</P>
+
+<P>
+What happens calling linuxrc:
+<UL>
+<LI>  the passed parameters are evaluated
+<LI>  linuxrc is initialized
+<LI>  inst_auto_install() is called
+<LI>  linuxrc is terminated
+</UL>
+</P>
+
+<P>
+Within inst_auto_install() following steps are performed:
+<UL>
+<LI>  inst_choose_source() or if source is known inst_mount_*()
+<LI>  root_load_rootimage()
+<LI>  then the image is mounted
+<LI>  and YaST is called
+</UL>
+</P>
+<p><hr>
+<SMALL>Last changed 14-7-1999 14:15, <A HREF="mailto:jd@suse.de">Jörg Dippel</A></SMALL><BR>
+<SMALL>Copyright &copy; by <A HREF="http://w3.suse.de">SuSE GmbH</A></SMALL>
+</BODY>
+</HTML>

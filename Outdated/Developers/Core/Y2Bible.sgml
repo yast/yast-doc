@@ -1,0 +1,1389 @@
+<!doctype linuxdoc system>
+
+
+<article>
+
+
+<title>The YaST2 Component Architecture
+<author>Mathias Kettner <tt>kettner@suse.de</tt>
+
+<abstract>
+The Author of libycp and liby2 reveals their (<strike>bugs</strike>) myths.
+</abstract>
+
+
+<toc>
+
+
+<sect>What's all this about
+<p>
+
+YaST2 is the current installation and configuration software of SuSE Linux. It
+comes with a graphical and with a text based user interface. This you should
+be familiar with. This document is not concerned about the actual features of
+the installation procedure or particular configuration modules that are coming
+with SuSE Linux. It's intended for programmers who either want to write their
+own YaST2 components, debug those of their fellows or even want to understand
+and enhance the core system of YaST2 itself.
+
+However, this document is more aimed to provide you with a general
+understanding of YaST2 rather then with actual details of the programming API
+or the syntax of YCP. This is better be looked up in the online documentation
+that can be found in <tt>/usr/doc/packages/yast2</tt> after installing the
+YaST2 package.
+
+In the following text I will allow myself to abbreviate YaST2 with Y2.
+
+
+<sect>Design Goals
+<p>
+
+If you know the design goals of the Y2 architecture you probably can better
+understand the actual design decisions.
+
+<itemize>
+
+<item><bf>Flexibility:</bf> It should be easy to enhance the system, it should
+be possible to bring in new components or replace existing ones without
+recompiling Y2. It should be sufficient to install files, e.g. by installing
+an RPM package. It should be possible for third parties to write components.
+
+<item><bf>Compactness:</bf> At times where flexibility is not an important
+issue it should be possible to build the system such that it is robust and
+space and time efficient without paying the cost of the flexibility. This
+especially holds during the installation procedure, where memory usage is the
+most rigid constraint. Here it's much nicer to have one binary then a fragile
+system consisting of a dozen daemons, twenty socket connections, and three
+concurrent component distributing service handler name cache proxies, which
+are realized by shared library plugins.
+
+<item><bf>Simplicity:</bf> Consider adopting KISS<footnote>Keep it simple,
+stupid.</footnote> as your motto. All technical stuff should be encapsulated
+in libraries with clear APIs. Foreign technologies should be used only, if
+they simplify our own code. It's much more easy to adapt your own stuff to
+your needs then foreign stuff. Furthermore the effort of integrating a
+technology into your system may be greater then writing something that fits
+exactly to your needs, especially if you need just a small part of that
+technology<footnote>If you consider using CORBA as component system, please
+have a look at the size of libmico (stripped 4.8 MB) and compare it against
+libycp and liby2 (together 920kB), where libycp also contains a full featured
+scripting language!</footnote>. Try to avoid daemons. In general a system that
+needs a daemon in order to run is more likely to malfunction then one, that
+doesn't<footnote>This is a direct consequence of Murphy's Law. Daemons tend to
+not being started, and if though then to crash at arbitrary moments. Also they
+hide from the sunlight and you'll never see them.</footnote>.
+
+And don't invent your own security concept, if that of Linux can be used and
+is sufficient. You can guess that it's well tested!
+
+<item><bf>Openness:</bf> This really is a design issue, and an important one,
+too. It should be able to run a component isolated from the others or to watch
+the data streams between two components. It is more easy to understand and
+modify a script than a binary. Wherever pure speed is not the primary issue
+data should be kept in ASCII.
+
+<item><bf>Rapid development:</bf> The better you divide our system into
+separate layers and components the better you can distribute the work load on
+a team. If you have one big beast of highly sophisticated and interconnected
+C++ code, those developers who must lay a hand on that code, will continue to
+tread on each others feet<footnote>Of course, due to the law of the strange
+and fundamental interconnectedness of all things it is not possible to write
+completely independent components.</footnote>.
+
+Another important issue is the problem of memory and pointer bugs in C/C++
+programs. It is very difficult to avoid them in general if the code is longer
+than a few dozen lines. A good thing how you can tackle this problem is to
+develop a small and robust base system that is thoroughly tested and
+code-reviewed and provides some means to implement more complex functionality
+by other means than writing C/C++. This can for example be a scripting
+language.
+
+<item><bf>Network transparency:</bf> It should be possible to map
+configuration and installation over arbitrary network connections, in a safe
+way.
+
+</itemize>
+
+
+<sect>Basic Architecture
+<p>
+
+A Y2 system can be displayed as a stack of seven<footnote>Nice, hugh? The
+trick was in considering libstdc++ and libc as separate layers :-)</footnote>
+software layers:
+
+
+<tabular ca="lll">
+
+7 | Components in YCP or other languages | The actual configuration modules. @
+
+6 | Components in C++ | Generic components such as the WFM (WorkFlowManager),
+the user interfaces and the SCR (SystemConfigurationRepository), application
+specific components like the packager and some SCR agents. @
+
+5 | liby2 | Provides a component system including a network layer. @
+
+4 | libycp | Provides common datatypes for all Y2 components, a scripting
+language based upon those, an interpreter for this language and a converter
+that converts between the ASCII and the internal representation of the
+language. The datatype and the language are called YCP. @
+
+3 | libstdc++ | Provides string and container classes. @
+
+2 | libc | Provides basic functionality. @
+
+1 | Linux | Provides system calls.
+
+</tabular>
+
+The Y2 core system, consists of the 4th, the 5th and parts of the 6th
+layer. It is the subject of this document.
+
+
+<sect>The Glue - YCP
+<p>
+
+<sect1>Why invent yet another language?!
+<p>
+
+Components need to exchange data. In order to do that, they must speak some
+kind of a common language<footnote>I use this term in a quite general way
+here. The function call mechanism in C can also be viewed upon as a language,
+since it has a defined syntax and semantics.</footnote>. It's a good thing to
+have a concept of <it>datatypes</it> in this language. This clearifies the API
+as well as it helps to encapsulate data and avoid bugs, since type error can
+be checked automatically. If you want components to be able to communicate
+over pipes or network sockets, you also need some byte-stream
+representation. We decided that we needed a human readable ASCII
+representation. A faster and more compact binary serialization can be added
+later on easily if the parsing and generating of ASCII turns out to be a
+performance bottle neck.
+
+But what I also wanted to make possible was a situation, where components
+communicate via C++ function calls. In this case the components are not
+separate processes but just two objects in a C++ program. This reduces the
+communication overhead drastically. Instead of generating an ASCII stream out
+of a large data structure and parse it again later, you simply pass one
+pointer. Therefore we also needed a C++ representation of the language.
+
+A third thing we wanted was a scripting language for writing configuration
+modules, that directly operates on these datatypes. We needed an interpreter
+(or compiler) that we could extend to reflect our needs. None of the existing
+languages we knew could fulfill these needs. So I created YCP and the
+libycp. It's implementation is much simpler than you would expect.
+
+
+<sect1>YCP
+<p>
+
+YCP<footnote>Ausgesprochen wird das &raquo;<it>Wai&szlig;iepie&laquo;</it>
+;-)</footnote>actually means <it>YaST2 Communication Protocol</it>. But
+usually we just mean the language when we speak about YCP. It is a simple
+language that is a mixture between a imperative and a functional language. The
+syntax is as close to C as possible. The following piece of code calculates
+the faculty of 6:
+
+<tscreen><verb>
+{
+    integer result=1;
+    integer x=1;
+    while (x <= 6) {
+  	result = result * x;
+	x = x + 1;
+    }
+    return result;
+}
+</verb></tscreen>
+
+The nice thing about YCP is, that there is no distinction between code and
+data. A block of statements as the upper is also a valid YCP value with the
+data type <tt>block</tt> and thus can be passed as value among components or
+stored into a file. With the complex data types <tt>list</tt>, <tt>term</tt>
+and <tt>map</tt> you can build complex data structures that can reflect the
+layout of a dialog or the complete package database of the SuSE Linux
+distribution. Such a thing can then be passed as one value from one component
+to another. If the two are in the same C++ program and communicate via
+function calls, this is done very efficient. The following YCP value describes
+a simple dialog and illustrates the use of the datatype <tt>term</tt>:
+
+<tscreen><verb>
+`VBox(
+    `Heading("Order a Pizza"),
+    `HBox(
+	`SelectionBox(`id(`pizza), "Available Pizzas",
+	[ "Margarita", "Napoli", "Reginella", "Tonno" ]),
+	`VBox(
+	    `PushButton(`id(`order), "&amp;Order"),
+	    `PushButton(`id(`cancel), "&amp;Cancel"))))
+</verb></tscreen>
+
+The user interface component knows how to deal with such data and can display
+the dialog.
+
+
+<sect1>The libycp
+<p>
+
+The libycp is written in C++ and designed for use in C++ programs. It
+contains:
+
+<itemize>
+
+<item>A hierarchy of classes reflecting the YCP datatypes. It includes an
+automatic memory management. No <tt>new</tt> or <tt>delete</tt> is needed for
+use with YCP data. You simple create and pass around the YCP value, even
+complex ones such as lists with a thousand entries. The list won't be copied,
+a reference counting mechanism makes sure that the memory is freed after the
+last one leaves the room (i.e. the last reference to the value disappears).
+
+<item>A scanner and parser that can create a YCP value out of an ASCII
+representation. You can parse from files, strings or open filedescriptors.
+
+<item>An interpreter that evaluates YCP. It resembles the scripting
+functionality of YCP. As long as you just pass around data, you don't need
+it. The interpreter is <it>save</it>. This means that running a YCP program in
+it, can't do any harm to your system. The interpreter has no calls doing any
+IO or system interaction (except debug output).
+
+</itemize>
+
+Libycp is thoroughly documented. A nice HTMLized documentation can be found on
+<tt>/usr/doc/packages/yast2</tt> after installing the package.
+
+
+<sect1>The YCP interpreter
+<p>
+
+<sect2>Evaluation
+<p>
+
+As introduced above YCP is not only a database representation language but
+has also scripting functionality. You can write conditionals, loops, function
+definitions and so on. The YCP interpreter is a C++ object, that can
+<it>evaluate</it> a YCP value into another one.
+
+For example the term (1+2) is a valid YCP value. It's not the same as 3. 3 is
+an integer. (1+2) is a term, that is internally represented by
+%plus(1,2). The term's symbol is "%plus", the terms two
+arguments are the integers 1 and 2. But the interpreter can evaluate the
+thing and the result is the integer 3.
+
+To use this from C++ is very easy. Look how our example looks like in C++:
+
+<tscreen><verb>
+main()
+{
+    YCPInterpreter interpreter;
+    YCPTerm term("%plus");
+    term->add(YCPInteger(1));
+    term->add(YCPInteger(2));
+
+    YCPValue result = interpreter.evaluate(term);
+
+    printf("The evaluation of %s is %s.\n",
+        term->toString().c_str(),
+	result->toString().c_str());
+}
+</verb></tscreen>
+
+Note, that due to the automatic memory management, the YCP datatype classes
+are always accessed via <tt>-></tt>, because they are in fact automatically
+handled pointers. Don't ever ever create a pointer to such an object. Don't
+write YCPTerm *term. This is neither useful nor likely to work out. It doesn't
+gain performance either, since the object YCPTerm encapsulates a pointer
+anyway (to a YCPTermRep object).
+
+
+<sect2>Embedding the interpreter
+<p>
+
+You now may wonder about the purpose of the interpreter, because there are
+surely more convenient ways how to add 1 and 2. Maybe you're right. But good
+thing about the YCP interpreter is, that you can enrich it with special
+functionality and embed it into a component. This is done by subclassing
+YCPInterpreter and overriding the member function
+evaluateInstantiatedTerm(). This is the method that is invoked whenever the
+interpreter evaluates a function call. Such a call has the structure of a
+term. The term's symbol is the function name, the term's arguments are the
+parameters of the function call. A good example is the YUIInterpreter, which is
+the backbone of the Y2 user interfaces:
+
+<tabular ca="lll">
+
+3 | YUIInterpreter | Evaluates functions like <it>OpenDialog</it> and
+<it>UserInput</it>. Knows about widgets, constructs dialogs and so on. @
+
+2 | YCPInterpreter | Evaluates basic operations on the
+<it>datatypes</it>. Does numerical operations, string concatenation, list
+operations and so on. @
+
+1 | YCPBasicInterpreter | Evaluates blocks, lists, maps and terms. Handles
+control structures like <it>while</it>, <it>break</it>, <it>continue</it>,
+<it>return</it>.
+
+</tabular>
+
+One important issue is, that the layers 1 and 2 in this diagram, i.e. the
+YCPBasicInterpreter and the YCPInterpreter don't do any input or output. There
+are no functions for reading or writing files or any other system access. It
+is completely safe to run an arbitrary YCP script in a YCPInterpreter. It can
+do no harm. The actual functionality is implemented in a subclassed
+interpreter like the YUIInterpreter.
+
+The advantage of having an interpreter in the user interface is, that it
+provides the user interface with much intelligence. It can handle whole dialog
+on it's own. This is especially interesting in situations, where the user
+interface and the actual configuration module are separated by a slow network
+connection or where you want to move load from the machine running the modules
+to the machine running the user interface.
+
+
+<sect>Components and the liby2
+<p>
+
+<sect1>Components
+<p>
+
+When you want a system to be flexible and easily extendable you soon come to
+the conclusion, that is helpful to break up the thing into smaller pieces that
+(a) can be individually replaced and (b) can be combined in different
+ways. The pieces are then usually called "modules" or "plugins" or
+"beans" or whatever. In Y2 we simply call them <it>components</it> because
+the system is composed of them.
+
+In order to make them combinable they all have to speak a common language:
+YCP. All data passed between components is YCP data. The representation can be
+in ASCII, in form of C++ objects and maybe someday possibly a binary byte
+stream. We have discussed this already in chapter.
+
+Examples of components are the two user interfaces <it>qt</it> and
+<it>ncurses</it>, the system configuration repositor <it>scr</it>, the
+workflow manager <it>wfm</it> and the configuration modules.
+
+<sect1>Clients and Servers
+<p>
+
+Y2 makes a distinction between two types of components: clients and
+servers. They differ in how the execution control flows.
+
+A <it>server</it> component - once started - waits for commands. Once it
+receives a command (which is an arbitrary YCP value) it <it>evaluates</it> it
+and returns the answer (which also is a YCP value) and again waits for the
+next command. At the end of the day it gets a <it>result</it> message
+containing another YCP value and knows that it should terminate. Examples for
+server components are the user interfaces and the scr.
+
+A <it>client</it> component takes over the control itself. You start it with a
+parameter list, which is a YCP list. Then it works and does and accomplishes
+and computes until it thinks that's enough and returns a <it>result</it>
+value. It's much like a function call. Furthermore each client component keeps
+a pointer to a server component it calls <it>user_interface</it>. It can use
+this to display information to the user and get answers from him. Examples for
+client components are the wfm and the configuration modules.
+
+Client and server are represented by C++ objects of the type
+<tt>Y2Component</tt>. Each server must has a member function
+<tt>evaluate(YCPValue v)</tt>, that evaluates a YCP value <tt>v</tt>. Each
+client component has a member function <tt>doActualWork(YCPList
+parameter_list, Y2Component *user_interface)</tt> that starts the client
+component.
+
+<sect1>The Base Cell
+<p>
+
+When you start Y2 you do this by executing a Linux binary that is linked
+against liby2. On the commandline you have to specify (after the name of the
+binary) the name of a client component and the name of a server
+component. There is no exception to this. You always need exactly one of
+each. Together they form the Y2 <it>base cell</it>.
+
+<!--
+<figure>
+<eps file="sv13313326">
+</figure>
+ -->
+
+The server component is called <it>user</it> <it>interface</it> in this
+context, because it usually is one. The construction of the base cell is done
+by the <it>generic frontend</it>. This is a generic <it>main() </it>function
+contained in the liby2. All programs linked against liby2 get their main
+function from the lib. Don't provide your own.
+
+The generic frontend creates the client and the server component and connects
+both by calling <tt>doActualWork(parameter_list, user_interface)</tt>, where
+<tt>user_interface</tt> is the server component. The client now begins to do
+its work. Whenever user interaction is required, it can use the pointer to
+<tt>user_interface</tt> to do so. When its finished <tt>doActualWork</tt>
+returns a result value. The generic frontend passes this to the server by
+calling its <tt>result()</tt> function and the servers knows that the show is
+over.
+
+
+<sect1>Component Creation
+<p>
+
+<sect2>Creators and the Broker
+<p>
+
+As we have just learned, the generic main function uses the commandline to
+know which server and which client component should be created. But how does
+the creation work?
+
+Each Y2 binary has compiled in a number of component types. Which components
+go into a binary is decided at link time, not at compile time. It's like a bag
+where you stuff everything into that you want to have handy. Remember that all
+components that are in the same binary, can communicate very efficiently via
+function calls. A component type is a subclass of Y2Component. For example the
+Qt base user interface is a server component called <tt>qt</tt>. It is
+realized by creating a subclass Y2QtComponent. You could create such a
+component from within a C++ program by writing <tt>new
+Y2QtComponent(...)</tt>. But the generic frontend has to decide which
+components to create from the argument strings of the commandline. It does not
+even know, which classes are available, because it is - well - generic.
+
+The generic frontend needs a way how to create an object of type Y2Component
+(more precisely of a subclass) from a string, that specifies the name of the
+component. If you give it the string "<it>qt</it>", it must do a <tt>new
+Y2QtComponent(...)</tt>. But it can't know anything about a
+<tt>Y2QtComponent</tt> class. This problem is solved by the concept of the
+<it>component creators</it> and the <it>component broker</it>.
+
+A component creator is a C++ object of type <tt>Y2ComponentCreator</tt> that
+can create a component. Therefore you call it's function <tt>create(name)</tt>
+with <tt>name</tt> being the name of the component you want to create. If that
+creator happens to know the component type you mean, it creates it for
+you. Otherwise it returns 0.
+
+The <it>component broker</it> is a global instance that manages a pool of all
+component creators. It is realized by the class <tt>Y2ComponentBroker</tt>,
+which has only static functions. It again has two functions <tt>createServer()
+</tt> and <tt>createClient()</tt>, that create a component for you by scanning
+all existing creators and asking them to create the component. The first that
+can do this, creates the component.
+
+<sect2>Global constructors
+<p>
+
+The component creators must be known to the component broker within the main()
+function. And which creators are available is decided at link time. This is
+realized by use of global constructors. For each component type, there is a
+global variable of type <tt>Y2ComponentCreator</tt> (more precisely of a
+subclass). The constructor of <tt>Y2ComponentCreator</tt> registers the
+creator at the broker. Because the constructors of the global variables happen
+before main() is entered, the broker is set up correctly when the generic main
+function needs to create the components.
+
+<sect1>Component types
+<p>
+
+Y2 is highly modular and allows components to be spread over a whole
+network. This is realized by different types of components. The coarse
+classification is into builtin, adapter, script and plugin<footnote>Plugin
+components are currently vaporware. They will be implemented for the SuSE 7.0
+or 7.1.</footnote> components.
+
+<itemize>
+
+<item> <bf>Builtin components</bf> are such ones that are implemented as C++
+objects. Examples are <tt>qt</tt>, <tt>ncurses</tt>, <tt>scr</tt> and
+<tt>wfm</tt>. If you don't want the components you use to be all in one
+binary, you have to use adapter components.
+
+<item> <bf>Adapter components</bf> are components that only act as components but
+don't do the actual work themselves. They send the YCP values they get over
+some kind of communication channel to another Y2 component or some other thing
+at the other side of that channel.
+
+</itemize>
+
+<sect2>Stdio Component
+<p>
+
+The simplest adapter component is called <tt>stdio</tt>, because it
+communicates via stdin/stdout. It can be instantiated as a server as well as
+as a client. Let us for example assume it acts as a client and the server is
+<tt>qt</tt>. You start such a session by typing <tt>y2qt stdio
+qt<footnote>The stdio component is contained in the liby2 and available in
+each Y2 binary. The same holds for all other adapter components. Otherwise
+they would be quite useless.</footnote></tt>.
+
+<!--
+<sect2><figure>
+<eps file="sv13313327">
+</figure>
+ -->
+
+The client component is now no "real" component, but yourself typing YCP
+values at your terminal windows. You can try this out by typing
+
+<tscreen><verb>
+{
+    OpenDialog(`PushButton("Hi!")); UserInput(); CloseDialog();
+}
+</verb></tscreen>
+
+<sect2>Program Component
+<p>
+
+In order to provide modularity, Y2 allows a component to be an external
+program, rather then being a C++ object in the same binary. This feature is
+completely transparent to the implementation of the code the uses the
+component. If you want to create a component, for example by
+<tt>Y2ComponentBroker::createClient("module")</tt>, the component broker first
+looks for builtin components. If none with the name <tt>module</tt> can be
+created, it looks for external programs that reside in
+<tt>/usr/lib/YaST2/clients</tt> or <tt>/usr/lib/YaST2/servers</tt>. If it
+finds an executable program there, it is started using the <tt>program
+component</tt>, which is an adaptor component.
+
+The program component simulates a real component, by forking away a process
+that starts a liby2 program and communicates with that process over a pair of
+pipes. In this pipes ASCII representation of YCP is flowing. The forked away
+program thus must communicate over its stdio, which it simply does by using
+the <tt>stdio</tt> adaptor.
+
+<!--
+<figure>
+<eps file="sv13313328">
+</figure>
+ -->
+
+<sect2>Remote Components
+<p>
+
+<sect3>How they work
+<p>
+
+The remote components are adaptor components, that connect to other machines
+or start components as another user. They do this by using an existing
+network protocol rather than inventing their own one.
+
+Currently you can choose between <tt>telnet</tt>, <tt>rsh</tt>,
+<tt>rlogin</tt>, <tt>ssh</tt>, <tt>su</tt> and <tt>sudo</tt>. In order to use
+one of these protocols you must have installed the corresponding command line
+program and must be able to connect to the remote machine using this
+program. It's best to try out the remote access to the other machine first by
+using the command line program. Y2 does just the same. It forks away the
+commandline program and controls it with a pair of pipes. It listens to and
+tries to answer to its questions. The good news about this is that you don't
+have to run any Y2 specific daemon on the target machine and the Y2 doesn't
+open any new security holes. Using remote access with Y2 is as secure as your
+security configuration is anyway.
+
+Take for example <tt>telnet</tt>. Y2 calls telnet as external process
+specifying the remote machine on telnet's command line. Telnet connects to the
+other machine and eventually prints something like <tt>Hirn login:</tt>. In
+answer to this prompt Y2 sends the proper login name. In answer to
+<tt>Password:</tt> Y2 provides the password. As soon as the prompt appears, Y2
+issues the command line for starting the Y2 binary that finally realizes the
+component, again with stdio as adaptor - much like program component does.
+
+The implementation of the remote adaptors is in <tt>Y2RemoteComponent</tt> and
+<tt>Y2RshProtocol</tt>, <tt>Y2TelnetProtocol</tt>, ...
+
+<sect3>How they are used
+<p>
+
+The <it>name</it> of a remote component is much more complex then the one of a
+builtin or program component, since it must encode the remote machine and the
+login there. It has the following form (much like a URL):
+
+<tt>&lt;protocol&gt;://&lt;user&gt;@&lt;host&gt;/&lt;component&gt;</tt>, or
+
+<tt>&lt;protocol&gt;://&lt;host&gt;/&lt;component&gt;</tt>, or
+
+<tt>&lt;protocol&gt;://&lt;user&gt;/&lt;component&gt;</tt>, in case of su and
+sudo
+
+Protocol is one of <tt>telnet</tt>, <tt>rsh</tt>, <tt>rlogin</tt>,
+<tt>ssh</tt>, <tt>su</tt> and <tt>sudo</tt>. Su and sudo are used to log into
+the local machine but as a different user. Examples for a commandline that
+starts the client component <tt>logcontrol</tt> on the machine
+<tt>Herstein.suse.de</tt> as user <tt>kettner</tt>:
+
+<tscreen><verb>
+y2qt telnet://kettner@Herstein.suse.de/logcontrol qt
+</verb></tscreen>
+
+The component the be launched on the remote machine can again be a remote
+component, of course. For example if root login from a remote host is disabled
+on Herstein, but a login as kettner is possible and kettner is allowed to use
+sudo (see sudo man page for details), you can start logcontrol as root on
+Herstein using this line:
+
+<tscreen><verb>
+y2qt telnet://kettner@Herstein.suse.de/sudo://root/logcontrol qt
+</verb></tscreen>
+
+<sect3>The problem with the password
+<p>
+
+One problem appears with some of the protocols, as you may have guessed. It's
+because some of them need a password for logging in. In case the remote
+component you want to start is a <it>client</it> component, this is solved by
+simply asking the user (you) for the password. This can be done, because each
+client component (and the remote adaptor component <it>is</it> a client
+component in this case) has access to the user interface. The liby2 calls the
+module <tt>password</tt> for this task. You find it in
+<tt>/usr/lib/YaST2/clients</tt>.
+
+If you want to call a <it>server</it> component remote, currently you have bad
+luck. We are working on it. If you can login without password, you're lucky
+because this is simple. But if a password is needed, we have a problem,
+because the user cannot be asked for it. A server component has no access to
+the user interface. Maybe itself <it>is</it> the user interface. Rsh, ssh and
+sudo can be configured to work without password. This configuration lies
+beyond the scope of Y2.
+
+<sect3>Security
+<p>
+
+Since Y2 is layered on top of existing highlevel protocols, it is at least as
+secure as these protocols.
+
+<sect2>Serial Component
+<p>
+
+<sect3>What it does
+<p>
+
+The serial component allows you to connect two Y2 components with a serial
+line. The component name encodes the baud rate and the device to use. For
+communication there is always used 8,N,1<footnote>8 data bits, no parity bit,
+one stop bit.</footnote>. Currently the handshaking is fixed to RTS/CTS.
+
+The serial component is for example used by the Y2 installer to allow the
+installation of a server computer that has neither keyboard nor graphics
+adaptor. Instead of this you use a Linux workstation, connect one of its
+serial connectors with the first serial connector of the server to be
+installed, insert the boot CD into the server and boot it. On the Linux
+workstation you start
+
+<tscreen><verb>
+y2qt serial(115200):/dev/ttyS0 qt
+</verb></tscreen>
+
+Instead of a 'read' Y2 client component, an YCP ASCII communication over the
+serial interface <tt>/dev/ttyS0</tt> is established. On the server computer in
+that shell script that initiates the installation you'll find a matching line
+like this:
+
+<tscreen><verb>
+y2base installation serial(115200):/dev/ttyS0
+</verb></tscreen>
+
+Here the server component, which takes the role of the user interface, is
+implemented by the serial component and the client component
+<tt>installation</tt> is the local module that does the installation of the
+system.
+
+<sect3>Specialties
+<p>
+
+The serial component deals with two properties that are special to it and that
+are induced by the inherent properties of a serial connection:
+
+<itemize>
+
+<item>The Y2 session is <it>symmetric.</it> No component creates the other like
+the other adaptor components. Both corresponding halves must be created by the
+user.
+
+<item>The serial line may loose characters. There is no way to determine
+whether on the other side of the cable somebody <it>listens</it>. You just can
+hear if somebody <it>sends</it> data. Bytes you send when nobody is listening
+on the other side are lost for ever.
+
+</itemize>
+
+From these facts evolves the need for some kind of <it>protocol</it> that
+envelopes the YCP communication. It is done by the serial component like this:
+
+When you create a serial component, it begins to send <it>spaces</it> (ASCII
+32) over the serial interface and at the same time listens for spaces coming
+from the other side of the cable. If it has successfully read
+<it>n</it>&nbsp;subsequent spaces<footnote><it>n</it> is currently set to
+16.</footnote>, it assumes that the other side is a matching Y2 serial
+component that is listening. It then continues to send another <it>n</it>
+spaces in order to make sure the other side also gets its <it>n</it>
+spaces. It is assumed that - once the connection works - no character can be
+lost.
+
+After that it enters the normal YCP protocol mode. The client component sends
+the first YCP value, which is either a command for the server or a result
+value (which terminates the connection). The server answers and so on. The
+good thing about doing the synchronization with spaces is, that any valid YCP
+syntax keeps valid if you prefix it with spaces. If one side already enters
+YCP mode and the other continues to send a few spaces, no harm is done.
+
+One other specialty is that the serial component has a timeout parameter. If
+you set this parameter than the serial component aborts the connection tries
+after a given period. This is used by the installer. The timeout is currently
+only available for the server serial component.
+
+<sect2>Getty Component
+<p>
+
+The getty component is not yet implemented. It also makes use of a serial
+line, but does an <it>asymmetrical</it> session. It is very similar to the
+remote components. The other machine needs a running getty process. The getty
+component logs into another machine using a serial line connecting to that
+getty process, "types in" the login name and the password and issues a command
+that starts a component with the adaptor component stdio. The implementation
+should be nearly identical to that of the telnet component.
+
+Because for logging into a getty a password is always needed, this currently
+only works for starting client components.
+
+The pseudo URL has the form
+<tt>getty(&lt;baudrate&gt;)://&lt;login&gt;@&lt;device&gt;/&lt;component&gt;</tt>,
+for example:
+
+<tscreen><verb>
+getty(9600)://kettner@/dev/ttyS0//logcontrol
+</verb></tscreen>
+
+<sect2>Scripting Components
+<p>
+
+Scripting components are a very important type of components. A scripting
+component is one that is written in YCP. Currently this works for client
+components only. A scripting component is implemented by a YCP file that is
+lies in <tt>/usr/lib/YaST2/clients<footnote>and some other paths. We'll come
+the that later.</footnote></tt> and suffixed with <tt>.ycp</tt>.
+
+There is a special component creator that handles YCP scripts. It's
+implemented in Y2ScriptingComponent. When it is asked to create a component
+named, let's say, hirn (i.e. when its create() function is called with the
+string "hirn" as module name) it looks into <tt>/usr/lib/YaST2/clients</tt>
+for a file named <tt>hirn.ycp</tt> containing a valid YCP value. If this is
+the case, it creates the client component <tt>wfm</tt>, the WorkFlowManager
+and passes it the YCP value for execution.
+
+The WorkFlowManager executes the script and handles some additional YCP
+commands, the most important of which is <tt>UI()</tt>. It is used to send a
+command to the user interface. If you remember the Y2 base cell and the wfm
+always implements a client component, you'll see the <tt>UI()</tt> in fact
+send the command to the server part of this base cell.
+
+<sect2>Plugin Components
+<p>
+
+Plugin components are not yet implemented but urgently planned. They realize a
+server or client component by loading an ELF shared library plugin. The
+corresponding component broker looks into <tt>/usr/lib/YaST2/clients</tt> or
+<tt>/usr/lib/YaST2/servers</tt> for <tt>&lt;componentname&gt;.so</tt>. If it
+finds something, it loads the plugin using the libdl and has now access to a
+function that can create a builtin component - a real subclass of
+Y2Component. The details have yet to be worked out.
+
+The advantage of this approach is that it is much more modular than real
+builtin components that must be packaged at compile time but the communication
+is as efficient, since function calls can be used instead of serialization.
+
+<sect1>Levels
+<p>
+
+
+<sect>The User Interfaces
+<p>
+
+
+<sect>Debugging
+<p>
+
+
+<sect>Logging
+<p>
+
+
+<sect>The WorkFlowManager
+<p>
+
+<sect1>The purpose of the WorkFlowManager
+<p>
+
+The WorkFlowManager (WFM) is a client component that realizes other client
+components by executing YCP scripts in an extended YCPInterpreter, the
+WFMInterpreter. The wfm client component always takes three parameters: A YCP
+value to execute, a YCP string defining the name of the client component and a
+parameter list for the client component it realizes. Remember that a YCP block
+of statements is just a special case of a YCP value. A YCP script can be any
+YCP value, for example the integer 42.
+
+You can test the wfm realizing a client component with the name
+<tt>"fortytwo"</tt> by executing the script that contains 42 if you type
+
+<tscreen><verb>
+y2wfm wfm '(42)' '("fortytwo")' '([])' stdio
+</verb></tscreen>
+
+The result is 42. On stdout you get
+
+<tscreen><verb>
+(result(42))
+</verb></tscreen>
+
+You can execute a block of statements instead of the number 42, which is
+perhaps more fun, but in this example outputs the same result:
+
+<tscreen><verb>
+y2wfm wfm '({ integer a=40; return a+2; })' '("fortytwo")' '([])' stdio
+</verb></tscreen>
+
+The wfm extends the YCPInterpreter with a few but important functions. All
+begin with an uppercase letter in order to distinguish them from the builtin
+functions of the YPCInterpreter. The even most important WFM functions are
+these:
+
+<descrip>
+
+<tag>Args()</tag>Returns the argument list. If you give a single integer
+<it>n</it> as argument to <tt>Args()</tt> you get just the <it>n-1</it>'th
+argument. You can test this easily by typing
+
+<tscreen><verb>
+y2wfm wfm '(Args(2))' '("fortytwo")' '([17,true,"hirn"])' stdio
+</verb></tscreen>
+
+It is much easier, if you put your YCP script into a file named like the
+component, suffix it with <tt>.ycp</tt>, call the thing like this:
+
+<tscreen><verb>
+y2wfm fortytwo.ycp '(17)' '(true)' '("hirn")' stdio
+</verb></tscreen>
+
+<tag>UI()</tag>Send a YCP value to the UI for evaluation. As every other
+client component also the WFM keeps a pointer to a server component. This is
+usually called the UI, as we learned in the section about the Y2 base
+cell. <tt>UI()</tt> now sends a value to that. The value is then evaluated in
+the context of the UI. You need to understand, that the UI has its own
+fullfeatured YCP interpreter with its own variable and macro definitions. It
+may even run on another machine. We will see how the UI works in the next
+chapter. If you use stdio as user interface, you can see the commands coming
+on the terminal and you also have to enter the return values in lack of a real
+UI. Put the following lines into <tt>add.ycp</tt>
+
+<tscreen><verb>
+{
+    integer u = UI(`some_function());
+    integer v = UI(`some_other_function());
+    return u+v;
+}
+</verb></tscreen>
+
+and execute it by typing <tt>y2wfm add.ycp stdio</tt>. You will see how the
+user interface is asked for the evaluation of <tt>some_function()</tt> and
+<tt>some_other_function()</tt>. If you reply by typing two integers you will
+get them added.
+
+<tag>CallModule()</tag>Calls a submodule. The parameters are a string with the
+modulename and a list with the modules' arguments. You even can call another
+wfm as submodule. Lets see if you can cope with the following example. It's
+really tricky. You can see how the inner wfm also gets an argument list. The
+second <tt>Args(1)</tt> call is evaluated by the sub wfm, not by the main one,
+because it is quoted (see chapter quoting). Can you guess what's the result?
+
+<tscreen><verb>
+y2wfm wfm '(Args(1) + CallModule("wfm", [Args(1), "sub", [3, 2]]))' '("top")' '([5,6])' stdio
+</verb></tscreen>
+
+If you try it out, you must enter <tt>nil</tt> a few times on stdin, because
+wfm sends a couple of commands to the UI, and because we use 'stdio' as UI, we
+have to play the role of the UI ourselves.
+
+</descrip>
+
+The WFM has quite a bunch of other functions, most of them doing input/output
+like reading or writing files. Remember that due to safety reasons no IO
+functions are available in the YCPInterpreter itself. A script run in the WFM
+<it>can</it> do IO (and needs to). All WFM functions are documented in
+<tt>/usr/doc/packages/yast2</tt>.
+
+
+<sect1>The implementation of the WFM
+<p>
+
+The implementation of the WFM is really simple. It consists of a subclass of
+<tt>YCPInterpreter</tt> named <tt>WFMInterpreter</tt>, which overrides the
+function <tt>evaluateInstantiatedTerm()</tt> and handles the different WFM
+functions, and a class <tt>Y2WFMComponent</tt>, which implements the
+<tt>doActualWork()</tt> method. It always gets three parameters, the first of
+which is the script to evaluate in the WFMInterpreter. The third is the
+parameterlist that is stored for later use by the <tt>Args()</tt> function.
+
+
+<sect>The User Interface
+<p>
+
+<sect1>The UI Language
+<p>
+
+Most of the system configuration and administration modules need some user
+interaction. For Y2 it was decided that it should come at least with a text
+based one (called ncurses) and a graphical one (called qt). Of course it is
+does not make any sense if you have to write each module twice - once for the
+text based version and once for the graphical one. So it was decided to make
+the modules completely independent of the user interface. It works like this:
+
+A superset of YCP forms the Y2 UI language. It adds a couple of functions to
+the YCP interpreter. The central concept is that of the Widget. A widget can
+be viewed upon as a hierarchical data structure. It's like a tree, where the
+leaves are visible widgets such as buttons and labels, and the inner nodes are
+layout boxes such as <tt>HBox</tt> or <tt>VBox</tt> (horizontal or vertical
+layout). The YCP datastructure term is used to represent these widget
+trees. For example in the graphical user interface the widget tree
+
+<tscreen><verb>
+`VBox(
+    `SelectionBox("Available Toppings",
+         [ "Ham", "Mushrooms", "Tuna",
+	   "Onions", "Peppers", "Brokoli" ]),
+    `HBox(
+        `PushButton(`id(`ok), "&amp;OK"),
+	`PushButton(`id(`cancel), "&amp;Cancel")))
+</verb></tscreen>
+
+is displayed as
+
+<!--
+<figure>
+<eps file="sv13313329">
+</figure>
+ -->
+
+The text based user interface displays the same widget like this:
+
+<!--
+<figure>
+<eps file="sv13313330">
+</figure>
+ -->
+
+The list of available widgets and all of their available options is well
+documented in <tt>/usr/doc/packages/yast2</tt>.
+
+The three most important UI commands are <tt>OpenDialog()</tt>,
+<tt>UserInput()</tt>, and <tt>CloseDialog()</tt>. OpenDialog() opens a new
+dialog. As parameter you specify a widget. The open dialogs are always
+modal. Only the topmost dialog can do user interaction. All UI commands refer
+always inherently to the topmost dialog. If you call <tt>CloseDialog()</tt>,
+the topmost dialog is closed.
+
+<tt>UserInput()</tt> goes into an event loop that waits for user
+interaction. As soon as the user presses some button or triggers some widget,
+<tt>UserInput()</tt> returns with the id of that widget. Some widgets don't
+make <tt>UserInput()</tt> returning when the user interacts with them. Some
+widgets, e.g. CheckBoxes, can be given an option that determines, whether
+<tt>UserInput()</tt> should return when the user changes their state.
+
+<tt>PollInput()</tt> does nearly the same as <tt>UserInput()</tt>, but doesn't
+wait for actual input to appear. It just has a quick look and returns
+immediately in any case. <tt>PollInput()</tt> can for example be used to query
+a cancel button while performing some longer computation. Details of these
+four and the other UI commands are documented in
+<tt>/usr/doc/packages/yast2</tt>. Here is an example for an UI program that
+opens a dialog consisting of one single button and closes that dialog again if
+you press the button:
+
+<tscreen><verb>
+{
+    OpenDialog(`PushButton("Hello World!"));
+    UserInput();
+    CloseDialog();
+}
+</verb></tscreen>
+
+You can test this by putting the stuff into a file <tt>test.ycp</tt> and write
+<tt>y2qt stdio qt &lt; test.ycp</tt> or <tt>y2ncurses stdio ncurses &lt;
+test.ycp</tt>.
+
+<sect1>The Server Components qt and ncurses
+<p>
+
+The UI components qt and ncurses are server components. Once created they wait
+for commands to execute and return results to them. The control flow is in the
+client component. This approach is quite opposite to event based UI
+programming, where the UI toolkit contains the event loop and the application
+consists of event handlers that are triggered by the event loop. You have to
+keep this distinction in mind.
+
+The Y2 UI concept has advantages and disadvantages. One disadvantage is that
+you always have to provide your own event loop and make something like a case
+statement that handles the possible return values. Another disadvantage is
+that non-modal dialogs do not fit nicely into that concept, which is one
+reason why they are not possible with Y2. But the approach has a couple of
+important advantages:
+
+<itemize>
+
+<item>It is easy to learn and simple to implement (remember the KISS
+principle!).
+
+<item>It is easy to test and debug. UI commands can be typed directly on
+stdin, if you start the UI with <tt>y2qt stdio qt</tt>.
+
+<item>Small dialogs are very simple to implement. Remember the upper
+three-lined example. Especially for user friendly system configuration small
+and simple dialogs should be preferred anyway.
+
+<item>It allows a very nice concept of submodules, as we will see next.
+
+</itemize>
+
+
+<sect1>Submodules and UI
+<p>
+
+We use the word module for client components that do some system configuration
+or administration task or some other task for the user. A submodule is a
+module that is called from a module in order to perform some subtask. Each
+client component keeps a pointer to the UI (or some server component that
+functions as UI). If a module calls a submodule, it calls its
+<tt>doActualWork()</tt> method giving it the pointer to the UI. The submodule
+now speaks directly with the UI, until <tt>doActualWork()</tt> exits. Then the
+main module takes the return value of this function and continues the dialog
+with the UI. Modules can be nested to arbitrary depth in this way (Well, your
+system resources set a limit).
+
+Before a submodule is given access to the UI, a new definition scope is
+opened in the UI. After the submodule has finished, the scope is
+closed. This drops macro definitions that have been issued by the
+submodule. Otherwise it would not be possible to call a submodule more than
+once. The UI interpreter would be clobbered with macro definitions. All macro
+definitions for the UI that should be globally visible have to be sent to the
+UI by the main module.
+
+
+<sect1>Implementation of the UI components
+<p>
+
+Currently there are implemented two components that interpret the Y2 UI
+language and do user interaction. One is called qt, since it uses the Qt Cross
+Development Kit<footnote>This is a very nice library from Troll Tech,
+Norway. We use version 2.00 or newer.</footnote>. The other is called
+ncurses, since it uses the ncurses library<footnote>By Eric. S. Raymond and
+Zeyd M. Ben-Halim, updates since release 1.9.9e by Thomas Dickey. It is a
+library that allows terminal independent programming of text based user
+interfaces, including color and some drawing symbols. We currently use version
+5.0.</footnote>.
+
+In order to share as much code as possible between those two (and perhaps
+futures ones), I created a library libyui. It contains a subclass of
+<tt>YCPInterpreter</tt>, the <tt>YUIInterpreter</tt>. It does all the analysis
+of the UI language and creates a tree of widgets in an UI independent way. For
+the widgets there is a class hierarchy based on the class YWidget. In
+<tt>YSplit</tt>, <tt>YWeight</tt>, <tt>YAlignment</tt>, <tt>YEmpty</tt> and
+<tt>YSquash</tt> the layout algorithm is implemented. All you have to
+implement for a certain incarnation is a subclass for each <tt>YWidget</tt>
+that defines its size in dependence of its contents and that paints the widget
+and a subclass of YUIInterpreter that handles the user input.
+
+
+<sect1>Multithreading
+<p>
+
+As mentioned above that execution flow is Y2 always controlled by a client
+component. In other words, if a client component is just working and does not
+issue UI commands, the UI would get no CPU cycle. But some UIs need CPU time
+to repaint the windows and react to user input (for example to move the
+keyboard focus in accordance to the TAB key). These tasks are to a large
+degree independent of Y2 specific stuff.
+
+The problem is solved by creating an own thread within the UI. The UI is thus
+separated in two parts. The first part is running in the main Y2 context, in
+the main thread. It contains the YCPInterpreter that evaluates commands that
+are sent to the UI server component from its client component. This works out,
+because the execution work flow is at the server component anyway in that
+case. If the interpreter issues an <tt>evaluateInstatiatedTerm()</tt> call, it
+is given to the second part of the UI and handled by the other thread, the UI
+thread. The main thread is now *waiting* for the answer. It must wait,
+because it cannot resume without the answer. As soon as the UI thread returns
+the answer, the main thread can return from
+<tt>evaluatedInstantiatedTerm()</tt> and resume its work.
+
+But now the UI thread would be idle. It now does its work that it's paid
+for. It enters a method of YUIInterpreter which is called <tt>idleLoop</tt>().
+The method can be subclassed by a UI incarnation to do the things we mentioned
+(repainting, keyboard focus, etc.). With one ear, however, it always
+listens, if the main thread has work, if it has some term<footnote>A term in
+this context is always an UI function call like <tt>OpenDialog</tt>() or
+<tt>UserInput</tt>().</footnote> to evaluate.
+
+The synchronization of the two threads is done via two pipes<footnote>Pipes
+are nice things and used at many places in Y2. If you are not yet familiar
+with pipes you should try to get. Ask some U**X guru or read some nice book or
+man page.</footnote>, one in each direction. The pipes are just used to signal
+the other thread. Whenever the main thread has a command for the UI thread, it
+writes exactly one byte into the pipe to the UI thread. The UI thread, which
+just idles around in the idle loop or repaints some windows, or move some
+boring keyboard focus around, will eventually see, that the pipe is
+readable. If it has been idle, it will awake from the <tt>select()</tt> call
+it has done on the filedescriptor of the pipe. It now has to evaluate some UI
+function described by a YCP term.
+
+This thing it gets from a variable that is shared between the two
+threads. This is in fact the only shared variable. It is called
+<it>box_in_the_middle</it>. The main thread has stuffed the YCP term
+there. The UI thread knows, that the main thread is waiting. Thus it doesn't
+hesitate but snatches the YCP term, evaluates it, executes the according UI
+call and puts the return value into the box_in_the_middle, as fast as it
+can. Then it signals the main thread by writing exactly one byte into the pipe
+to the main thread. The main thread is pleased to have the answer that soon
+and continues its obscure ongoings. The UI thread is please to have done the
+work and glides back into its <tt>idleLoop()</tt>. All this stuff except the
+actual content of the <tt>idleLoop()</tt> is implemented in the libyui, not in
+the qt or ncurses UI.
+
+One nice thing is, that you can turn off the whole thread stuff by giving qt
+or ncurses the option <tt>--nothreads</tt>, e.g. by writing <tt>y2qt
+logcontrol qt --nothreads</tt>. Then no UI thread is created, the
+<tt>idleLoop()</tt> is never entered and the main thread directly takes over
+the UI business. The pipes and the box_in_the_middle remain unused. It is much
+simpler to debug core dumps without threads, believe me. The effect of the
+<tt>--nothreads</tt> option for the user is as you would expect: No repainting
+and no keyboard focus handling is done while the module is busy working.
+
+
+<sect1>Layout algorithm
+<p>
+
+There is an own HTML document that describes the concept of the Y2 UI layout
+mechanism. You find it in <tt>/usr/doc/packages/yast2/YCP-UI-layout.html</tt>.
+
+<sect1>Examples
+<p>
+
+The libyui as well as the Y2 UI language are documented in
+<tt>/usr/doc/packages/yast2</tt>. In the subdirectory ui-examples you also
+find many simple examples that can be run be typing <tt>y2qt EXAMPLE.ycp
+qt</tt> or <tt>y2ncurses EXAMPLE.ycp ncurses</tt> resp<footnote>For your
+convenience the examples are written to be run by the WFM. All UI commands are
+enclosed in UI() calls.</footnote>.
+
+
+<sect>The Translator
+<p>
+
+<sect1>How the translator works
+<p>
+
+The translator is a server component whose task is localization. It does not
+contain a YCP interpreter. It merely analysis each YCP value it gets and
+replaces any value of the type YCP locale with a localized string. YCP locales
+have the ASCII syntax _("somestring"). Currently only strings can be
+localized.
+
+In order to know which string should be inserted instead of the English one
+that is contained in _("...") the translator has two global
+variables: The current language and the current module name. For each language
+and for each modulename it has a message catalogue located in
+
+<tscreen><verb>
+/usr/lib/YaST2/locale/&lt;LANG&gt;/LC_MESSAGES/&lt;modulename&gt;.mo.
+</verb></tscreen>
+
+The message catalogues are created by gettext. It is important to have
+separated message catalogues for separate modules. Otherwise it would be
+impossible to update or replace single modules without touching the other
+ones.
+
+In order to understand how the translator knows which language and which
+module name is currently the right one I will explain, how the translator is
+integrated into the Y2 base cell. In the chapter about the Y2 base cell I told
+you, that each Y2 base cell consists of exactly two components: one server and
+one client component. This is only true as long as no translation is
+performed. If you specify the option -T or --translate as a generic server
+option (right after the name of the server) a third component, the server
+component 'translator', is being created.
+
+&lsqb; Hier muss ich mal in die Quellen schauen, wie das mit dem translated
+server nochmal genau ablaeuft &rsqb;.
+
+<sect1>When Exactly Localization Occurs
+<p>
+
+The most important constraint for the localization of Y2 modules is the fact,
+that the module and the user interfaces run on different machines. On the
+machine where the UI is running might be installed another version of Y2 or
+may even be installed only the user interface and not a single module. Or it
+might be another version of the same module with other translations. In other
+words: The localized texts <it>must</it> be localized on that machine where
+the module, i.e. the client component is running.
+
+A general implication of this is that a text that is sent to the UI must
+either be localized or <it>all</it> possible translations must be sent at
+once<footnote>Not mentioning a theoretical third possibility where the UI asks
+the translator each time it wants to display a text for its translation.  As
+both may be running on different sides of a slow network connection we ruled
+this out.</footnote>. The translator uses the first variant since the second
+one would create a large overhead<footnote>On SuSE Linux 6.4, the YaST2
+installer and configurator comes with at least partialtranslations in 20
+languages.</footnote>. When writing Y2 modules you have to keep this in
+mind. Anything that is sent to the UI is getting once and forever localized by
+the translator. Consider an example where a YCP module defines in the UI a
+macro for displaying a typical "<it>Are you sure?</it>" question.
+
+<tscreen><verb>
+{
+    UI(''{
+        define AreYouSure(string text) ''{
+	    OpenDialog(`VBox(`Label(text),
+	        `HBox(`PushButton(`id(`ok), _("&amp;Yes")),
+		      `PushButton(_("&amp;No")))));
+            boolean ok = UserInput() == `ok;
+	    CloseDialog();
+	    return ok;
+	}
+    );
+
+    // later...
+
+    if (UI(`AreYouSure("Erase Disk?"))) { /* ... */ }
+}
+</verb></tscreen>
+
+The locales _("&amp;OK") and _("&amp;Cancel") are localized at the time the
+macro is <it>defined</it>, because the whole block containing the definition
+is going through the translator before it arrives at the UI. And this must be
+that way because the UI cannot localize strings as we have shown above. If the
+translator is set to German at the time of the macro definition, _("&amp;Yes")
+will be replaced with probably "&amp;Ja" and the code fragment arriving at the
+UI is this:
+
+<tscreen><verb>
+{
+    define AreYouSure(string text) ''{
+       OpenDialog(`VBox(`Label(text),
+				`HBox(`PushButton(`id(`ok), "&amp;Ja"),
+				      `PushButton("&amp;Nein"))));
+	       boolean ok = UserInput() == `ok;
+	       CloseDialog();
+	       return ok;
+}
+</verb></tscreen>
+
+If the language setting is changed lets say to czech and the macro called
+after that, the german texts will remain. Please understand that this is not a
+bug in the implementation of the translator or UI nor a principle design flaw
+in Y2 but a consequence of the separation of the UI and the module and the
+feature of the UI that it is intelligent and allows you to persistently store
+macros definitions. Compare it with X11. A client application will also send
+localized strings to the X server. But the X server cannot store macros for
+you, so the application has to send the strings each time again anyway.
+
+There are a couple of ways how you can avoid the problem:
+
+<itemize>
+
+<item>Don't use UI macros that contain locales, in an application where the
+user can change the language setting at runtime.
+
+<item>Redefine all macros in the UI whenever the user changes the language.
+
+<item>If you write YCP module you can define the macros in the WFM instead of
+the UI. Then the texts the macro definition contains are localized whenever
+the macro is <it>called</it>. Of course the macro cannot be called in the UI
+context then. The upper example would look like this:
+
+</itemize>
+
+<tscreen><verb>
+{
+    define AreYouSure(string text) ''{
+        UI(`OpenDialog(`VBox(`Label(text),
+            `HBox(`PushButton(`id(`ok), _("&amp;Yes")),
+                  `PushButton(_("&amp;No"))))));
+        boolean ok = UI(`UserInput()) == `ok;
+        UI(`CloseDialog());
+        return ok;
+    };
+
+    // later...
+
+    if (AreYouSure("Erase Disk?")) { /* ... */ }
+}
+</verb></tscreen>
+
+<sect1>Difference of the Datatypes locale and string
+<p>
+
+Things like _("some string constant") do have the special YCP
+datatype locale. Locales are not strings! Locale become strings when going
+through the translator. But up to this time they simply aren't. And for this
+reason you must be careful if you write something like
+
+<tscreen><verb>
+string text = _("The disk has ") + tostring(size) + _("Megabytes");
+</verb></tscreen>
+
+You <it>can</it> do this if the code is executed in the UI context because at
+that time the locales are already strings. But in the WFM context it is not
+possible. This again is not a bug nor design flaw but unavoidable consequence
+of the semantics of translation. The WFM cannot construct a string if some
+parts of the string are still language dependent. There is no thing as a
+partially localized string. Consider this example, which is written for being
+run in the WFM:
+
+<tscreen><verb>
+{
+    integer size = getSizeOfDisk(/* ... */);
+    // WFM produces runtime error with this
+    string text = _("The disk has ") +
+                  tostring(size) + _(" Megabytes");
+
+    UI(''{
+	// works nicely, locales don't make it to the UI, but:
+        // variable size is not known here!
+	string text = _("The disk has ") +
+	              tostring(size) + _(" Megabytes");
+    });
+
+    // Trick!
+    string text = UI(_("The disk has ")) +
+                  tostring(size) + UI(_(" Megabytes"));
+}
+</verb></tscreen>
+
+The upper trick forces the locales to go through the translator. The localized
+string arrives at the UI, is there evaluated - to itself - and returned to the
+WFM. Now it is a string and can be used as such. A disadvantage of the
+solution is that each string localized that way has to make the way to the UI
+and back. Another way it to introduce a macro in the UI that does the string
+operation (and probably some more things):
+
+<tscreen><verb>
+{
+    UI(''{
+    	define doit(integer size) ''{
+	    string text = _("The disk has ") +
+	                  tostring(size) + _(" Megabytes");
+		/* maybe some further operations anyway needed ... */
+	};
+    });
+
+    UI(`doit(size));
+}
+</verb></tscreen>
+
+A future extension of the translator and the wfm could be a wfm builtin
+Translate() or T(), that gets a locale and sends it through the translator but
+<it>not</it> through the UI(). The Y2TranslatedServer would be required to
+recognize such requests and send an immediate answer without bothering the
+actual user interface.
+
+
+Noch geplante Erklärungen:
+
+Kapitel beim Interpreter: definition scopes!
+
+Base cell noch genauer erklaeren mit dem doActualWork.
+
+As dem generic frontend die beiden Zeilen zitieren.
+
+Das Protokoll genauer erklaeren, mit dem result() Term. Erlaetern in wieweit
+das bei stdio usw. realisiert ist. Eventuell zwei Begriffe einfuehren:
+function call protocol and ASCII stream protocol FCP und ASP.
+
+
+</article>

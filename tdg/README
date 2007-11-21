@@ -1,0 +1,6 @@
+
+- http://java.sun.com/products/jimi/ needed for PDF generation
+- if you get out of memory message when creating the PDF, create 
+  $HOME/.foprc and add 
+    FOP_OPTS="-Xmx128m"
+  to the file.

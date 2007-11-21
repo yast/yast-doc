@@ -1,0 +1,118 @@
+<HTML>
+<HEAD>
+<TITLE>YaST2: Design: User interface</TITLE>
+</HEAD>
+<BODY>
+<H1>YaST2: Design: User interface</H1>
+
+<H3>Purpose</H3>
+The user interface is used to exchange information with the user. It is used
+to<br>
+<br>
+- inform the user about 'whats going on'<br>
+- presenting data to the user<br>
+- getting data from the user<br>
+- offering context sensitive help<br>
+- asking 'what to do next'<br>
+<p>
+The user interface should be completely independant (and unaware of) the workflow
+environment. It is controlled by a specific (network capable) command protocol which
+makes no assumptions about the kind of user-side interface (e.g. text, graphics) available.
+However, it might give some 'hints' on how to present data (e.g. tabular, horizontal menues, ...)
+but neither the application (i.e. workflow module) nor the user interface itselft might rely on this.
+<p>
+The <b>separation of form</b> (user interface) <b>and function</b> (workflow) is essential.
+<p>
+Remark: With this concept, 
+a purely optical re-design can be presented as a ´new and enhanced´
+version ... for our marketroids.
+<p>
+<H3>Design parameters</h3>
+<ul>
+  text and graphic<br>
+  <ul>
+    generic syntax to describe 'masks'<br>
+    'hints' for presentation are possible<br>
+    usable on a teletype (e.g. line-oriented braille converter for visually impaired people)<br>
+  </ul>
+  Multilingual<br>
+  <ul>Unicode ?<br>gnu gettext ?</ul>
+
+  networking<br>
+  <ul>
+    interface protocol<br>
+    transmission of <em>what</em> to present and <em>how</em> to present<br>
+  </ul>
+
+  expandable<br>
+  <ul>
+    transmission of graphics and sounds<br>
+    version information in protocol<br>
+  </ul>
+
+  texts, strings, numerical values<br>
+  <ul>input, output</ul>
+
+  choices<br>
+  <ul>checkbox, radiobutton, menue</ul>
+
+  presentation<br>
+  <ul>tables, multiple windows, alert box, progressbar, ...</ul>
+
+  help<br>
+  <ul>at any time (hotkey ! F1 ?), context sensitive</ul>
+
+  demo-mode for pictures in the installation manual
+  <ul>demo-frontend to reproduce every possible mask (filled with reasonable data)</ul>
+
+  named masks<br>
+  <ul>every mask (i.e. view presented to the user) must be non-ambiguously named
+      and reproducable. The names are important for translators as checkmarks
+      in the TeX source of the installation manual</ul>
+
+  stand-alone vs. linked masks<br>
+  <ul>most masks may be used either stand-alone (i.e. user selected just *this* workflow)
+      or 'linked'. Here, linked means being part of a larger workflow with the possibility
+      to go <i>back</i> and <i>forward</i>.</ul>
+
+  checklist display<br>
+  <ul>In a larger workflow, it is desirable to give the user information about
+      the current path through the workflow. For example, a list of 'steps' with
+      green checkmarks for 'step done', yellow mark for 'in progress', etc.</ul>
+
+  background graphics<br>
+  <ul>Help may be provided by background graphics. For example, a zoom-up of
+      the registration page from the manual was suggested by I-Support</ul>
+
+  KDE/Gnome<br>
+  <ul>A special KDE or Gnome version of the user interface is desirable.</ul>
+</ul>
+<hr>
+<H3>interface protocol</H3>
+The protocol must
+<ul>
+<li>work over the network<br>
+  break data stream in blocks<br>
+  master/slave concept<br>
+  timeouts, retransmissions<br>
+</li>
+<li>be safe<br>
+  checksummed<br>
+  retransmit on bad checksum<br>
+</li>
+<li>be secure<br>
+  encoded/crypted (by ssh ?)<br>
+</li>
+<li>be small<br>
+  compressed data ?<br>
+</li>
+<li>two way<br>
+  revert master/slave<br>
+  interface may send request to module<br>
+</li>
+</ul>
+<p><hr>
+<SMALL>Last changed 13-7-1999 14:40, <A HREF="mailto:kskaem@suse.de">Klaus Kämpf</A></SMALL><BR>
+<SMALL>Copyright &copy; by <A HREF="http://w3.suse.de">SuSE GmbH</A></SMALL>
+</BODY>
+</HTML>

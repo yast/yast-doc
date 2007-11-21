@@ -1,0 +1,44 @@
+<html>
+  <body bgcolor=white>
+    
+    <h1>What is a YaST II module?</h1>
+    
+    <p>There are different types of YaST II modules:
+      
+    <ul>
+      <li>Program modules</li>
+      <li>Process modules</li>
+      <li>Plugin modules</li>
+      <li>Object file modules</li>
+      <li>Script modules</li>
+    </ul>
+    
+    <p>Currently only the first type (program module) and the last type (Script modules) 
+      are being used. The different
+      module types differ in how they are called and how the communicate with other
+      components.</p>
+
+    <h2>Program modules</h2>
+    <p>A YaST II program module is an executable UNIX binary with the following properties:</p>
+    <ul>
+      <li>It can be given an arbitrary number of arguments. Each argument has YCP ASCII syntax.</li>
+      <li>When called it issues an ASCII representation of a YCP value to stdout. Now there
+	are two possibilities:
+	<ul>
+	  <li>If that value has the form <tt><b>result(</b></tt><i>value</i><tt><b>)</tt></b>, i.e.
+	    a term with the symbol <tt><b>result</b></tt> and exactly one argument, the module
+	    terminates immediately afterwards and thus closes its stdout and stdin. <i>value</i> is
+	    considered the be the result, return value or exit code of the module (whichever
+	    name for it you like best).</li>
+
+	  <li>If that value has any other form, the module reads on stdin and wait for 
+	    an YCP value in ASCII representation. The module assumes that the value it has issued
+	    is now interpreted by the user interface and waits for an answer. When it has read
+	    one YCP value on stdin it considers this to be the answer of the user interface.
+	    Now the whole loop starts over again and the module issues the next value on stdout.</li>
+	</ul>
+      <li>The program does not terminate without first having issued
+	<tt><b>result(</b></tt><i>value</i><tt><b>)</tt></b>
+    </ul>
+  </body>
+</html>

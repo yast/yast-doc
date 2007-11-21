@@ -1,0 +1,57 @@
+<HTML>
+<HEAD>
+<TITLE>YaST2: F-Spec: Autoprobe: Interface</TITLE>
+</HEAD>
+<BODY bgcolor=#ffffff>
+<H1>YaST2: F-Spec: Autoprobe: Interface</H1>
+<HR>
+<H2>Scope</H2>
+
+This document describes a proposal for a high-level interface
+to the hardware autoprobing.
+
+<P>
+<H2>Requirements</H2>
+
+The autoprobe library should scan the hardware <b>once</b> at boot and
+be prepared to fail. Alternative approaches are to be defined.
+<P>
+The result of the hardware scan is a 'runtime database' which can be
+queried and changed, i.e. by <tt>isapnp -c</tt>.<br>
+There should be a way to compare two databases to identify changes due
+to added,changed,removed components (i.e. isdn-card added, graphics card
+changed, Zip-drive removed).
+<P>
+The autoprope should concentrate on probing hardware to firmware or
+software. For example, it should identify which devices are connected
+to a scsi bus but not try to read partition tables from disk drives (this
+is considered firmware).
+
+<P>
+<H2>Abstraction levels</H2>
+
+<UL>
+  <LI>Upper level</LI><BR>
+  Highest abstraction, should answer questions like<br>
+  - is a mouse attached ?<br>
+  - is a network device attached (modem, isdn, ethernet ...) ?<br>
+  - do we have local disks ?<br>
+  - do we have local cd-rom drives ?<br>
+  <P>
+  <LI>Middle level</LI><BR>
+  Should answer questions like<BR>
+  - what kind of mouse ? which device ? (for configuring <tt>gpm</tt><br>
+  - is a scsi controller attached ?<br>
+  - is a modem attached and where ?<br>
+  <P>
+  <LI>Lower level</LI><BR>
+  Most hardware-dependant level, typical questions are<br>
+  - Vendor and type of isdn-card<br>
+  - Vendor, type, and capacity of second scsi drive<br>
+  - is irq 11 in use ?<br>
+</UL>
+<P><HR>
+<SMALL>Last change: 20-8-1999 9:40, <A HREF="mailto:kskaem@suse.de">Klaus Kämpf</A></SMALL><BR>
+<SMALL>Copyright &copy; by <A HREF="http://w3.suse.de">SuSE GmbH</A></SMALL>
+</BODY>
+</HTML>

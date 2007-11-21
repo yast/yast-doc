@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<programlisting>/**
+ * File:
+ *   sshd.scr
+ * Summary:
+ *   SCR Agent for reading/writing /etc/ssh/sshd_config
+ *   using the ini-agent
+ * Access:
+ *   read/write
+ * Authors:
+ *   John The Fish &lt;john@thesmallfish.net&gt;
+ * Example:
+ *   Dir(.sshd)
+ *   (["Port", "X11Forwarding", "Compression", "MaxAuthTries", "PermitRootLogin"])
+ *
+ *   Read(.sshd.Compression)
+ *   (["yes"])
+ *
+ *   Write(.sshd.Compression, "no")
+ *   (true)
+ *
+ * $Id: sshd.scr 11113 2005-10-20 14:15:16Z jtf $
+ *
+ * Fore more information about possible keys and values
+ * consult with the sshd_config man pages `man sshd_config`.
+ */
+
+.sshd
+
+`ag_ini(
+    `IniAgent( "/etc/ssh/sshd_config",
+        $[
+            "options"   : [ "global_values", "repeat_names", "flat" ],
+            "comments"  : [ "^[ \t]*#.*$", "^[ \t]*$" ],
+            "params"    : [
+                // Options with one value ('yes' / 'no')
+                $[ "match" : [ "^[ \t]*<command>([^ \t]+)</command>[ \t]+<command>([^ \t]+)</command>[ \t]+$", "<command>%s %s</command>" ]],
+                // Options with more possible values
+                $[ "match" : [ "^[ \t]*<command>([^ \t]+)</command>[ \t]+<command>(.+)</command>[ \t]*$", "<command>%s %s</command>" ]],
+            ],
+            "subindent" : " ",
+        ]
+    )
+)</programlisting>

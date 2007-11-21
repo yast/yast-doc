@@ -1,0 +1,10 @@
+/**
+ * File:        modules/AnyFile.ycp
+ * Package:     Fork and Knife Configuration
+ * Summary:     Interface manipulation (/etc/sysconfig/fork and /etc/sysconfig/knife)
+ * Authors:     John The Fish <johnthefish@yahoo.com>
+ *
+ * $Id: AnyFile.ycp 43423 2005-12-24 16:14:12Z fish $
+ *
+ * Imagine that this is a long description text.
+ */

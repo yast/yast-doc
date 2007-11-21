@@ -1,0 +1,264 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+ <META NAME="GENERATOR" CONTENT="SGML-Tools 1.0.9">
+ <TITLE>The YaST2 Component Architecture: The User Interface</TITLE>
+ <LINK HREF="Y2Bible-11.html" REL=next>
+ <LINK HREF="Y2Bible-9.html" REL=previous>
+ <LINK HREF="Y2Bible.html#toc10" REL=contents>
+</HEAD>
+<BODY>
+<A HREF="Y2Bible-11.html">Next</A>
+<A HREF="Y2Bible-9.html">Previous</A>
+<A HREF="Y2Bible.html#toc10">Contents</A>
+<HR>
+<H2><A NAME="s10">10. The User Interface</A></H2>
+
+<P>
+<P>
+<H2><A NAME="ss10.1">10.1 The UI Language</A>
+</H2>
+
+<P>
+<P>Most of the system configuration and administration modules need some user
+interaction. For Y2 it was decided that it should come at least with a text
+based one (called ncurses) and a graphical one (called qt). Of course it is
+does not make any sense if you have to write each module twice - once for the
+text based version and once for the graphical one. So it was decided to make
+the modules completely independent of the user interface. It works like this:
+<P>A superset of YCP forms the Y2 UI language. It adds a couple of functions to
+the YCP interpreter. The central concept is that of the Widget. A widget can
+be viewed upon as a hierarchical data structure. It's like a tree, where the
+leaves are visible widgets such as buttons and labels, and the inner nodes are
+layout boxes such as <CODE>HBox</CODE> or <CODE>VBox</CODE> (horizontal or vertical
+layout). The YCP datastructure term is used to represent these widget
+trees. For example in the graphical user interface the widget tree
+<P>
+<BLOCKQUOTE><CODE>
+<PRE>
+`VBox(
+    `SelectionBox("Available Toppings",
+         [ "Ham", "Mushrooms", "Tuna",
+           "Onions", "Peppers", "Brokoli" ]),
+    `HBox(
+        `PushButton(`id(`ok), "&amp;OK"),
+        `PushButton(`id(`cancel), "&amp;Cancel")))
+</PRE>
+</CODE></BLOCKQUOTE>
+<P>is displayed as 
+<P>
+<P>The text based user interface displays the same widget like this:
+<P>
+<P>The list of available widgets and all of their available options is well
+documented in <CODE>/usr/doc/packages/yast2</CODE>.
+<P>The three most important UI commands are <CODE>OpenDialog()</CODE>,
+<CODE>UserInput()</CODE>, and <CODE>CloseDialog()</CODE>. OpenDialog() opens a new
+dialog. As parameter you specify a widget. The open dialogs are always
+modal. Only the topmost dialog can do user interaction. All UI commands refer
+always inherently to the topmost dialog. If you call <CODE>CloseDialog()</CODE>,
+the topmost dialog is closed.
+<P><CODE>UserInput()</CODE> goes into an event loop that waits for user
+interaction. As soon as the user presses some button or triggers some widget,
+<CODE>UserInput()</CODE> returns with the id of that widget. Some widgets don't
+make <CODE>UserInput()</CODE> returning when the user interacts with them. Some
+widgets, e.g. CheckBoxes, can be given an option that determines, whether
+<CODE>UserInput()</CODE> should return when the user changes their state.
+<P><CODE>PollInput()</CODE> does nearly the same as <CODE>UserInput()</CODE>, but doesn't
+wait for actual input to appear. It just has a quick look and returns
+immediately in any case. <CODE>PollInput()</CODE> can for example be used to query
+a cancel button while performing some longer computation. Details of these
+four and the other UI commands are documented in
+<CODE>/usr/doc/packages/yast2</CODE>. Here is an example for an UI program that
+opens a dialog consisting of one single button and closes that dialog again if
+you press the button:
+<P>
+<BLOCKQUOTE><CODE>
+<PRE>
+{
+    OpenDialog(`PushButton("Hello World!"));
+    UserInput();
+    CloseDialog();
+}
+</PRE>
+</CODE></BLOCKQUOTE>
+<P>You can test this by putting the stuff into a file <CODE>test.ycp</CODE> and write
+<CODE>y2qt stdio qt &lt; test.ycp</CODE> or <CODE>y2ncurses stdio ncurses &lt;
+test.ycp</CODE>.
+<P>
+<H2><A NAME="ss10.2">10.2 The Server Components qt and ncurses</A>
+</H2>
+
+<P>
+<P>The UI components qt and ncurses are server components. Once created they wait
+for commands to execute and return results to them. The control flow is in the
+client component. This approach is quite opposite to event based UI
+programming, where the UI toolkit contains the event loop and the application
+consists of event handlers that are triggered by the event loop. You have to
+keep this distinction in mind.
+<P>The Y2 UI concept has advantages and disadvantages. One disadvantage is that
+you always have to provide your own event loop and make something like a case
+statement that handles the possible return values. Another disadvantage is
+that non-modal dialogs do not fit nicely into that concept, which is one
+reason why they are not possible with Y2. But the approach has a couple of
+important advantages:
+<P>
+<UL>
+<LI>It is easy to learn and simple to implement (remember the KISS
+principle!).
+</LI>
+<LI>It is easy to test and debug. UI commands can be typed directly on
+stdin, if you start the UI with <CODE>y2qt stdio qt</CODE>.
+</LI>
+<LI>Small dialogs are very simple to implement. Remember the upper
+three-lined example. Especially for user friendly system configuration small
+and simple dialogs should be preferred anyway.
+</LI>
+<LI>It allows a very nice concept of submodules, as we will see next.
+</LI>
+</UL>
+<P>
+<P>
+<H2><A NAME="ss10.3">10.3 Submodules and UI</A>
+</H2>
+
+<P>
+<P>We use the word module for client components that do some system configuration
+or administration task or some other task for the user. A submodule is a
+module that is called from a module in order to perform some subtask. Each
+client component keeps a pointer to the UI (or some server component that
+functions as UI). If a module calls a submodule, it calls its
+<CODE>doActualWork()</CODE> method giving it the pointer to the UI. The submodule
+now speaks directly with the UI, until <CODE>doActualWork()</CODE> exits. Then the
+main module takes the return value of this function and continues the dialog
+with the UI. Modules can be nested to arbitrary depth in this way (Well, your
+system resources set a limit).
+<P>Before a submodule is given access to the UI, a new definition scope is
+opened in the UI. After the submodule has finished, the scope is
+closed. This drops macro definitions that have been issued by the
+submodule. Otherwise it would not be possible to call a submodule more than
+once. The UI interpreter would be clobbered with macro definitions. All macro
+definitions for the UI that should be globally visible have to be sent to the
+UI by the main module.
+<P>
+<P>
+<H2><A NAME="ss10.4">10.4 Implementation of the UI components</A>
+</H2>
+
+<P>
+<P>Currently there are implemented two components that interpret the Y2 UI
+language and do user interaction. One is called qt, since it uses the Qt Cross
+Development Kit
+<BLOCKQUOTE>This is a very nice library from Troll Tech,
+Norway. We use version 2.00 or newer.</BLOCKQUOTE>
+. The other is called
+ncurses, since it uses the ncurses library
+<BLOCKQUOTE>By Eric. S. Raymond and
+Zeyd M. Ben-Halim, updates since release 1.9.9e by Thomas Dickey. It is a
+library that allows terminal independent programming of text based user
+interfaces, including color and some drawing symbols. We currently use version
+5.0.</BLOCKQUOTE>
+.
+<P>In order to share as much code as possible between those two (and perhaps
+futures ones), I created a library libyui. It contains a subclass of
+<CODE>YCPInterpreter</CODE>, the <CODE>YUIInterpreter</CODE>. It does all the analysis
+of the UI language and creates a tree of widgets in an UI independent way. For
+the widgets there is a class hierarchy based on the class YWidget. In
+<CODE>YSplit</CODE>, <CODE>YWeight</CODE>, <CODE>YAlignment</CODE>, <CODE>YEmpty</CODE> and
+<CODE>YSquash</CODE> the layout algorithm is implemented. All you have to
+implement for a certain incarnation is a subclass for each <CODE>YWidget</CODE>
+that defines its size in dependence of its contents and that paints the widget
+and a subclass of YUIInterpreter that handles the user input.
+<P>
+<P>
+<H2><A NAME="ss10.5">10.5 Multithreading</A>
+</H2>
+
+<P>
+<P>As mentioned above that execution flow is Y2 always controlled by a client
+component. In other words, if a client component is just working and does not
+issue UI commands, the UI would get no CPU cycle. But some UIs need CPU time
+to repaint the windows and react to user input (for example to move the
+keyboard focus in accordance to the TAB key). These tasks are to a large
+degree independent of Y2 specific stuff.
+<P>The problem is solved by creating an own thread within the UI. The UI is thus
+separated in two parts. The first part is running in the main Y2 context, in
+the main thread. It contains the YCPInterpreter that evaluates commands that
+are sent to the UI server component from its client component. This works out,
+because the execution work flow is at the server component anyway in that
+case. If the interpreter issues an <CODE>evaluateInstatiatedTerm()</CODE> call, it
+is given to the second part of the UI and handled by the other thread, the UI
+thread. The main thread is now *waiting* for the answer. It must wait,
+because it cannot resume without the answer. As soon as the UI thread returns
+the answer, the main thread can return from
+<CODE>evaluatedInstantiatedTerm()</CODE> and resume its work.
+<P>But now the UI thread would be idle. It now does its work that it's paid
+for. It enters a method of YUIInterpreter which is called <CODE>idleLoop</CODE>().
+The method can be subclassed by a UI incarnation to do the things we mentioned
+(repainting, keyboard focus, etc.). With one ear, however, it always
+listens, if the main thread has work, if it has some term
+<BLOCKQUOTE>A term in
+this context is always an UI function call like <CODE>OpenDialog</CODE>() or
+<CODE>UserInput</CODE>().</BLOCKQUOTE>
+ to evaluate.
+<P>The synchronization of the two threads is done via two pipes
+<BLOCKQUOTE>Pipes
+are nice things and used at many places in Y2. If you are not yet familiar
+with pipes you should try to get. Ask some U**X guru or read some nice book or
+man page.</BLOCKQUOTE>
+, one in each direction. The pipes are just used to signal
+the other thread. Whenever the main thread has a command for the UI thread, it
+writes exactly one byte into the pipe to the UI thread. The UI thread, which
+just idles around in the idle loop or repaints some windows, or move some
+boring keyboard focus around, will eventually see, that the pipe is
+readable. If it has been idle, it will awake from the <CODE>select()</CODE> call
+it has done on the filedescriptor of the pipe. It now has to evaluate some UI
+function described by a YCP term.
+<P>This thing it gets from a variable that is shared between the two
+threads. This is in fact the only shared variable. It is called
+<I>box_in_the_middle</I>. The main thread has stuffed the YCP term
+there. The UI thread knows, that the main thread is waiting. Thus it doesn't
+hesitate but snatches the YCP term, evaluates it, executes the according UI
+call and puts the return value into the box_in_the_middle, as fast as it
+can. Then it signals the main thread by writing exactly one byte into the pipe
+to the main thread. The main thread is pleased to have the answer that soon
+and continues its obscure ongoings. The UI thread is please to have done the
+work and glides back into its <CODE>idleLoop()</CODE>. All this stuff except the
+actual content of the <CODE>idleLoop()</CODE> is implemented in the libyui, not in
+the qt or ncurses UI.
+<P>One nice thing is, that you can turn off the whole thread stuff by giving qt
+or ncurses the option <CODE>--nothreads</CODE>, e.g. by writing <CODE>y2qt
+logcontrol qt --nothreads</CODE>. Then no UI thread is created, the
+<CODE>idleLoop()</CODE> is never entered and the main thread directly takes over
+the UI business. The pipes and the box_in_the_middle remain unused. It is much
+simpler to debug core dumps without threads, believe me. The effect of the
+<CODE>--nothreads</CODE> option for the user is as you would expect: No repainting
+and no keyboard focus handling is done while the module is busy working.
+<P>
+<P>
+<H2><A NAME="ss10.6">10.6 Layout algorithm</A>
+</H2>
+
+<P>
+<P>There is an own HTML document that describes the concept of the Y2 UI layout
+mechanism. You find it in <CODE>/usr/doc/packages/yast2/YCP-UI-layout.html</CODE>.
+<P>
+<H2><A NAME="ss10.7">10.7 Examples</A>
+</H2>
+
+<P>
+<P>The libyui as well as the Y2 UI language are documented in
+<CODE>/usr/doc/packages/yast2</CODE>. In the subdirectory ui-examples you also
+find many simple examples that can be run be typing <CODE>y2qt EXAMPLE.ycp
+qt</CODE> or <CODE>y2ncurses EXAMPLE.ycp ncurses</CODE> resp
+<BLOCKQUOTE>For your
+convenience the examples are written to be run by the WFM. All UI commands are
+enclosed in UI() calls.</BLOCKQUOTE>
+.
+<P>
+<P>
+<HR>
+<A HREF="Y2Bible-11.html">Next</A>
+<A HREF="Y2Bible-9.html">Previous</A>
+<A HREF="Y2Bible.html#toc10">Contents</A>
+</BODY>
+</HTML>

@@ -1,0 +1,48 @@
+<HTML>
+<HEAD>
+<TITLE>YaST2: </TITLE>
+</HEAD>
+<BODY bgcolor=#ffffff>
+<P><IMG SRC="../images/heading.png"></IMG></P>
+<H1>Introduction</H1>
+
+Although YaST2 was triggered as a reaction on the Caldera 2.2 and RedHat 6.0
+releases, it won´t just mirror their concepts but go far beyond.<br>
+Our ultimate goal is a new <B>installation and administration tool</B> for Linux in general.
+<P>
+This is an enormous task which isn't adequately solved even by the 'big'
+unix companies as Sun, HP, or IBM. In the linux market, only linuxconf tries
+to provide a common solution to administration.<BR>
+Given current resources, we won't be able to provide a comprehensive solution
+in short time. Even with more people, it just takes time to collect the
+necessary knowledge and provide a usable interface on this 'information
+database'.
+<P>
+The most important <B>requirements</B> for YaST2 are<P>
+<B>automated workflow</B><BR>
+<B>graphical interface</B><BR>
+<B>internationalisation</B><BR>
+<B>maintainable, extendable</B><BR>
+<P>
+To make the task manageable, it is broken into <B>small, independent parts</B>. If the
+implementation of one part shows to be inadequate, it shall be replaced without
+affecting the system as a whole. Having a set of exchangeable modules is
+the preferred solution.
+
+<H2>Scope</H2>
+We first <B>focus on system installation</B> in the YaST2 project. In designing and
+implementing this part, we try to identify <B>reusable steps</B> in the process. For example,
+configuring a network device, needed to boot from a server, is also an
+administrative tasks when installing a network card. The steps, dependencies, and
+the user interface should be the same in both usages.
+<P>
+The first version will be used to collect and represent knowledge for the
+further development. Going from an intel-pci based installation tool to a
+network-capable configuration management is huge task which has to be done
+in small, incremental steps.
+<P>
+<p><hr>
+<SMALL>Last change 23-8-1999 10:15, <A HREF="mailto:kskaem@suse.de">Klaus Kämpf</A></SMALL><BR>
+<SMALL>Copyright &copy; by <A HREF="http://w3.suse.de">SuSE GmbH</A></SMALL>
+</BODY>
+</HTML>

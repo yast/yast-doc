@@ -1,0 +1,41 @@
+You can use a shell script as a module. In order to do
+this, the shell script must conform to the following
+rules:
+
+ - The parameters are given in YCP Syntax. Use 
+   ycpparse to convert to strings. Examples:
+   $(ycpparse "$2") yields the second parameter
+   as string
+
+ - The shell script must output a _return_value_ to 
+   stdout when it is finished. This value must be YCP
+   syntax and enclosed in the term 'result(...)'. 
+   Example: echo "result(.error)"
+
+ - Write any command to the _user_interface_ to
+   stdout. Read the answer from stdin.
+
+ - NO OTHER OUTPUT to stdout may be done. This
+   is very important. If you want to be sure to
+   avoid it, write '>/dev/null' at the beginning
+   and echo "result(.error)" >&1 at the end to
+   explicitely write to stdout for the return
+   code
+
+ - NO output to stderr may be done. You may use
+   this for debugging, but turn it off afterwards.
+   To be sure not to get stderr from any programms
+   you call, write a '2>/dev/null'  at the beginning
+   of the script
+
+You can test your module by writing a small wrapper
+like this into a file shellexample.ycp
+
+----------------------------------------------------------------------
+// run this ycp script to test the shellexample modules
+{
+  return CallModule(`shellexample(true, "/this/is/a/string", 17.8, 34));
+}
+----------------------------------------------------------------------
+
+and then typing 'y2qt shellexample.ycp'

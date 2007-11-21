@@ -1,0 +1,100 @@
+#
+#     [Sep 18 1998, 13:47:10]
+#
+startsrc -s dhcpsd
+#
+#     [Jan 18 1999, 11:59:09]
+#
+mkdev -c tty  -t 'tty' -s 'rs232' -p 'sa0' -w 's1' -a login='delay' -a term='vt100'
+#
+#     [Jan 21 1999, 19:36:03]
+#
+lsdisp
+#
+#     [Jan 21 1999, 19:36:35]
+#
+chdev -P -l 'bbl0' -a monitor_type='IBM6091_19'
+#
+#     [Jan 21 1999, 19:37:01]
+#
+ tmp_dsp_id='bbl0' ; tmp_dsp_type='IBM6091_19' ; chdev -P -l $tmp_dsp_id -a $tmp_dsp_type='1280x1024@67Hz'
+#
+#     [Feb 03 1999, 22:02:02]
+#
+mkgroup -'A' id='99' postfix
+#
+#     [Feb 03 1999, 22:03:12]
+#
+x() {
+LIST=
+SET_A=
+for i in "$@"
+do
+        if [ "$i" = "admin=true" ]
+        then
+                SET_A="-a"
+                continue
+        fi
+        LIST="$LIST \"$i\""
+done
+eval mkuser $SET_A $LIST
+}
+x id='99' admin='false' pgrp='postfix' groups='postfix' home='/var/spool/postfix' shell='/usr/bin/false' gecos='PostFix' login='false' rlogin='false' postfix
+#
+#     [Feb 03 1999, 22:19:03]
+#
+mkgroup -'A' maildrop
+#
+#     [Jul 10 1999, 07:09:58]
+#
+x() {
+LIST=
+SET_A=
+for i in "$@"
+do
+        if [ "$i" = "admin=true" ]
+        then
+                SET_A="-a"
+                continue
+        fi
+        LIST="$LIST \"$i\""
+done
+eval mkuser $SET_A $LIST
+}
+x pgrp='staff' groups='daemon' gecos='A test user' loginretries='5' hugo
+#
+#     [Jul 10 1999, 07:10:09]
+#
+x() {
+LIST=
+SET_A=
+for i in "$@"
+do
+        if [ "$i" = "admin=true" ]
+        then
+                SET_A="-a"
+                continue
+        fi
+        LIST="$LIST \"$i\""
+done
+eval mkuser $SET_A $LIST
+}
+x pgrp='staff' groups='daemon' gecos='A test user' loginretries='5' otto
+#
+#     [Jul 10 1999, 07:10:22]
+#
+x() {
+LIST=
+SET_A=
+for i in "$@"
+do
+        if [ "$i" = "admin=true" ]
+        then
+                SET_A="-a"
+                continue
+        fi
+        LIST="$LIST \"$i\""
+done
+eval mkuser $SET_A $LIST
+}
+x pgrp='staff' groups='usr' gecos='A test user' loginretries='5' otto

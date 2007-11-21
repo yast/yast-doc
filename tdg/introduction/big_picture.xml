@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding='ISO-8859-1'?>
+<!-- =============================================================== -->
+<!--
+File         : big_picture.xml
+Author       : Thomas Rölz 
+Initial date : 2002/10/23
+CVS          : $Id: big_picture.xml 183 2007-01-09 15:48:57Z locilka $
+-->
+
+  <book id="Book-BigPicture">
+    <bookinfo>
+	<title>&prog_t; - The Big Picture (overview)</title>
+    </bookinfo>
+
+    <para>
+      To be able to create a &prog;-module it is necessary to have understood
+      how the extensive &prog;-world is structured, which components there are,
+      what they do and how they do it. Therefore prior to going into closer
+      detail we'll step back from the blackboard and have a look at the big
+      picture first. By doing so you will have the opportunity to get an
+      overview of the ample terrain &prog; is living on. While you don't have
+      to understand each and every byte &prog; consists of, having seen the
+      whole issue will ease your understanding of the details we will come
+      across.
+
+    </para> 
+    <chapter id="id_big_overview">
+      <title>Overview</title>
+
+      <para>
+	&prog; has been invented to have an extensible and fairly standardized
+	means to install and manage &lx; on a system. Basically &prog; serves
+	three main purposes:
+      </para>
+
+      <itemizedlist>
+	<listitem>
+	  <para>Installation of &lx; on a system</para>
+	</listitem>
+	<listitem>
+	  <para>Configuration of the installed system</para>
+	</listitem>
+	<listitem>
+	  <para>Administration of the installed system</para>
+	</listitem>
+      </itemizedlist>
+
+      <para>
+	To provide a solution to the resulting demands that has a lifetime
+	extensible well into the future this solution had to be flexible and
+	maintainable. Consequently some key concepts determined the design of
+	&prog;. In particular it was the strict separation of:
+      </para>
+
+      <itemizedlist>
+	<listitem>
+	  <para>The user interface</para>
+	</listitem>
+	<listitem>
+	  <para>The functional code doing the job</para>
+	</listitem>
+	<listitem>
+	  <para>The data representing the current state of the system</para>
+	</listitem>
+      </itemizedlist>
+      
+      <para>
+	Furthermore &prog; has some very specific attributes that make it
+	unique for the user as well as for those people who are developing it
+	or contributing to it. The following sections outline some of the
+	features of the &prog; installer that should be seen as a guiding line
+	for module development.
+      </para>
+
+      <section id="big_over_scr">
+	<title>Access To The System</title>
+	<para>
+	  Managing a &lx; system requires direct low-level access to the system
+	  which generally means reading and writing configuration data. Of
+	  course this could be done manually by a knowledgeable person using a
+	  conventional editor. A more comfortable and in most cases safer way
+	  is to use &prog;. Consequently &prog; must be able to handle this
+	  configuration data on the system level. By handling the
+	  <emphasis>original</emphasis> data &prog; activities take into
+	  account manual editing that might also occur. Thus nobody is
+	  <emphasis>forced</emphasis> to use &prog; exclusively for
+	  configuration tasks.
+	</para>
+	<para>
+	  In &prog; the access to system configuration data is realized by
+	  means of a special component (or layer if you prefer), the
+	  <emphasis>System Configuration Repository</emphasis> (SCR) (see below
+	  and <xref linkend="Book-SCRDetails"/>). The SCR component basically
+	  consists of a number of so-called <emphasis>agents</emphasis> that
+	  have been created to accomplish a specific kind of access. For
+	  example there is an agent to run shell-commands and there is another
+	  one that reads and writes ASCII-files of a specific format.
+	  Additionally there are agents that provide access to the system
+	  hardware e.g. by taking hold on the proc-file-system. 
+	</para>
+	<para>
+	  All these agents are gathered together under a common hood, the
+	  SCR-API that can be used from within the &prog;-modules in a
+	  consistent way. In summary the SCR provides kind of a
+	  <emphasis>view</emphasis> on all kinds of data, either YaST2 internal
+	  data, original system configuration files or hardware data.
+	</para>
+      </section>
+
+      <section id="big_over_suggestions">
+	<title>Reasonable Suggestions</title>
+	<para>
+	  &prog; implies lots of artificial intelligence to provide reasonable
+	  suggestions for the various tasks. During installation the target
+	  system is thoroughly analyzed with respect to its hardware components
+	  and in most cases &prog; succeeds in suggesting a proper
+	  configuration for them.
+	</para>
+	<para>
+	  These suggestions are presented in an overview dialog that shows the
+	  main characteristics of the system to be installed and how &prog;
+	  would handle them. If you are satisfied with these automatically
+	  generated settings you can simply accept them. If not, each of the
+	  system configuration categories can be <quote>activated</quote> to be
+	  changed manually. This is where the <emphasis>workflows</emphasis>
+	  come into their own.
+	</para>
+      </section>
+
+      <section id="big_over_workflows">
+	<title>Workflows</title>
+	<para>
+	  If you decide to change a specific configuration category this is
+	  usually being done in a workflow. Workflows are used to lead you
+	  through the steps necessary to accomplish a specific task. The steps
+	  are generally small to avoid an information <quote>overflow</quote>.
+	  At the end of the sequence the task has been accomplished and the
+	  changes are made permanent in the system.
+	</para>
+	<para>
+	  As was stated above, you are not <emphasis>forced</emphasis> to do it
+	  this way. You could as well edit configuration files by hand but
+	  &prog; can offer as much help as possible for this. Sometimes a
+	  workflow has multiple branches for <quote>novice</quote> and
+	  <quote>expert</quote> modes. The novice mode fills in the default
+	  values and tries to determine as much as possible automatically. The
+	  expert mode offers full control and allows to enter even unreasonable
+	  values.
+	</para>
+	<para>
+	  By providing pre-configured workflows and configuration data, it is
+	  possible to automate almost arbitrary configuration tasks with
+	  &prog;. From adding a user, to installing a completely configured
+	  &lx; on specific hardware, nearly everything is possible.
+	</para>
+      </section>
+
+      <section id="big_over_modules">
+	<title>Modules And The &lg_t;-Language</title>
+	<para>
+	  Every workflow is assembled from rather small steps, implemented by
+	  means of <emphasis>&prog_t; modules</emphasis> written in a
+	  &prog;-specific scripting language, the <emphasis>&prog_t; Control
+	    Language</emphasis> (&lg;). These &prog;-modules are then called in
+	  a predefined sequence to complete a specific task.
+	</para>
+	<para>
+	  In fact it is possible to even write modules in
+	  <emphasis>bash</emphasis> and <emphasis>Perl</emphasis> as long as
+	  the module need not have a user interface, i.e. it is not
+	  interactive. Such non-interactive modules typically handle specific
+	  problems like controlling a particular piece of hardware and can be
+	  called from within &lg;-modules. This building block approach makes
+	  constructing complex workflows easy and maintainable.
+	</para>
+      </section>
+
+      <section id="big_over_user_interface">
+	<title>User Interface</title>
+	<para>
+	  The &lg; language is also used to control the user interface (UI)
+	  presented on screen. The UI displays the information already known by
+	  the system and retrieves the information entered by the user.
+	</para>
+	<para>
+	  There are two modes of operation:
+	</para>
+
+	<itemizedlist>
+	  <listitem>
+	    <para><emphasis>Text mode for console-based service</emphasis></para>
+	    <para>
+	      In text mode the user interface is presented in the NCurses
+	      environment that provides windowing capabilities and entry forms
+	      on a text-based console. Mouse support is neither possible nor
+	      necessary here because all dialogs can be operated using only
+	      the keyboard.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para><emphasis>Graphics mode for X11-based service</emphasis></para>
+	    <para>
+	      In graphics mode the well-known Qt-system is used to present the
+	      dialogs in a graphical way using a running X11-server. Operating
+	      these dialogs follows the common habits of graphical user
+	      interfaces.
+	    </para>
+	  </listitem>
+	</itemizedlist>
+
+	<para>
+	  It is important to notice here that both methods principally use the
+	  same &prog;-specific &lg;-API to build the dialogs. While there are
+	  some (rare) cases where the &lg;-code has to distinguish these modes,
+	  the dialogs are usually programed for both worlds in in one single
+	  source with the same code.
+	</para>
+      </section>
+
+      <section id="big_over_summary">
+	<title>Summary</title>
+	<para>
+	  In summary &prog; provides the following features, some of them
+	  having already been mentioned above:
+	</para>
+
+	<itemizedlist>
+	  <listitem>
+	    <para><emphasis>System access</emphasis></para>
+	    <para>
+	      &prog; provides thorough probing of the system hardware and
+	      presents the information gathered thereby via the SCR-API. The
+	      SCR is also the means for reading and writing configuration
+	      files.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para><emphasis>Reasonable Suggestions</emphasis></para>
+	    <para>
+	      Based on the system analysis and predefined configuration data,
+	      &prog; is able to provide reasonable suggestions for almost any
+	      configuration task.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para><emphasis>Workflows</emphasis></para>
+	    <para>
+	      Management of particular configuration categories is usually
+	      realized in form of workflows that split up the whole task into
+	      small steps.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para><emphasis>Modules and &lg_t;</emphasis></para>
+	    <para>
+	      The steps constituting a workflow are usually realized as
+	      &prog;-modules that are written in the <emphasis>&prog_t; Control
+		Language</emphasis> (&lg;)
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para><emphasis>User interface</emphasis></para>
+	    <para>
+	      The user interface of &prog; is realized by means of a specific
+	      API from within the &lg;-modules. This API supports a text-based
+	      console-mode as well as a graphical X11-mode.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para><emphasis>Internationalization</emphasis></para>
+	    <para>
+	      &prog; provides support for various languages.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para><emphasis>Multi-platform support</emphasis></para>
+	    <para>
+	      &prog; provides support for various platforms like
+	      <trademark>Intel</trademark> (x86), <trademark>Apple</trademark>,
+	      <trademark>IBM</trademark> (s390) etc.
+	    </para>
+	  </listitem>
+	</itemizedlist>
+      </section>
+    </chapter>
+
+    <chapter id="id_big_architecture">
+      <title>&prog_t; Architecture</title>
+      <para>
+	YaST2 is a modular system for Linux installation and system administration.
+	The design goals include:
+      </para>
+      <itemizedlist>
+	<listitem><para>Flexibility</para></listitem>
+	<listitem><para>Extensibility</para></listitem>
+	<listitem><para>Maintainability</para></listitem>
+	<listitem><para>Network transparency</para>
+	  <para>
+	    support administration of remote hosts or virtual
+	    machines on mainframes, machines without CD/DVD drives, rack-mounted machines</para>
+	</listitem>
+	<listitem><para>User interface independence</para>
+	  <para>must run in graphical and text-only
+	    environments and serial consoles
+	  </para>
+	</listitem>
+	<listitem><para>Cover the whole range from novice users to expert system administrators</para></listitem>
+	
+      </itemizedlist>
+
+      <para>To achieve the above design goals, YaST2 is split up into a number of
+	components for each individual task:</para>
+      <figure id="the_yast_architecture">
+	<title>The &prog_t; Architecture</title>
+	<mediaobject>
+	  <imageobject role="pdf">
+	    <!-- Formats OK: PNG -->
+            <imagedata fileref="images/introduction/yast2b-large.png"
+	      align="center" scale="15"/>
+	  </imageobject>
+	  <imageobject role="html">
+	    <!-- Formats OK: PNG -->
+            <imagedata fileref="images/introduction/yast2b.png"
+	      align="center" scale="100"/>
+	  </imageobject>
+	</mediaobject>
+      </figure>
+
+      <para>
+	There is the core engine and to run scripts written in YCP (YaST2's own scripting
+	language), Perl or (in future releases) other scripting languages.
+      </para>
+
+      <para>The engine and scripts together form a YaST2 Module for the user.</para>
+
+      <section id="the_scr_conf_repo">
+	<title>The SCR (System Configuration Repository)</title>
+	<para>
+	  Even though in most scenarios there is only one single machine, it is important
+	  to distinguish between the installation source machine and the installation
+	  target machine:
+	</para>
+
+	<itemizedlist>
+	  <listitem><para>
+	      The installation source machine is the machine that holds the installation
+	      media - usually CDs or DVDs - and a mini-Linux called "inst-sys" that is copied
+	      from one of those installation media to that machine's RAM disk to have a basic
+	      operating system to work with on a "bare metal" machine (a machine that doesn't
+	      have an operating system installed yet). Most of that inst-sys is read-only,
+	      there is only limited disk space for temporary files, and since everything runs
+	      from a RAM disk the writable part of it is very volatile.
+	    </para>
+	  </listitem>
+	  <listitem>
+	    <para>
+	      The installation target on the other hand is the machine that is to be installed
+	      or administered. That may be the same machine as the installation source
+	      machine (in fact, this is very common for PC installation or administration
+	      tasks), but it might as well be two distinct machines - a virtual machine on a
+	      mainframe computer or a remote rack-mounted machine without any display adapter
+	      or CD/DVD drives.</para>
+	  </listitem>
+	</itemizedlist>
+	<para>
+	  All communication with the installation target is handled via the System
+	  Configuration Repository (SCR) to guarantee the network abstraction design
+	  goal. This is much easier said than done, however: YaST2 module developers
+	  always have to keep in mind that it is strictly forbidden to access system
+	  files (or any other system resources, for that matter) directly, even if there
+	  may be very convenient CPAN Perl modules to do that. Rather, SCR is to be used
+	  instead - always. Otherwise everything might run fine if installation source
+	  and target are the same machine, but break horribly if they are not.
+	</para>
+
+	<para>
+	  SCR in itself is also modularized: All calls are handled by "agents" that each
+	  know how to handle a particular configuration "path" like <filename>"/etc/fstab"</filename> or
+	  <filename>"/etc/passwd"</filename>. That may be a simple file, but it may also be a directory
+	  hierarchy like "probe" - this particular agent handles all kinds of hardware
+	  probing, from mouse and display adapters to storage device controllers (like
+	  SCSI or IDE controllers), disks attached to each individual controller or
+	  partitions on those disks. Paths are denoted like ".etc.fstab" for SCR. YCP
+	  even has a special data type "path" for just this case (a special kind of
+	  string with some special operations).
+	</para>
+
+	<para>
+	  SCR agents handle no more than three calls:
+	</para>
+
+	<itemizedlist>
+	  <listitem><para>SCR::Read()</para></listitem>
+	  <listitem><para>SCR::Write()</para></listitem>
+	  <listitem><para>SCR::Execute()</para></listitem>
+	</itemizedlist>
+
+	<para>
+	  The first argument is always the path to handle, but there may be any number
+	  of additional parameters, depending on the agent.
+	</para>
+
+	<para>
+	  While Read() and Write() are obvious, Execute() may not be: This is intended
+	  for some kinds of agents that actually run a program on the installation
+	  target. In particular, the ".target.bash" agent does that - it runs a "bash"
+	  shell on the target machine and accepts a shell command as an argument. This is
+	  the tool of choice for tasks such as creating backup copies of configuration files
+	  or running any special command on the target machine - and again,
+	  the distinction between installation source and installation target machine becomes
+	  very important: You want run these commands on the (possibly remote) target machine,
+	  not on the machine that happens to hold the installation media.
+	</para>
+
+	<para>
+	  SCR agents can easily added when needed. There are frameworks available to
+	  write SCR agents in C++, in Perl, or as Bash shell scripts as well as several
+	  ready-made parsers for different file formats like the ".ini" file parser that
+	  can handle files with "key = value" pairs or the "anyagent" that generalizes
+	  that concept even more using regular expressions. Those parsers return YCP
+	  lists and maps ready for further processing.
+	</para>
+	<para>
+	  Typically, a YaST2 module for a specific installation or administration task
+	  includes a set of YCP or Perl scripts as well as some SCR agents to handle
+	  its particular configuration files.
+	</para>
+      </section>
+      <section id="the_ui_big_pik">
+	<title>The UI (User Interface)</title>
+	<para>
+
+	  Given the wide variety of machines that can possibly be handled with YaST2, it
+	  is important to keep the user interface (UI) abstraction in mind - very much
+	  like the SCR, the UI does not necessarily run on the installation target
+	  machine. It doesn't even need to run on the same machine as the WFM.
+	</para>
+	<para>
+
+	  The UI provides dialogs with "widgets" - user interface elements such as input
+	  fields, selection lists or buttons. It is transparent to the calling
+	  application if those widgets are part of a graphical toolkit such as Qt, or
+	  text based (using the NCurses library) or something completely else. An input
+	  field for example only guarantees that the user can enter and edit some value
+	  with it. A button only provides means to notify the application when the user
+	  activated it - by mouse click (if the UI supports using pointing devices such
+	  as a mouse), by key press or however else.
+	</para>
+
+	<para>
+	  The UI has a small number of built-in functions - for example:
+	</para>
+
+        <itemizedlist>
+	<listitem><para>UI::OpenDialog() accepts a widget hierarchy as an argument and opens a dialog
+	    with those widgets</para></listitem>
+
+	<listitem><para>UI::CloseDialog() closes a dialog</para></listitem>
+
+	<listitem><para>UI::QueryWidget() returns a widget's property such as the current value of an
+	    input field or selection box</para></listitem>
+
+	<listitem><para>UI::ChangeWidget() changes a widget's property</para></listitem>
+
+	<listitem><para>UI::UserInput() waits until the user has taken some action such as activate a
+	    button - after which the application can call UI::QueryWidget() for each
+	    widget in the dialog to get the current values the user entered. The
+	    application does not have to handle every key press in each input field
+	    directly - the widgets are self-sufficient to a large degree.</para></listitem>
+        </itemizedlist>
+
+	<para>
+	  There is virtually no low-level control for the widgets - nor is it necessary
+	  or even desired to have that. You don't specify a button's width or height -
+	  you specify its label to be "Continue", for example, and it will adapt its
+	  dimensions accordingly. If desired, more specific layout constraints can be
+	  specified: For example, buttons can be arranged in a row with equal width
+	  each. The UI will resize them as needed, giving them additional margins if
+	  necessary.
+	</para>
+	<para>
+	  The existing UIs provide another layer of network abstraction: The graphical UI
+	  uses the Qt toolkit which is based on the X Window System's Xlib which in turn
+	  uses the X protocol (usually) running on top of TCP/IP. X Terminals can be used
+	  as well as a Linux console (that may be the installation source machine or the
+	  installation target machine or another machine connected via the network)
+	  running the X Window System or even X servers running on top of other operating
+	  systems.
+	</para>
+	<para>
+	  The NCurses (text based) UI requires no more than a shell session - on a text
+	  terminal (serial console or other), on a Linux console, in an XTerm session,
+	  via ssh or whatever.
+	</para>
+
+	<para>
+	  Currently, there is no web UI, but YaST2's concepts would easily allow for that
+	  if it proves useful or necessary.
+	</para>
+        </section>
+	<section id="yast2_core_engine">
+	  <title>YaST Core Engine</title>
+	  <para>
+	    The component broker is the central piece of YaST.
+	    It acts as a dispatcher for all other components: When a (YCP, Perl or whatever)
+	    script calls a function, the broker determines what component handles that function call
+	    based on the respective namespace identifier. 
+	    It is transparent to the caller what programming language a function is written
+	    in; the component broker handles that kind of dispatching. The caller only needs to know the
+	    function name, its namespace and (or course) the required parameters.
+	  </para>
+
+	  <para>
+
+	    For example, calls like UI::OpenDialog() go to the UI (the user interface),
+	    SCR::Read() to the SCR (the system configuration repository).
+	    Even scripts can provide namespaces via modules in YCP or Perl.
+	  </para>
+
+	  <para>
+	    All communication between the different parts of YaST core is
+	    done via a predefined set of YCP data types - simple data types like string,
+	    integer, boolean etc., but also compound data types like maps (key / value
+	    pairs, also known as "hashes" in other programming languages) or lists (like
+	    arrays or vectors in other programming languages). For complex data structures,
+	    maps, lists and simple data types can be nested to any degree.
+	  </para>
+
+
+	
+      </section>
+  
+      <section id="id_big_external_program">
+	<title>External Programs</title>
+	<para>
+	  The core-engine of &prog; consists of some binary components
+	  (modules) that are interconnected via &prog;-specific protocols.
+	  There are <emphasis>clients</emphasis> as well as
+	  <emphasis>servers</emphasis> that are responsible for specific tasks
+	  that may have to be accomplished during a &prog;-session. According
+	  to the well-known client-server-paradigm often used in software
+	  technology, &prog;-servers are program modules that
+	  <emphasis>passively</emphasis> await connections from certain clients
+	  to process their requests. Clients on the other hand are
+	  <emphasis>active</emphasis> components that send requests to the
+	  servers thereby initiating certain actions.
+	</para>
+	<para>
+	  For example the SCR and the UI act as server components that process
+	  client-requests on demand. An example for a client module is the
+	  <emphasis>stdio-component</emphasis> that can be used to connect the
+	  &prog;-internal communication with a terminal.
+	</para>
+	<para>
+	  Because this architectural specialty is meant to be used only by the
+	  &prog; core developers to establish and maintain the low-level
+	  machinery we will not go into more detail here. Instead we will focus
+	  on the advocated method of extending &prog; at the <quote>open
+	    end</quote> by creating &lg;-modules.
+	</para>
+      </section>
+    </chapter>
+  </book>
+
+<!-- ====== Allow emacs psgml to parse the document hierarchy ====== -->
+<!-- ATTENTION * This MUST be at the end of the document * ATTENTION -->
+<!--
+Local Variables:
+sgml-parent-document: ("../yast.xml")
+End:
+-->
+<!-- ====== Allow emacs psgml to parse the document hierarchy ====== -->

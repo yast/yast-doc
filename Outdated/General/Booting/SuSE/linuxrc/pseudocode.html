@@ -1,0 +1,59 @@
+<HTML>
+<HEAD>
+<TITLE>YaST2: Analysis: Linuxrc: Pseudocode</TITLE>
+</HEAD>
+<BODY>
+<H1>YaST2: Analysis: Linuxrc: Pseudocode</H1>
+This document gives a rough sketch about the inner workings of linuxrc
+
+<H3>Layout of Disk</H3>
+<pre>
+total 343
+drwxr-xr-x  11 root     root          384 Oct 13 20:10 ./
+drwxr-xr-x  23 root     root         1024 Nov 14 13:29 ../
+drwxr-xr-x   2 root     root          256 Jan 21  1997 bin/
+
+Mandelbrot:/mnt # l bin
+total 1904
+drwxr-xr-x   2 root     root          256 Jan 21  1997 ./
+drwxr-xr-x  11 root     root          384 Oct 13 20:10 ../
+-rwxr-xr-x   7 root     root       323584 Nov 14 14:33 cardmgr*
+-rwxr-xr-x   7 root     root       323584 Nov 14 14:33 insmod*
+-rwxr-xr-x   7 root     root       323584 Nov 14 14:33 loadkeys*
+-rwxr-xr-x   7 root     root       323584 Nov 14 14:33 probe*
+-rwxr-xr-x   7 root     root       323584 Nov 14 14:33 rmmod*
+-rwxr-xr-x   7 root     root       323584 Nov 14 14:33 sh*
+
+drwxr-xr-x   3 root     root        15264 Jul 28 13:27 dev/
+drwxr-xr-x   3 root     root          160 Sep  2 15:30 etc/
+drwxr-xr-x   2 root     root          288 Jun 27 12:18 keytables/
+-rwxr-xr-x   7 root     root       323584 Nov 14 14:33 linuxrc*
+drwxr-xr-x   2 root     root           64 Aug  7  1996 mnt/
+drwxr-xr-x   2 root     root          128 Jul 23 19:50 modules/
+drwxr-xr-x   2 root     root           64 Aug  7  1996 proc/
+drwxr-xr-x   2 root     root           64 Jan  8  1997 tmp/
+drwxr-xr-x   9 root     root          288 Apr  2  1997 var/
+</pre>
+<hr>
+<pre>
+main ()
+  check argv[0]
+  "sh"		-> lxrc_do_shell ()
+  "insmod"	-> insmod_main ()
+  "rmmod"	-> rmmod_main ()
+  "loadkeys"	-> loadkeys_main ()
+  "cardmgr"	-> cardmgr_main ()
+  "probe"	-> probe_main ()
+  "setfont"	-> setfont_main ()
+  "portmap"	-> portmap_main ()
+  "nothing"	-> exit (0)
+  default:
+    lxrc_init ()
+    inst_auto_install () / inst_start_demo () / lxrc_main_menu ()
+    lxrc_end ()   
+</pre>
+<p><hr>
+<SMALL>Last changed 14-7-1999 14:12, <A HREF="mailto:kskaem@suse.de">Klaus Kämpf</A></SMALL><BR>
+<SMALL>Copyright &copy; by <A HREF="http://w3.suse.de">SuSE GmbH</A></SMALL>
+</BODY>
+</HTML>

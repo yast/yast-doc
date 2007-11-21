@@ -1,0 +1,5434 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=iso-8859-1">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="StarOffice/5.2 (Linux)">
+	<META NAME="AUTHOR" CONTENT="Siegfried Olschner">
+	<META NAME="CREATED" CONTENT="20000803;11020000">
+	<META NAME="CHANGEDBY" CONTENT="Siegfried Olschner">
+	<META NAME="CHANGED" CONTENT="20010831;12365800">
+	<STYLE>
+	<!--
+		H4 { color: #0000ff; font-family: "Helvetica", sans-serif }
+		H3 { color: #0000ff; font-family: "Helvetica", sans-serif }
+		H2 { color: #0000ff; font-family: "Helvetica", sans-serif }
+		TH P { margin-bottom: 0cm; font-family: "Helvetica", sans-serif }
+		TD P { margin-bottom: 0cm; font-family: "Helvetica", sans-serif }
+		H1 { color: #0000ff; font-family: "Helvetica", sans-serif; text-align: left }
+		P { font-family: "Helvetica", sans-serif }
+		P.navigation-link { color: #5c8526; font-weight: bold }
+	-->
+	</STYLE>
+</HEAD>
+<BODY>
+<P CLASS="navigation-link"><A NAME="up"></A><A NAME="top"></A><IMG SRC="Pics/yast2_heading2.png" NAME="Grafik1" ALIGN=LEFT WIDTH=800 HEIGHT=70 BORDER=0><BR CLEAR=LEFT><FONT FACE="Helvetica, sans-serif">[</FONT><A HREF="SG_Part41.html"><FONT FACE="Helvetica, sans-serif">previous
+page</FONT></A><FONT FACE="Helvetica, sans-serif">] --- [</FONT><A HREF="SG_index.html"><FONT FACE="Helvetica, sans-serif">back
+to index</FONT></A><FONT FACE="Helvetica, sans-serif">] --- [</FONT><A HREF="SG_Part43.html"><FONT FACE="Helvetica, sans-serif">next
+page</FONT></A><FONT FACE="Helvetica, sans-serif">]</FONT></P>
+<H1>4.2 Use A Standardized Text Layout</H1>
+<P>General thoughts<BR>Dialog captions<BR>Labels of dialog
+elements<BR>Short cut keys<BR>List of keywords<BR>Beware of language,
+including some hints for <I>Denglish</I> speakers (German-English
+speakers)<BR>Making a good help text<BR>YaST2 checklist for text
+elements in the dialog</P>
+<P><BR><BR>
+</P>
+<H2><FONT FACE="Helvetica, sans-serif">General thoughts about
+consistent terminology</FONT></H2>
+<P><FONT FACE="Helvetica, sans-serif"><B>The ultimate goal concerning
+the text elements in the YaST2 dialogs is: A clear &amp; consistent
+use of text </B></FONT>
+</P>
+<P><BR><BR>
+</P>
+<P>The advantages are obviously: After an obligatory phase of
+training... 
+</P>
+<UL>
+	<LI><P><FONT FACE="Helvetica, sans-serif">Identification of dialog
+	elements</FONT></P>
+	<LI><P><FONT FACE="Helvetica, sans-serif">Appraisal of dialog
+	contents</FONT></P>
+	<LI><P><FONT FACE="Helvetica, sans-serif">Communication on dialog
+	contents</FONT></P>
+</UL>
+<P><FONT FACE="Helvetica, sans-serif">will be a lot easier.</FONT></P>
+<P><BR><BR>
+</P>
+<P><FONT FACE="Helvetica, sans-serif">High consistency in using
+standardized terminology will cause less cognitive effort for user
+while using YaST2. In main, the <I>suitability for the task</I> will
+be better by</FONT></P>
+<UL>
+	<LI><P><FONT FACE="Helvetica, sans-serif">higher
+	self-descriptiveness</FONT></P>
+	<LI><P><FONT FACE="Helvetica, sans-serif">higher controllability</FONT></P>
+	<LI><P><FONT FACE="Helvetica, sans-serif">higher conformity with
+	user expectations.</FONT></P>
+</UL>
+<P><FONT FACE="Helvetica, sans-serif">A standardized terminology will
+even reduce efforts during the creation of YaST2.</FONT></P>
+<P><BR><BR>
+</P>
+<P><FONT FACE="Helvetica, sans-serif">So everything should have a
+clear name without ambiguity.</FONT></P>
+<UL>
+	<LI><P><FONT FACE="Helvetica, sans-serif">The modules itself </FONT>
+	</P>
+	<LI><P><FONT FACE="Helvetica, sans-serif">The main function of the
+	dialogs</FONT></P>
+	<LI><P><FONT FACE="Helvetica, sans-serif">The dialog pages</FONT></P>
+	<LI><P><FONT FACE="Helvetica, sans-serif">The dialog elements like
+	help window, message boxes and all kind of control elements</FONT></P>
+	<LI><P><FONT FACE="Helvetica, sans-serif">Demands for further
+	co-working are...</FONT></P>
+</UL>
+<P><BR><BR>
+</P>
+<P><FONT FACE="Helvetica, sans-serif">Demands for further co-working</FONT></P>
+<UL>
+	<LI><P><FONT FACE="Helvetica, sans-serif"><B>Creating of a
+	standardized naming list </B></FONT>
+	</P>
+	<LI><P><FONT FACE="Helvetica, sans-serif">Native speaker have to
+	make the final reviews according to existing style guides</FONT></P>
+</UL>
+<P><BR><BR>
+</P>
+<P><FONT FACE="Helvetica, sans-serif"><B>Hint</B>: It is better to
+name a thing good and quick than to try naming a thing perfect but
+never.</FONT></P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<H2><FONT FACE="Helvetica, sans-serif">Dialog captions</FONT></H2>
+<P>The caption of the dialogs are essential for the users
+understanding and a correct assignment during support.</P>
+<UL>
+	<LI><P><B>Check 1:</B> No recurrence! Every dialog page has its own
+	identifiable caption.</P>
+	<LI><P><B>Check 2</B>: Use few words if possible.</P>
+	<UL>
+		<LI><P>If necessary, use the whole line to make a short description
+		of the function of the dialog. 
+		</P>
+		<LI><P>Take the long French translations into your considerations.</P>
+		<LI><P>Always get help from a native speaker!</P>
+		<LI><P>With a good caption there is no need for an additional
+		explanation in the help window. Describe the main function of the
+		dialog with one sentence.</P>
+	</UL>
+	<LI><P><B>Check 3:</B> Abbreviations are <SPAN STYLE="text-decoration: none">not
+	usable.</SPAN></P>
+	<LI><P><B>Check 4:</B> The Caption of the dialog has the layout of a
+	'<B>Sentence style</B> capitalization' according to the specific
+	language (the former '<B>Book Title</B> Capitalization' has been
+	dropped for easy handling with different languages). <B>Note</B>:
+	Pop up boxes should also use 'Sentence style capitalization' in
+	their caption.</P>
+</UL>
+<P><BR><BR>
+</P>
+<P><IMG SRC="Pics/isdn_2.png" NAME="Grafik4" ALIGN=LEFT WIDTH=655 HEIGHT=506 BORDER=0><BR CLEAR=LEFT><FONT FACE="Helvetica, sans-serif">Example
+of a first draft during development process</FONT></P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<P><IMG SRC="Pics/Better_caption_1.png" NAME="Grafik13" ALIGN=LEFT WIDTH=648 HEIGHT=510 BORDER=0><BR CLEAR=LEFT><FONT FACE="Helvetica, sans-serif">Redesign
+with </FONT>
+</P>
+<UL>
+	<LI><P><FONT FACE="Helvetica, sans-serif">better caption - Note:
+	This caption is in the old style - correct: 'Select internet service
+	provider (ISP)'</FONT></P>
+	<LI><P><FONT FACE="Helvetica, sans-serif">a 'speaking button' for
+	'Add' - Note: The button label 'Add <U>N</U><SPAN STYLE="text-decoration: none">ew
+	Provider' is wrong. Correct: 'Add new provider...'</SPAN></FONT></P>
+</UL>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<H2><FONT FACE="Helvetica, sans-serif">Labels of dialog elements,
+name of buttons</FONT></H2>
+<P><FONT FACE="Helvetica, sans-serif">There are a lot of dialog
+elements with different labels. Our goal is, to add an individual
+identifier to every control element, where possible in form of
+'speaking language'.</FONT></P>
+<UL>
+	<LI><P><FONT FACE="Helvetica, sans-serif"><B>Check 1:</B> Use an
+	'active voice' to describe the function of this element and try to
+	create a balance between shortness and necessary length of
+	description (see ' screen shots' above!).</FONT></P>
+	<UL>
+		<LI><P><FONT FACE="Helvetica, sans-serif">Example: 'Save settings
+		to floppy disk' is a long caption for a button, but the text
+		describes exactly the doing and is better as 'Save'</FONT></P>
+	</UL>
+	<LI><P><FONT FACE="Helvetica, sans-serif"><B>Check 2: </B>Avoid
+	abbreviations</FONT></P>
+	<UL>
+		<LI><P><FONT FACE="Helvetica, sans-serif">Example: 'Save settings
+		to fd' - the untrained user do not know what 'fd' means.</FONT></P>
+	</UL>
+	<LI><P><FONT FACE="Helvetica, sans-serif"><B>Check 3:</B><SPAN STYLE="font-weight: medium">
+	The labels of the dialog elements have 'Sentence style
+	capitalization'.</SPAN></FONT></P>
+	<UL>
+		<LI><P STYLE="font-weight: medium"><FONT FACE="Helvetica, sans-serif">Correct:
+		'Add new provider...'</FONT></P>
+		<LI><P STYLE="font-weight: medium"><FONT FACE="Helvetica, sans-serif">Wrong:
+		'Add New Provider...'</FONT></P>
+	</UL>
+	<LI><P><FONT FACE="Helvetica, sans-serif"><B>Check 4: </B>If the
+	button leads to a new dialog try to name the caption of the button
+	and the caption of the following dialog similar!</FONT></P>
+	<UL>
+		<LI><P><FONT FACE="Helvetica, sans-serif">Example from 7.1: Button
+		caption 'Select single packages...' -&gt; Dialog caption 'Software
+		single selection'<BR>Better: Button caption 'Manual software
+		selection...' -&gt; Dialog caption 'Manual software selection'</FONT></P>
+	</UL>
+</UL>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<H2><FONT FACE="Helvetica, sans-serif">YAST2 Guidelines For Mnemonic
+Shortcut Keys</FONT></H2>
+<P><FONT FACE="Helvetica, sans-serif">A Mnemonic Shortcut Key (MSK)
+is a single, easy to remember alphanumeric key, when used in
+combination with the ALT-key, moves the cursor to a choice and
+selects the choice. MSK should be provided for each choice in a
+field.</FONT></P>
+<P><FONT FACE="Helvetica, sans-serif">Normaly in YaST2 all possible
+commands are shown in the dialog area. To this time there is no
+access to a function without a visible reference on the display like
+'F1' to start a help window. YAST2 does also not provide the use of
+Accelerator Keys (CTRL/Shift + letter combinations).</FONT></P>
+<P><FONT FACE="Helvetica, sans-serif"><B>Note: It is not possible to
+find a perfect shortcut key solution. There are many of dialogs with
+a lot of commands. Remember, in a GUI the mouse will be used more
+than the shortcut keys. So the use of shortcut keys in this context
+is the second alternative. The fact, experts can work more quick with
+key access is another discusson.</B></FONT></P>
+<UL>
+	<LI><P><FONT FACE="Helvetica, sans-serif"><B>Check 1:</B> Do really
+	all buttons, checkboxes, radio buttons list views have a special
+	short cut key for direct access by keyboard?</FONT></P>
+	<LI><P><FONT FACE="Helvetica, sans-serif"><B>Check 2:</B> Have the
+	frequently used commands the right shortcut key? </FONT>
+	</P>
+	<LI><P><FONT FACE="Helvetica, sans-serif"><B>Check 3:</B> <SPAN STYLE="font-weight: medium">Use
+	the first character of the label for the choice, or the first
+	character of one of the words in a multiple-word choice, unless
+	those</SPAN> characters have been assigned as MSK for other choices
+	or another character provides a better mnemonic association.</FONT></P>
+	<UL>
+		<LI><P><FONT FACE="Helvetica, sans-serif">If the first character of
+		a choice label has been used as the MSK for another choice,<SPAN STYLE="font-weight: medium">
+		use a distinctive consonant in the choice label</SPAN></FONT></P>
+		<LI><P><FONT FACE="Helvetica, sans-serif">If all consonants in a
+		choice label have been used as the MSK for other choices, use any
+		other character - mostly vowels - in the choice label.</FONT></P>
+		<LI><P><FONT FACE="Helvetica, sans-serif">If all characters in a
+		choice label have been used for other choices:</FONT></P>
+		<UL>
+			<LI><P><FONT FACE="Helvetica, sans-serif">First possibility: Add a
+			new word to the choice label and use a character in this word.</FONT></P>
+			<LI><P><FONT FACE="Helvetica, sans-serif">Second but not so fine:
+			Add a unique character to the choice text and make it the MSK.
+			Display the character in parentheses after the choice.</FONT></P>
+		</UL>
+	</UL>
+</UL>
+<UL>
+	<LI><P><FONT FACE="Helvetica, sans-serif"><B>Check 4:</B> Use a wide
+	letter if possible and avoid letters with descender (german :
+	Unterlaengen) like 'j', 'p' and 'g'. Worst cases are '<U>i</U>',
+	'<U>I</U>', '<U>l</U>', '<U>j</U>', '<U>t</U>' but sometimes you
+	must use one of this letters. E.g. the German '<U>J</U>a' or
+	'<U>I</U>nstallation'. Example: <SPAN STYLE="text-decoration: none">'Co<U>m</U>pute'
+	is better than 'Compu<U>t</U>e</SPAN>' or 'Com<U>p</U>ute'.</FONT></P>
+</UL>
+<UL>
+	<LI><P><FONT FACE="Helvetica, sans-serif"><B>Check 5:</B> Are there
+	double short cut keys? <B>A MSK should be unique within the field of
+	its interaction</B>. For this reason the use of identical MSK is
+	permitted unless assigned Push buttons appear within the same field.
+	If duplicate MSK are assigned within the same field, the first
+	choice is activated, when the MSK is pressed. Depending on the
+	choice, pressing the MSK a second time may or may not activate
+	another choice with the same assignment. But this bug will not
+	appear in our YaST2! ;-)</FONT></P>
+</UL>
+<P ALIGN=LEFT><BR><BR>
+</P>
+<H3><FONT FACE="Helvetica, sans-serif">Recommended Mnemonic Shortcut
+Key assignements for the main buttons - First draft</FONT></H3>
+<P><FONT FACE="Helvetica, sans-serif">See comments for yet unsolved
+problems: </FONT>
+</P>
+<UL>
+	<LI><P><FONT FACE="Helvetica, sans-serif">bold font = main function
+	button (see tables below) - the shortcut key should not be changed</FONT></P>
+	<LI><P><FONT FACE="Helvetica, sans-serif">* = comment</FONT></P>
+	<LI><P><FONT FACE="Helvetica, sans-serif">*** = problem</FONT></P>
+</UL>
+<TABLE WIDTH=70% BORDER=5 BORDERCOLOR="#ffffff" CELLPADDING=3 CELLSPACING=0>
+	<COL WIDTH=51*>
+	<COL WIDTH=77*>
+	<COL WIDTH=51*>
+	<COL WIDTH=77*>
+	<THEAD>
+		<TR VALIGN=TOP>
+			<TH WIDTH=20% BGCOLOR="#ffffcc">
+				<P><FONT FACE="Helvetica, sans-serif">ENGLISH</FONT></P>
+			</TH>
+			<TH WIDTH=30% BGCOLOR="#ffffcc">
+				<P><FONT FACE="Helvetica, sans-serif">COMMENT</FONT></P>
+			</TH>
+			<TH WIDTH=20% BGCOLOR="#ffffcc">
+				<P><FONT FACE="Helvetica, sans-serif">GERMAN</FONT></P>
+			</TH>
+			<TH WIDTH=30% BGCOLOR="#ffffcc">
+				<P><FONT FACE="Helvetica, sans-serif">COMMENT</FONT></P>
+			</TH>
+		</TR>
+	</THEAD>
+	<TBODY>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B><SPAN STYLE="text-decoration: none">A</SPAN>bo<U>r</U>t***</B></FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P ALIGN=LEFT><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>'Add'
+				and perhaps 'Apply' are more important commands than Abort -&gt;
+				shortcut key is <SPAN STYLE="text-decoration: none"><SPAN STYLE="font-weight: medium">'r'</SPAN></SPAN></FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B><SPAN STYLE="text-decoration: none">A</SPAN>bb<U>r</U>echen***</B></FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Problem 'Abort
+				cancel' -&gt; 'Abbrechen abbrechen'; 'b' is used in '<U>B</U>eenden'</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B><U>A</U>dd</B></FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B><U>H</U>inzuf&uuml;gen</B></FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>A</U>pply</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>&Uuml;<U>b</U>ernehmen*</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>A</U><SPAN STYLE="text-decoration: none">nwenden
+				as alternative</SPAN></FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B><U>B</U>ack</B></FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B><U>Z</U>ur&uuml;ck</B></FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>C</U>ancel</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>A</U>bbrechen</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>C</U>hange</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>B</U>earbeiten***</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Bad
+				translation, is '&Auml;<U>n</U>dern' better?</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>C</U>hoose</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>V</U>orschlagen***
+				</FONT></FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#000000">Wrong
+				translation in .po-files? Is '</FONT><U>A</U>usw&auml;hlen'
+				better?</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>C</U>lose</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>S<U>c</U>hlie&szlig;en</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>C</U>ontinue</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>W</U>eiter*</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>F</U>ortfahren?</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>C</U>onfigure</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>E</U><SPAN STYLE="text-decoration: none">inrichten</SPAN></FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>C</U>reate</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>A<U>n</U>legen</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B><U>D</U>elete</B></FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B><SPAN STYLE="background: #e6e6ff"><U>L</U></SPAN>&ouml;schen</B></FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>D</U>escription</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>B</U>eschreibung</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>D</U>etails</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>D</U>etails</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>D</U>eselect***</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Better
+				'<U>C</U>ancel the selection'</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Ab<U>w</U>&auml;hlen</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Is this
+				better? 'Auswahl aufheben'</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>D</U>iscard</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>V</U>erwerfen</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B><U>E</U>dit</B></FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Bea<U>r</U>beiten</B></FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>E</U>ject</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Aus<U>w</U>erfen</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B><U>F</U>inish</B></FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B><U>B</U>eenden</B></FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>F</U>ormat
+				</FONT></FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>F</U>ormatieren</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>H</U>elp</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>H</U>ilfe</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>I</U>nfo
+				</FONT></FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>I</U>nfo
+				</FONT></FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>I</U>nstall***
+				</FONT></FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Alternative:
+				'<U>S</U>etup'</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>I</U>nstallieren</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Alternative:
+				'<U>E</U>inrichten'</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>L</U>aunch
+				module</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>M</U>odul
+				starten</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>M</U>anual</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>M</U>anuell</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Ne<U>w</U>
+				</FONT></FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>In
+				most cases we have a button labeled '<U>N</U>ext' in the dialog
+				-&gt; shortcut key is 'w'</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>N</U>eu</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B><U>N</U>ext</B></FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B><U>W</U>eiter</B></FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>N</U>o</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>N</U>ein</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B><U>O</U>K</B></FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B><U>O</U>K</B></FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>O</U>ptions</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>O</U>ptionen</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>Q</U>uit</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>E</U>nde</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>R</U>emove</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>E</U>ntfernen</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>R</U>ename</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>U</U>mbenennen</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>R</U>estore</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>W</U>iederherstellen</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>R</U>eset</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>Z</U>ur&uuml;cksetzen</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>R</U>etry</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>W</U>iederholen</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>S</U>ave</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>S</U>peichern</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>S</U>earch</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>S</U>uchen</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>S</U>e<SPAN STYLE="text-decoration: none">l</SPAN>ect</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Ausw&auml;h<SPAN STYLE="text-decoration: none">l</SPAN>en</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>S</U>elect/Deselect</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>A</U>us-/Abw&auml;hlen</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>S</U>et</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>A</U>nwenden</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>S</U>et
+				as default</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>A</U>ls
+				Standard festlegen</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>S</U>how</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>A</U>nzeigen</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>S</U>kip</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>&Uuml;</U>berspringen</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>S</U>top</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>A</U>nhalten</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>T</U>est</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>T</U>est</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>Y</U>es</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=20% BGCOLOR="#e6e6ff">
+				<P><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U>J</U>a</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=30% BGCOLOR="#e6e6e6">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+	</TBODY>
+</TABLE>
+<P ALIGN=LEFT><BR><BR>
+</P>
+<H3><FONT FACE="Helvetica, sans-serif">Main navigation buttons in
+different dialog situations</FONT></H3>
+<P><FONT FACE="Helvetica, sans-serif">In the workflow</FONT></P>
+<TABLE WIDTH=597 BORDER=7 BORDERCOLOR="#ffffff" CELLPADDING=2 CELLSPACING=0 BGCOLOR="#e6e6e6">
+	<COL WIDTH=88>
+	<COL WIDTH=162>
+	<COL WIDTH=162>
+	<COL WIDTH=155>
+	<TR VALIGN=TOP>
+		<TD WIDTH=88>
+			<P><FONT FACE="Helvetica, sans-serif"><B>English</B></FONT></P>
+		</TD>
+		<TD WIDTH=162>
+			<P><FONT FACE="Helvetica, sans-serif"><SPAN STYLE="font-weight: medium"><U>B</U></SPAN>ack</FONT></P>
+		</TD>
+		<TD WIDTH=162>
+			<P><FONT FACE="Helvetica, sans-serif"><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-weight: medium">A</SPAN></SPAN>bo<U>r</U>t</FONT></P>
+		</TD>
+		<TD WIDTH=155>
+			<P><FONT FACE="Helvetica, sans-serif"><U>N</U>ext</FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=88>
+			<P><FONT FACE="Helvetica, sans-serif"><B>German</B></FONT></P>
+		</TD>
+		<TD WIDTH=162>
+			<P><FONT FACE="Helvetica, sans-serif"><U>Z</U>ur&uuml;ck</FONT></P>
+		</TD>
+		<TD WIDTH=162>
+			<P><FONT FACE="Helvetica, sans-serif">A<SPAN STYLE="text-decoration: none">b</SPAN>b<U>r</U>echen</FONT></P>
+		</TD>
+		<TD WIDTH=155>
+			<P><FONT FACE="Helvetica, sans-serif"><U>W</U>eiter</FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=88>
+			<P><FONT FACE="Helvetica, sans-serif"><B>French</B></FONT></P>
+		</TD>
+		<TD WIDTH=162>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=162>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=155>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=88>
+			<P><FONT FACE="Helvetica, sans-serif"><B>Spanish</B></FONT></P>
+		</TD>
+		<TD WIDTH=162>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=162>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=155>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=88>
+			<P><FONT FACE="Helvetica, sans-serif"><B>Italian</B></FONT></P>
+		</TD>
+		<TD WIDTH=162>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=162>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=155>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=88>
+			<P><FONT FACE="Helvetica, sans-serif"><B>Dutch</B></FONT></P>
+		</TD>
+		<TD WIDTH=162>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=162>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=155>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+</TABLE>
+<P><FONT FACE="Helvetica, sans-serif">In a modal dialog </FONT>
+</P>
+<TABLE WIDTH=597 BORDER=7 BORDERCOLOR="#ffffff" CELLPADDING=2 CELLSPACING=0 BGCOLOR="#e6e6e6">
+	<COL WIDTH=88>
+	<COL WIDTH=162>
+	<COL WIDTH=162>
+	<COL WIDTH=155>
+	<TR VALIGN=TOP>
+		<TD WIDTH=88>
+			<P><FONT FACE="Helvetica, sans-serif"><B>English</B></FONT></P>
+		</TD>
+		<TD WIDTH=162>
+			<P><FONT FACE="Helvetica, sans-serif"><U>B</U>ack</FONT></P>
+		</TD>
+		<TD WIDTH=162>
+			<P><FONT FACE="Helvetica, sans-serif">Abo<U>r</U>t</FONT></P>
+		</TD>
+		<TD WIDTH=155>
+			<P><FONT FACE="Helvetica, sans-serif"><U>O</U>K</FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=88>
+			<P><FONT FACE="Helvetica, sans-serif"><B>German</B></FONT></P>
+		</TD>
+		<TD WIDTH=162>
+			<P><FONT FACE="Helvetica, sans-serif"><U>Z</U>ur&uuml;ck</FONT></P>
+		</TD>
+		<TD WIDTH=162>
+			<P><FONT FACE="Helvetica, sans-serif">A<SPAN STYLE="text-decoration: none">b</SPAN>b<U>r</U>echen</FONT></P>
+		</TD>
+		<TD WIDTH=155>
+			<P><FONT FACE="Helvetica, sans-serif"><U>O</U>K</FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=88>
+			<P><FONT FACE="Helvetica, sans-serif"><B>French</B></FONT></P>
+		</TD>
+		<TD WIDTH=162>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=162>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=155>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=88>
+			<P><FONT FACE="Helvetica, sans-serif"><B>Spanish</B></FONT></P>
+		</TD>
+		<TD WIDTH=162>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=162>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=155>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=88>
+			<P><FONT FACE="Helvetica, sans-serif"><B>Italian</B></FONT></P>
+		</TD>
+		<TD WIDTH=162>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=162>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=155>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=88>
+			<P><FONT FACE="Helvetica, sans-serif"><B>Dutch</B></FONT></P>
+		</TD>
+		<TD WIDTH=162>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=162>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=155>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+</TABLE>
+<P><FONT FACE="Helvetica, sans-serif">At the end of the workflow</FONT></P>
+<TABLE WIDTH=597 BORDER=7 BORDERCOLOR="#ffffff" CELLPADDING=2 CELLSPACING=0 BGCOLOR="#e6e6e6">
+	<COL WIDTH=88>
+	<COL WIDTH=162>
+	<COL WIDTH=162>
+	<COL WIDTH=155>
+	<TR VALIGN=TOP>
+		<TD WIDTH=88>
+			<P><FONT FACE="Helvetica, sans-serif"><B>English</B></FONT></P>
+		</TD>
+		<TD WIDTH=162>
+			<P><FONT FACE="Helvetica, sans-serif"><U>B</U>ack</FONT></P>
+		</TD>
+		<TD WIDTH=162>
+			<P><FONT FACE="Helvetica, sans-serif">Abo<U>r</U>t</FONT></P>
+		</TD>
+		<TD WIDTH=155>
+			<P><FONT FACE="Helvetica, sans-serif"><U>F</U><SPAN STYLE="text-decoration: none">inish</SPAN></FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=88>
+			<P><FONT FACE="Helvetica, sans-serif"><B>German</B></FONT></P>
+		</TD>
+		<TD WIDTH=162>
+			<P><FONT FACE="Helvetica, sans-serif"><U>Z</U>ur&uuml;ck</FONT></P>
+		</TD>
+		<TD WIDTH=162>
+			<P><FONT FACE="Helvetica, sans-serif">A<SPAN STYLE="text-decoration: none">b</SPAN>b<U>r</U>echen</FONT></P>
+		</TD>
+		<TD WIDTH=155>
+			<P><FONT FACE="Helvetica, sans-serif"><U>B</U>eenden</FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=88>
+			<P><FONT FACE="Helvetica, sans-serif"><B>French</B></FONT></P>
+		</TD>
+		<TD WIDTH=162>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=162>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=155>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=88>
+			<P><FONT FACE="Helvetica, sans-serif"><B>Spanish</B></FONT></P>
+		</TD>
+		<TD WIDTH=162>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=162>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=155>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=88>
+			<P><FONT FACE="Helvetica, sans-serif"><B>Italian</B></FONT></P>
+		</TD>
+		<TD WIDTH=162>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=162>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=155>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=88>
+			<P><FONT FACE="Helvetica, sans-serif"><B>Dutch</B></FONT></P>
+		</TD>
+		<TD WIDTH=162>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=162>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=155>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+</TABLE>
+<P>* If there is enough space in the dialog, Add should be a
+'speaking button' like 'Add soundcard...'</P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<H3>Button order in hardware setup below the overview table</H3>
+<P><BR><BR>
+</P>
+<P><FONT FACE="Helvetica, sans-serif">Example with device overview</FONT></P>
+<P><IMG SRC="Pics/Main_buttons_1.png" NAME="Grafik6" ALIGN=LEFT WIDTH=649 HEIGHT=490 BORDER=0><BR CLEAR=LEFT><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<P><FONT FACE="Helvetica, sans-serif">Example for special situation
+with additional button 'Set as default'</FONT></P>
+<UL>
+	<P><IMG SRC="Pics/Main_buttons_2.png" NAME="Grafik7" ALIGN=LEFT WIDTH=648 HEIGHT=488 BORDER=0><BR CLEAR=LEFT></P>
+</UL>
+<P><BR><BR>
+</P>
+<H3><FONT FACE="Helvetica, sans-serif">YaST2 Push Button Labeling as
+listed in *.po Files</FONT></H3>
+<P><FONT FACE="Helvetica, sans-serif">Here is still some work to do!
+Our goal Make it more <B>clear and shorter for more consistency</B></FONT></P>
+<P><BR><BR>
+</P>
+<TABLE WIDTH=99% BORDER=7 BORDERCOLOR="#ffffff" CELLPADDING=3 CELLSPACING=0>
+	<COL WIDTH=43*>
+	<COL WIDTH=43*>
+	<COL WIDTH=43*>
+	<COL WIDTH=43*>
+	<COL WIDTH=43*>
+	<COL WIDTH=43*>
+	<THEAD>
+		<TR VALIGN=TOP>
+			<TH WIDTH=17% BGCOLOR="#ffff99">
+				<P><FONT FACE="Helvetica, sans-serif">English</FONT></P>
+			</TH>
+			<TH WIDTH=17% BGCOLOR="#ffff99">
+				<P><FONT FACE="Helvetica, sans-serif">German</FONT></P>
+			</TH>
+			<TH WIDTH=17% BGCOLOR="#ffff99">
+				<P><FONT FACE="Helvetica, sans-serif">French</FONT></P>
+			</TH>
+			<TH WIDTH=17% BGCOLOR="#ffff99">
+				<P><FONT FACE="Helvetica, sans-serif">Spanish</FONT></P>
+			</TH>
+			<TH WIDTH=17% BGCOLOR="#ffff99">
+				<P><FONT FACE="Helvetica, sans-serif">Italian</FONT></P>
+			</TH>
+			<TH WIDTH=17% BGCOLOR="#ffff99">
+				<P><FONT FACE="Helvetica, sans-serif">Dutch</FONT></P>
+			</TH>
+		</TR>
+	</THEAD>
+	<TBODY>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;A</FONT>bort<BR><FONT COLOR="#0000ff">&amp;A</FONT>bort
+				Installation<BR><FONT COLOR="#0000ff">&amp;A</FONT>bort
+				installation<BR><FONT COLOR="#0000ff">&amp;A</FONT>bort Update</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;A</FONT>bbrechen
+				<BR><FONT COLOR="#0000ff">&amp;I</FONT>nstallation abbrechen
+				<BR>Installation <FONT COLOR="#0000ff">&amp;a</FONT>bbrechen!
+				<BR>Update <FONT COLOR="#0000ff">&amp;a</FONT>bbrechen </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;A</FONT>nnuler
+				<BR><FONT COLOR="#0000ff">&amp;A</FONT>nnuler l'installation <BR>-
+				<BR><FONT COLOR="#0000ff">&amp;A</FONT>nnuler la mise &agrave;
+				jour </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;A</FONT>bortar
+				<BR>C<FONT COLOR="#0000ff">&amp;a</FONT>ncelar la Instalaci&oacute;n
+				<BR>- <BR>C<FONT COLOR="#0000ff">&amp;a</FONT>ncelar
+				actualizaci&oacute;n </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;A</FONT>bbandona
+				<BR>Inter<FONT COLOR="#0000ff">&amp;r</FONT>ompere
+				l'installazione<BR>- <BR><FONT COLOR="#0000ff">&amp;U</FONT>scire
+				dall'aggiornamento</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;A</FONT>fbreken
+				<BR><FONT COLOR="#0000ff">&amp;I</FONT>nstallatie afbreken <BR>-
+				<BR>Update <FONT COLOR="#0000ff">&amp;a</FONT>fbreken </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Activate %1...
+				<FONT COLOR="#0000ff">&amp;A</FONT>ctivate/Inactivate</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>%1
+				aktivieren... <FONT COLOR="#0000ff">&amp;A</FONT>ktivieren/Nicht
+				aktivieren </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Activer \n le
+				%1.. <FONT COLOR="#0000ff">&amp;A</FONT>ctiver/d&eacute;sactiver </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Activar %1...
+				<FONT COLOR="#0000ff">&amp;A</FONT>ctivar/Desactivar </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Attivare %1...
+				<FONT COLOR="#0000ff">&amp;A</FONT>ttivare/Disattivare</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Activeer
+				%1...<BR><FONT COLOR="#0000ff">&amp;A</FONT>ctiveren/deactiveren</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;A</FONT>dd<BR>Add<BR>Add
+				soundcard ...<BR>Add provider</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;H</FONT>inzuf&uuml;gen
+				<BR>Hinzuf&uuml;gen <BR>Soundkarte <FONT COLOR="#0000ff">&amp;h</FONT>inzuf&uuml;gen
+				... <FONT COLOR="#0000ff">&amp;P</FONT>rovider hinzuf&uuml;gen </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;A</FONT>jouter
+				<BR>Ajouter <BR>Ajouter la carte son... <BR>Entrer le FAI </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;A</FONT>&ntilde;adir
+				<BR>A&ntilde;adir <BR>A&ntilde;adir tarjeta de sonido... A&ntilde;adir
+				proveedor </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;A</FONT>ggiungi
+				<BR>Aggiungere <BR>Aggiungi scheda audio... Aggiungi provider </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;T</FONT>oevoegen
+				<BR>Toevoegen <BR>Geluidskaart toevoegen... Provider toevoegen</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;A</FONT>pply</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>&Uuml;b<FONT COLOR="#0000ff">&amp;e</FONT>rnehmen
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>A<FONT COLOR="#0000ff">&amp;p</FONT>pliquer
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;A</FONT>plicar
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>A<FONT COLOR="#0000ff">&amp;p</FONT>plica
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;T</FONT>oepassen
+				</FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;Ba</FONT>ck</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;Z</FONT>ur&uuml;ck
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;R</FONT>etour
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;A</FONT>tr&aacute;s
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;I</FONT>ndietro
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;T</FONT>erug
+				</FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Callback
+				settings </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;R</FONT>&uuml;ckruf-Einstellungen
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Configuration
+				rappel </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Configuraci&oacute;n
+				de devoluci&oacute;n <BR>de llamadas </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Impostazioni
+				callback </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Callback
+				instellingen </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;C</FONT>ancel<BR>Cancel<BR><FONT COLOR="#0000ff">&amp;c</FONT>ancel</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;A</FONT>bbrechen
+				<BR><FONT COLOR="#0000ff">&amp;A</FONT>bbrechen <BR><FONT COLOR="#0000ff">&amp;A</FONT>bbruch
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;A</FONT>nnuler
+				<BR><FONT COLOR="#0000ff">&amp;A</FONT>nnuler <BR><FONT COLOR="#0000ff">&amp;a</FONT>nnuler</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;C</FONT>ancelar
+				<BR>Cancelar <BR><FONT COLOR="#0000ff">&amp;C</FONT>ancelar </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;A</FONT>nnulla
+				<BR>Cancellare <BR><FONT COLOR="#0000ff">&amp;C</FONT>ancella </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;A</FONT>nnuleren
+				<BR>Afbreken <BR><FONT COLOR="#0000ff">&amp;a</FONT>nnuleren </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;C</FONT>ard</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;K</FONT>arte
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;C</FONT>arte
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;T</FONT>arjeta
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;S</FONT>cheda</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;K</FONT>aart
+				</FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;C</FONT>hange</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;B</FONT>earbeiten
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;E</FONT>diter
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;C</FONT>ambiar
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>- </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>- </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;C</FONT>hoose</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;V</FONT>orschlagen
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;C</FONT>hoisir
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Es<FONT COLOR="#0000ff">&amp;c</FONT>oger
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;C</FONT>hoose
+				<FONT COLOR="#ff3333">*)</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;K</FONT>iezen
+				</FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;C</FONT>lose</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>S<FONT COLOR="#0000ff">&amp;c</FONT>hlie&szlig;en
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;F</FONT>ermer
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;C</FONT>errar
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;C</FONT>hiudi
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;S</FONT>luiten
+				</FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Configure
+				<FONT COLOR="#0000ff">&amp;P</FONT>rinter... <BR>Configure
+				<FONT COLOR="#0000ff">&amp;S</FONT>ound... <BR>Configure
+				<FONT COLOR="#0000ff">&amp;I</FONT>nternet... <BR>Configure
+				<FONT COLOR="#0000ff">&amp;N</FONT>etwork... </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;D</FONT>rucker
+				konfigurieren... <BR><FONT COLOR="#0000ff">&amp;S</FONT>ound
+				konfigurieren... <BR><FONT COLOR="#0000ff">&amp;I</FONT>nternet
+				konfigurieren... <BR><FONT COLOR="#0000ff">&amp;N</FONT>etzwerk
+				konfigurieren... </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Configuration
+				de l'im<FONT COLOR="#0000ff">&amp;p</FONT>rimante...
+				<BR>Configuration du <FONT COLOR="#0000ff">&amp;s</FONT>on...
+				<BR>Configuration <FONT COLOR="#0000ff">&amp;I</FONT>nternet...
+				<BR>Configuration <FONT COLOR="#0000ff">&amp;r</FONT>&eacute;seau
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Configuraci&oacute;n
+				de im<FONT COLOR="#0000ff">&amp;p</FONT>resoras... Configuraci&oacute;n
+				del <FONT COLOR="#0000ff">&amp;s</FONT>onido... Configuraci&oacute;n
+				de <FONT COLOR="#0000ff">&amp;I</FONT>nternet Configuraci&oacute;n
+				de <FONT COLOR="#0000ff">&amp;r</FONT>ed </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Impostare la
+				<FONT COLOR="#0000ff">&amp;s</FONT>tampante Impostare l'<FONT COLOR="#0000ff">&amp;a</FONT>udio
+				<BR>Impostare <FONT COLOR="#0000ff">&amp;I</FONT>nternet...
+				Impostare la <FONT COLOR="#0000ff">&amp;r</FONT>ete</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;P</FONT>rinter
+				configureren... <BR><FONT COLOR="#0000ff">&amp;G</FONT>eluid
+				configureren... <FONT COLOR="#0000ff">&amp;I</FONT>nternet
+				configureren... <FONT COLOR="#0000ff">&amp;N</FONT>etwerk
+				configureren...</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>C<FONT COLOR="#0000ff">&amp;</FONT><FONT COLOR="#000000">o</FONT>ntinue<BR><FONT COLOR="#0000ff">&amp;C</FONT>ontinue<BR>Continue</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;W</FONT>eiter
+				<BR><FONT COLOR="#0000ff">&amp;W</FONT>eiter <BR>Fortsetzen </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>C<FONT COLOR="#0000ff">&amp;o</FONT>ntinuer
+				<BR>C<FONT COLOR="#0000ff">&amp;o</FONT>ntinuer <BR>Continuer </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>C<FONT COLOR="#0000ff">&amp;o</FONT>ntinuar
+				<BR>C<FONT COLOR="#0000ff">&amp;o</FONT>ntinuar <BR>Continuar </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;C</FONT>ontinuare
+				<BR><FONT COLOR="#0000ff">&amp;C</FONT>ontinuare <BR>Continua </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>D<FONT COLOR="#0000ff">&amp;o</FONT>orgaan
+				<BR><FONT COLOR="#0000ff">&amp;D</FONT>oorgaan <BR>Doorgaan </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;C</FONT>ontinue
+				Installation <BR><FONT COLOR="#0000ff">&amp;C</FONT>ontinue
+				Update</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Installation
+				<FONT COLOR="#0000ff">&amp;f</FONT>ortsetzen <BR>Update
+				<FONT COLOR="#0000ff">&amp;f</FONT>ortsetzen </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;C</FONT>ontinuer
+				l'installation <BR><FONT COLOR="#0000ff">&amp;C</FONT>ontinuer la
+				mise &agrave; jour </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;C</FONT>ontinuar
+				la Instalaci&oacute;n <FONT COLOR="#0000ff">&amp;C</FONT>ontinuar
+				actualizaci&oacute;n </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;C</FONT>ontinuare
+				l'installazione <FONT COLOR="#0000ff">&amp;C</FONT>ontinuare
+				l'aggiornamento</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;D</FONT>oorgaan
+				met installeren <BR><FONT COLOR="#0000ff">&amp;D</FONT>oorgaan
+				met update </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;C</FONT>reate
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>A<FONT COLOR="#0000ff">&amp;n</FONT>legen
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;C</FONT>r&eacute;er
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;C</FONT>rear
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;C</FONT>reare
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;A</FONT>anmaken
+				</FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;C</FONT>ustom
+				LILO installation...<BR><BR><FONT COLOR="#0000ff">&amp;C</FONT>ustom
+				SILO installation...</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;A</FONT>ndere
+				Konfiguration... <BR><BR><FONT COLOR="#0000ff">&amp;A</FONT>ndere
+				Konfiguration... </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>A<FONT COLOR="#0000ff">&amp;u</FONT>tre
+				configuration de LILO... <BR><BR>A<FONT COLOR="#0000ff">&amp;u</FONT>tre
+				configuration de SILO... </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Instalaci&oacute;n
+				<FONT COLOR="#0000ff">&amp;m</FONT>anual de LILO...
+				<BR><BR>Instala<FONT COLOR="#0000ff">&amp;c</FONT>i&oacute;n
+				personalizada de SILO... </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;C</FONT>onfigurazione
+				personalizzata di LILO... <FONT COLOR="#0000ff">&amp;C</FONT>onfigurazione
+				personalizzata di SILO...</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;L</FONT>ILO
+				configuratie op maat... <BR><FONT COLOR="#0000ff">&amp;S</FONT>ILO
+				configuratie op maat... </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;D</FONT>elete<BR>Delete<BR>De<FONT COLOR="#0000ff">&amp;l</FONT>ete</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;L</FONT>&ouml;schen
+				<BR>Entfernen <BR>En<FONT COLOR="#0000ff">&amp;t</FONT>fernen </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>E<FONT COLOR="#0000ff">&amp;f</FONT>facer
+				<BR>Supprimer <BR>Supprimer </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;B</FONT>orrar
+				<BR>Suprimir <BR>Bo<FONT COLOR="#0000ff">&amp;r</FONT>rar </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>C<FONT COLOR="#0000ff">&amp;a</FONT>ncellare
+				<BR>Elimina <BR><FONT COLOR="#0000ff">&amp;C</FONT>ancellare </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;V</FONT>erwijderen
+				<BR>Verwijderen <BR>Verwij<FONT COLOR="#0000ff">&amp;d</FONT>eren
+				</FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;D</FONT>escription
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;B</FONT>eschreibung
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;D</FONT>escription
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;D</FONT>escripci&oacute;n
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;D</FONT>escrizione
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;B</FONT>eschrijving
+				</FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;D</FONT>etails...<BR><FONT COLOR="#0000ff">&amp;D</FONT>etails<BR>Details
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;D</FONT>etails...
+				<BR><FONT COLOR="#0000ff">&amp;D</FONT>etails <BR>Details </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;D</FONT>etails...
+				<BR><FONT COLOR="#0000ff">&amp;D</FONT>&eacute;tails <BR>D&eacute;tails
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;D</FONT>etalles...
+				<BR><FONT COLOR="#0000ff">&amp;D</FONT>etalles <BR>Detalles </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;D</FONT>ettagli...
+				<BR><FONT COLOR="#0000ff">&amp;D</FONT>ettagli <BR>Dettagli </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;D</FONT>etails...
+				<BR><FONT COLOR="#0000ff">&amp;D</FONT>etails <BR>Details </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;D</FONT>etailed
+				selection... </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;E</FONT>rweiterte
+				Auswahl... </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>S&eacute;lection
+				<FONT COLOR="#0000ff">&amp;d</FONT>&eacute;taill&eacute;e... </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Selecci&oacute;n
+				<FONT COLOR="#0000ff">&amp;d</FONT>etallada..</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Selezione
+				<FONT COLOR="#0000ff">&amp;d</FONT>ettagliata...</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Ge<FONT COLOR="#0000ff">&amp;d</FONT>etailleerde
+				selectie... </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;D</FONT>iscard
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;V</FONT>erwerfen
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Re<FONT COLOR="#0000ff">&amp;j</FONT>eter
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;D</FONT>escartar
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;A</FONT>bbandona
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;N</FONT>egeren
+				</FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Driver disk </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Treiberdiskette
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Disquette
+				pilote </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Disco de
+				controladores </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;D</FONT>ischetto
+				dei driver</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Driver-diskette
+				</FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;E</FONT>dit
+				<BR>Ed<FONT COLOR="#0000ff">&amp;i</FONT>t <BR>Edit </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;B</FONT>earbeiten
+				<BR>Be<FONT COLOR="#0000ff">&amp;a</FONT>rbeiten <BR>Bearbeiten </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;M</FONT>odifier
+				<BR><FONT COLOR="#0000ff">&amp;M</FONT>odifier <BR>Modifier </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;E</FONT>ditar
+				<BR>Ed<FONT COLOR="#0000ff">&amp;i</FONT>tar <BR>Editar </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;M</FONT>odificare
+				<BR><FONT COLOR="#0000ff">&amp;M</FONT>odifca <BR>Modifica </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;W</FONT>ijzigen
+				<BR>W<FONT COLOR="#0000ff">&amp;i</FONT>jzigen <BR>Wijzigen </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;E</FONT>ject
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Ausw<FONT COLOR="#0000ff">&amp;e</FONT>rfen
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Re<FONT COLOR="#0000ff">&amp;j</FONT>eter
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;E</FONT>xpulsar
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;E</FONT>spellere
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;E</FONT>ject
+				</FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;F</FONT>inish
+				<BR><FONT COLOR="#0000ff">&amp;F</FONT>inish installation </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;B</FONT>eenden
+				<BR>Installation <FONT COLOR="#0000ff">&amp;a</FONT>bschlie&szlig;en
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;T</FONT>erminer
+				<BR><FONT COLOR="#0000ff">&amp;T</FONT>erminer l'installation </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;F</FONT>inalizar
+				<BR><FONT COLOR="#0000ff">&amp;F</FONT>inalizar instalaci&oacute;n
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;F</FONT>inito
+				<BR><FONT COLOR="#0000ff">&amp;T</FONT>erminare l'installazione</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;E</FONT>inde
+				<BR>Installatie <FONT COLOR="#0000ff">&amp;a</FONT>fsluiten</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;F</FONT>ormat
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;F</FONT>ormatieren
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;F</FONT>ormater
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;F</FONT>ormatear
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;F</FONT>ormattare
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;F</FONT>ormatteren
+				</FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;H</FONT>elp
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;H</FONT>ilfe
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>A<FONT COLOR="#0000ff">&amp;i</FONT>de
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;A</FONT>yuda
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;A</FONT>iuto
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;H</FONT>elp
+				</FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;H</FONT>ostname
+				and nameserver </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;R</FONT>echnername
+				und Nameserver</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;N</FONT>om
+				d'h&ocirc;te et serveur de noms </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;H</FONT>ostname
+				y nombre del servidor(nameserver) </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Nome
+				dell'<FONT COLOR="#0000ff">&amp;H</FONT>ost e nameserver </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;H</FONT>ostnaam
+				en naamserver </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;I</FONT>nfo
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;I</FONT>nfo
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;I</FONT>nfo
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;I</FONT>nformaci&oacute;n
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;I</FONT>nfo
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;I</FONT>nfo
+				</FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;I</FONT>nstall
+				<BR><FONT COLOR="#0000ff">&amp;I</FONT>nstall package </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;I</FONT>nstallieren
+				<BR>Paket <FONT COLOR="#0000ff">&amp;i</FONT>nstallieren </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;I</FONT>nstaller
+				<BR><FONT COLOR="#0000ff">&amp;I</FONT>nstaller le paquetage </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;I</FONT>nstalar
+				<BR><FONT COLOR="#0000ff">&amp;I</FONT>nstalar paquete </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;I</FONT>nstalla:
+				<BR><FONT COLOR="#0000ff">&amp;I</FONT>nstalla il pacchetto</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Installeer
+				<BR><FONT COLOR="#0000ff">&amp;I</FONT>nstalleer pakket </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>IP settings </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>I<FONT COLOR="#0000ff">&amp;P</FONT>-Einstellungen
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Configuration
+				IP </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Configuraciones
+				de IP</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Impostazioni
+				IP </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>IP
+				instellingen </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;I</FONT>SDN</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;I</FONT>SDN
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;I</FONT>SDN
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>RDS<FONT COLOR="#0000ff">&amp;I</FONT>
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;I</FONT>SDN
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;I</FONT>SDN
+				</FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;L</FONT>aunch
+				module </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;M</FONT>odul
+				starten </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;L</FONT>ancer
+				le module </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;E</FONT>jecutar
+				m&oacute;dulo </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;L</FONT>anciare
+				il modulo </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;M</FONT>odule
+				starten </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT COLOR="#0000ff"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>&amp;L<FONT COLOR="#000000">et
+				me choose </FONT></FONT></FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Selbst
+				ausw&auml;h<FONT COLOR="#0000ff">&amp;l</FONT>en </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;C</FONT>hoix
+				personnel </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>D&eacute;jame
+				e<FONT COLOR="#0000ff">&amp;l</FONT>egir </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;L</FONT>ascia
+				scegliere a me</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>- </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;M</FONT>anual
+				<BR><FONT COLOR="#0000ff">&amp;M</FONT>anual selection <BR>Manual
+				<FONT COLOR="#000000">%1</FONT> Setup... </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;M</FONT>anual
+				<BR><FONT COLOR="#0000ff">&amp;M</FONT>anuelle Auswahl <BR><FONT COLOR="#000000">%1</FONT>
+				einrichten... </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;M</FONT>anuelle
+				<BR>S&eacute;lection <FONT COLOR="#0000ff">&amp;m</FONT>anuelle
+				<BR>Configuration manuelle \n %1 ... </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;M</FONT>anual
+				<BR>Selecci&oacute;n <FONT COLOR="#0000ff">&amp;m</FONT>anual...
+				<BR>Setup Manual %1 </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;M</FONT>anuale
+				<BR>Selezione <FONT COLOR="#0000ff">&amp;m</FONT>anuale
+				Configurazione manuale<BR>\n %1 ... </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;H</FONT>andmatig
+				<BR>Hand<FONT COLOR="#0000ff">&amp;m</FONT>atige selectie
+				Handmatige %1 instelling... </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;M</FONT>odem
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;M</FONT>odem
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;M</FONT>odem
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;M</FONT>&oacute;dem
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;M</FONT>odem
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Modem </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Ne<FONT COLOR="#0000ff">&amp;w</FONT>
+				<BR><FONT COLOR="#0000ff">&amp;N</FONT>ew <BR>New </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Ne<FONT COLOR="#0000ff">&amp;u</FONT>
+				<BR><FONT COLOR="#0000ff">&amp;N</FONT>eu <BR><FONT COLOR="#0000ff">&amp;N</FONT>eu
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Nouveau
+				<BR>Nouveau <BR>Nouveau </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Nu<FONT COLOR="#0000ff">&amp;e</FONT>vo
+				<BR>Nuevo <BR>Nuevo </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;N</FONT>uovo
+				<BR><FONT COLOR="#0000ff">&amp;N</FONT>uovo <BR>Nuovo </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Nieu<FONT COLOR="#0000ff">&amp;w</FONT>
+				<BR><FONT COLOR="#0000ff">&amp;N</FONT>ieuw <BR>Nieuw </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;N</FONT>ext
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;W</FONT>eiter
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;S</FONT>uivant
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>S<FONT COLOR="#0000ff">&amp;i</FONT>guiente
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;P</FONT>rossimo
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;V</FONT>erder
+				</FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;N</FONT>o
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;N</FONT>ein
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;N</FONT>on
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;N</FONT>o
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;N</FONT>o
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;N</FONT>ee</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;O</FONT>K
+				<BR><FONT COLOR="#0000ff">&amp;O</FONT>k <BR><FONT COLOR="#0000ff">&amp;O</FONT>K
+				and Exit </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;O</FONT>K
+				<BR><FONT COLOR="#0000ff">&amp;O</FONT>K <BR><FONT COLOR="#0000ff">&amp;O</FONT>K
+				und Verlassen </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;O</FONT>K
+				<BR><FONT COLOR="#0000ff">&amp;O</FONT>K <BR><FONT COLOR="#0000ff">&amp;O</FONT>K
+				et quitter </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;A</FONT>ceptar
+				<BR><FONT COLOR="#0000ff">&amp;O</FONT>k <BR><FONT COLOR="#0000ff">&amp;O</FONT>K
+				y Salir </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;O</FONT>K
+				<BR><FONT COLOR="#0000ff">&amp;O</FONT>K <BR><FONT COLOR="#0000ff">&amp;O</FONT>K
+				ed Esci </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;O</FONT>K
+				<BR><FONT COLOR="#0000ff">&amp;O</FONT>K <BR><FONT COLOR="#0000ff">&amp;O</FONT>K
+				en stoppen </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;O</FONT>ptions:
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;O</FONT>ptionen:
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;O</FONT>ptions:
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;O</FONT>pciones:
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;O</FONT>pzioni:
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;O</FONT>pties:
+				</FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;Q</FONT>uit
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;E</FONT>nde
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;Q</FONT>uitter
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;A</FONT>bandonar
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;U</FONT>scire
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;A</FONT>fsluiten
+				</FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;R</FONT>emote
+				hosts </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;E</FONT>ntfernte
+				Rechner </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>H&ocirc;tes
+				<FONT COLOR="#0000ff">&amp;d</FONT>istants </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Equipos
+				<FONT COLOR="#0000ff">&amp;R</FONT>emotos </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Hosts <FONT COLOR="#0000ff">&amp;R</FONT>emoti
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;R</FONT>emote
+				hosts </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;R</FONT>emove
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;E</FONT>ntfernen
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;S</FONT>upprimer
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;Q</FONT>uitar
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;R</FONT>imuovere
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;V</FONT>erwijderen
+				</FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;R</FONT>eset
+				<BR><FONT COLOR="#0000ff">&amp;R</FONT>eset and Re-Read </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Zu<FONT COLOR="#0000ff">&amp;r</FONT>&uuml;cksetzen
+				<BR>Zu<FONT COLOR="#0000ff">&amp;r</FONT>&uuml;cksetzen </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;R</FONT>emise
+				&agrave; z&eacute;ro <BR>R&eacute;<FONT COLOR="#0000ff">&amp;i</FONT>nitialiser
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;R</FONT>einicializar
+				<BR><FONT COLOR="#0000ff">&amp;R</FONT>einicializaci&oacute;n y
+				Re-lectura</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;R</FONT>esettare
+				<BR><FONT COLOR="#0000ff">&amp;R</FONT>esettare e rileggere</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;R</FONT>eset
+				<BR><FONT COLOR="#0000ff">&amp;R</FONT>esetten en herlezen</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;R</FONT>etry
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>W<FONT COLOR="#0000ff">&amp;i</FONT>ederholen
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;R</FONT>ecommencer
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;R</FONT>eintentar
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;R</FONT>iprova
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;H</FONT>erhalen
+				</FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;R</FONT>outing
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>R<FONT COLOR="#0000ff">&amp;o</FONT>uting
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;R</FONT>oute
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;R</FONT>outing
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;R</FONT>outing
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;R</FONT>outing
+				</FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;S</FONT>ave
+				<BR><FONT COLOR="#0000ff">&amp;S</FONT>ave and Exit <BR><FONT COLOR="#0000ff">&amp;S</FONT>ave
+				\\&amp; Exit <BR><FONT COLOR="#0000ff">&amp;S</FONT>ave settings
+				to floppy disk </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;S</FONT>peichern
+				<BR><FONT COLOR="#0000ff">&amp;S</FONT>peichern und Beenden
+				<BR><FONT COLOR="#0000ff">&amp;S</FONT>peichern \\&amp; Beenden
+				<BR>Einstellungen auf Diskette <BR><FONT COLOR="#0000ff">&amp;s</FONT>peichern
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;E</FONT>nregistrer
+				<BR><FONT COLOR="#0000ff">&amp;E</FONT>nregistrer et Quitter <BR>-
+				<BR>Sau<FONT COLOR="#0000ff">&amp;v</FONT>egarde de la
+				<BR>configuration sur disquette </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;S</FONT>alvar
+				<BR><FONT COLOR="#0000ff">&amp;S</FONT>alvar y Salir <BR>-
+				<BR><FONT COLOR="#0000ff">&amp;G</FONT>uardar configuraci&oacute;n
+				en un disquette </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;S</FONT>alva
+				<BR><FONT COLOR="#0000ff">&amp;S</FONT>alva ed Esci <BR>-
+				<BR><FONT COLOR="#0000ff">&amp;S</FONT>alvare le impostazioni su
+				dischetto </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;B</FONT>ewaren
+				<BR>Op<FONT COLOR="#0000ff">&amp;s</FONT>laan en stoppen <BR>-
+				<BR>Instellingen <FONT COLOR="#0000ff">&amp;b</FONT>ewaren op
+				diskette </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;S</FONT>earch
+				<BR>Search </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;S</FONT>uche
+				<BR><FONT COLOR="#0000ff">&amp;S</FONT>uchen </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;R</FONT>echerche
+				<BR>Chercher </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;B</FONT>uscar
+				<BR>Buscar </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>C<FONT COLOR="#0000ff">&amp;e</FONT>rca
+				<BR>Cerca </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;Z</FONT>oeken
+				<BR>Zoeken </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Select from
+				list <BR><BR>Select network card </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;T</FONT>reffen
+				Sie eine Auswahl aus <BR>der Liste <BR><FONT COLOR="#0000ff">&amp;N</FONT>etzwerkkarte
+				w&auml;hlen </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Choisissez
+				dans la liste <BR><BR>Carte r&eacute;seau <FONT COLOR="#ff3333">*)</FONT></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Seleccionar
+				desde lista <BR><BR>Seleccione una tarjeta de red</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Scegliere
+				dalla lista<BR><BR>Selezionare la scheda di rete</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Selecteer uit
+				de lijst <BR><BR>Selecteer netwerkkaart</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;S</FONT>et
+				<BR><FONT COLOR="#0000ff">&amp;S</FONT>et as default </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;A</FONT>nwenden
+				<BR><FONT COLOR="#0000ff">&amp;A</FONT>ls Standard festlegen </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;F</FONT>ixer
+				<BR><FONT COLOR="#0000ff">&amp;C</FONT>onfigurer comme
+				imprimante<BR>par d&eacute;faut </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;C</FONT>ambiar
+				<BR><FONT COLOR="#0000ff">&amp;C</FONT>onfiguraci&oacute;n por
+				defecto </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;I</FONT>mpostare
+				<BR><FONT COLOR="#0000ff">&amp;I</FONT>mposta come default </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;A</FONT>ctiveren
+				<BR>Instellen als <FONT COLOR="#0000ff">&amp;standaard</FONT></FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Show <BR>Show
+				<FONT COLOR="#0000ff">&amp;d</FONT>etails <BR><FONT COLOR="#0000ff">&amp;S</FONT>how
+				patch information </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Zeige
+				<BR><FONT COLOR="#0000ff">&amp;D</FONT>etails anzeigen
+				<BR>Patch-Informationen <FONT COLOR="#0000ff">&amp;a</FONT>nzeigen
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Montrer
+				<BR>Afficher les <FONT COLOR="#0000ff">&amp;d</FONT>&eacute;tails
+				<BR><FONT COLOR="#0000ff">&amp;A</FONT>fficher des infos sur les
+				patches</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Mostrar
+				<BR>Mostrar <FONT COLOR="#0000ff">&amp;d</FONT>etalles <BR><FONT COLOR="#0000ff">&amp;M</FONT>ostrar
+				informaci&oacute;n del <BR>parche </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Mostrare
+				<BR>Mostra <FONT COLOR="#0000ff">&amp;d</FONT>ettagli <BR><FONT COLOR="#0000ff">&amp;M</FONT>ostra
+				informazioni sulla patch </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;B</FONT>ekijken
+				<BR><FONT COLOR="#0000ff">&amp;D</FONT>etails bekijken <BR>Patch
+				informatie <FONT COLOR="#0000ff">&amp;b</FONT>ekijken </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Skip <BR><FONT COLOR="#0000ff">&amp;S</FONT>kip
+				<BR><FONT COLOR="#0000ff">&amp;S</FONT>kip patch </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>&Uuml;berspringen
+				<BR>&Uuml;<FONT COLOR="#0000ff">&amp;b</FONT>erspringen <BR>Patch
+				&uuml;<FONT COLOR="#0000ff">&amp;b</FONT>erspringen </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Sauter
+				<BR><FONT COLOR="#0000ff">&amp;S</FONT>auter <BR><FONT COLOR="#0000ff">&amp;S</FONT>auter
+				le patch </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Saltar
+				<BR><FONT COLOR="#0000ff">&amp;I</FONT>gnorar <BR><FONT COLOR="#0000ff">&amp;I</FONT>gnorar
+				parche </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Salta <BR><FONT COLOR="#0000ff">&amp;S</FONT>alta
+				<BR><FONT COLOR="#0000ff">&amp;S</FONT>alta patch </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Overslaan
+				<BR><FONT COLOR="#0000ff">&amp;O</FONT>verslaan <BR>Patch
+				over<FONT COLOR="#0000ff">&amp;s</FONT>laan </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;S</FONT>top
+				<BR><FONT COLOR="#0000ff">&amp;S</FONT>top! </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;A</FONT>nhalten
+				<BR><FONT COLOR="#0000ff">&amp;S</FONT>top! </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;S</FONT>top
+				<BR><FONT COLOR="#0000ff">&amp;S</FONT>top! </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;P</FONT>arar
+				<BR><FONT COLOR="#0000ff">&amp;D</FONT>etener </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;S</FONT>top
+				<BR><FONT COLOR="#0000ff">&amp;F</FONT>erma! </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;S</FONT>top
+				<BR><FONT COLOR="#0000ff">&amp;S</FONT>top! </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;S</FONT>wap
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;S</FONT>wap
+				(virtueller Speicher) </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;S</FONT>wap
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;S</FONT>wap
+				(intercambio) </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;S</FONT>wap
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;S</FONT>wap
+				</FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;T</FONT>est
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;T</FONT>est
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;T</FONT>ester
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;P</FONT>robar
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;T</FONT>est
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;T</FONT>est
+				</FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <FONT COLOR="#0000ff">&amp;e</FONT>ntire
+				hard disk </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;G</FONT>esamte
+				Festplatte </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Utiliser la
+				<FONT COLOR="#0000ff">&amp;t</FONT>otalit&eacute; du disque </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Utilizar todo
+				<FONT COLOR="#0000ff">&amp;e</FONT>l disco </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Intero <FONT COLOR="#0000ff">&amp;d</FONT>isco
+				</FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Gebruik
+				<FONT COLOR="#0000ff">&amp;g</FONT>ehele harddisk</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;Y</FONT>es
+				<BR><FONT COLOR="#0000ff">&amp;Y</FONT>es - install <BR><FONT COLOR="#0000ff">&amp;Y</FONT>es
+				- start </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;J</FONT>a
+				<BR><FONT COLOR="#0000ff">&amp;J</FONT>a - installieren <BR><FONT COLOR="#0000ff">&amp;J</FONT>a
+				- starten </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;O</FONT>ui
+				<BR><FONT COLOR="#0000ff">&amp;O</FONT>ui, installer <BR><FONT COLOR="#0000ff">&amp;O</FONT>ui,
+				d&eacute;marrer </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;S</FONT>&iacute;
+				<BR><FONT COLOR="#0000ff">&amp;S</FONT>&iacute; - instalar <BR><FONT COLOR="#0000ff">&amp;S</FONT>&iacute;
+				- comenzar </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;S</FONT>&igrave;
+				<BR><FONT COLOR="#0000ff">&amp;S</FONT>&igrave;, installa <BR><FONT COLOR="#0000ff">&amp;S</FONT>&igrave;,
+				inizia </FONT></FONT>
+				</P>
+			</TD>
+			<TD WIDTH=17% BGCOLOR="#e6e6e6">
+				<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><FONT COLOR="#0000ff">&amp;J</FONT>a
+				<BR><FONT COLOR="#0000ff">&amp;J</FONT>a - installeren <BR><FONT COLOR="#0000ff">&amp;J</FONT>a
+				- start </FONT></FONT>
+				</P>
+			</TD>
+		</TR>
+	</TBODY>
+</TABLE>
+<P><FONT FACE="Helvetica, sans-serif"><FONT COLOR="#ff3333">*)</FONT>
+<FONT SIZE=2>not or incompletely translated</FONT></FONT></P>
+<P ALIGN=LEFT><BR><BR>
+</P>
+<H2><FONT FACE="Helvetica, sans-serif">List of keywords</FONT></H2>
+<UL>
+	<LI><P><FONT FACE="Helvetica, sans-serif">On the to do list</FONT></P>
+</UL>
+<P><BR><BR>
+</P>
+<H2><FONT FACE="Helvetica, sans-serif">Correct punctuation</FONT></H2>
+<UL>
+	<LI><P><FONT FACE="Helvetica, sans-serif">If you really need a '&amp;'
+	in your text, add a space before and after the symbol. </FONT>
+	</P>
+	<UL>
+		<LI><P><FONT FACE="Helvetica, sans-serif">Correct: 'Security &amp;
+		User'</FONT></P>
+		<LI><P><FONT FACE="Helvetica, sans-serif">Wrong: 'Security&amp;User'</FONT></P>
+	</UL>
+</UL>
+<UL>
+	<LI><P><FONT FACE="Helvetica, sans-serif">Please, never ever use
+	more than one exclamation sign (`!') if you want to finish a
+	sentence. </FONT>
+	</P>
+	<UL>
+		<LI><P><FONT FACE="Helvetica, sans-serif">Correkt: 'Stop now!'</FONT></P>
+		<LI><P><FONT FACE="Helvetica, sans-serif">Wrong: 'Stopp now!!!'</FONT></P>
+	</UL>
+</UL>
+<UL>
+	<LI><P><FONT FACE="Helvetica, sans-serif">Even if you thing it looks
+	ugly to you, don't precede exclamation signs and other punctation
+	sing with spaces like 'Stop !' . French people are different, but
+	english people (GB and US) are using (example):</FONT></P>
+	<UL>
+		<LI><P><FONT FACE="Helvetica, sans-serif">Correct: 'Please, stop it
+		now!'</FONT></P>
+		<LI><P><FONT FACE="Helvetica, sans-serif">Wrong: 'Please, stop it
+		now !'</FONT></P>
+	</UL>
+</UL>
+<UL>
+	<LI><P><FONT FACE="Helvetica, sans-serif">Be aware of the language
+	if you use quoted words.</FONT></P>
+	<UL>
+		<LI><P>English: This is a 'quoted' word!</P>
+		<LI><P><FONT FACE="Helvetica, sans-serif">French : This is a &laquo;
+		quoted &raquo; word!</FONT></P>
+		<LI><P><FONT FACE="Helvetica, sans-serif">German : This is a
+		&raquo;quoted&laquo; word!</FONT></P>
+	</UL>
+	<LI><P><FONT FACE="Helvetica, sans-serif">Three dots after a word,
+	to sign 'other dialogs will follow': Do not add a space between the
+	word and the dots!</FONT></P>
+	<UL>
+		<LI><P><FONT FACE="Helvetica, sans-serif">Correct: 'Add printer
+		queue...'</FONT></P>
+		<LI><P><FONT FACE="Helvetica, sans-serif">Wrong: 'Add printer queue
+		...'</FONT></P>
+	</UL>
+</UL>
+<P><BR><BR>
+</P>
+<H2 STYLE="margin-top: 0cm; margin-bottom: 0cm"><BR>
+</H2>
+<H2 STYLE="margin-top: 0cm; margin-bottom: 0cm"><FONT FACE="Helvetica, sans-serif">Beware
+of language! (draft)</FONT></H2>
+<H3><FONT FACE="Helvetica, sans-serif">Critical words</FONT></H3>
+<P><FONT FACE="Helvetica, sans-serif">Some other style guides give
+the advice to avoid 'critical words' like</FONT></P>
+<UL>
+	<LI><P><FONT FACE="Helvetica, sans-serif">execute</FONT></P>
+	<LI><P><FONT FACE="Helvetica, sans-serif">kill</FONT></P>
+	<LI><P><FONT FACE="Helvetica, sans-serif">terminate</FONT></P>
+	<LI><P><FONT FACE="Helvetica, sans-serif">fatal</FONT></P>
+	<LI><P><FONT FACE="Helvetica, sans-serif">abort</FONT></P>
+</UL>
+<P><BR><BR>
+</P>
+<P><FONT FACE="Helvetica, sans-serif">I think we have to discuss
+this. </FONT>
+</P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<H3><FONT FACE="Helvetica, sans-serif">Problematic terms </FONT>
+</H3>
+<P><FONT FACE="Helvetica, sans-serif">The list needs a revision for
+our purpose (out of the Microsoft Styleguide: Developing user
+interfaces for Windows)</FONT></P>
+<P><FONT FACE="Helvetica, sans-serif">*** = needs discussion</FONT></P>
+<P><BR><BR>
+</P>
+<TABLE WIDTH=80% BORDER=1 BORDERCOLOR="#ffffff" CELLPADDING=5 CELLSPACING=0 BGCOLOR="#ffffcc">
+	<COL WIDTH=38*>
+	<COL WIDTH=87*>
+	<COL WIDTH=5*>
+	<COL WIDTH=38*>
+	<COL WIDTH=87*>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>A.M.,
+			P.M. </B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Not <I>am</I>
+			or <I>pm</I>. </FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>grayed
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>unavailable</I>
+			instead. </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>abort***
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Alternative
+			use: <I>end</I> to refer to communications and network
+			connections, <I>quit</I> for programs, and <I>stop</I> for
+			hardware operations.</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>hard
+			drive </B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>hard
+			disk</I> instead. </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>abort
+			cancel</B></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Avoid this.</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>his
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>the</I>
+			instead (for example, 'the user can change the settings' instead
+			of 'the user can change his settings'). </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>above
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>preceding</I>
+			or <I>earlier</I> instead. </FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>higher
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>later</I>
+			instead for product version numbers. </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>accelerator
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>shortcut</I>
+			instead. </FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>hyphens
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Don't use in
+			key combinations; use a plus sign instead (for example, 'Alt+X'). </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>and/or
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>or</I>
+			instead. </FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>illegal
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>not
+			allowed</I> instead, except when referring to matters of law. </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>application
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>program</I>
+			instead. </FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>install
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>set up</I>
+			instead when referring to software. </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>bars
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><I>Taskbar </I>and
+			<I>toolbar </I>are one word; all other bars (<I>scroll bar, split
+			bar, status bar, title bar, </I>etc.) are two words. </FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>internet
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>Internet</I>
+			instead. </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>below
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>following</I>
+			or <I>later</I> instead. </FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>K
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>KB</I>
+			instead with a space following the number. For example, use <I>40
+			KB,</I> not <I>40KB</I> or <I>40K</I>. </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>bitmap
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>graphic</I>
+			or <I>picture</I> instead. </FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT>legal 
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P>Use <I>allowed</I> instead, except when referring to matters of
+			law. 
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>boot
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>start</I>
+			instead. </FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>list
+			box </B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Refer to by its
+			label and the word <I>list</I> (for example, use 'In the Font
+			list' instead of 'In the Font list box'). </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>box
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>computer</I>
+			instead. </FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>log
+			in/log out </B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>log on
+			to</I> and <I>log off</I> instead. </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>boxes
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><I>Toolbox </I>is
+			one word; all other boxes are two words. </FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>lower
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>earlier</I>
+			instead for product version numbers. </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>button
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use &quot;click
+			Cancel&quot; instead of &quot;click the Cancel button.&quot; </FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>machine
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>computer</I>
+			instead. </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>check
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>When referring
+			to a check box, use <I>select</I> or <I>clear</I> instead. </FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>menu
+			item </B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>command</I>
+			instead. </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>choose
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>click</I>
+			or <I>double-click</I> instead. </FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>message
+			box </B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>message</I>
+			instead. </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>close
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use for
+			windows, documents, and dialog boxes. For programs and network
+			connections, use <I>quit</I> and <I>end,</I> respectively. </FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>mnemonic
+			key </B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>access
+			key </I>instead. </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>combo
+			box = drop down list </B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>box</I>
+			instead (for example, use &quot;In the Font box&quot; instead of
+			&quot;In the Font combo box&quot;). </FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>noncontiguous
+			selection </B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>multiple
+			selection</I> or <I>nonadjacent selection</I> instead. </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>context
+			menu </B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>shortcut
+			menu </I>instead. </FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>open
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use for
+			windows, files, documents, and folders not for choosing a command,
+			a menu, an icon, an option, or any other similar element that
+			doesn't produce a working file in a window. </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>context-sensitive
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Always
+			hyphenate. </FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>option
+			button </B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Don't use in
+			procedures. Use 'click Landscape' instead of 'click the Landscape
+			option button'. </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>corrupt
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>corrupted</I>
+			instead. </FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>output
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Don't use as a
+			verb. Use <I>write to, display to,</I> or <I>print to</I> instead.
+			</FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>deselect
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>cancel
+			the selection</I> instead. </FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>pathname
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>path</I>
+			instead. </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>dialog
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>dialog
+			box</I> instead. </FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>PC
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>computer</I>
+			instead. </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>dialogue
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>dialog
+			box</I> instead. </FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>pop-up
+			menu </B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>shortcut
+			menu </I>instead. </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>directory
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>folder</I>
+			instead. </FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>prompt
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Do not use as a
+			noun to mean 'message'. </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>disabled
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>unavailable</I>
+			instead. </FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>property
+			page </B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>tab</I>
+			instead. </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>diskette
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>disk</I>
+			instead. </FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>property
+			sheet </B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>dialog
+			box</I> instead. </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>double-click
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Always
+			hyphenate. </FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>pull-down
+			menu </B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>menu
+			</I>instead. </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>edit
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>change</I>
+			or <I>modify</I> instead. </FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>push
+			button </B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>command
+			button</I> instead. </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>end
+			user </B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>user</I>
+			instead. </FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>press
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>click</I>
+			when an action can be performed with both the keyboard and the
+			mouse. </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>enter
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Don't use as a
+			synonym for <I>type</I>. </FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>radio
+			button </B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>option
+			button</I> instead. </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>error
+			message </B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>message</I>
+			instead. </FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Readme/Read
+			Me </B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>readme</I>
+			instead. </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>execute
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>run</I>
+			or <I>carry out</I> instead. </FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>reboot
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>restart</I>
+			instead. </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>exit***
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use as a
+			command name only; use <I>quit</I> instead to refer to closing a
+			program. For example, &quot;use the Exit command to quit the
+			program.&quot; </FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Registry
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>registry</I>
+			instead. </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>field
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>box</I>
+			or <I>option</I> instead. </FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>right-click
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Always
+			hyphenate. </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>file
+			extension </B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>extension</I>
+			or <I>file name extension</I> instead. For the actual extensions,
+			use <I>.txt</I> instead of <I>.TXT</I> or <I>TXT</I>. </FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>(s)
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Do not use to
+			indicate that a noun can be singular or plural. Use the plural or
+			<I>one or more</I> instead. </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>filename
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>file
+			name</I> instead. </FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>select
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use for data,
+			not commands. For commands, use <I>click</I> or <I>double-click</I>
+			instead. </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>fixed
+			disk </B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>hard
+			disk</I> instead. </FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>subdirectory
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>folder</I>
+			instead. </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>floppy
+			drive </B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>floppy
+			disk</I> instead. </FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>terminate
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>quit</I>
+			or <I>close</I> instead. </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Toolbar
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>toolbar</I>
+			instead. </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>tooltip
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>ToolTip</I>
+			instead. </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>will
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Avoid; make
+			present tense, if possible. </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Wizard
+			</B></FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Use <I>wizard</I>
+			instead. </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P ALIGN=RIGHT><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=2% BGCOLOR="#ffffff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=15% BGCOLOR="#e6e6ff">
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=34% BGCOLOR="#e6e6e6">
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+</TABLE>
+<P><BR><BR>
+</P>
+<H3><BR><BR>
+</H3>
+<H3><FONT FACE="Helvetica, sans-serif">For german developers: SuSE
+English... Common mistakes (by cstein)</FONT></H3>
+<TABLE WIDTH=100% BORDER=7 BORDERCOLOR="#ffffff" CELLPADDING=2 CELLSPACING=0 BGCOLOR="#e6e6e6">
+	<COL WIDTH=51*>
+	<COL WIDTH=205*>
+	<TR VALIGN=TOP>
+		<TD WIDTH=20%>
+			<P><FONT FACE="Helvetica, sans-serif">Umgangssprachliche
+			Abk&uuml;rzungen (contractions) bei englischen Hilfverben:</FONT></P>
+		</TD>
+		<TD WIDTH=80%>
+			<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif">Es
+			funktioniert in normalen S&auml;tzen wie folgt:</FONT></P>
+			<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif">I
+			have written... - I've written... ('have' ist hilfsverb)<BR>I have
+			a new PC - I've _got_ a new PC ('have' ist KEIN Hilfsverb)</FONT></P>
+			<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif">FALSCH
+			ist:<BR>(1) you have to - you've to (FALSCH!)<BR>(2) do you have -
+			do you've... (DOPPELT FALSCH!)</FONT></P>
+			<P><FONT FACE="Helvetica, sans-serif">Bitte, bitte k&uuml;rzt das
+			entweder richtig ab:<BR>(1) you have to - you've got to<BR>(2)
+			have you got (no abbr.)<BR>oder besser noch gar nicht!<BR>Stilistisch
+			ist das in den meisten F&auml;llen sch&ouml;ner, auf jeden Fall in
+			einem St&uuml;ck Software.</FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=20%>
+			<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif">Ganz
+			besonders f&uuml;r unsere YaST und YaST2-Entwickler!</FONT></P>
+			<P><FONT FACE="Helvetica, sans-serif">Folgende W&ouml;rter werden
+			anscheinend mit Vorliebe falsch geschrieben:</FONT></P>
+		</TD>
+		<TD WIDTH=80%>
+			<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif">formatting
+			('tt' - *nicht* formating!)<BR>initialize (mit 'z' und *nicht* mit
+			's'!)</FONT></P>
+			<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif">medium
+			(ein Medium, Datentr&auml;ger oder Frau mit
+			/dev/kristallkugel)<BR>media (mehrere Medien, Datentr&auml;ger
+			oder Frauen mit /dev/kristallkugel)</FONT></P>
+			<P><FONT FACE="Helvetica, sans-serif">Bitte unterscheidet die
+			beiden o.g. W&ouml;rter, und schreibt nur dann 'media' wenn ihr
+			*wirklich* mehrere Medien meint - ansonsten ist es &acute;medium'.</FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=20%>
+			<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif">Einer
+			der SuSE-Lieblingsfehler: der Unterschied zwischen 'actual' und</FONT></P>
+			<P><FONT FACE="Helvetica, sans-serif">'current':</FONT></P>
+		</TD>
+		<TD WIDTH=80%>
+			<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif">actual,
+			actually ^= eigentlich<BR>current, currently ^= aktuell<BR>recent,
+			recently ^= neulich</FONT></P>
+			<P><FONT FACE="Helvetica, sans-serif">Bitte gut aufpassen, denn
+			ein falsch verwendetes Wort ist eben kein formaler grammatischer
+			Fehler! Daher wurde das bisher von unseren
+			Englisch-Korrekturleser(inne)n nicht korrigiert - es ist zwar
+			unverst&auml;ndlich und ergibt keinen Sinn, aber was daran nun
+			falsch ist kann man nur im direkten Kontext der Software sehen,
+			daher ist es um so wichtiger, da&szlig; die &Uuml;bersetzer die
+			Software *kennen*, ausprobieren und testen! Unabh&auml;ngig davon
+			sollten die Entwickler bitte darauf achten, gute und SINNVOLLE
+			Strings in die Software zu nehmen - sonst erf&uuml;llt sie ihre
+			Funktionalit&auml;t nicht! In Zweifelsf&auml;llen schreibt mir
+			eine Mail, ich tue was ich kann ;-)</FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=20%>
+			<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif">Unterscheidung
+			von Adverb und Adjektiv!</FONT></P>
+			<P><FONT FACE="Helvetica, sans-serif">Bitte pa&szlig;t auf, was
+			von beiden ihr verwendet:</FONT></P>
+		</TD>
+		<TD WIDTH=80%>
+			<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif">&quot;He
+			is a careful driver&quot; ('careful' ist Adjektiv!)<BR>&quot;He
+			drives carefully&quot; ('careful' ist Adverb!)</FONT></P>
+			<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif">&uml;Das
+			ist implizit klar&quot; &uuml;bersetzt sich daher in &quot;this is
+			implicitly clear&quot;, denn 'implicit' ist hier Adverb.</FONT></P>
+			<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif">KLEINE
+			FALLE:<BR>Verben der Wahrnehmung, wie z.B. 'smell, taste, feel,
+			look, ...'</FONT></P>
+			<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif">Achtung,
+			wichtige Falle:<BR>&quot;Du siehst gut aus&quot; - &quot;You're
+			looking good!&quot; (*nicht* well, denn das das 'gut' soll sich ja
+			auf das Aussehen der Person beziehen und nicht auf die T&auml;tigkeit
+			des 'Sehens'! Also: Adjektiv!)</FONT></P>
+			<P><FONT FACE="Helvetica, sans-serif">Entsprechend:<BR>&quot;The
+			food tastes good&quot; - &quot;Das Essen schmeckt gut&quot;<BR>&quot;The
+			robot tastes well&quot; - &quot;Der Roboter hat einen ausgepr&auml;gten
+			Geschmackssinn&quot;<BR>(Ich wei&szlig;, ein bl&ouml;des Beispiel,
+			aber es zeigt den Unterschied der beiden Formen.)</FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=20%>
+			<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif">Das
+			deutsche &quot;bringen&quot; ist nicht equivalent zum englischen
+			Verb &quot;to bring&quot;!</FONT></P>
+			<P><FONT FACE="Helvetica, sans-serif">Im englischen ist meist
+			&quot;take&quot; gemeint, abh&auml;ngig vom Kontext.</FONT></P>
+		</TD>
+		<TD WIDTH=80%>
+			<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif">e.g.
+			&quot;Kannst Du mich nach Hause bringen&quot; ^= &quot;Can you
+			take me home&quot;<BR>(und *NICHT* &quot;can you bring me home&quot;
+			o.&auml;.).</FONT></P>
+			<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif">&quot;to
+			bring sth.&quot; - &quot;etwas mitbringen&quot;<BR>&quot;to take
+			s.o. somewhere&quot; - &quot;jemanden irgendwo hin bringen&quot;<BR>&quot;to
+			take s.o. with oneself&quot; - &quot;jemanden mitnehmen&quot;</FONT></P>
+			<P><FONT FACE="Helvetica, sans-serif">Examples:<BR>&quot;I brought
+			my chameleon&quot; - &quot;Ich habe mein Cham&auml;leon
+			mitgebracht!&quot;<BR>&quot;I will take you to the snackbar&quot;
+			- &quot;Ich bringe Dich zur Snackbar&quot;<BR>&quot;Who can take
+			me home?&quot; - &quot;Wer kann mich nach Hause bringen?&quot;<BR>&quot;Did
+			you take her with you?&quot; - &quot;Hast Du sie mit (zu Dir)
+			genommen?&quot;<BR>&quot;I took her home&quot; - &quot;Ich habe
+			sie nach Hause gebracht&quot;</FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=20%>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=80%>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=20%>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=80%>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=20%>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=80%>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+</TABLE>
+<P><BR><BR>
+</P>
+<H2><FONT FACE="Helvetica, sans-serif">Making help texts</FONT></H2>
+<H3><FONT FACE="Helvetica, sans-serif">Some comments about 'Making
+good online help texts'</FONT></H3>
+<H4><FONT FACE="Helvetica, sans-serif">User's goal</FONT></H4>
+<UL>
+	<LI><P><FONT FACE="Helvetica, sans-serif">I want to use it -&gt;
+	Online help or online document </FONT>
+	</P>
+	<LI><P><FONT FACE="Helvetica, sans-serif">I want to learn it -&gt;
+	Guided tour</FONT></P>
+</UL>
+<UL>
+	<LI><P><FONT FACE="Helvetica, sans-serif">Problem: In spite of
+	improvements, many users wish to avoid paper or online manuals, and
+	prefer to learn system by exploration or personal help.</FONT></P>
+</UL>
+<H4><FONT FACE="Helvetica, sans-serif">Advantages of online-help</FONT></H4>
+<P><BR><BR>
+</P>
+<CENTER>
+	<TABLE WIDTH=80% BORDER=1 BORDERCOLOR="#000000" CELLPADDING=3 CELLSPACING=0>
+		<COL WIDTH=128*>
+		<COL WIDTH=128*>
+		<THEAD>
+			<TR VALIGN=TOP>
+				<TH WIDTH=50%>
+					<P><FONT FACE="Helvetica, sans-serif">Advantages of online-help</FONT></P>
+				</TH>
+				<TH WIDTH=50%>
+					<P><FONT FACE="Helvetica, sans-serif">Negative aspects</FONT></P>
+				</TH>
+			</TR>
+		</THEAD>
+		<TBODY>
+			<TR VALIGN=TOP>
+				<TD WIDTH=50%>
+					<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif">Information
+					is available where the PC is available</FONT></P>
+					<P STYLE="margin-bottom: 0.5cm"><BR><BR>
+					</P>
+					<UL>
+						<LI><P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif">Newest
+						information</FONT></P>
+						<LI><P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif">Automatically
+						update possible</FONT></P>
+						<LI><P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif">No
+						space on real desktop is required</FONT></P>
+						<LI><P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif">Multimedia
+						features are available</FONT></P>
+					</UL>
+					<UL>
+						<UL>
+							<LI><P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif">Multiple
+							windows, text highlighting, color, sound, animation, string
+							search. links</FONT></P>
+						</UL>
+					</UL>
+					<UL>
+						<LI><P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif">Paper
+						manuals can produce faster learning, but </FONT>
+						</P>
+						<UL>
+							<LI><P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif">great
+							search possibilities</FONT></P>
+							<LI><P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif"><I>successively</I>
+							more detailed explanations of error messages, sytem requests,
+							correct input or valid terms</FONT></P>
+						</UL>
+					</UL>
+					<P><BR>
+					</P>
+				</TD>
+				<TD WIDTH=50%>
+					<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif">Displays
+					are not readable as printed materials, lost in hyperspace is
+					very probably</FONT></P>
+					<P STYLE="margin-bottom: 0.5cm"><BR><BR>
+					</P>
+					<UL>
+						<LI><P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif">The
+						display may not contain such lot of information like a sheet of
+						paper</FONT></P>
+						<LI><P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif">The
+						display resolution is lower than that for a paper</FONT></P>
+						<LI><P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif">Users
+						must be familiar with the help-system</FONT></P>
+						<LI><P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif">Additional
+						effort is required to navigate through a help-system</FONT></P>
+						<LI><P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif">The
+						short-term-memory is used for searching and remembering
+						functions</FONT></P>
+						<LI><P><FONT FACE="Helvetica, sans-serif">The help window
+						reduces your workspace on screen</FONT></P>
+					</UL>
+				</TD>
+			</TR>
+		</TBODY>
+	</TABLE>
+</CENTER>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<H4><FONT FACE="Helvetica, sans-serif">How to design online-help</FONT></H4>
+<UL>
+	<LI><P><FONT FACE="Helvetica, sans-serif">Use native speakers to
+	produce the online-help texts</FONT></P>
+	<LI><P><FONT FACE="Helvetica, sans-serif">A novice and an expert
+	need different help (- the novice perhaps needs a tutorial)</FONT></P>
+	<LI><P><FONT FACE="Helvetica, sans-serif">Make the help system easy
+	to access and easy to return from</FONT></P>
+</UL>
+<UL>
+	<LI><P><FONT FACE="Helvetica, sans-serif">Make helps as specific as
+	possible</FONT></P>
+	<LI><P><FONT FACE="Helvetica, sans-serif">Collect data to determine
+	what helps are needed</FONT></P>
+	<LI><P><FONT FACE="Helvetica, sans-serif">Give users as much control
+	as possible over the help system</FONT></P>
+	<LI><P><FONT FACE="Helvetica, sans-serif">Give more than one access
+	to the help system (e.g. Win95: table of content, alphabetical
+	lists, typing the first letter to find, wizard with natural speech)</FONT></P>
+	<LI><P><FONT FACE="Helvetica, sans-serif">Supply different helps for
+	different types of users</FONT></P>
+	<LI><P><FONT FACE="Helvetica, sans-serif">Supply different usage</FONT></P>
+</UL>
+<UL>
+	<UL>
+		<LI><P><FONT FACE="Helvetica, sans-serif">How do I (... print an
+		envelop)</FONT></P>
+		<LI><P><FONT FACE="Helvetica, sans-serif">Tell me about (... field
+		codes)</FONT></P>
+		<LI><P><FONT FACE="Helvetica, sans-serif">Programming and language
+		reference (... mail merge statements and functions)</FONT></P>
+	</UL>
+</UL>
+<UL>
+	<LI><P><FONT FACE="Helvetica, sans-serif">Make help messages
+	accurate and complete</FONT></P>
+	<LI><P><FONT FACE="Helvetica, sans-serif">Do not use helps to
+	compensate for poor interface design</FONT></P>
+	<LI><P><FONT FACE="Helvetica, sans-serif">Add switch for activating
+	bubble-help</FONT></P>
+</UL>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<H3><FONT FACE="Helvetica, sans-serif">Actual example with revised
+text</FONT></H3>
+<P><IMG SRC="Pics/sec_10.png" NAME="Grafik2" ALIGN=LEFT WIDTH=660 HEIGHT=518 BORDER=0><BR CLEAR=LEFT><FONT FACE="Helvetica, sans-serif">Example
+with suboptimal text length and text format (screen shot: security
+module, 7.1)</FONT></P>
+<P><BR><BR>
+</P>
+<P><FONT FACE="Helvetica, sans-serif">Table with actual text and
+overworked version of the same content</FONT></P>
+<TABLE WIDTH=50% BORDER=1 BORDERCOLOR="#000000" CELLPADDING=2 CELLSPACING=0>
+	<COL WIDTH=128*>
+	<COL WIDTH=128*>
+	<TR VALIGN=TOP>
+		<TH WIDTH=50% BGCOLOR="#ffff99">
+			<P><FONT FACE="Helvetica, sans-serif">Version 7.1<BR>Needs about 5
+			x scrolling to read complete text!!!</FONT></P>
+		</TH>
+		<TH WIDTH=50% BGCOLOR="#ffff99">
+			<P><FONT FACE="Helvetica, sans-serif">Revised text version - same
+			<BR>content</FONT></P>
+		</TH>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=50%>
+			<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif">In
+			this dialog you can change miscellaneous settings.</FONT></P>
+			<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif"><B>Setting
+			of files premissions <BR></B>Settings for the permissions of
+			certain system files are set according to the data in
+			/etc/permissions.secure or /etc/permissions.easy. Which file is
+			used depends upon this selection. Launching SuSEconfig sets these
+			permissions according to /etc/permissions.*. This fixes files with
+			incorrect permissions, whether this occured accidentally or by
+			intruders.<BR>'easy': Most of the system files that are only
+			readable by root (via secure) are modified so that other users can
+			also read these files.<BR>'secure': Certain system files (e.g.
+			/var/log/messages) can only be viewed by the user root. Some
+			programs can only be launched by root or by daemons, not by an
+			ordinary user.<BR>'paranoid': If you are really paranoid, use this
+			setting. You must decide which users will be able to run X
+			applications and set-uid programs.</FONT></P>
+			<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif"><B>User
+			launching updatedb<BR></B>The program updatedb runs regularly,
+			once a day. It scans your whole filesystem and creates a database
+			(locatedb) where the location of EVERY file is stored. The
+			database can be searched by the program 'locate'.<BR>By setting
+			this entry, you can select the user to run this command:<BR>'nobody':
+			only files which the user 'nobody' can access are added into the
+			database. All users can choose if the file will be in the database
+			or not.<BR>'root': all files in the system are added into the
+			database</FONT></P>
+			<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif"><B>Omit
+			current directory from the path of user root<BR></B>On a DOS
+			system, executable files (programs), are first searched for in the
+			current directory, and in the current path variable afterwards. In
+			contrast, on a UNIX system they are exclusively searched for via
+			the search path (variable PATH).<BR>Some systems set up a
+			'workaround' by adding the dot (&quot;.&quot;) to the search path,
+			thus enabling files in the current path to be found and executed.
+			This is highly dangerous since you may accidentally launch unknown
+			programs in the current directory instead of the usual system-wide
+			files. As a result, creating 'Trojan Horses' which exploit this
+			weakness and intrude your system is rather easy if you set this
+			option.<BR>&quot;yes&quot;: the user root always has to launch
+			programs in the current directory prefixed with a &quot;./&quot;.
+			Example: &quot;./configure&quot;.<BR>&quot;no&quot;: the dot (&quot;.&quot;)
+			is attached to the end of the search path of root, making it the
+			last to be searched.</FONT></P>
+			<P><FONT FACE="Helvetica, sans-serif"><B>Disable telnet for user
+			root<BR></B>It is not very wise to allow telnet for the user root.
+			During the telnet session the passwords are sent in the plain
+			form, so they can be stolen by the third-party. Check this box to
+			disable telnet for root.</FONT></P>
+		</TD>
+		<TD WIDTH=50%>
+			<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif"><B>File
+			permissions:</B> Used to restrict user access to files or
+			programs.<BR>- <I>Easy:</I> The user can read most system files.
+			<BR>- <I>Secure:</I> Only root can view certain system files or
+			launch certain programs. <BR>- <I>Paranoid:</I><SPAN STYLE="font-style: normal">
+			Root decides about running X applications. Note: Some important
+			programs need correct settings.</SPAN></FONT></P>
+			<P STYLE="margin-bottom: 0.5cm; font-style: normal"><FONT FACE="Helvetica, sans-serif"><B>Launching
+			updatedb</B> will store the location of every file in a database.
+			With the command 'locate [filename]' you can find files.<BR>-
+			<I>Nobody:</I> Only files belonging to 'nobody' are added to the
+			database. Users can choose if their files will be in the
+			database.<BR>- <I>Root:</I> All files in system directory are
+			added to the database.</FONT></P>
+			<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif"><B>Checkbox
+			'Omit current directory from the path of root': </B><SPAN STYLE="font-weight: medium">The
+			variable 'path' determines search for the programs. T</SPAN>he
+			usual system-wide services will be launched even if in the current
+			directory is a program with the same name. <BR>- <I>Checked:</I>
+			Recommended setting. So root always has to launch programs in the
+			current directory prefixed with a dot and a slash, e.g.
+			'./configure'.<BR>- <I>Not checked: </I><SPAN STYLE="font-style: normal">T<SPAN STYLE="font-style: normal">he
+			dot ('.') is attached to the end of the search path of root, and
+			marks the end of search. Warning: </SPAN>This workaround is highly
+			dangerous since you may accidentally launch unknown programs in
+			the current directory and activate a virus. </SPAN></FONT>
+			</P>
+			<P STYLE="margin-bottom: 0.5cm; font-style: normal"><FONT FACE="Helvetica, sans-serif"><B>Checkbox:
+			'Disable telnet for root'<BR></B><SPAN STYLE="font-weight: medium">Warning:
+			Passwords are sent in plain form d</SPAN>uring a telnet session.
+			We recommend to check this box.</FONT></P>
+			<P STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><B>See
+			manual: </B><SPAN STYLE="font-weight: medium">SuSE Handbook
+			chapter 3.2, SuSE Configuration chapter 4.3.</SPAN></FONT></P>
+		</TD>
+	</TR>
+</TABLE>
+<P><BR><BR>
+</P>
+<H2>Goal for future development</H2>
+<P><FONT FACE="Helvetica, sans-serif">Our goal should be</FONT></P>
+<UL>
+	<LI><P><FONT FACE="Helvetica, sans-serif">Using better fonts</FONT></P>
+	<LI><P><FONT FACE="Helvetica, sans-serif">Better layout of the text</FONT></P>
+	<LI><P><FONT FACE="Helvetica, sans-serif">References to the printed
+	manuals or other online manuals</FONT></P>
+</UL>
+<P><BR><BR>
+</P>
+<P><FONT FACE="Helvetica, sans-serif">In the examples below I used </FONT>
+</P>
+<UL>
+	<LI><P><FONT FACE="Helvetica, sans-serif">'Helvetica 12 pt. for
+	better reading - 5 words/line are recommended</FONT></P>
+	<LI><P><FONT FACE="Helvetica, sans-serif">Number to show order of
+	control elements in the dialog area</FONT></P>
+	<LI><P><FONT FACE="Helvetica, sans-serif">Big font and horizontal
+	line to show separation of topics</FONT></P>
+	<LI><P><FONT FACE="Helvetica, sans-serif">Bold font to mark possible
+	settings for one control element</FONT></P>
+	<LI><P><FONT FACE="Helvetica, sans-serif">Link to other documents
+	for more information (pic 2).</FONT></P>
+</UL>
+<P><BR><BR>
+</P>
+<P><IMG SRC="Pics/helptext_5.png" NAME="Grafik3" ALIGN=LEFT WIDTH=648 HEIGHT=510 BORDER=0><BR CLEAR=LEFT><FONT FACE="Helvetica, sans-serif">(design
+study made with qt-designer)</FONT></P>
+<P><BR><BR>
+</P>
+<P STYLE="font-weight: medium"><IMG SRC="Pics/helptext_6.png" NAME="Grafik5" ALIGN=LEFT WIDTH=648 HEIGHT=510 BORDER=0><BR CLEAR=LEFT><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><SPAN STYLE="background: transparent">(design
+study made with qt-designer)</SPAN></FONT></FONT></P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<H2><FONT FACE="Helvetica, sans-serif">YaST2 Checklist For General
+Dialog Elements (First Draft)</FONT></H2>
+<P><FONT FACE="Helvetica, sans-serif">(printable, width should be
+17,5 cm)</FONT></P>
+<TABLE WIDTH=687 BORDER=1 CELLPADDING=2 CELLSPACING=0>
+	<COL WIDTH=681>
+	<TR>
+		<TD WIDTH=681 VALIGN=TOP BGCOLOR="#e6e6e6">
+			<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>The
+			main function of the checklist is to bring more consistency to the
+			design of the YaST2. </FONT></FONT>
+			</P>
+			<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Some
+			topics seem banal, but it is always right to leave a good
+			impression. The problem is the 'weakness' of some topics below: e.
+			g. what is the definition of 'aesthetic layout'? The basic problem
+			is - there are more than one possibility to design a fine human
+			computer interaction-dialog.</FONT></FONT></P>
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>I tried to give
+			some specific hints after the bullets. The important points are
+			marked In the comment field. Suggestion for improvements are
+			welcome.</FONT></FONT></P>
+		</TD>
+	</TR>
+</TABLE>
+<P><BR><BR>
+</P>
+<TABLE WIDTH=687 BORDER=1 BORDERCOLOR="#999999" CELLPADDING=2 CELLSPACING=0>
+	<COL WIDTH=30>
+	<COL WIDTH=378>
+	<COL WIDTH=265>
+	<TR VALIGN=TOP>
+		<TH WIDTH=30 BGCOLOR="#e6e6e6">
+			<P ALIGN=CENTER><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>No.</FONT></FONT></P>
+		</TH>
+		<TH WIDTH=378 BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Topic</FONT></FONT></P>
+		</TH>
+		<TH WIDTH=265 BGCOLOR="#e6e6e6">
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Comment</FONT></FONT></P>
+		</TH>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=30 BGCOLOR="#e6e6e6" SDVAL="1" SDNUM="1033;">
+			<P ALIGN=CENTER><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>1</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=378>
+			<P STYLE="margin-bottom: 0.5cm; font-weight: medium"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Which
+			button is <B>active by default</B>?</FONT></FONT></P>
+			<UL>
+				<LI><P STYLE="margin-bottom: 0.5cm; font-weight: medium"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>In
+				normal dialogs it should be the 'Next' button.</FONT></FONT></P>
+				<LI><P STYLE="margin-bottom: 0.5cm; font-weight: medium"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>In
+				message boxes normally the 'left' button (= go on).</FONT></FONT></P>
+				<LI><P STYLE="font-weight: medium"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>In
+				message boxes where user can delete something or can do a
+				critical action the button that will abort the action (normally
+				the 'right' button, often 'Cancel')</FONT></FONT></P>
+			</UL>
+		</TD>
+		<TD WIDTH=265>
+			<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Exceptions
+			are possible</FONT></FONT></P>
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>See bullet 3 on
+			the left side': critical' events have a 'used by
+			mistake'-protection </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=30 BGCOLOR="#e6e6e6" SDVAL="2" SDNUM="1033;">
+			<P ALIGN=CENTER><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>2</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=378>
+			<P STYLE="margin-bottom: 0.5cm; font-weight: medium"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Single
+			<B>check box</B></FONT></FONT></P>
+			<UL>
+				<LI><P STYLE="font-weight: medium"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Does
+				the default (checked or not checked) make sense?</FONT></FONT></P>
+			</UL>
+		</TD>
+		<TD WIDTH=265>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=30 BGCOLOR="#e6e6e6" SDVAL="3" SDNUM="1033;">
+			<P ALIGN=CENTER><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>3</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=378>
+			<P STYLE="margin-bottom: 0.5cm; font-weight: medium"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Radio
+			buttons (2 to more): Which radio button is <B>active by default</B>?</FONT></FONT></P>
+			<UL>
+				<LI><P STYLE="margin-bottom: 0.5cm; font-weight: medium"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>It
+				should be the first in the column </FONT></FONT>
+				</P>
+				<LI><P STYLE="font-weight: medium"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>or
+				if not possible the selection user will use in most cases</FONT></FONT></P>
+			</UL>
+		</TD>
+		<TD WIDTH=265>
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Normally the
+			order is 'mostly used' to 'little used', but sometimes this can
+			collide with other sorting options</FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=30 BGCOLOR="#e6e6e6" SDVAL="4" SDNUM="1033;">
+			<P ALIGN=CENTER><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>4</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=378>
+			<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Cycle
+			through the dialog with the <B>tab-key </B><SPAN STYLE="font-weight: medium">(Shift-tab
+			= move backwards)</SPAN></FONT></FONT></P>
+			<UL>
+				<LI><P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Is
+				the order of the tabs consistent to the expectation of the user?
+				Normally from top to down, or is there a 'strange' move?</FONT></FONT></P>
+				<LI><P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Do you see
+				where the focus is (e.g. button with special frame, dotted line
+				round check box, ....)?</FONT></FONT></P>
+			</UL>
+		</TD>
+		<TD WIDTH=265>
+			<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3><B>Important:
+			Tabs must work!</B></FONT></FONT></P>
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Often the order
+			of the tabs is not perfect. To this time it is not possible to
+			control this accurately with YCP. But if there is a very strange
+			behavior write a bugmail</FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=30 BGCOLOR="#e6e6e6" SDVAL="5" SDNUM="1033;">
+			<P ALIGN=CENTER><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>5</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=378>
+			<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Is
+			there a <B>text cut</B> caused by the frame of the field?</FONT></FONT></P>
+			<UL>
+				<LI><P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Check the
+				text on the buttons and in the gray inserted text fields</FONT></FONT></P>
+			</UL>
+		</TD>
+		<TD WIDTH=265>
+			<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3><B>Important:
+			Text must be readable!</B></FONT></FONT></P>
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>E.g. problems
+			with the long French texts are possible</FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=30 BGCOLOR="#e6e6e6" SDVAL="6" SDNUM="1033;">
+			<P ALIGN=CENTER><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>6</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=378>
+			<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Check
+			the function of <B>short cut keys</B> for all </FONT></FONT>
+			</P>
+			<UL>
+				<LI><P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3><SPAN STYLE="font-weight: medium">buttons</SPAN>
+				</FONT></FONT>
+				</P>
+				<LI><P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>radio
+				buttons with text</FONT></FONT></P>
+				<LI><P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>check
+				boxes</FONT></FONT></P>
+				<LI><P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>combo
+				boxes</FONT></FONT></P>
+				<LI><P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>list
+				entry fields</FONT></FONT></P>
+				<LI><P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>editable
+				text fields</FONT></FONT></P>
+				<LI><P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>ect.</FONT></FONT></P>
+			</UL>
+		</TD>
+		<TD WIDTH=265>
+			<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>The
+			user needs direct access to all dialog elements by short cut keys</FONT></FONT></P>
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>I know, with x
+			languages a very great problem. <SPAN STYLE="font-weight: medium">We
+			are working on a style guide list for the short cut keys!</SPAN></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=30 BGCOLOR="#e6e6e6" SDVAL="7" SDNUM="1033;">
+			<P ALIGN=CENTER><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>7</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=378>
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Check if there
+			are <B>double short cut keys</B>!</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=265>
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>This is a heavy
+			bug!</FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=30 BGCOLOR="#e6e6e6" SDVAL="8" SDNUM="1033;">
+			<P ALIGN=CENTER><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>8</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=378>
+			<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Check
+			the function of <B>arrow-keys</B></FONT></FONT></P>
+			<UL>
+				<LI><P STYLE="margin-bottom: 0.5cm; font-weight: medium"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Up
+				goes up, down goes down, left goes ....</FONT></FONT></P>
+				<LI><P STYLE="font-weight: medium"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Always
+				the same in other dialogs?</FONT></FONT></P>
+			</UL>
+		</TD>
+		<TD WIDTH=265>
+			<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>E.g.
+			used for navigation in a frame with some radio buttons. Arrow
+			down/up should jump forward/backward in the radio buttons.</FONT></FONT></P>
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>We have to
+			clear if the jump of the focus should set the option.</FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=30 BGCOLOR="#e6e6e6" SDVAL="9" SDNUM="1033;">
+			<P ALIGN=CENTER><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>9</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=378>
+			<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Open
+			<B>message boxes</B> and check</FONT></FONT></P>
+			<UL>
+				<LI><P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Is
+				the box big enough that the user can read all of the information
+				without increasing the frame? (Not possible with long texts)</FONT></FONT></P>
+				<LI><P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Is the
+				text cut by the frame of the box?</FONT></FONT></P>
+			</UL>
+		</TD>
+		<TD WIDTH=265>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=30 BGCOLOR="#e6e6e6" SDVAL="10" SDNUM="1033;">
+			<P ALIGN=CENTER><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>10</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=378>
+			<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3><B>Understandable
+			texts</B></FONT></FONT></P>
+			<UL>
+				<LI><P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Is
+				the caption of the box and the text in the message box
+				understandable to a normal user? (Be aware - not all of our users
+				are experts!)</FONT></FONT></P>
+				<LI><P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Are the
+				captions of the buttons and the anticipated action after click
+				understandable in any language?</FONT></FONT></P>
+			</UL>
+		</TD>
+		<TD WIDTH=265>
+			<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Bad:<BR>'delete
+			all partitions on sda'</FONT></FONT></P>
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Good:<BR>'If
+			you choose Format, all data on the first SCSI-hard disk '/dev/sda'
+			will be deleted permanently. </FONT></FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=30 BGCOLOR="#e6e6e6" SDVAL="11" SDNUM="1033;">
+			<P ALIGN=CENTER><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>11</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=378>
+			<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3><B>Structure
+			of the text information</B></FONT></FONT></P>
+			<UL>
+				<LI><P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Is the
+				text well structured by information content</FONT></FONT></P>
+			</UL>
+		</TD>
+		<TD WIDTH=265>
+			<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Example
+			with structured text</FONT></FONT></P>
+			<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>2 errors while
+			writing rc.config:<BR>1) Could not setup eth0 because ...<BR>2)
+			Could not setup eth1 because...</FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=30 BGCOLOR="#e6e6e6" SDVAL="12" SDNUM="1033;">
+			<P ALIGN=CENTER><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>12</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=378>
+			<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Check
+			the <B>aesthetic aspect of the layout</B></FONT></FONT></P>
+			<UL>
+				<LI><P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Are
+				the dialog elements pressed together even if there is enough
+				space above and under a group of elements?</FONT></FONT></P>
+				<LI><P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Are the
+				dialog elements 'glued' to the frame of the dialog area?</FONT></FONT></P>
+			</UL>
+		</TD>
+		<TD WIDTH=265>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=30 BGCOLOR="#e6e6e6" SDVAL="13" SDNUM="1033;">
+			<P ALIGN=CENTER><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>13</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=378>
+			<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Check
+			the <B>grouping aspects of the layout</B></FONT></FONT></P>
+			<UL>
+				<LI><P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Do you
+				recognize all dialog elements belonging together?</FONT></FONT></P>
+			</UL>
+		</TD>
+		<TD WIDTH=265>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=30 BGCOLOR="#e6e6e6" SDVAL="14" SDNUM="1033;">
+			<P ALIGN=CENTER><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>14</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=378>
+			<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Check
+			the <B>function of 'Back' at the first dialog page </B><SPAN STYLE="font-weight: medium">and</SPAN><B>
+			'Abort'</B></FONT></FONT></P>
+			<UL>
+				<LI><P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>'Back'
+				cannot jump back but will close the dialog.</FONT></FONT></P>
+				<LI><P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>If user
+				made no changes 'Abort' can close module without warning request.
+				If there are changes a warning pop up is required.</FONT></FONT></P>
+			</UL>
+		</TD>
+		<TD WIDTH=265>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=30 BGCOLOR="#e6e6e6">
+			<P ALIGN=CENTER><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>15</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=378>
+			<P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Check
+			the <B>function of 'Back' at the other dialog pages </B><SPAN STYLE="font-weight: medium">and</SPAN><B>
+			'Abort'</B></FONT></FONT></P>
+			<UL>
+				<LI><P STYLE="margin-bottom: 0.5cm"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>'Back'
+				will go back.</FONT></FONT></P>
+				<LI><P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>If user
+				made no changes 'Abort' can close module without warning request.
+				If there are changes a warning pop up is required.</FONT></FONT></P>
+			</UL>
+		</TD>
+		<TD WIDTH=265>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+</TABLE>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<P><A NAME="up1"></A><A NAME="top1"></A><FONT FACE="Helvetica, sans-serif">[</FONT><A HREF="SG_Part41.html"><FONT FACE="Helvetica, sans-serif">previous
+page</FONT></A><FONT FACE="Helvetica, sans-serif">] --- [</FONT><A HREF="SG_index.html"><FONT FACE="Helvetica, sans-serif">back
+to index</FONT></A><FONT FACE="Helvetica, sans-serif">] --- [</FONT><A HREF="SG_Part43.html"><FONT FACE="Helvetica, sans-serif">next
+page</FONT></A><FONT FACE="Helvetica, sans-serif">]</FONT></P>
+<HR>
+<P><A HREF="mailto:sigi@suse.de"><FONT FACE="Helvetica, sans-serif">sigi@suse.de</FONT></A><FONT FACE="Helvetica, sans-serif">
+/ file: <SDFIELD TYPE=FILENAME FORMAT=NAME>SG_Part42.html</SDFIELD> /
+last change: <SDFIELD TYPE=DATETIME SDNUM="1033;1031;TT.MM.JJ">31.08.01</SDFIELD></FONT></P>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

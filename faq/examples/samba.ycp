@@ -1,0 +1,12 @@
+/**
+ * Example of calling YaIP/PerlAPI functions
+ */
+{
+    import "SambaServer";
+
+    y2milestone("Export_A: %1", SambaServer::Export());
+    SambaServer::addShare("NEW1_SHARE", $[ "public" : "yes" ]);
+    y2milestone("Export_B: %1", SambaServer::Export());
+    SambaServer::addShare("NEW2_SHARE", $[ "public" : "no" ]);
+    y2milestone("Export_C: %1", SambaServer::Export());
+}

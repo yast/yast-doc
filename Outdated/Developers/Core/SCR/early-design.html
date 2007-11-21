@@ -1,0 +1,42 @@
+<HTML>
+<HEAD>
+<TITLE>YaST2: F-Spec: Repository: Agents</TITLE>
+</HEAD>
+<BODY>
+<H1>YaST2: F-Spec: Repository: Agents</H1>
+
+<h3>Implementation</h3>
+The repository uses a disk based file for persistent and private (i.e. not system dependant) data.
+Information about the running system comes either from the <tt>/proc</tt> or the
+<tt>/etc</tt> filesystems. Both are accessed by <b>agents</b> which have knowledge
+about the file formats and transform the data to and from the representation used
+inside the repository library.
+<P>
+<img src="repository.jpg">
+<P>
+Knowledge about data, its type, availability, nameing, etc. is known to the
+repository library (configuration file at startup). The library decides how
+to access the data (disk based, via agent, ...).
+<P>
+<h3>Agents</h3>
+
+Agents are used to access data outside the repository library and its own
+disk file. This is typically system specific data, e.g. specific configuration
+files below <tt>/etc</tt>. This approach allows normal system configuration
+by editing configuration files to coexist with workflow driven administration.
+It also prevents inconsistencies by keeping a single data source.
+<P>
+By using write-only agents to reconstruct a configuration file from
+data stored in the repository database, it's easy to reconstruct 
+configurations destroyed by accident.<br>
+This also supports rather complex files (e.g. sendmail.cf) which are
+constructed by a set of system commands.
+<P>
+Agents may also be used to extend the available data by use of <b>repository
+servers</b> which provide data common to a set of systems (e.g. clusters).
+<P>
+<P><HR>
+<SMALL>Last changed 9-8-1999 17:05, <A HREF="mailto:kskaem@suse.de">Klaus Kämpf</A></SMALL><BR>
+<SMALL>Copyright &copy; by <A HREF="http://w3.suse.de">SuSE GmbH</A></SMALL>
+</BODY>
+</HTML>

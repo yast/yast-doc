@@ -1,0 +1,62 @@
+<HTML>
+<HEAD>
+<TITLE>Deprecated WFM builtins</TITLE>
+</HEAD>
+<BODY bgcolor=#ffffff>
+<P><IMG SRC="../../images/heading.png"></IMG></P>
+<H1>Deprecated WFM builtins</h1>
+<TABLE>
+<TR><TH>Instead of</TH><TH>use</TH></TR>
+<TR><TH ALIGN=LEFT COLSPAN=2>General shell commands</TH></TR>
+<TR><TD><tt>Shell (</tt>command, env<tt>)</tt></TD>
+ <TD> <tt>Execute (.local.bash, </tt>command, env<tt>)</tt></TD>
+</TR>
+<TR><TH ALIGN=LEFT COLSPAN=2>Removing a file</TH></TR>
+<TR><TD><tt>Shell ("/bin/rm </tt>file<TT>")</tt></TD>
+ <TD> <tt>Execute (.local.remove, </tt>file<tt>)</tt></TD>
+</TR>
+<TR><TH ALIGN=LEFT COLSPAN=2>Creating a directory</TH></TR>
+<TR><TD><tt>MkDir (</tt>directory<TT>)</tt></TD>
+ <TD> <tt>Execute (.local.mkdir, </tt>directory<tt>)</tt></TD>
+</TR>
+<TR><TH ALIGN=LEFT COLSPAN=2>Removing a directory</TH></TR>
+<TR><TD><tt>Shell ("/bin/rmdir </tt>directory<TT>")</tt></TD>
+ <TD> <tt>Execute (.local.rmdir, </tt>directory<tt>)</tt></TD>
+</TR>
+<TR><TH ALIGN=LEFT COLSPAN=2>Mounting/Unmounting</TH></TR>
+<TR><TD><tt>Shell ("/sbin/mount </tt>device  directory<TT>")</tt></TD>
+ <TD> <tt>Execute (.local.mount, [</tt>device, directory <i>, optional-log</i><tt>]</tt> <i>, mount-options</i><tt>)</tt></TD>
+</TR>
+<TR><TD><tt>Shell ("/sbin/umount </tt>directory<TT>)"</tt></TD>
+ <TD> <tt>Execute (.local.umount, </tt>directory <tt>)</tt></TD>
+</TR>
+<TR><TH ALIGN=LEFT COLSPAN=2>Reading and writing text files</TH></TR>
+<TR><TD><tt>WriteString (</tt>filename, value<tt>)</tt></td>
+  <td><tt>Write (.local.string, </tt>filename, value<tt>)</tt></td>
+</tr>
+<TR><TD><tt>ReadString (</tt>filename<tt>)</tt></td>
+  <td><tt>Read (.local.string, </tt>filename<tt>)</tt></td>
+</tr>
+<TR><TH ALIGN=LEFT COLSPAN=2>Reading and writing YCP files</TH></TR>
+<TR><TD><tt>Write (</tt>filename, value<tt>)</tt></td>
+  <td><tt>Write (.local.ycp, </tt>filename, value<tt>)</tt></td>
+</tr>
+<TR><TD><tt>WriteY2 (</tt>filename, value<tt>)</tt></td>
+  <td><tt>Write (.local.yast2, </tt>filename, value<tt>)</tt></td>
+</tr>
+<TR><TD><tt>WriteY2 (</tt>filename, value, mode<tt>)</tt></td>
+  <td><tt>Write (.local.yast2, [</tt>filename, mode <tt>],</tt> value <tt>)</tt></td>
+</tr>
+<TR><TD><tt>Read (</tt>filename<tt>)</tt></td>
+  <td><tt>Read (.local.ycp, </tt>filename<tt>)</tt></td>
+</tr>
+<TR><TD><tt>ReadY2 (</tt>filename<tt>)</tt></td>
+  <td><tt>Read (.local.yast2, </tt>filename<tt>)</tt></td>
+</tr>
+</table>
+<p><hr>
+<SMALL>Last change 25-Jun-2001, 18:15, <A HREF="mailto:kkaempf@suse.de">Klaus Kämpf</A></SMALL><BR>
+<SMALL>Copyright &copy; by <A HREF="http://w3.suse.de">SuSE GmbH</A></SMALL>
+</BODY>
+</HTML>
+

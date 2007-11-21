@@ -1,0 +1,16 @@
+/**
+ * File:
+ *   cfg_novell_apache.scr
+ * Summary:
+ *   SCR Agent for reading/writing /etc/sysconfig/novell-apache
+ *   using the sysconfig-agent
+ *
+ *
+ * Read/Sets the values defined in <tt>/etc/sysconfig/novell-apache</tt>
+ * in an easy manner.
+ */
+.sysconfig.novell-apache
+
+`ag_ini (
+    `SysConfigFile("/etc/sysconfig/novell-apache")
+)

@@ -1,0 +1,28 @@
+/**
+ * Example for marking texts for translations
+ */
+{
+    import "Popup";
+
+    textdomain "example";
+
+    // TRANSLATORS: Checkbox
+    term checkbox = `CheckBox(`id("use maximum"), _("Use &Maximum"));
+
+    string filename = "/etc/this_file_doesn't_exist";
+    // TRANSLATORS: An error popup message, %1 is the name of the file
+    Popup::Error(sformat( _("Cannot open the file '%1'"),
+	filename)
+    );
+
+    boolean expert_mode = true;
+    string help =
+	// TRANSLATORS: help text for simple and expert functonality (1/2)
+	_("<p>This is the help text for the simple functionality</p>") +
+	(expert_mode == true ?
+	    // TRANSLATORS: help text for expert functionality only (2/2)
+	    _("<p>And this is the help for the additional functionality</p>")
+	    :
+	    ""
+	);
+}

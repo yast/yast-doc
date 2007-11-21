@@ -1,0 +1,13 @@
+/**
+ * Example for service manipulation
+ */
+{
+    import "Service";
+    
+    string service = "squid";
+    
+    boolean start   = Service::Start   (service);
+    boolean stop    = Service::Stop    (service);
+    boolean restart = Service::Restart (service);
+    boolean reload  = Service::Reload  (service);
+}

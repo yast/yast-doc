@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section id="desktop_files_yast">
+    <title>YaST Desktop Files</title>
+
+    <para>
+	Desktop files are kind of configuration files that define how
+	particular applications behave in desktop environment, how they
+	appear menu, etc. These desktop files follow the <emphasis>Desktop Entry
+	Specification</emphasis>. Additionally, some YaST-related entries are
+	defined for YaST-specific purpose.
+    </para>
+    
+    <section id="desktop_files_rules">
+        <title>Desktop File Rules</title>
+	
+	<para>
+	    Configuration files are stored under the
+	    <emphasis>/usr/share/applications/YaST2/</emphasis> directory.
+	</para>
+	
+	<para>
+	    Entries begining with blank or <emphasis>#</emphasis> character are comments.
+	</para>
+
+	<para>
+	    All entries are case-sensitive.
+	</para>
+	
+	<para>
+	    Desktop file entries are divided into groups. Each group is
+	    defined by a group-name using a square-brackets around it.
+	    
+	    This is a must-have group in every desktop file:
+	    <programlisting>[Desktop Entry]</programlisting>
+	</para>
+
+	<para>
+	    Entries are following the grop name below which they are defined.
+	    They use a simple definition:
+	    <programlisting>Key=Value</programlisting>
+	    
+	    <emphasis>Key</emphasis> can contain only letters, digits and a dash character.
+	    
+	    <programlisting>Exec=/sbin/yast2 example</programlisting>
+	</para>
+	
+	<para>
+	    Entries, that are displayed to user, can have their values
+	    localized. This format uses the base key name and adds a locale
+	    name surrounded by a square brackets. Variables must be UTF-8
+	    encoded. The locale string uses 
+	    <emphasis>[language[_territory][.codeset][@modifier]]</emphasis> format:
+	    
+	    <programlisting>Key=A.B.C.
+Key[de]=A.B.C. - German
+Key[en_US]=A.B.C. - American English
+Key[cs_CZ.UTF-8]=A.B.C. - Czech (UTF-8)</programlisting>
+	    
+	    These localized definitions are used according to
+	    <emphasis>LC_MESSAGES</emphasis> variable - The best match wins
+	    (evaluated from left).
+	</para>
+    </section>
+
+    <section id="desktop_files_entries">
+	<title>Desktop File Entries</title>
+	
+	<para>
+	    There are some mandatory entries that are required by the desktop
+	    file definition. Additionally we use a YaST-specific and
+	    AutoYaST-specific entries.
+	</para>
+
+	<section id="desktop_files_entries_mandatory">
+	    <title>Mandatory Desktop File Entries</title>
+	    
+	    <table class="content_table">
+		<thead>
+		    <tr>
+			<td>Key</td>
+			<td>Description</td>
+			<td>Value Type</td>
+		    </tr>
+		</thead>
+		<tbody>
+		    <tr>
+			<td>Type</td>
+			<td>
+			    <emphasis>Application</emphasis>, <emphasis>Link</emphasis>
+			    or <emphasis>Directory</emphasis>. YaST uses the type
+			    <emphasis>Application</emphasis>.
+			</td>
+			<td>string</td>
+		    </tr>
+		    <tr>
+			<td>Name</td>
+			<td>
+			    Application name. YaST module name for YaST purpose, e.g.,
+			    <emphasis>Firewall</emphasis>. This entry is often used
+			    also with localization
+			    <emphasis>Name[$locale]</emphasis>.
+			</td>
+			<td>string</td>
+		    </tr>
+		    <tr>
+			<td>GenericName</td>
+			<td>
+			    Generic name of the application. In YaST used as description
+			    of the application purpose, e.g., <emphasis>Configure
+			    a firewall</emphasis>. This entry is often used also with
+			    localization <emphasis>GenericName[$locale]</emphasis>.
+			</td>
+			<td>string</td>
+		    </tr>
+		    <tr>
+			<td>Categories</td>
+			<td>
+			    A semicolon-separated list of categories in which the entry
+			    will be show in a menu, e.g.,
+			    <emphasis>Qt;X-SuSE-YaST;X-SuSE-YaST-Security;</emphasis>.
+			</td>
+			<td>string</td>
+		    </tr>
+		    <tr>
+			<td>Icon</td>
+			<td>
+			    Path to an image or rather only a name of an icon to be
+			    displayed along with the application name in file managers
+			    and menus, e.g., <emphasis>yast-firewall</emphasis>. If
+			    only a name is used, the particular icon is looked up in
+			    the current theme.
+			</td>
+			<td>string</td>
+		    </tr>
+		    <tr>
+			<td>Exec</td>
+			<td>
+			    A command which is executed when the application is
+			    launched. It can have arguments. E.g.,
+			    <emphasis>/sbin/yast2 firewall</emphasis>.
+			</td>
+			<td>string</td>
+		    </tr>
+		</tbody>
+	    </table>
+	</section>
+	
+	<section id="desktop_files_entries_yast">
+	    <title>YaST-Specific Desktop File Entries</title>
+	    
+	    <table class="content_table">
+		<thead>
+		    <tr>
+			<td>Key</td>
+			<td>Description</td>
+			<td>Value Type</td>
+		    </tr>
+		</thead>
+		<tbody>
+		    <tr>
+			<td>X-SuSE-YaST-Call</td>
+			<td>
+			    Module name which is called with the
+			    <emphasis>/sbin/yast2</emphasis> command from
+			    <emphasis>YaST Control Center</emphasis>, e.g.,
+			    <emphasis>firewall</emphasis> or
+			    <emphasis>users</emphasis>. This entry is required.
+			</td>
+			<td>string</td>
+		    </tr>
+		    <tr>
+			<td>X-SuSE-YaST-Group</td>
+			<td>
+			    YaST group name. In <emphasis>YaST Control Center</emphasis>,
+			    YaST modules are listed under these groups. Possible values are:
+			    <emphasis>Hardware</emphasis>, <emphasis>Misc</emphasis>,
+			    <emphasis>Network</emphasis>, <emphasis>Net_advanced</emphasis>,
+			    <emphasis>Security</emphasis>, <emphasis>Software</emphasis> and
+			    <emphasis>System</emphasis>. This entry is required.
+			</td>
+			<td>string</td>
+		    </tr>
+		    <tr>
+			<td>X-SuSE-YaST-Argument</td>
+			<td>
+			    Additional argument(s) for YaST. They can be
+			    <emphasis>--fullscreen</emphasis> and/or
+			    <emphasis>--noborder</emphasis>. This entry can be empty.
+			</td>
+			<td>string</td>
+		    </tr>
+		    <tr>
+			<td>X-SuSE-YaST-SortKey</td>
+			<td>
+			    String for sorting an application in the <emphasis>YaST Control
+			    Center</emphasis>. This entry can be empty (than the default
+			    <emphasis>zzzzz</emphasis> is used).
+			</td>
+			<td>string</td>
+		    </tr>
+		    <tr>
+			<td>X-SuSE-YaST-Geometry</td>
+			<td>
+			    You can also set the default size for opening UI up,
+			    nevertheless, this feature doesn't seem to work.
+			    And, of course, this entry can be empty.
+			</td>
+			<td>string</td>
+		    </tr>
+		    <tr>
+			<td>X-SuSE-YaST-RootOnly</td>
+			<td>
+			    This entry defines whether the application will be visible
+			    only for <emphasis>root</emphasis>. Possible values are
+			    <emphasis>yes</emphasis>, <emphasis>yes</emphasis>,
+			    <emphasis>1</emphasis> or any other value which is
+			    considered meaning <emphasis>false</emphasis>.
+			</td>
+			<td>boolean</td>
+		    </tr>
+		</tbody>
+	    </table>
+	</section>
+	
+	<section id="desktop_files_entries_autoyast">
+	    <title>AutoYaST-Specific Desktop File Entries</title>
+	    
+	    <para>
+		These entries are described in the AutoYaST Configuration
+		Management System in section
+		<ulink url="../autoinstall/devel/" role="html">Configuration
+		file</ulink>
+	    </para>
+	</section>
+    </section>
+    
+    <section>
+	<title>Desktop File Example</title>
+
+	<para>This is an example taken from the firewall.desktop file.</para>
+
+	<programlisting id="desktop_files_entries_example">[Desktop Entry]
+Type=Application
+Categories=Qt;X-SuSE-YaST;X-SuSE-YaST-Security;
+
+# KDE-related entries
+X-KDE-SubstituteUID=true
+X-KDE-ModuleType=Library
+X-KDE-RootOnly=true
+X-KDE-HasReadOnlyMode=true
+X-KDE-Library=yast2
+
+# YaST-related entries
+X-SuSE-YaST-Call=firewall
+X-SuSE-YaST-Group=Security
+X-SuSE-YaST-Argument=
+X-SuSE-YaST-RootOnly=true
+X-SuSE-YaST-AutoInst=all
+X-SuSE-YaST-Geometry=
+X-SuSE-YaST-SortKey=
+X-SuSE-YaST-AutoInstClonable=true
+X-SuSE-YaST-AutoInstRequires=lan
+X-SuSE-YaST-AutoInstSchema=firewall.rnc
+
+Icon=yast-firewall
+Exec=/sbin/yast2 firewall 
+
+# Name with localizations
+Name=Firewall
+Name[es]=Cortafuegos
+Name[hu]=Tűzfal
+Name[ko]=방화벽
+Name[sv]=Brandvägg
+Name[ja]=ファイアウォール
+Name[lt]=Ugniasienė
+Name[sl]=Požarni zid
+
+# GenericName with localizations
+GenericName=Configure a firewall
+GenericName[es]=Configuración del cortafuegos para usuarios avanzados
+GenericName[ko]=고급 사용자를 위한 방화벽 설정
+GenericName[sv]=Brandväggsinställningar för avancerade användare
+GenericName[fr]=Configuration Firewall pour utilisateurs experts
+GenericName[ja]=上級のファイアウォール設定
+GenericName[lt]=Ugniasienės konfigūravimas patyrusiems vartotojams
+GenericName[sl]=Nastavitve požarnega zidu za napredne uporabnike</programlisting>
+    </section>
+</section>

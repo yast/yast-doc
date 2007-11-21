@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<programlisting>
+/**
+ * File: include/sshd/wizards.ycp
+ ...
+ */
+
+{
+
+textdomain "sshd";
+
+import "Sequencer";
+import "Wizard";
+
+<command>include "sshd/complex.ycp";</command>
+<command>include "sshd/dialogs.ycp";</command>
+
+/**
+ * Add a configuration of sshd
+ * @return sequence result
+ */
+any <command>AddSequence()</command> {
+    ...
+}
+
+/**
+ * Main workflow of the sshd configuration
+ * @return sequence result
+ */
+any <command>MainSequence()</command> {
+
+    map aliases = $[
+	"summary"	:   ``( SummaryDialog() ),
+	"overview"	:   ``( OverviewDialog() ),
+	"add"		: [ ``( <command>AddSequence()</command> ), true ],
+	"edit"		: [ ``( <command>AddSequence()</command> ), true ]
+    ];
+
+    map sequence = $[
+	<command>"ws_start" : "summary"</command>,
+	"summary" : $[
+	    `abort	: `abort,
+	    `next	: `next,
+	    `overview	: "overview",
+	],
+	"overview" : $[
+	    `abort	: `abort,
+	    `next	: `next,
+	    `add	: "add",
+	    `edit	: "edit",
+	],
+	"add" : $[
+	    `abort	: `abort,
+	    `next	: "overview",
+	],
+	"edit" : $[
+	    `abort	: `abort,
+	    `next	: "overview",
+	]
+    ];
+
+    <command>any ret = Sequencer::Run(aliases, sequence);</command>
+
+    return ret;
+}
+
+/**
+ * Whole configuration of sshd
+ * @return sequence result
+ */
+any <command>SshdSequence()</command> {
+
+    map aliases = $[
+	"read"	: [ ``( ReadDialog() ), true ],
+	"<command>main</command>"	:   ``( <command>MainSequence()</command> ),
+	"write"	: [ ``( WriteDialog() ), true ]
+    ];
+
+    map <command>sequence</command> = $[
+	"ws_start" : "read",
+	"read" : $[
+	    `abort	: `abort,
+	    `next	: "main"
+	],
+	"<command>main</command>" : $[
+	    `abort	: `abort,
+	    `next	: "write"
+	],
+	"write" : $[
+	    `abort	: `abort,
+	    `next	: `next
+	]
+    ];
+
+    <command>Wizard::CreateDialog();</command>
+
+    any ret = Sequencer::Run(aliases, <command>sequence</command>);
+
+    <command>UI::CloseDialog();</command>
+    return ret;
+}
+
+/**
+ * Whole configuration of sshd but without reading and writing.
+ * For use with autoinstallation.
+ * @return sequence result
+ */
+any SshdAutoSequence() {
+    ...
+}
+
+/* EOF */
+}
+</programlisting>

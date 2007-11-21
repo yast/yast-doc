@@ -1,0 +1,166 @@
+/**
+ * File:	modules/Sshd.ycp
+ * Package:	Configuration of SSHD
+ * Summary:	SSHD settings, input and output functions
+ * Authors:	John The Fish <john@thesmallfish.net>
+ *
+ * Representation of the configuration of SSHD.
+ * Input and output routines.
+ */
+
+{
+
+module "Sshd";
+textdomain "sshd";
+
+import "Progress";
+import "Report";
+import "Message";
+import "Service";
+import "Popup";
+
+/**
+ * Data was modified?
+ */
+boolean modified = false;
+
+/**
+ * Sleep time between Read or Write steps
+ */
+integer sl = 1000;
+
+/**
+ * Returns whether the configuration has been modified.
+ */
+global boolean GetModified() {
+    return modified;
+}
+
+/**
+ * Sets that the configuration has been modified.
+ */
+global void SetModified() {
+    modified = true;
+}
+
+/**
+ * Describes whether the daemon is running
+ */
+boolean sshd_is_running = false;
+
+/**
+ * Returns a confirmation popup dialog whether user wants to really abort.
+ */
+global boolean Abort() {
+    return Popup::ReallyAbort(GetModified());
+}
+
+/**
+ * Checks whether an Abort button has been pressed.
+ * If so, calls function to confirm the abort call.
+ *
+ * @return boolean true if abort confirmed
+ */
+global boolean PollAbort() {
+    if (UI::PollInput() == `abort)
+	return Abort();
+
+    return false;
+}
+
+/**
+ * Read all SSHD settings
+ * @return true on success
+ */
+global boolean Read() {
+
+    /* SSHD read dialog caption */
+    string caption = _("Initializing SSHD Configuration");
+
+    integer steps = 2;
+
+    Progress::New( caption, " ", steps, [
+	    /* Progress stage 1/2 */
+	    _("Read current SSHD configuration"),
+	    /* Progress stage 2/2 */
+	    _("Read current SSHD state")
+	], [
+	    /* Progress step 1/2 */
+	    _("Reading current SSHD configuration..."),
+	    /* Progress step 2/2 */
+	    _("Reading current SSHD state..."),
+	    /* Progress finished */
+	    Message::Finished()
+	],
+	""
+    );
+
+    sleep(sl);
+
+    if(PollAbort()) return false;
+    Progress::NextStage();
+    /* Error message */
+    if(false) Report::Error(Message::CannotReadCurrentSettings());
+    sleep(sl);
+
+    if(PollAbort()) return false;
+    Progress::NextStep();
+    /* Error message */
+    if(false) Report::Error(_("Cannot read current SSHD state."));
+    sleep(sl);
+
+    if(PollAbort()) return false;
+    Progress::NextStage ();
+    sleep(sl);
+
+    modified = false;
+    return true;
+}
+
+/**
+ * Write all SSHD settings
+ * @return true on success
+ */
+global boolean Write() {
+
+    /* SSHD read dialog caption */
+    string caption = _("Saving SSHD Configuration");
+
+    integer steps = 2;
+    
+    Progress::New(caption, " ", steps, [
+	    /* Progress stage 1/2 */
+	    _("Write the SSHD settings"),
+	    /* Progress stage 2/2 */
+	    _("Adjust the SSHD service")
+	], [
+	    /* Progress step 1/2 */
+	    _("Writing the SSHD settings..."),
+	    /* Progress step 2/2 */
+	    _("Adjusting the SSHD service..."),
+	    Message::Finished()
+	],
+	""
+    );
+
+    sleep(sl);
+
+    if(PollAbort()) return false;
+    Progress::NextStage();
+    /* Error message */
+    if(false) Report::Error (_("Cannot write SSHD settings."));
+    sleep(sl);
+
+    if(PollAbort()) return false;
+    Progress::NextStage ();
+    /* Error message */
+    if(false) Report::Error (Message::CannotAdjustService("sshd"));
+    sleep(sl);
+
+    Progress::NextStage ();
+    sleep(sl);
+
+    return true;
+}
+
+}

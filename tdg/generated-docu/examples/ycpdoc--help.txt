@@ -1,0 +1,36 @@
+Usage:
+      ycpdoc -h|--help|--man
+      ycpdoc [-d <dir>] [-s <dir>] [-f html|xml] [-i] [-] [-o] [-wr] files.ycp...
+
+Options and Arguments:
+    -h  Show this help screen
+
+    -d dir, --outputdir=dir
+        Output files are placed to directory dir
+
+    -s dir, --strip=dir
+        Strip only dir when generating output files (default all). Remaining
+        slashes are converted to double underscores.
+
+    -f format, --format=format
+        Produce output in given format, html or xml. The option may be
+        repeated. HTML is the default. XML produces ycpdoc.xml, the DTD is
+        not stable yet.
+
+    -O file, --xml-output=file
+        For xml output, write to file. The default is "ycpdoc.xml", not
+        respecting outputdir.
+
+    -i, --noindex
+        Do not generate index.html (intro.html, files.html)
+
+    -   Write output to stdout. Do not generate indexes. If there are more
+        input files, generate only one output html file
+
+    -o, --oldindex
+        Old style of index: creates only index.html
+
+    -wr Do not warn about undeclared return types
+
+    --state
+        For debugging, prints the parsing state for each line.

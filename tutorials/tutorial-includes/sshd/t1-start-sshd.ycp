@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<programlisting>
+/**
+ * File: clients/sshd.ycp
+ ...
+ */
+
+{
+
+textdomain "sshd";
+
+/* The main () */
+y2milestone ("----------------------------------------");
+y2milestone ("Sshd module started");
+
+import "Progress";
+import "Report";
+import "Summary";
+
+import "CommandLine";
+<command>include "sshd/wizards.ycp";</command>
+
+map <command>cmdline_description</command> = $[
+    ...
+    <command>"guihandler" : SshdSequence</command>,
+    ...
+];
+
+/* is this proposal or not? */
+boolean <command>propose</command> = false;
+...
+
+/* main ui function */
+any ret = nil;
+
+if (propose) ret = <command>SshdAutoSequence()</command>;
+else ret = <command>CommandLine::Run(cmdline_description)</command>;
+y2debug("ret=%1", ret);
+
+/* Finish */
+y2milestone("Sshd module finished");
+y2milestone("----------------------------------------");
+
+return ret;
+
+/* EOF */
+}
+</programlisting>

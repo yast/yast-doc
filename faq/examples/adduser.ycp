@@ -1,0 +1,26 @@
+/**
+ * Simple script for adding new user
+ * call 'yast2 adduser.ycp <username> <password>
+ */
+{
+    import "YaPI::USERS";
+
+    // take user name and password from the command line
+    list args		= WFM::Args ();
+    string uid		= args[0]:"";
+    string passwd	= args[1]:"";
+
+    map<string,any> config	= $[];
+    map<string,any> data	= $[
+	"uid"		: uid,
+	"userpassword"	: passwd
+    ];
+
+    string error	= YaPI::USERS::UserAdd (config, data);
+
+    // the return value is empty string on success
+    if (error != "")
+    {
+	y2error ("add user error: %1", error);
+    }
+}

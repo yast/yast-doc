@@ -1,0 +1,399 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=iso-8859-1">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="StarOffice/5.2 (Linux)">
+	<META NAME="AUTHOR" CONTENT="Siegfried Olschner">
+	<META NAME="CREATED" CONTENT="20000803;10475600">
+	<META NAME="CHANGEDBY" CONTENT="Siegfried Olschner">
+	<META NAME="CHANGED" CONTENT="20010816;16241100">
+	<STYLE>
+	<!--
+		H3 { color: #0000ff; font-family: "Helvetica", sans-serif }
+		H2 { color: #0000ff; font-family: "Helvetica", sans-serif }
+		H1 { color: #0000ff; font-family: "Helvetica", sans-serif }
+	-->
+	</STYLE>
+</HEAD>
+<BODY>
+<P STYLE="margin-bottom: 0cm"><A NAME="up"></A><IMG SRC="Pics/yast2_heading2.png" NAME="Grafik1" ALIGN=LEFT WIDTH=687 HEIGHT=60 BORDER=0><BR CLEAR=LEFT>[.................]
+--- [<A HREF="SG_index.html">back to index</A>] --- [<A HREF="SG_Part2.html">next
+page</A>]</P>
+<H1>1 General aspects</H1>
+<P><A HREF="#Something very complex">Thrown into something very
+complex</A></P>
+<P><A HREF="#Dark force in the background">The dark force in the
+background - international norms</A></P>
+<P><A HREF="#Low usability">Outcomes of low usability</A></P>
+<P><BR><BR>
+</P>
+<H2>Thrown into something very complex</H2>
+<P>The design of software is a very complex work. Be aware that style
+guides are not cookery books with detailed lists of ingredients you
+can put together without thinking. Style guides are always &quot;only&quot;
+guidelines. You have to use them in a intelligent manner. Sometimes
+you may be forced to disobey them. But then do it clever and provide
+a good explanation for your decission. 
+</P>
+<H2>Goals for this style guide</H2>
+<UL>
+	<LI><P>Build up a consistent YaST2 - user should realize: YaST2 was
+	made by <B>one</B> man/woman</P>
+	<LI><P>Integrate YaST2 into the corporate design of SuSE</P>
+	<LI><P>Make the living with SuSE Linux easy for the user</P>
+	<LI><P>Make the development of YaST2 easy for the developer</P>
+</UL>
+<H2>The dark force in the background - international norms</H2>
+<P>Every software - even YaST2 - should persist a check under
+following aspects (this is a short overview about the demands of ISO
+9241 Part 10: Dialogue principles): 
+</P>
+<P><A HREF="SG_Part54.html">A 'copy' of the German DIN EN ISO is
+available in the appendix (***work in progress, English in press***.</A></P>
+<H3><B>Suitability for the task (German: Aufgabenangemessenheit):</B>
+</H3>
+<UL>
+	<LI><P>Software is a tool to work with. On work is less time for
+	&quot;gaming&quot; and trouble shooting. Users must be able to
+	accomplish their goal with minimal effort and maximum results and
+	the system must not treat the user in a hostile fashion or treat the
+	user as if they do not matter (T. Burgess).</P>
+	<LI><P>ISO quintessence: 
+	</P>
+	<UL>
+		<LI><P>Die Software ist auf die Arbeitsanforderungen zugeschnitten
+		und erm&ouml;glicht somit effizientes Arbeiten:</P>
+		<UL>
+			<LI><P>Die vorgegebenen Arbeitsschritte sind n&ouml;tig und
+			sinnvoll</P>
+			<LI><P>Die Arbeitsaufgaben k&ouml;nnen ohne Umwege abgearbeitet
+			werden</P>
+			<LI><P>Arbeitsaufgaben k&ouml;nnen vollst&auml;ndigerledigt
+			werden. 
+			</P>
+		</UL>
+		<LI><P>Die Interaktion mit der Dialogschnittstelle ist auf die
+		Aufgabenstellung abgestimmt:</P>
+		<UL>
+			<LI><P>Unterschiedliche Arbeitsaufgaben k&ouml;nnen mit angepa&szlig;ten
+			teraktionsmodi abgearbeitet werden</P>
+			<LI><P>Die verwendeten Begriffe und Bezeichnungen entsprechen der
+			Arbeitst&auml;tigkeit</P>
+			<LI><P>Wichtige Befehle sind schnell zu finden</P>
+		</UL>
+		<LI><P>Die Informationen am Bildschirm sind so angeordnet, da&szlig;
+		die Aufgabenbearbeitung unterst&uuml;tzt wird</P>
+		<UL>
+			<LI><P>Ben&ouml;tigte Informationen werden angezeigt und passen
+			zur Aufgabenstellung.</P>
+			<LI><P>Die von der Software erzeugten Datenausgaben auf dem
+			Bildschirm, Drucker, Plotter etc. lassen sich an die
+			unterschiedlichen Aufgabenstellungen anpassen.</P>
+			<LI><P>F&uuml;r sich wiederholende Arbeitsschritte gibt es eine
+			Wiederhol-Funktion.</P>
+		</UL>
+	</UL>
+	<LI><P>Our work for YaST2: 
+	</P>
+	<UL>
+		<LI><P>YaST2 should be optimized to intstall and configure SuSE
+		Linux</P>
+	</UL>
+</UL>
+<P><BR><BR>
+</P>
+<H3><B>Self-descriptiveness (KDE: understandable, German:
+Selbstbeschreibungsf&auml;higkeit):</B></H3>
+<UL>
+	<LI><P>When the user uses the application for the first time, he
+	should be able to see quickly what it does and how to use it (KDE
+	style guide).</P>
+	<LI><P>ISO quintessence:</P>
+	<UL>
+		<LI><P>Clear functionality of the dialogs 
+		</P>
+		<UL>
+			<LI><P>Information about 'what can I do now' and</P>
+			<LI><P>'What will happen if I do this...'</P>
+		</UL>
+		<LI><P>Clear feedback to the user</P>
+		<UL>
+			<LI><P>The feedback for the user reflects the actual situation
+			(content?) of the work progress.</P>
+			<LI><P>Es ist klar und eindeutig, wo und in welchem Kontext ich
+			mich befinde und wo die aktuelle Interaktionsstelle zu finden ist
+			(z.B. durch Markierung,Farbe, Cursorblinken, Mauscursor etc.)</P>
+			<LI><P>R&uuml;ckmeldungen, Sicherheitsabfragen, Warnungen oder
+			Fehlermeldungen sind klar unterscheidbar</P>
+		</UL>
+		<LI><P>Clear use of text information</P>
+		<UL>
+			<LI><P>Der Inhalt der Hilfe ist unmittelbar verst&auml;ndlich</P>
+			<LI><P>Bei Bedarf kann man zur Situation weitere Erl&auml;uterungen
+			anfordern. Diese Funktion ist so oft wie es geht (d.h. Immer)
+			verf&uuml;gbar und schnell und leicht zu benutzen</P>
+			<LI><P>Es werden auf Anforderung auch Beispiele vorgestellt und
+			&Uuml;bersichtsinformationen &uuml;ber die aktuellen Bedien- und
+			Nutzungsm&ouml;chkeiten aufgezeigt.</P>
+			<LI><P>Aviod abbreviations in the dialogs</P>
+		</UL>
+		<LI><P>Our work for YaST2</P>
+		<UL>
+			<LI><P>Use well known standards based on ergonomic research</P>
+			<LI><P>Display only the information important to the user and mask
+			unimportant information</P>
+			<LI><P>Make a additional help button available</P>
+		</UL>
+	</UL>
+</UL>
+<P><BR><BR>
+</P>
+<H3><B>Controllability (KDE: navigable and feedback rich, German:
+Steuerbarkeit):</B></H3>
+<UL>
+	<LI><P>The user should always be able to tell where he/she is. Don't
+	restrict navigation too much but avoid such things like &quot;lost
+	in Hyperspace&quot;. There must be constraints on the users actions
+	(T. Burgess). 
+	</P>
+	<LI><P>ISO quintessence</P>
+	<UL>
+		<LI><P>User has control</P>
+		<UL>
+			<LI><P>User can make self determined pauses</P>
+			<LI><P>No force to keep a strictly determined workflow</P>
+			<LI><P>User can stop working on a process and start at the same
+			point later</P>
+		</UL>
+		<LI><P>Comfortable navigation is possible</P>
+		<UL>
+			<LI><P>Even jumps between different areas are easy an quick</P>
+			<LI><P>To all time, there is the opportunity to 'Abort' the
+			operation 
+			</P>
+			<LI><P>The software supports different interaction modes
+			(keyboard, mouse, menu, key short cuts)</P>
+		</UL>
+	</UL>
+	<LI><P>Our work for YaST2</P>
+	<UL>
+		<LI><P>The application should always give immediate feedback to the
+		user regarding which actions(s) are being taken. And make it
+		possible to use different interaction modes like mouse and
+		keyboard.</P>
+		<LI><P>Think about a history function.</P>
+		<LI><P>Aviod information overload.</P>
+	</UL>
+</UL>
+<P><BR><BR>
+</P>
+<H3><B>Conformity with user expectations (KDE: conformable to
+expectations, German: Erwartungskonformit&auml;t):</B> 
+</H3>
+<UL>
+	<LI><P>The application should be consistent throughout!</P>
+	<LI><P>ISO quintessence</P>
+	<UL>
+		<LI><P>The dialogs and all dialog elements have a consistent design
+		and consistent use</P>
+		<UL>
+			<LI><P>Same functions are located at same places</P>
+			<LI><P>Software feedback has it's own place</P>
+			<LI><P>The function of the dialogs and dialog elements is
+			predictable</P>
+			<LI><P>Consistent naming of objects and labeling of function
+			elements</P>
+		</UL>
+		<LI><P>Time prognoses are available</P>
+	</UL>
+	<LI><P>Our work for YaST2</P>
+	<UL>
+		<LI><P>A table list is a table list and looks always similar. A
+		&quot;Yes-No&quot; message box looks always similar too.</P>
+		<LI><P>The &quot;Next&quot; button is on the right side and the
+		&quot;Back&quot; button on the left, in western countries. And
+		japanese or hebrew people may not agree to this.</P>
+		<LI><P>The print menue is always the same, even if it was activated
+		from different dialogues.</P>
+	</UL>
+</UL>
+<P><BR><BR>
+</P>
+<H3><B>Error tolerance (KDE: tolerant of mistakes, German:
+Fehlertoleranz)</B>:</H3>
+<UL>
+	<LI><P>Users are human - they make mistakes. The system can not
+	crash or produce any unexpected results at any point in the process
+	(T. Burgess).</P>
+	<LI><P>ISO quintessence</P>
+	<UL>
+		<LI><P>Fehler haben keine schwerwiegenden Folgen</P>
+		<UL>
+			<LI><P>Fehler k&ouml;nnen leicht r&uuml;ckg&auml;ngig gemacht
+			werden (undo)</P>
+			<LI><P>Befehle, die Daten unwiderruflich l&ouml;schen, sind mit
+			einer Sicherheitsabfrage gekoppelt.</P>
+			<LI><P>Die Originaldaten k&ouml;nnen z.B. durch ein Backup oder
+			ein undo wiederhergestellt werden</P>
+			<LI><P>Man kann M&ouml;glichkeiten ausprobieren ohne Angst zu
+			haben</P>
+		</UL>
+		<LI><P>Fehler werden von vorneherein vermieden</P>
+		<UL>
+			<LI><P>Eingaben des Benutzers, werden auf ihre
+			Stimmigkeit/Richtigkeit hin &uuml;berpr&uuml;ft bevor die
+			Verarbeitung stattfindet</P>
+			<LI><P>Systemfehler (z.B. &quot;Absturz&quot;) treten bei meiner
+			Arbeit mit der Software nicht auf.</P>
+			<LI><P>Versehentliches Ausl&ouml;sen kritischer Aktionen ist durch
+			die Dialoggestalltung erschwert.</P>
+		</UL>
+		<LI><P>Es gibt konkrete Informationen &uuml;ber die
+		Fehlerbew&auml;ltigung</P>
+		<UL>
+			<LI><P>Diese Informationen sind verst&auml;ndlich</P>
+			<LI><P>Die Software warnt vor Fehlern, bevor eine Aktion ausgel&ouml;st
+			wird</P>
+		</UL>
+		<LI><P>Our work for YaST2</P>
+		<UL>
+			<LI><P>The application should allow them to do multiple Undos.</P>
+			<LI><P>It is impossible to unformat a new partitioned and formated
+			hard disk, so provide a clear help and built in security checks.</P>
+		</UL>
+	</UL>
+</UL>
+<P><BR><BR>
+</P>
+<H3><B>Suitability for individualisation (German:
+Individualisierbarkeit):</B></H3>
+<UL>
+	<LI><P>People think and act different so be prepared for varying
+	habits to use a interface.</P>
+	<LI><P>ISO quintessence</P>
+	<UL>
+		<LI><P>Allgemeine Individualisierung</P>
+		<UL>
+			<LI><P>User can adjust the general design of the screen layout</P>
+			<LI><P>Die Software kann einfach an den individuellen
+			Kenntnisstand angepa&szlig;t werden (wegnahme bzw. Hinzuf&uuml;gen
+			bestimmter Informationen und Steuerm&ouml;glichkeiten)</P>
+			<LI><P>Die Eingabeeigenschaften der Ger&auml;te sind einstellbar</P>
+			<LI><P>Die Verwendung von Macros ist m&ouml;glich 
+			</P>
+			<LI><P>Die Hilfe kann individuell eingestellt werden</P>
+			<LI><P>Die Reaktionszeiten des Systems k&ouml;nnen individuell
+			geregelt werden</P>
+		</UL>
+		<LI><P>Arbeitsspezifische Individualisierung</P>
+		<UL>
+			<LI><P>Arbeitsrelevante Eingabemasken und Bildschirmdarbietungen
+			sind anpassbar, der Arbeitsflu&szlig; ist individualisierbar.
+			Darunter fallen z.B. auch Men&uuml;-Einstellungen. 
+			</P>
+			<LI><P>Datensatzfelder, Kommandos, Objekte, Aktionen k&ouml;nnen
+			z.B. Individuell benannt werden.</P>
+		</UL>
+	</UL>
+	<LI><P>Our work for YaST2</P>
+	<UL>
+		<LI><P>Prepare more than one possibilities to control the software.
+		Some like it quick and simple, others like it sophisticated. 
+		</P>
+	</UL>
+</UL>
+<P><BR><BR>
+</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<H3><B>Suitability for learning (German: Lernf&ouml;rderlichkeit):</B></H3>
+<UL>
+	<LI><P>Perhaps we can manage this difficult task - to teach the user
+	something about SuSE Linux during the install process.</P>
+	<LI><P>ISO quintessence</P>
+	<UL>
+		<LI><P>Quick and easy learning should be possible</P>
+		<UL>
+			<LI><P>Short training time</P>
+			<LI><P>Good recognition after a long time of not using the
+			software</P>
+			<LI><P>No information overflow during use of Software 
+			</P>
+		</UL>
+		<LI><P>User can explore the software</P>
+	</UL>
+	<LI><P>Our work for YaST2</P>
+	<UL>
+		<LI><P>Make a good help text.</P>
+		<LI><P>Echo the command actually run</P>
+	</UL>
+</UL>
+<P><BR><BR>
+</P>
+<H2>To outline this point of view</H2>
+<P>Not all users are hackers! Normaly the programmer has to create a
+software with great</P>
+<UL>
+	<LI><P>usability</P>
+	<LI><P>utitily</P>
+	<LI><P>and fun factor.</P>
+</UL>
+<P>Be aware of the different needs by different users</P>
+<TABLE WIDTH=687 BORDER=7 BORDERCOLOR="#ffffff" CELLPADDING=2 CELLSPACING=0 BGCOLOR="#e6e6e6">
+	<COL WIDTH=218>
+	<COL WIDTH=225>
+	<COL WIDTH=218>
+	<TR VALIGN=TOP>
+		<TH WIDTH=218>
+			<P>Hackers want</P>
+		</TH>
+		<TH WIDTH=225>
+			<P>Managers want</P>
+		</TH>
+		<TH WIDTH=218>
+			<P>Users want</P>
+		</TH>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=218>
+			<P>New advanced technology system as a challenge and oportunity to
+			tinker [?] with</P>
+		</TD>
+		<TD WIDTH=225>
+			<P>A bussines solution system with stability, return on investment
+			and controlled release cycles</P>
+		</TD>
+		<TD WIDTH=218>
+			<P>Usability to use, utility for work and fun 
+			</P>
+		</TD>
+	</TR>
+</TABLE>
+<P><BR><BR>
+</P>
+<P>Outcome of low usability</P>
+<UL>
+	<LI><P>More time an greater effort for the user to learn use of the
+	system</P>
+	<LI><P>More time for the user to finish a task</P>
+	<LI><P>Less quality (e.g. more errors) in the outcome of the task</P>
+	<LI><P>More emotional and cognitive stress for the user and linked
+	to this topic more physical stress</P>
+	<LI><P>More costs for the employer</P>
+	<LI><P>Less image for the manufacturer of the software</P>
+	<LI><P>Less sold software boxes</P>
+</UL>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm"><A NAME="up1"></A>[.................]
+--- [<A HREF="SG_index.html">back to index</A>] --- [<A HREF="SG_Part2.html">next
+page</A>]</P>
+<HR>
+<P STYLE="margin-bottom: 0cm"><A HREF="mailto:sigi@suse.de">sigi@suse.de</A>
+/ file: <SDFIELD TYPE=FILENAME FORMAT=NAME>SG_Part1.html</SDFIELD> /
+last change: <SDFIELD TYPE=DATETIME SDNUM="1031;0;TT.MM.JJ">16.08.01</SDFIELD></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0cm"><BR>
+</P>
+</BODY>
+</HTML>

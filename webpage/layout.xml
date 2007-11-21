@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<!DOCTYPE website PUBLIC "-//Norman Walsh//DTD Website V2.4.1//EN"
+"http://docbook.sourceforge.net/release/website/2.4.1/schema/dtd/website.dtd">
+
+<layout>
+
+    <config param="title" value="YaST2 Resource Page" />
+    <config param="banner-left"  value="images/title-bar-left.png"  /> -
+    <config param="banner-right" value="images/title-bar-right.png" />
+    <!--  <config param="banner-right" value="images/boxes_top_right_corner.png" /> -->
+
+    <copyright>
+        <year>2005-2006</year>
+        <holder role="http://www.novell.com/">Novell, Inc., All rights reserved</holder>
+    </copyright>
+
+    <headlink rel="bookmark"
+        href="http://www.novell.com/"
+        title="Novell"
+        type="text/html" />
+    <headlink rel="bookmark"
+        href="http://www.novell.com/linux/"
+        title="Linux"
+        type="text/html" />
+    <headlink rel="bookmark"
+        href="ftp://ftp.suse.com/pub/"
+        title="FTP Server"
+        type="text/html" />
+    <headlink rel="bookmark"
+        href="http://www.opensuse.org/"
+        title="openSUSE"
+        type="text/html" />
+    <headlink rel="author"
+        href="http://www.novell.com/products/suselinux/feedback.html"
+        title="Feedback" />
+
+    <style src="style/default.css" type="text/css" />
+
+    <toc page="index.xml" filename="index.html">
+
+        <tocentry id="HOME" href="index.html">
+            <title>YaST</title>
+	    <tocentry id="tdg" href="tdg/index.html">
+		<title>Documentation</title>
+	    </tocentry>
+	    <tocentry id="builtins" href="tdg/Book-YaSTReference.html">
+		<title>YCP Builtins</title>
+	    </tocentry>
+
+	    <tocentry id="modules" href="modules/index.html">
+		<title>YCP Modules</title>
+	    </tocentry>
+	    <tocentry id="perlmodules" href="perlmodules/index.html">
+		<title>Perl Modules</title>
+	    </tocentry>
+	    <tocentry id="scr" href="scr/index.html">
+		<title>SCR Agents</title>
+	    </tocentry>
+	</tocentry>
+	<tocentry id="guides" href="index.html">
+	    <title>Guides</title>
+	    <tocentry id="styleguide" href="styleguide/index.html">
+		<title>Style Guide</title>
+	    </tocentry>
+	    <tocentry id="codingrules" href="codingrules/index.html">
+		<title>Coding Rules</title>
+	    </tocentry>
+        </tocentry>
+
+	<tocentry page="faq.xml" filename="faq.html">
+            <title>FAQ</title>
+        </tocentry>
+	<tocentry id="tutorials" href="tutorials/index.html">
+	    <title>YaST Tutorials</title>
+	</tocentry>
+	<tocentry id="autoinstall" href="autoinstall/index.html">
+            <title>AutoYaST</title>
+        </tocentry>
+	<tocentry id="autoinstall" href="autoinstall/devel/index.html">
+            <title>AutoYaST for Devel.</title>
+        </tocentry>
+	<tocentry id="download_all" href="download/yast-documentation.tgz">
+	    <title>Download the Docu.</title>
+	</tocentry>
+	
+	
+        <!--
+        <tocentry page="autoyast.xml" filename="autoyast.html" tocskip="1">
+            <tocentry page="autoyast-main.xml" filename="autoyast-main.html" />
+        </tocentry>
+        -->
+
+    </toc>
+</layout>
+

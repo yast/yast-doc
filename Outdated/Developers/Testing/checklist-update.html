@@ -1,0 +1,1908 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=iso-8859-1">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="StarOffice/5.2 (Linux)">
+	<META NAME="AUTHOR" CONTENT="Siegfried Olschner">
+	<META NAME="CREATED" CONTENT="20000807;15292000">
+	<META NAME="CHANGEDBY" CONTENT="jd ">
+	<META NAME="CHANGED" CONTENT="20001010;13474600">
+</HEAD>
+<BODY BGCOLOR="#ffffcc">
+<H1>Log of update test V1.0</H1>
+<P>Comments to <A HREF="mailto:sigi@suse.de">sigi@suse.de</A> or
+<A HREF="mailto:jd@suse.de">jd@suse.de</A></P>
+<TABLE WIDTH=100% BORDER=1 CELLPADDING=3 CELLSPACING=0>
+	<COL WIDTH=74*>
+	<COL WIDTH=182*>
+	<TR>
+		<TD COLSPAN=2 WIDTH=100% VALIGN=TOP BGCOLOR="#ffcc99">
+			<P><B>General</B></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=29%>
+			<P>Name</P>
+		</TD>
+		<TD WIDTH=71%>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=29%>
+			<P>Email</P>
+		</TD>
+		<TD WIDTH=71%>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=29%>
+			<P>Date</P>
+		</TD>
+		<TD WIDTH=71%>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=29%>
+			<P>SuSE-Name and IP of computer (if available)</P>
+		</TD>
+		<TD WIDTH=71%>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD ROWSPAN=2 WIDTH=29%>
+			<P><FONT FACE="Times, serif">The version numbers are shown in a
+			dialogue during the update: Please write the information onto this
+			first page when you get it.</FONT></P>
+		</TD>
+		<TD WIDTH=71%>
+			<P><FONT FACE="Times, serif">Installed system </FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=71% VALIGN=TOP>
+			<P>Update with 
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=29%>
+			<P>Comment</P>
+			<P><BR><BR>
+			</P>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=71%>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+</TABLE>
+<P><BR><BR>
+</P>
+<FORM NAME="Standard" ACTION="Todo_test_procedures_01.html">
+	<TABLE WIDTH=100% BORDER=1 CELLPADDING=3 CELLSPACING=0>
+		<COL WIDTH=74*>
+		<COL WIDTH=182*>
+		<TR>
+			<TD COLSPAN=2 WIDTH=100% VALIGN=TOP BGCOLOR="#ffcc99">
+				<P ALIGN=LEFT><B>Short hardware description</B></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=29%>
+				<P ALIGN=RIGHT>Save output of hwinfo and add the print to this
+				checklist</P>
+			</TD>
+			<TD WIDTH=71%>
+				<P ALIGN=LEFT STYLE="font-weight: medium"><FONT FACE="Courier, monospace">/usr/sbin/hwinfo
+				&gt; filename.txt <BR></FONT><FONT FACE="Times, serif">Check
+				content of hwinfo with equipment of your system manually, <BR>the
+				important infos are at the end of the output</FONT></P>
+				<DIV ALIGN=LEFT>
+					<P STYLE="font-weight: medium"><FONT FACE="Times, serif">Check
+					ok <INPUT TYPE=CHECKBOX NAME="CheckBox3" VALUE=""></FONT></P>
+				</DIV>
+				<P ALIGN=LEFT STYLE="font-weight: medium"><FONT FACE="Times, serif">Problems:
+				</FONT>
+				</P>
+				<P ALIGN=LEFT><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=29%>
+				<P ALIGN=RIGHT>Special hardware 1:<BR>e.g. EISA-cards</P>
+			</TD>
+			<TD WIDTH=71%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=29%>
+				<P ALIGN=RIGHT>Special hardware 2:<BR>e.g. ISA-sound cards</P>
+			</TD>
+			<TD WIDTH=71%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=29%>
+				<P ALIGN=RIGHT>Other 3</P>
+			</TD>
+			<TD WIDTH=71%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=29%>
+				<P ALIGN=RIGHT>Print partition table(s)</P>
+			</TD>
+			<TD WIDTH=71%>
+				<P>e.g. <FONT FACE="Courier, monospace">fdisk -l /dev/sda &gt;
+				partition.txt</FONT></P>
+			</TD>
+		</TR>
+	</TABLE>
+	<P><BR><BR>
+	</P>
+	<TABLE WIDTH=100% BORDER=1 CELLPADDING=3 CELLSPACING=0>
+		<COL WIDTH=74*>
+		<COL WIDTH=182*>
+		<TR VALIGN=TOP>
+			<TD WIDTH=29% BGCOLOR="#ffcc99">
+				<P ALIGN=LEFT><B>Installed Software</B></P>
+			</TD>
+			<TD WIDTH=71% BGCOLOR="#ffcc99">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=29%>
+				<P ALIGN=RIGHT>Boot manager</P>
+			</TD>
+			<TD WIDTH=71%>
+				<P><INPUT TYPE=CHECKBOX NAME="CheckBox1" VALUE=""> lilo or <INPUT TYPE=CHECKBOX NAME="CheckBox1" VALUE="">
+				other -&gt;</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=29%>
+				<P ALIGN=RIGHT>X-Konfiguration</P>
+			</TD>
+			<TD WIDTH=71%>
+				<P><INPUT TYPE=CHECKBOX NAME="CheckBox1" VALUE=""> XFree86 3.3.6 
+				 or <INPUT TYPE=CHECKBOX NAME="CheckBox2" VALUE=""> XFree86
+				4.0/4.0.1                         <INPUT TYPE=CHECKBOX NAME="CheckBox2" VALUE="">
+				3D support</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=29%>
+				<P ALIGN=RIGHT>Windows installed (version)</P>
+			</TD>
+			<TD WIDTH=71%>
+				<P><INPUT TYPE=CHECKBOX NAME="CheckBox1" VALUE=""> not installed</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=29%>
+				<P ALIGN=RIGHT>Special Linux software</P>
+				<P ALIGN=RIGHT><BR>
+				</P>
+			</TD>
+			<TD WIDTH=71%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=29%>
+				<P ALIGN=RIGHT>Other 1</P>
+			</TD>
+			<TD WIDTH=71%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=29%>
+				<P ALIGN=RIGHT>Other 2</P>
+			</TD>
+			<TD WIDTH=71%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+	<P><BR><BR>
+	</P>
+	<P><BR><BR>
+	</P>
+	<TABLE WIDTH=100% BORDER=1 CELLPADDING=3 CELLSPACING=0>
+		<COL WIDTH=16*>
+		<COL WIDTH=104*>
+		<COL WIDTH=32*>
+		<COL WIDTH=31*>
+		<COL WIDTH=73*>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P><B>Step</B></P>
+			</TD>
+			<TD WIDTH=41%>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=12%>
+				<P ALIGN=CENTER><B>Checked/<BR>o.k. </B>
+				</P>
+			</TD>
+			<TD WIDTH=12%>
+				<P ALIGN=CENTER><B>Not Checked/<BR>Not o.k.</B></P>
+			</TD>
+			<TD WIDTH=29%>
+				<P><B>(Your) Comment</B></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6% BGCOLOR="#ffcc99" SDVAL="1" SDNUM="1031;0;@">
+				<P ALIGN=LEFT>1</P>
+			</TD>
+			<TD WIDTH=41% BGCOLOR="#ffcc99">
+				<P>Before Update</P>
+			</TD>
+			<TD WIDTH=12% BGCOLOR="#ffcc99">
+				<P ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=12% BGCOLOR="#ffcc99">
+				<P ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=29% BGCOLOR="#ffcc99">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6% SDVAL="36526" SDNUM="1031;0;@">
+				<P ALIGN=LEFT>1.1</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P><FONT FACE="Courier, monospace">rpm -qa | sort | sed <BR>'s/-/
+				/' &gt; filename.txt</FONT></P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P>Saving a list of all installed packages, if problems occur you
+				will need it</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6% SDVAL="2" SDNUM="1031;0;@">
+				<P ALIGN=LEFT>1.2</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P><FONT FACE="Courier, monospace">Checking /var/log/y2log for
+				errors in existing installation - look for 'error' and '&lt;3&gt;'</FONT></P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P>Check old configuration files for errors</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6% SDVAL="3" SDNUM="1031;0;@">
+				<P ALIGN=LEFT>1.3</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P><FONT FACE="Courier, monospace">Save with
+				subdirectories<BR>/etc/* (mit rc.config)<BR>/var/lib/*<BR>/var/log/*</FONT></P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P>Save old configruation files</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6% SDVAL="4" SDNUM="1031;0;@">
+				<P ALIGN=LEFT>1.4</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>Printer works</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P>Tests with command line 'lpr -Pprinter filename.ps' or print
+				from GUI</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6% SDVAL="5" SDNUM="1031;0;@">
+				<P ALIGN=LEFT>1.5</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>Sound works<BR>Mixer (e.g. kmix) works</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6% SDVAL="6" SDNUM="1031;0;@">
+				<P ALIGN=LEFT>1.6</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>Connection to internet is o.k.</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6% SDVAL="7" SDNUM="1031;0;@">
+				<P ALIGN=LEFT>1.7</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>Email works</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6% SDVAL="8" SDNUM="1031;0;@">
+				<P ALIGN=LEFT>1.8</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>Modem or ISDN-connection is o.k.</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6% SDVAL="9" SDNUM="1031;0;@">
+				<P ALIGN=LEFT>1.9</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>CD-writer works</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6% SDVAL="10" SDNUM="1031;0;@">
+				<P ALIGN=LEFT>1.10</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>Scanner works</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6% SDVAL="11" SDNUM="1031;0;@">
+				<P ALIGN=LEFT>1.11</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P><FONT FACE="Times, serif">Other 1 works</FONT></P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>1.12</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P><FONT FACE="Times, serif">Other 2 works</FONT></P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>1.13</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P><FONT FACE="Times, serif">No problems with installed software </FONT>
+				</P>
+				<P><BR><BR>
+				</P>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>1.14</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P><FONT FACE="Times, serif">Special feature: Samba is installed
+				and works fine</FONT></P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>1.15</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P><FONT FACE="Times, serif">Special feature: NFS is installed
+				and works fine</FONT></P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6% BGCOLOR="#ffcc99">
+				<P>2</P>
+			</TD>
+			<TD WIDTH=41% BGCOLOR="#ffcc99">
+				<P>Booting with CD</P>
+			</TD>
+			<TD WIDTH=12% BGCOLOR="#ffcc99">
+				<P ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=12% BGCOLOR="#ffcc99">
+				<P ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=29% BGCOLOR="#ffcc99">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>2.1</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>Booting from CD 1 is possible</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>2.2</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>YaST2 starts and first screen appears with correct language</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>2.3</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>Help text on all screens in correct language</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6% BGCOLOR="#ffcc99">
+				<P>3</P>
+			</TD>
+			<TD WIDTH=41% BGCOLOR="#ffcc99">
+				<P>Update procedure</P>
+			</TD>
+			<TD WIDTH=12% BGCOLOR="#ffcc99">
+				<P ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=12% BGCOLOR="#ffcc99">
+				<P ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=29% BGCOLOR="#ffcc99">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>3.1</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>(Only at some systems) update shows 'Select your
+				root-partition' 
+				</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>3.2</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>'Create backup' is activated, path = '<FONT FACE="Courier, monospace">/var/adm/backup'</FONT></P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>3.3</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>Dialogue: 'Software Update' appears</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>3.4</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>No. of installed version 
+				</P>
+			</TD>
+			<TD ROWSPAN=2 COLSPAN=3 WIDTH=53%>
+				<P ALIGN=LEFT>This has to be protocolled in 'general' (1<SUP>st</SUP>
+				page)</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>3.5</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>No. of update version</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>3.6</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>Mode of update base packages</P>
+			</TD>
+			<TD WIDTH=12%>
+				<P ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=12%>
+				<P ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>3.7</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>No. of packages to update</P>
+			</TD>
+			<TD WIDTH=12%>
+				<P ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=12%>
+				<P ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>3.8</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>No. of packages to check manually</P>
+			</TD>
+			<TD WIDTH=12%>
+				<P ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=12%>
+				<P ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>3.9</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>Jump to 'Detailed selection' and select files manually</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>3.10</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>Kernel selection</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>3.11</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>Starting update - pops up</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>3.12</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>No. of packages with errors in 'summarized error message'?
+				List them at 5.1</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE="">no errors (1.
+					price!)</P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6% BGCOLOR="#ffcc99">
+				<P>4</P>
+			</TD>
+			<TD WIDTH=41% BGCOLOR="#ffcc99">
+				<P>Reboot</P>
+			</TD>
+			<TD WIDTH=12% BGCOLOR="#ffcc99">
+				<P ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=12% BGCOLOR="#ffcc99">
+				<P ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=29% BGCOLOR="#ffcc99">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>4.1</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>Errors in boot messages?</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE="">no</P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE="">yes</P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>4.2</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>X-Server works fine - or jump to ncurses?<BR><BR>Repair with
+				SaX/SaX2 possible?</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P STYLE="margin-bottom: 0cm"><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE="">yes</P>
+				</DIV>
+				<DIV ALIGN=CENTER>
+					<P><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE="">yes</P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE="">no<BR><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE="">no</P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6% BGCOLOR="#ffcc99">
+				<P>5</P>
+			</TD>
+			<TD WIDTH=41% BGCOLOR="#ffcc99">
+				<P>Check of log files</P>
+			</TD>
+			<TD WIDTH=12% BGCOLOR="#ffcc99">
+				<P ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=12% BGCOLOR="#ffcc99">
+				<P ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=29% BGCOLOR="#ffcc99">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>5.1</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>Check <BR><FONT FACE="Courier, monospace">/var/log/y2log.RPMShort
+				</FONT>for errors</P>
+				<P><BR><BR>
+				</P>
+				<P><BR><BR>
+				</P>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6% BGCOLOR="#ffcc99">
+				<P>6</P>
+			</TD>
+			<TD WIDTH=41% BGCOLOR="#ffcc99">
+				<P>Testing look &amp; feel, start and exit of window-managers: 
+				</P>
+			</TD>
+			<TD WIDTH=12% BGCOLOR="#ffcc99">
+				<P ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=12% BGCOLOR="#ffcc99">
+				<P ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=29% BGCOLOR="#ffcc99">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>6.1</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P><I>KDE1:</I> <BR>time, same icons, themes, <BR>help-system,
+				SuSE-Tour <BR>panel,<BR>icons for hds, cd, floppy - test
+				mounting<BR>ZIP works<BR>Changing between desktops (short-cut
+				keys)<BR>Try console (e.g. top)</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>6.2</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P><I>KDE2:</I><BR>time, icons, themes, <BR>help-system,
+				SuSE-Tour<BR>panel<BR>icons for hds, cd, floppy - test
+				mounting<BR>ZIP works<BR>Changing between desktops (short-cut
+				keys)<BR>Try console (e.g. top)</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>6.3</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P><I>Gnome:</I><BR>time, icons, themes, <BR>Help-system,
+				SuSE-Tour<BR>panel<BR>icons for hds, cd, floppy - test
+				mounting<BR>ZIP works<BR>Changing between desktops (short-cut
+				keys)<BR>Try console (e.g. top)</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""><BR><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6% BGCOLOR="#ffcc99">
+				<P>7</P>
+			</TD>
+			<TD WIDTH=41% BGCOLOR="#ffcc99">
+				<P>Testing devices after update in KDE with some 'normal'
+				programs</P>
+			</TD>
+			<TD WIDTH=12% BGCOLOR="#ffcc99">
+				<P ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=12% BGCOLOR="#ffcc99">
+				<P ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=29% BGCOLOR="#ffcc99">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>7.1</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>Printer works after update<BR>Tested with program(s):</P>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>7.2</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>Sound works after update<BR>Tested with program(s):</P>
+				<P><BR><BR>
+				</P>
+				<P><BR>Mixer (e.g. kmix) works 
+				</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>7.3</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>Connection to internet is o.k.<BR>Browser:</P>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>7.4</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>Email works<BR>Program</P>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>7.5</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>Modem or ISDN-connection is o.k.<BR>Program</P>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>7.6</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>CD-writer works<BR>Program</P>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>7.7</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>Scanner works<BR>Program</P>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>7.8</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P><FONT FACE="Times, serif">Other 1 works<BR>Program</FONT></P>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>7.9</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P><FONT FACE="Times, serif">Other 2 works<BR>Program</FONT></P>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>7.10</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P><FONT FACE="Times, serif">Special feature: update of Samba
+				works fine</FONT></P>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>7.11</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P><FONT FACE="Times, serif">Special feature: update of works
+				fine</FONT></P>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6% BGCOLOR="#ffcc99">
+				<P>8</P>
+			</TD>
+			<TD WIDTH=41% BGCOLOR="#ffcc99">
+				<P>Testing YaST2</P>
+			</TD>
+			<TD WIDTH=12% BGCOLOR="#ffcc99">
+				<P ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=12% BGCOLOR="#ffcc99">
+				<P ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=29% BGCOLOR="#ffcc99">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>8.1</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>Adding printer is o.k.? (check /etc/printcap)</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>8.2</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>Reinstall soundcard</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>8.3</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>Post-install packages -&gt; fun: gltron (this uses 3D)</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>8.4</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>If possible reinstall net interface card (with DHCP)</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6% BGCOLOR="#ffcc99">
+				<P>9</P>
+			</TD>
+			<TD WIDTH=41% BGCOLOR="#ffcc99">
+				<P>Testing SaX, SaX2</P>
+			</TD>
+			<TD WIDTH=12% BGCOLOR="#ffcc99">
+				<P ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=12% BGCOLOR="#ffcc99">
+				<P ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=29% BGCOLOR="#ffcc99">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>9.1</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>Activate SaX or SaX2 and change screen resolution</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6% BGCOLOR="#ffcc99">
+				<P>10</P>
+			</TD>
+			<TD WIDTH=41% BGCOLOR="#ffcc99">
+				<P>Testing some 'normal' programs that worked fine before update</P>
+			</TD>
+			<TD WIDTH=12% BGCOLOR="#ffcc99">
+				<P ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=12% BGCOLOR="#ffcc99">
+				<P ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=29% BGCOLOR="#ffcc99">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>10.1</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>Staroffice or other text system</P>
+				<P>Other:</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>10.2</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>Konquerer (kfm) or other 
+				</P>
+				<P>Other:</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>10.3</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>Gimp</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>10.4</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>If 3D-function enabled: gltron</P>
+				<P>Other (e.g. Quake):</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>10.5</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>CD-player ...................... works fine</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6% BGCOLOR="#ffcc99">
+				<P>11</P>
+			</TD>
+			<TD WIDTH=41% BGCOLOR="#ffcc99">
+				<P>2<SUP>nd</SUP> reboot</P>
+			</TD>
+			<TD WIDTH=12% BGCOLOR="#ffcc99">
+				<P ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=12% BGCOLOR="#ffcc99">
+				<P ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=29% BGCOLOR="#ffcc99">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>11.1</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>Booting installed system without 'failure' messages?</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>11.2</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>Graphical login is starting?</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>11.3</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>Check partition table of Linux-system</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6% BGCOLOR="#ffcc99">
+				<P>12</P>
+			</TD>
+			<TD WIDTH=41% BGCOLOR="#ffcc99">
+				<P>If Windows is installed</P>
+			</TD>
+			<TD WIDTH=12% BGCOLOR="#ffcc99">
+				<P ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=12% BGCOLOR="#ffcc99">
+				<P ALIGN=CENTER><BR>
+				</P>
+			</TD>
+			<TD WIDTH=29% BGCOLOR="#ffcc99">
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>12.1</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>Test starting of windows 
+				</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=6%>
+				<P>12.2</P>
+			</TD>
+			<TD WIDTH=41%>
+				<P>Check partition table</P>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=12%>
+				<DIV ALIGN=CENTER>
+					<P><INPUT TYPE=CHECKBOX NAME="CheckBox4" VALUE=""></P>
+				</DIV>
+			</TD>
+			<TD WIDTH=29%>
+				<P><BR>
+				</P>
+			</TD>
+		</TR>
+	</TABLE>
+</FORM>
+<P><BR><BR>
+</P>
+<HR>
+<P>Created 2000-09-29 / last edit <SDFIELD TYPE=DATETIME SDNUM="1031;0;TT.MM.JJ">10.10.00</SDFIELD></P>
+</BODY>
+</HTML>

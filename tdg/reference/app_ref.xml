@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding='ISO-8859-1'?>
+<!-- =============================================================== -->
+<!--
+File         : app_ref.xml
+Author       : Thomas Rölz 
+Initial date : 2002/10/23
+CVS          : $Id: app_ref.xml 53 2004-09-14 14:07:11Z nashif $
+-->
+<!-- =============================================================== -->
+
+
+
+  <appendix id="id_app_ref">
+    <title>References</title>
+    <para>
+      The following links can also also be found at different locations
+      throughout this document. They are listed here again to provide a
+      <quote>dense</quote> index that can be used without the need to search
+      the whole document. The links point to sevaral files of the
+      <quote>official</quote> &prog; developers documentation. To have access
+      to these files the following packages must be installed:
+    </para>
+    <itemizedlist>
+      <listitem><para>yast2-devel</para></listitem>
+      <listitem><para>yast2-core-devel</para></listitem>
+      <listitem><para>liby2util-devel</para></listitem>
+      <listitem><para>yast2-packagemanager-devel</para></listitem>
+    </itemizedlist>
+    <para>
+      Please also note that there are many other documentation files to be
+      found in <literal>/usr/share/doc/packages/yast2*</literal>.
+    </para>
+
+    <itemizedlist>
+      <title>&lg_t; Operators</title>
+      <listitem>
+	<para>
+	  <!-- HTML version points to the local copy but mentions the "real" file (Web)-->
+	  <ulink url="instdoc_subset/yast2-core/libycp/YCP-operators.html" role="html">
+	    /usr/share/doc/packages/yast2-core/libycp/YCP-operators.html 
+	  </ulink>
+	  <!-- PDF version points directly to the "real" file -->
+	  <ulink
+	    url="/usr/share/doc/packages/yast2-core/libycp/YCP-operators.html"
+	    role="pdf"/>
+	</para>
+      </listitem>
+    </itemizedlist>
+    
+    <itemizedlist>
+      <title>&lg_t; Language Elements</title>
+      <listitem>
+	<para>
+	  <!-- HTML version points to the local copy but mentions the "real" file (Web)-->
+	  <ulink url="instdoc_subset/yast2-core/libycp/YCP-builtins.html" role="html">
+	    /usr/share/doc/packages/yast2-core/libycp/YCP-builtins.html 
+	  </ulink>
+	  <!-- PDF version points directly to the "real" file -->
+	  <ulink
+	    url="/usr/share/doc/packages/yast2-core/libycp/YCP-builtins.html"
+	    role="pdf"/>
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  <!-- HTML version points to the local copy but mentions the "real" file (Web)-->
+	  <ulink url="instdoc_subset/yast2-core/wfm/YCP-builtins-wfm.html" role="html">
+	    /usr/share/doc/packages/yast2-core/wfm/YCP-builtins-wfm.html 
+	  </ulink>
+	  <!-- PDF version points directly to the "real" file -->
+	  <ulink
+	    url="/usr/share/doc/packages/yast2-core/wfm/YCP-builtins-wfm.html"
+	    role="pdf"/>
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  <!-- HTML version points to the local copy but mentions the "real" file (Web)-->
+	  <ulink url="instdoc_subset/yast2-core/wfm/YCP-builtins-pkg.html" role="html">
+	    /usr/share/doc/packages/yast2-core/wfm/YCP-builtins-pkg.html 
+	  </ulink>
+	  <!-- PDF version points directly to the "real" file -->
+	  <ulink
+	    url="/usr/share/doc/packages/yast2-core/wfm/YCP-builtins-pkg.html"
+	    role="pdf"/>
+	</para>
+      </listitem>
+    </itemizedlist>
+
+    <itemizedlist>
+      <title>UI Functionality</title>
+      <listitem>
+	<para>
+	  Controlling dialog layout
+	</para>
+	<para>
+	  <!-- HTML version points to the local copy but mentions the "real" file (Web)-->
+	  <ulink url="instdoc_subset/yast2-core/libyui/YCP-UI-layout.html" role="html">
+	    /usr/share/doc/packages/yast2-core/libyui/YCP-UI-layout.html 
+	  </ulink>
+	  <!-- PDF version points directly to the "real" file -->
+	  <ulink
+	    url="/usr/share/doc/packages/yast2-core/libyui/YCP-UI-layout.html"
+	    role="pdf"/>
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  UI built-in functions
+	</para>
+	<para>
+	  <!-- HTML version points to the local copy but mentions the "real" file (Web)-->
+	  <ulink url="instdoc_subset/yast2-core/libyui/YCP-builtins-ui.html" role="html">
+	    /usr/share/doc/packages/yast2-core/libyui/YCP-builtins-ui.html 
+	  </ulink>
+	  <!-- PDF version points directly to the "real" file -->
+	  <ulink
+	    url="/usr/share/doc/packages/yast2-core/libyui/YCP-builtins-ui.html"
+	    role="pdf"/>
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  UI widget index
+	</para>
+	<para>
+	  <!-- HTML version points to the local copy but mentions the "real" file (Web)-->
+	  <ulink url="instdoc_subset/yast2-core/libyui/widgets/index.html" role="html">
+	    /usr/share/doc/packages/yast2-core/libyui/widgets/index.html 
+	  </ulink>
+	  <!-- PDF version points directly to the "real" file -->
+	  <ulink
+	    url="/usr/share/doc/packages/yast2-core/libyui/widgets/index.html"
+	    role="pdf"/>
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  UI Richtext widget capabilities
+	</para>
+	<para>
+	  <!-- HTML version points to the local copy but mentions the "real" file (Web)-->
+	  <ulink url="instdoc_subset/yast2-core/libyui/YCP-UI-richtext.html" role="html">
+	    /usr/share/doc/packages/yast2-core/libyui/YCP-UI-richtext.html 
+	  </ulink>
+	  <!-- PDF version points directly to the "real" file -->
+	  <ulink
+	    url="/usr/share/doc/packages/yast2-core/libyui/YCP-UI-richtext.html"
+	    role="pdf"/>
+	</para>
+      </listitem>
+    </itemizedlist>
+
+    <itemizedlist>
+      <title>The &prog_t; Wizard</title>
+      <listitem>
+	<para>
+	  Reference of wizard dialog elements
+	</para>
+	<para>
+	  <!-- HTML version points to the local copy but mentions the "real" file (Web)--> 
+	  <ulink
+	    url="instdoc_subset/yast2/wizard/autodocs/index.html"
+	    role="html">
+	    /usr/share/doc/packages/yast2/wizard/autodocs/index.html </ulink>
+	  <!-- PDF version points directly to the "real" file -->
+	  <ulink url="/usr/share/doc/packages/yast2/wizard/autodocs/index.html"
+	    role="pdf"/>
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Common popups documentation
+	</para>
+	<para>
+	  <!-- HTML version points to the local copy but mentions the "real" file (Web)--> 
+	  <ulink
+	    url="instdoc_subset/yast2/wizard/common_popups_doc.html"
+	    role="html">
+	    /usr/share/doc/packages/yast2/wizard/common_popups_doc.html</ulink>
+	  <!-- PDF version points directly to the "real" file -->
+	  <ulink url="/usr/share/doc/packages/yast2/wizard/common_popups_doc.html"
+	    role="pdf"/>
+	</para>
+      </listitem>
+    </itemizedlist>
+
+    <!-- ############################################################ -->
+
+    <itemizedlist>
+      <title>&lg_t; Coding Hints</title>
+      <listitem>
+	<para>
+	  Some rules
+	</para>
+	<para>
+	  <!-- HTML version points to the local copy but mentions the "real" file (Web)-->
+	  <ulink url="instdoc_subset/yast2-doc/Developers/Coding/rules.html" role="html">
+	    /usr/share/doc/packages/yast2-doc/Developers/Coding/rules.html
+	  </ulink>
+	  <!-- PDF version points directly to the "real" file -->
+	  <ulink
+	    url="/usr/share/doc/packages/yast2-doc/Developers/Coding/rules.html"
+	    role="pdf"/>
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Examples of bad code
+	</para>
+	<para>
+	  <!-- HTML version points to the local copy but mentions the "real" file (Web)-->
+	  <ulink url="instdoc_subset/yast2-doc/Developers/Coding/badcode.html" role="html">
+	    /usr/share/doc/packages/yast2-doc/Developers/Coding/badcode.html
+	  </ulink>
+	  <!-- PDF version points directly to the "real" file -->
+	  <ulink
+	    url="/usr/share/doc/packages/yast2-doc/Developers/Coding/badcode.html"
+	    role="pdf"/>
+	</para>
+      </listitem>
+    </itemizedlist>
+
+    <!-- ############################################################ -->
+
+    <itemizedlist>
+      <title>Testing And Debugging &lg_t; Code</title>
+      <listitem>
+	<para>
+	  Logging with &lg;
+	</para>
+	<para>
+	  <!-- HTML version points to the local copy but mentions the "real" file (Web)-->
+	  <ulink url="instdoc_subset/yast2-core/libycp/logging.html" role="html">
+	    /usr/share/doc/packages/yast2-core/libycp/logging.html 
+	  </ulink>
+	  <!-- PDF version points directly to the "real" file -->
+	  <ulink
+	    url="/usr/share/doc/packages/yast2-core/libycp/logging.html"
+	    role="pdf"/>
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  The &lg; debugger
+	</para>
+	<para>
+	  <!-- HTML version points to the local copy but mentions the "real" file (Web)-->
+	  <ulink url="instdoc_subset/yast2-core/libycp/debugger.html" role="html">
+	    /usr/share/doc/packages/yast2-core/libycp/debugger.html 
+	  </ulink>
+	  <!-- PDF version points directly to the "real" file -->
+	  <ulink
+	    url="/usr/share/doc/packages/yast2-core/libycp/debugger.html"
+	    role="pdf"/>
+	</para>
+      </listitem>
+    </itemizedlist>
+    
+    <!-- ############################################################ -->
+
+    <itemizedlist>
+      <title>Useful SCR Agents</title>
+      <listitem>
+	<para>
+	  System Agent
+	</para>
+	<para>
+	  <!-- HTML version points to the local copy but mentions the "real" file (Web)--> 
+	  <ulink
+	    url="instdoc_subset/yast2-core/agent-system/ag_system-builtins.html"
+	    role="html">
+	    /usr/share/doc/packages/yast2-core/agent-system/ag_system-builtins.html</ulink>
+	  <!-- PDF version points directly to the "real" file -->
+	  <ulink url="/usr/share/doc/packages/yast2-core/agent-system/ag_system-builtins.html"
+	    role="pdf"/>
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Background Agent
+	</para>
+	<para>
+	  <!-- HTML version points to the local copy but mentions the "real" file (Web)--> 
+	  <ulink
+	    url="instdoc_subset/yast2-core/agents-perl/ag_background.html"
+	    role="html">
+	    /usr/share/doc/packages/yast2-core/agents-perl/ag_background.html</ulink>
+	  <!-- PDF version points directly to the "real" file -->
+	  <ulink url="/usr/share/doc/packages/yast2-core/agents-perl/ag_background.html"
+	    role="pdf"/>
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Hardware Probe Agent
+	</para>
+	<para>
+	  <!-- HTML version points to the local copy but mentions the "real" file (Web)--> 
+	  <ulink
+	    url="instdoc_subset/yast2-core/agent-probe/hwprobe.html"
+	    role="html">
+	    /usr/share/doc/packages/yast2-core/agent-probe/hwprobe.html</ulink>
+	  <!-- PDF version points directly to the "real" file -->
+	  <ulink url="/usr/share/doc/packages/yast2-core/agent-probe/hwprobe.html"
+	    role="pdf"/>
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Any-Agent
+	</para>
+	<para>
+	  <!-- HTML version points to the local copy but mentions the "real" file (Web)--> 
+	  <ulink
+	    url="instdoc_subset/yast2-core/agent-any/anyagent.html"
+	    role="html">
+	    /usr/share/doc/packages/yast2-core/agent-any/anyagent.html</ulink>
+	  <!-- PDF version points directly to the "real" file -->
+	  <ulink url="/usr/share/doc/packages/yast2-core/agent-any/anyagent.html"
+	    role="pdf"/>
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Ini-Agent
+	</para>
+	<para>
+	  <!-- HTML version points to the local copy but mentions the "real" file (Web)--> 
+	  <ulink
+	    url="instdoc_subset/yast2-core/agent-ini/ini.html"
+	    role="html">
+	    /usr/share/doc/packages/yast2-core/agent-ini/ini.html</ulink>
+	  <!-- PDF version points directly to the "real" file -->
+	  <ulink url="/usr/share/doc/packages/yast2-core/agent-ini/ini.html"
+	    role="pdf"/>
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Modules Agent
+	</para>
+	<para>
+	  <!-- HTML version points to the local copy but mentions the "real" file (Web)--> 
+	  <ulink
+	    url="instdoc_subset/yast2-core/agent-modules/modules.html"
+	    role="html">
+	    /usr/share/doc/packages/yast2-core/agent-modules/modules.html</ulink>
+	  <!-- PDF version points directly to the "real" file -->
+	  <ulink url="/usr/share/doc/packages/yast2-core/agent-modules/modules.html"
+	    role="pdf"/>
+	</para>
+      </listitem>
+      <listitem>
+	<para>
+	  Perl Agent
+	</para>
+	<para>
+	  <!-- HTML version points to the local copy but mentions the "real" file (Web)--> 
+	  <ulink
+	    url="instdoc_subset/yast2-core/agents-perl/ycp-pm.html"
+	    role="html">
+	    /usr/share/doc/packages/yast2-core/agents-perl/ycp-pm.html</ulink>
+	  <!-- PDF version points directly to the "real" file -->
+	  <ulink url="/usr/share/doc/packages/yast2-core/agents-perl/ycp-pm.html"
+	    role="pdf"/>
+	</para>
+      </listitem>
+    </itemizedlist>
+
+
+
+
+
+    
+   
+
+
+
+  </appendix>
+
+<!-- ====== Allow emacs psgml to parse the document hierarchy ====== -->
+<!-- ATTENTION * This MUST be at the end of the document * ATTENTION -->
+<!--
+Local Variables:
+sgml-parent-document: ("yast_intro.xml")
+End:
+-->
+<!-- ====== Allow emacs psgml to parse the document hierarchy ====== -->

@@ -1,0 +1,207 @@
+<HTML>
+<HEAD>
+<TITLE>YaST2 Developers pages: How to describe a workflow</TITLE>
+</HEAD>
+<BODY bgcolor=#ffffff>
+<P><IMG SRC="../../images/heading.png"></IMG></P>
+<H1>YaST2 Developers pages: How to describe a workflow</H1>
+
+<H3>Motivation</H3>
+
+This document tries to give some guidance on how to describe
+a workflow for the YaST2 project.
+
+<BR>
+<BR>
+<P>
+<H3>What is a workflow anyway ?</H3>
+
+A workflow, in yast2 terminology, is a <b>concise description of a task</b>.
+<P>
+This can be something simple (e.g. How do I list files in a directory ?)
+or something quite complex (e.g. How do I install software raid ?). But the
+<b>goal to be achieved</b> can always be clearly stated.<p>
+Not clear in most cases is the <B>starting point</B> for achieving the goal.<BR>This is
+determined by the <B>run-time environment</B> and includes information about:
+<UL>
+How much does the user know (Expert vs. Novice) ?<BR>
+How is the system configured ?<BR>
+What hardware is available / needed ?<BR>
+Which packages are installed ?<BR>
+etc.<BR>
+</UL>
+<P>
+So from the workflow's view, you know where you want to get, you just don't know where you are :-)<BR>
+A workflow must adopt to changing environments and react accordingly. This does not (!) mean it should
+support all possible environments, but handle unsupported cases gracefully. For a programmer, this means
+to have a <TT>default</TT>-case in every <TT>switch</TT> statement.
+
+<BR>
+<BR>
+<P>
+<H3>Usability</H3>
+
+A task, accomplished by a workflow, is always a <B>service</B> the system offers to the user.
+It helps the user and guides the user through the complexity. So all workflows must adhere to the
+<B>principles of usability</B>:
+
+<OL>
+<LI>
+Users must be able to accomplish their goal with minimal effort and maximum results. 
+</LI>
+<LI>
+The system must not treat the user in a hostile fashion or treat the user as if they do not matter. 
+</LI>
+<LI>
+The system can not crash or produce any unexpected results at any point in the process. 
+</LI>
+<LI>
+There must be constraints on the users actions. 
+</LI>
+<LI>
+Users should not suffer from information overload. 
+</LI>
+<LI>
+The system must be consistent at every point in the process. 
+</LI>
+<LI>
+The system must always provide feedback to the user so that they know and understand what is happening at every point in the process. 
+</LI>
+</OL>
+
+<BR>
+<P>
+<H3>Coping with complexity</H3>
+
+It might be very complex to describe a workflow in full detail. So how does one cope with complexity ?
+<P>
+Use the typical programmers approach invented by the 'old' romans:
+<P>
+<UL>
+<B>Divide and Conquer</B>
+</UL>
+<P>
+<B>Break your workflow up into small, manageable pieces</B> and describe the pieces independently.<BR>
+A more recent description of this approach is K.I.S.S.: <B>Keep It Small and Simple</B>
+<P>
+Always take a single step towards your goal.</BR>
+First, try to explore the environment (Where am I ?).
+Cleary define which information you really need for the <B>most common case</B> first. For example, don't bother
+with usb interfaces when you want to install a serial mouse. Yes, there might be mice with an usb interface,
+but you can care about these later.<BR>
+Always think about the most common case first and get this one right. Don't be puzzled by hundreds of
+special cases that might come up here and there but really are used only by a minority. So better have
+some cases perfect than all cases only half-baken.
+
+<BR>
+<P>
+<H3>Step by Step</H3>
+
+Now describe the workflow, step by step, piece by piece. Define what is needed for a step,
+what the step does and what is accomplished by the step.<BR>
+Write this down in a <B>requires/provides list</B> and build up a chain of steps based on this.<BR>
+<P>
+Deciding on the 'size' of a step might not be easy. Some are larger, some are smaller, and that's perfectly
+allright. Important is to control the step and make it <B>self contained</B>.<BR>
+Can the requirements be checked ? Can success or failure
+of the step be checked ? If you can't tell why a step has failed, it might be too large. If a step can't
+be used separately, it might be too small.<BR><P>
+It's like structured programming, more than three identations are too much.
+
+<BR>
+<P>
+<H3>Data flow</H3>
+
+Data flow describes the kind (and content) of data needed or produced by a step of the
+workflow. The starting point for this is the requires/provides list produced before.
+It answers the most important question of
+<UL>
+Which information is needed for the workflow ?
+</UL>
+Next, define where the information comes from. Can it automatically be derived (by hardware-probing,
+scanning files) ? Must it be asked from the user ? Is a reasonable default available ?<BR>
+The last question is important if you deal with novice users, don't ask for unneeded information.
+<P>
+Now group the information. Are there any dependencies ? Is the data consistent ? Is it type-correct ?
+<P>
+Based on the requirments of each step, describe how the information is used. What exactly is done with the
+infomation ? Which values are computed ? Where is information stored ?
+
+<BR>
+<P>
+<H3>Putting it all together</H3>
+
+Now comes the hard part for you: writing <B>documentation for you and others</B>.<P>
+Documentation should explain <b>what</b> the workflow is doing, <b>why</b> it is done
+this way, and <b>how</b> it is done.
+<P>
+Be <B>concise</B>. Be <B>exact</B>. Be <b>exhaustive</b> on the topic. Don't try to explain the world, stick
+with the topic but don't slip important parts.
+<P>
+<b>Structurize</b> your document,
+give an overview first, then go into detail. Spread the details over several
+documents if needed. Don't write more than about two pages per document.<br>
+It must be <b>consistent</b>, in itself and in regard to other documents.<br>
+<b>Don't repeat</b> yourself. If you introduce a new concept, explain it once. Don't
+try to repeat, either verbatim or with other wordings.<br>
+Most important, it must be <b>correct</b>. Hand your document to someone else
+for checking.<br>
+<P>
+But remember: Even if you try hardest to be perfect, the documentation will never be perfect. It's like
+software, you specify a bit, implement a bit, test a lot, fix the specification, fix the implementation,
+test again, etc., etc.
+<P>
+<HR>
+<H3>Example: Workflow 'Configuring a mouse'</H3>
+
+<B>Goal:</B>Configuring a mouse for usage under SuSE 6.3 (console and X11)<P>
+<P>
+So we have given the workflow a name and there is a clear goal stated. Now we can start
+collecting pieces of the workflow:<BR>
+<OL>
+<LI>For mouse usage on the console, <TT>gpm</TT> must be run with appropriate parameters.</LI>
+<LI>so package <TT>gpm</TT> must be installed.</LI>
+<LI>since we are on SuSE 6.3, the gpm parameters are written to <TT>/etc/rc.config</TT> and <TT>SuSEconfig</TT> is run.</LI> 
+<LI>For mouse usage on X11, <TT>XF86Config</TT> must be set up.</LI>
+<LI>since we are on SuSE 6.3, SaX is available for X11 configuration.</LI>
+<LI>A mouse must be present (hardware requirement).</LI>
+</OL>
+Now what can we see from this list:<P>
+There might be other ways to use a mouse on the console, but <TT>gpm</TT> is the usual case and widely accepted.
+(Stick to the most common case !)<BR>
+Fiddling with <TT>XF86Config</TT> is a hassle, we should use SaX for this. (Re-Use of steps from other workflows).
+For now, using SaX is fine and will be done. But we won't depend on using SaX, maybe a later version of
+the workflow must use the YaST2 user-interface...<BR>
+We must find a way to ensure that a mouse is present. Hardware-probing is fine, but it might fail. So we write
+down the requirements for hardware-probing and which values we need. If probing fails, we must specify which
+values are to be asked from the user.<P>
+Now we can set up the requires/provides list.<P>
+X11/Sax<BR>
+- requires the mouse protocol and device.<BR>
+- provides mouse support for X11 (our goal !)<BR>
+GPM<BR>
+- requires the mouse protocol and device.<BR>
+- provides mouse support for the console (our goal !)<BR>
+Hardware-probing<BR>
+- requires nothing<BR>
+- provides either the mouse protocol and device or nothing<BR>
+<P>
+This gives us the workflow. Now we must specify the data formats and possibly translations
+between different formats. E.g. The PS/2 mouse protocol is named <TT>-t ps2</TT> for GPM and
+<TT>Protocol "PS/2"</TT> for XF86Config. Hardware-probing might return a number for the protocol found.<BR>
+If hardware-probing fails, the user must be asked. The novice user won't know anything about a "mouse protocol",
+so we must ask for a mouse vendor and device combination and deduce the protocol from this information.
+<P>
+Now we should add the 'user visible sugar' to the workflow. Testing and Feedback.<BR>
+How can we check that the mouse is working. Can it be done automatically or by asking the user ? What happens
+if the user gives wrong information ? Can we undo the changes ?
+<P>
+For every user visible dialogue, we must define what the user sees. What kind of help do we give ? How is
+information presented ? Which errors messages might pop up ? How does the system react to the user ?
+Remember the principles of usability !
+<P>
+<P><HR>
+<SMALL>Last changed 04-01-2000 13:45, <A HREF="mailto:kkaempf@suse.de">Klaus Kämpf</A></SMALL><BR>
+<SMALL>Copyright &copy; by <A HREF="http://w3.suse.de">SuSE GmbH</A></SMALL>
+</BODY>
+</HTML>

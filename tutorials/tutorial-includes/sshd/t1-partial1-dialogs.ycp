@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<programlisting>/**
+ * Server Configuration Dialog
+ *
+ * @return any dialog result
+ */
+any ServerConfigurationDialog() {
+
+    /* a dialog caption */
+    <command>string caption</command> = _("SSHD Server Configuration");
+
+    <command>term contents</command> = `VBox (
+        `Left(`Label(_("SSHD TCP Ports"))),
+        `Left(
+            `VBox (
+                `MinSize( 40, 5,
+                    /* A table header */
+                    `Table(`id("Port"), `header("Port"), [])
+                ),
+                `HBox (
+                    /* a push button */
+                    `PushButton(`id("add_port"), _("&amp;Add...")),
+                    /* a push button */
+                    `PushButton(`id("edit_port"), _("&amp;Edit...")),
+                    /* a push button */
+                    `PushButton(`id("delete_port"), _("&amp;Delete"))
+                ),
+                `VSpacing(1),
+                `Frame (
+                    /* a dialog frame caption */
+                    _("Server Features"),
+                    `VBox (
+                        /* a check box */
+                        `Left(`CheckBox(`id("AllowTcpForwarding"), _("Allow &amp;TCP Forwarding"))),
+                        /* a check box */
+                        `Left(`CheckBox(`id("X11Forwarding"),      _("Allow &amp;X11 Forwarding"))),
+                        /* a check box */
+                        `Left(`CheckBox(`id("Compression"),        _("Allow &amp;Compression")))
+                    )
+                ),
+                `VStretch()
+            )
+        )
+    );
+
+    <command>Wizard::SetContentsButtons(caption, contents, HELPS["server_configuration"]:"",
+            Label::BackButton(), Label::NextButton());</command>
+    Wizard::DisableBackButton();
+
+    any ret = nil;
+    <command>while(true) {</command>
+
+        ret = <command>UI::UserInput()</command>;
+
+        /* abort? */
+        if(ret == <command>`abort</command>) {
+            if(Sshd::Abort()) <command>break</command>;
+            else continue;
+        /* next */
+        } else if(ret == <command>`next</command>) {
+            <command>break</command>;
+        /* unknown */
+        } else {
+            y2error("unexpected retcode: %1", ret);
+            continue;
+        }
+    <command>}</command>
+
+    Wizard::RestoreBackButton();
+
+    <command>return ret;</command>
+}</programlisting>

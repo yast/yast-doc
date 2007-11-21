@@ -1,0 +1,8 @@
+/**
+ * Example of Popup
+ */
+{
+    import "Popup";
+    
+    Popup::Error("Exemplary error message");
+}

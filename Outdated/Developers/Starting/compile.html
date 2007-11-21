@@ -1,0 +1,53 @@
+<HTML>
+<HEAD>
+<TITLE>YaST2 Developers pages: Compiling</TITLE>
+</HEAD>
+<BODY bgcolor=#ffffff>
+<P><IMG SRC="../../images/heading.png"></IMG></P>
+<H1>YaST2 Developers pages: Compiling </H1>
+If you want to compile the complete C++ source code (usually <B>not</B> needed),
+ you need the following packages installed: 
+<BR><P>
+<UL>
+<LI>qtlib2 </LI>
+<LI>qtdevel2 </LI>
+<LI>gperf </LI>
+<LI>automake </LI>
+<LI>autoconf </LI>
+<LI>ncurses </LI>
+<LI>flex </LI>
+<LI>bison </LI>
+<LI>egcs </LI>
+<LI>gcc </LI>
+<LI>gpp </LI>
+<LI>gppshare </LI>
+<LI>libgpp </LI>
+<LI>gettext </LI>
+<LI>xdevel</LI>
+</UL>
+For testing (via make check) you'll also need 
+<UL>
+<LI>tcl </LI>
+<LI>tk </LI>
+<LI>expect </LI>
+<LI>dejagnu</LI>
+</UL>
+After checking out (with <A HREF="cvs.html">cvs</A>),
+ <TT>cd</TT> to a source directory and execute (as non-root):
+<PRE>
+make -f Makefile.cvs
+make
+</PRE>
+and as <TT>root</TT>
+<PRE>
+make install
+</PRE>
+If you checked out the complete <TT>yast2/source</TT> tree, there is
+a <TT>makeall</TT> shell script which compiles everything in the right
+order.<BR>
+<p><hr>
+<SMALL>Last changed 7-9-2000 12:00, <A HREF="mailto:kkaempf@suse.de">Klaus Kämpf</A></SMALL><BR>
+<SMALL>Copyright &copy; by <A HREF="http://w3.suse.de">SuSE GmbH</A></SMALL>
+</BODY>
+</HTML>
+

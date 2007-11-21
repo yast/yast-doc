@@ -1,0 +1,20 @@
+/**
+ * Example for debugging (browsing) any map in TreeWidget
+ */
+{
+    include "devel/debug.ycp"; // including part of yast2-testsuite
+    
+    map this_map = $[
+	"list1" : [
+	    $[ "string1" : 555 ], [ "a", "b", "c" ], 1, 2, 3, $[ "b" : 5 ],
+	    $[ "string2" : [ $[ "a" : 1 ], $[ "a" : 22 ], $[ "a" : 333 ] ] ],
+	],
+	"list2" : [
+	    $[ "key1" : "value1", "key2" : [ "1", "2", "3" ] ],
+	    [ "string", 1 ], [ 5, "string" ], [ [ 1 ], [ 2 ], [ 3 ] ],
+	],
+    ];
+
+    // Opens UI window with a browsable tree
+    DEBUG(this_map);
+}

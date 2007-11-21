@@ -1,0 +1,339 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=iso-8859-1">
+	<TITLE></TITLE>
+	<META NAME="AUTHOR" CONTENT="Siegfried Olschner">
+	<META NAME="CREATED" CONTENT="20001011;10002600">
+	<META NAME="CHANGEDBY" CONTENT="Siegfried Olschner">
+	<META NAME="CHANGED" CONTENT="20001024;13564500">
+</HEAD>
+<BODY>
+<P STYLE="margin-bottom: 0cm; page-break-before: always"><A HREF="mailto:sigi@suse.de">sigi@suse.de</A>
+and <A HREF="mailto:jd@suse.de">jd@suse.de</A> 
+/ Created 2000-10-2
+/ Changed 2000-10-25</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<HR>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<H2>Comments on update and on the creation of a checklist for update</H2>
+<H4><BR><BR>
+</H4>
+<H4>Preliminary remarks</H4>
+<P>The term 'update' refers to the update of an entire system.</P>
+<P>Starting point for an update is an stable SuSE Linux -
+while updating there is no repair functionality. <BR>
+Additionally there are nor restrictions concerning space (hard disk
+space) and the rpm data base is also valid. </P>
+<P><B>Important:</B>To identify problems it is nessary to use a
+stable version to be updated. At the moment this should only be
+the standard CD-ROM installation or the NFS installation via /dist.
+The version to be used should be described in details.</P>
+<P>To evaluate the performance of the update the tested system should
+<B>not</B> be a fresh installed Standard SuSE Linux, it should
+be configured with individual preferences, like Netscape bookmarks.
+The intention is to check whether preferences will be updated
+correctly.</P>
+<P><BR><BR>
+</P>
+<H4>What will it do, the update? 
+</H4>
+<P>While updating all installed packages are checked using the
+criterion date and version number. Packages to be updated will
+be selected for update.
+</P>
+<OL>
+	<LI><P>Check of installed packages and serializing
+               the update - if something is not clear, the
+               user has to select.</P>
+	<LI><P>Backup of files with differences concerning the
+               time stamps of rpm packages.</P>
+	<LI><P>Serialize updating of single packages using 'rpm -U...'
+	<BR>-&gt; the maintainer of the packages are responsible for
+                  the single package update.</P>
+	<LI><P>SuSEconfig and LILO are checked</P>
+</OL>
+<P><BR><BR>
+</P>
+<P><B>Hints on documentation</B>: 
+</P>
+<P>The current documentation is located at
+</P>
+<UL>
+	<LI><P>YaST2-CVS-Tree: doc/public/Developers/Testing/*</P>
+	<LI><P>or http://w3.suse.de/~sigi/Update_test/*</P>
+</UL>
+<P>There are two files concerning update</P>
+<UL>
+	<LI><P>comments-update.html = comments on update </P>
+	<LI><P>checklist-update.html = checkliste for the update</P>
+</UL>
+<P>Additionally there are the related *.ps files.</P>
+<P><BR><BR>
+</P>
+<P><B>Procedure for testing update:</B></P>
+<P>Please use the checklist. This documentation is V1.0 must
+be reworked - comments are welcome. <BR>
+<P>The tests must be usable - the results of the test are evaluated
+by Sigi oder J&ouml;r (DHS 4-N-5).</P>
+<P>If there are bugs the reports can be documented in Bugzilla
+directly (if they aren't already reported). For that class
+of bugs a special class (component update problems) is created.</P>
+
+<P>At the moment there is a special update version - <B>this version
+must be used for updating.</B></P>
+<UL>
+	<LI><P>Booting 1st CD of 7.0; YaST2 starts -&gt;
+	on first screen abort installation and go to linuxrc;
+        another way is to use a special boot disk.</P>
+</UL>
+<UL>
+	<LI><P>Linuxrc starts</P>
+	<UL>
+		<LI><P>1. Kernel module loading (automatically-)</P>
+		<LI><P>2. Start installation/system </P>
+		<LI><P>3. Start installation/update</P>
+		<LI><P>4. Network (NFS) -&gt; Automatic configuration via bootp 'Yes'</P>
+		<LI><P>5. IP address of name server '10.10.0.1'</P>
+		<LI><P>6. NFS-Server: 10.10.1.140</P>
+		<LI><P>7. directory: /test-update/full-i386</P>
+		<LI><P>8. Choose version of YaST: YaST2 - graphical</P>
+		<LI><P>9. YaST2 starts via NFS</P>
+		<LI><P>10. Step 2 (Caption: 'SuSE Linux installieren') 
+                           -&gt;'Update YaST2 (only beta-version!!!)' </P>
+	</UL>
+</UL>
+
+<P>If the root partition is not determined there is a GUI query.</P>
+<P><BR><BR>
+</P>
+<P><B>Comments</B>: 
+</P>
+<P>Updates will be tested starting with SuSE-Linux 6.2. Most important
+are 6.3-&gt;7.0 and 6.4-&gt;7.0 (later 7.1).</P>
+<P>The results and log files are stored within a NFS directory:
+<UL>
+	<LI><P>/suse/jd/updatetest/&lt;date-hostname&gt; (ie.
+	/suse/jd/updatetest/20001023-schoenwares)</P>
+        <LI><P>There can be also a link /suse/jd/updatetest/&lt;date-ip&gt;
+               to the hostname directory</P>
+        <LI><P>There is also a directory for every tester, for each test
+               there is a link to the hostname directory</P>
+</UL>
+<P><BR><BR>
+</P>
+<H4>Log files of update:</H4>
+<TABLE WIDTH=100% BORDER=1 CELLPADDING=3 CELLSPACING=0>
+	<COL WIDTH=128*>
+	<COL WIDTH=128*>
+	<TR VALIGN=TOP>
+		<TD WIDTH=50%> <P>Large log file</P> </TD>
+		<TD WIDTH=50%> <P>/var/log/y2logRPM</P> </TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=50%> <P>Short log file</P> </TD>
+		<TD WIDTH=50%> <P>/var/log/y2logRPMShort</P> </TD>
+	</TR>
+</TABLE>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<H4>Configuration files, directories and log files used to check update:</H4>
+<TABLE WIDTH=100% BORDER=1 CELLPADDING=3 CELLSPACING=0>
+	<COL WIDTH=86*>
+	<COL WIDTH=170*>
+	<TR VALIGN=TOP>
+		<TD WIDTH=34%> <P>Update log file</P> </TD>
+		<TD WIDTH=66%> <P>/var/log/y2log.RPMShort<BR>
+                                  /var/log/y2log.RPM</P> </TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=34%>
+			<P>These directories should be manually backuped <B>before</B>
+                           updating - as recommended within manual.</P>
+		</TD>
+		<TD WIDTH=66%>
+			<P>/etc/* with rc.config (also subdirectories)<BR>
+                           /var/lib/*<BR>
+                           /var/log/*<BR>
+			   /var/log/y2log is used to locate problems of the original
+                           installation</P>
+		</TD>
+	</TR>
+</TABLE>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<H4>Functional check of devices and related configurations</H4>
+<TABLE WIDTH=100% BORDER=1 CELLPADDING=3 CELLSPACING=0>
+	<COL WIDTH=85*>
+	<COL WIDTH=85*>
+	<COL WIDTH=85*>
+	<THEAD>
+		<TR>
+			<TD COLSPAN=3 WIDTH=100% VALIGN=TOP>
+				<P><I>The functionality of the devices must be
+                                      checked <B>before</B> update and the functionality
+                                      must be correct.</I></P>
+			</TD>
+		</TR>
+	</THEAD>
+	<TBODY>
+		<TR VALIGN=TOP>
+			<TD WIDTH=33%> <P>Printer</P> </TD>
+			<TD WIDTH=33%> <P>Printing via StarOffice and other programs</P> </TD> 
+                        <TD WIDTH=33%> <P><BR> </P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=33%> <P>Sound card</P> </TD>
+			<TD WIDTH=33%> <P>check sound</P> </TD>
+			<TD WIDTH=33%> <P><BR> </P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=33%> <P>Modem or ISDN </P> </TD>
+			<TD WIDTH=33%> <P>check create connection</P> </TD>
+			<TD WIDTH=33%> <P>Are the individual preferences correct ? </P> </TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=33%> <P>Network cards (NICs)</P> </TD>
+			<TD WIDTH=33%> <P>check create connection</P> </TD>
+			<TD WIDTH=33%> <P><BR> </P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=33%> <P>CD-Writer (IDE?)</P> </TD>
+			<TD WIDTH=33%> <P>check functionality</P> </TD>
+			<TD WIDTH=33%> <P><BR> </P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=33%> <P>Scanner</P> </TD>
+			<TD WIDTH=33%> <P>check functionality</P> </TD>
+			<TD WIDTH=33%> <P><BR> </P>
+			</TD>
+		</TR>
+	</TBODY>
+</TABLE>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<P><B>Functionality check of programs after the update:</B></P>
+<TABLE WIDTH=100% BORDER=1 CELLPADDING=3 CELLSPACING=0>
+	<COL WIDTH=85*>
+	<COL WIDTH=85*>
+	<COL WIDTH=85*>
+	<TR>
+		<TD COLSPAN=3 WIDTH=100% VALIGN=TOP>
+			<P><I>The functionality of the programs must be
+                              checked <B>before</B> update and the functionality
+                              must be correct.</I></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=33%> <P>Windowmanager</P> </TD>
+		<TD WIDTH=33%> <P> SuSE-Tour</P> <P>call Windowmanager and check programs</P> </TD>
+		<TD WIDTH=33%>
+			<P>KDE, Gnome</P>
+			<P>check timezone, sound configuration, desktop configuration, themes, styles, 
+                           locations of icons and icon configurations</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=33%> <P>Console</P> </TD>
+		<TD WIDTH=33%> <P>Changing consoles</P> </TD>
+		<TD WIDTH=33%> <P>checking smaller programs</P> </TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=33%> <P>Lan &amp; Server functionality /P> </TD>
+		<TD WIDTH=33%> <P> SuSE-Tour</P> </TD>
+		<TD WIDTH=33%> <P>Samba</P> </TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=33%> <P>Email and Browser</P> </TD>
+		<TD WIDTH=33%> <P> SuSE-Tour</P> </TD>
+		<TD WIDTH=33%> <P>Netscape, Messenger, kmail, kinternet, pine</P> </TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=33%> <P>Office</P> </TD>
+		<TD WIDTH=33%> <P>SuSE-Tour </P> </TD> 
+                <TD WIDTH=33%> <P>StarOffice, maybe WordPerfect, Applix</P> </TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=33%> <P>Graphic</P> </TD>
+		<TD WIDTH=33%> <P>SuSE-Tour, maybe scanner programs</P> </TD>
+		<TD WIDTH=33%> <P>Gimp, xsane, pixie (Viewer-Programme)</P> </TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=33%> <P>Audio</P> </TD>
+		<TD WIDTH=33%> <P>Mixer, wav-files, mp3-files</P> </TD>
+		<TD WIDTH=33%> <P>Xmms, kmix, </P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=33%> <P>games</P> </TD>
+		<TD WIDTH=33%> <P>With 3D-Functionality</P> </TD>
+		<TD WIDTH=33%> <P>Gltron (small, quick to install)</P> </TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=33%> <P>help</P> </TD>
+		<TD WIDTH=33%> <P>all help files</P> </TD>
+		<TD WIDTH=33%> <P>Man, info, help, SuSE-Help</P> </TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=33%> <P>X11</P> </TD>
+		<TD WIDTH=33%> <P>Xfree...</P> </TD>
+		<TD WIDTH=33%>
+			<P>the XFree86 configuration isn't changed, maybe a post-install-script does.</P> </TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=33%> <P>YaST2-Functionality</P> </TD>
+		<TD WIDTH=33%> <P>Modul functionality</P> </TD>
+		<TD WIDTH=33%>
+			<P>ie. post-installation of packages, printer post-installation,
+                           sound card post-installation </P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=33%> <P>SaX(1/2)-Functionality</P> </TD>
+		<TD WIDTH=33%>
+			<P>Maybe with a change of screen resolution - check of functionality</P>
+		</TD>
+		<TD WIDTH=33%> <P><BR> </P>
+		</TD>
+	</TR>
+</TABLE>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<P><B>Known bugs (schubi):</B></P>
+<P>von 6.3 auf 7.0 :</P>
+<UL>
+	<LI><P>the link /var/X11R6/bin/X is not created correctly by SuSEconfig
+	       Solution: call SaX explicitely.</P>
+	<LI><P>Program &quot;sudo&quot;: the configuration file
+	/etc/sudoers will be overwritten and must be re-configured.</P>
+</UL>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<H4>More problems:</H4>
+<P>Effects of defect rpm-databases</P>
+<P>Update of XFree86 3.3.6 auf XFree86 4.0/4.0.1 (different rpms)</P>
+<P>Different NFS versions lead to different error reports - therefore
+the identifikation of both versions - pre and post - is necessary.</P>
+<P>There are erreanous log files with not reproducible errors.</P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

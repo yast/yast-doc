@@ -1,0 +1,43 @@
+<HTML>
+<HEAD>
+<TITLE>YaST2: Design: Tasks: linuxrc</TITLE>
+</HEAD>
+<BODY bgcolor=#ffffff>
+<H1>YaST2: Design: Tasks: linuxrc</H1>
+
+This documents describes linuxrc, the program for configuring a running
+kernel and to mount installation source and destination filesystems.
+
+<h2>What is linuxrc ?</h2>
+
+Linuxrc is a special program which is started instead of <tt>/sbin/init</tt>
+if the root filesystem resides on the initial ramdisk. This behaviour is
+hard coded into the linux kernel und usually used for <i>rescue disks</i>.
+<p>
+Further documentation can be found in the <A HREF="/usr/src/linux/Documentation/initrd.txt">
+Initial Ramdisk Howto</A> in the Documentation directory of the kernel sources.
+<p>
+<h2>Purpose of linuxrc</h2>
+
+Linuxrc is used to prepare a running system for further tasks. Usually this means<br>
+<ul>
+loading modules<br>
+mounting filesystems<br>
+starting other programs (i.e. /sbin/init)<br>
+</ul>
+
+linuxrc can be used for anything that can be done in a standalone, single-tasking
+system without defined environment.<br>
+<p>
+linuxrc in SuSE linux is solely used as a 'boot helper' on a rescue disk or at
+initial boot, when no linux is installed.<br>
+<p>
+In the YaST2 environment (i.e. automatic installer) linuxrc's purpose is defined
+by the first steps of the installer up to mounting a live filesystem.
+
+<p><hr>
+<SMALL>Last change 15-7-1999 16:00, <A HREF="mailto:kskaem@suse.de">Klaus Kämpf</A></SMALL><BR>
+<SMALL>Copyright &copy; by <A HREF="http://w3.suse.de">SuSE GmbH</A></SMALL>
+</BODY>
+</HTML>
+

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+>/dev/null
+2>/dev/null
+
+N=1
+for arg in $* ; do
+    echo "Arg $N: $(ycpparse "$arg")" >&2
+    N=$(( N + 1 ))
+done
+
+echo "result(47.11)" >&1

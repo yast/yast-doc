@@ -1,0 +1,31 @@
+/**
+ * Example for running commands
+ */
+{
+    // check if file exists
+    if (SCR::Execute (.target.bash, "/usr/bin/test -e /tmp/myfile") == 0)
+    {
+	// check the file size
+	integer filesize = (integer) SCR::Read (.target.size, "/tmp/myfile");
+
+	// remove the 'big' file
+	if (filesize > 10)
+	{
+	    boolean success = (boolean) SCR::Execute (.target.remove, "/tmp/myfile");
+	    y2warning ("file removed: %1", success);
+	}
+	// enlarge the small one
+	else
+	{
+	    SCR::Execute (.target.bash, "/bin/echo aaa >> /tmp/myfile");
+	    map out = (map)
+		SCR::Execute (.target.bash_output, "/bin/ls -l /tmp/myfile");
+	    y2internal ("ls stdout: %1", out["stdout"]:"");
+	}
+    }
+    // if not, create it
+    else
+    {
+	SCR::Execute (.target.bash, "/bin/touch /tmp/myfile");
+    }
+}

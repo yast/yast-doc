@@ -1,0 +1,55 @@
+<HTML>
+<HEAD>
+<TITLE>YaST2: Analysis: Linuxrc: Purpose and Tasks</TITLE>
+</HEAD>
+<BODY>
+<H1>YaST2: Analysis: Linuxrc: Purpose and Tasks</H1>
+This document describes the purpose and task of linuxrc for SuSE Linux<br>
+<p>
+From the README file
+<pre>
+Linuxrc is a program used for setting up the kernel for installation purposes.
+It allows the user to load modules, start an installed system, a rescue
+system or an installation via YaST.
+
+Linuxrc is designed to be as small as possible. Therefore, all needed programs
+are linked directly into one binary.
+</pre>
+<p>
+The following programs are used (i.e. built-in)<p>
+<table>
+<tr><td>bootpc</td><td>BOOTP Client</td></tr>
+<tr><td>insmod</td><td>Installation of Kernel Modules</td></tr>
+<tr><td>loadkeys</td><td></td></tr>
+<tr><td>cardmgr</td><td>PCMCIA card manager</td></tr>
+<tr><td>inflate</td><td>Decompress images</td></tr>
+<tr><td>linux</td><td>The Kernel</td></tr>
+</table>
+<p>
+<table>
+<tr><td>linuxrc.c</td><td>load modules and rootimage to ramdisk</td></tr>
+<tr><td>bootpc.c</td><td>BOOTP client</td></tr>
+<tr><td>dialog.c</td><td>User dialogs</td></tr>
+<tr><td>display.c</td><td>Low level display functions</td></tr>
+<tr><td>file.c</td><td>file access</td></tr>
+<tr><td>ftp.c</td><td>FTP client</td></tr>
+<tr><td>gobal.c</td><td>Global data</td></tr>
+<tr><td>inflate.c</td><td>Decompression</td></tr>
+<tr><td>info.c</td><td>System information</td></tr>
+<tr><td>install.c</td><td>Handling of installation</td></tr>
+<tr><td>keyboard.c</td><td>Keyboard handling</td></tr>
+<tr><td>modparms.c</td><td>Module parameters</td></tr>
+<tr><td>module.c</td><td>Load modules needed for installation</td></tr>
+<tr><td>net.c</td><td>Network related functions</td></tr>
+<tr><td>pcmcia.c</td><td>PCMCIA handling</td></tr>
+<tr><td>rootimage.c</td><td>Loading of rootimage</td></tr>
+<tr><td>settings.c</td><td>Settings for linuxrc</td></tr>
+<tr><td>text.c</td><td>Handling of messages</td></tr>
+<tr><td>util.c</td><td>Utility functions for linuxrc</td></tr>
+<tr><td>window.c</td><td>Window handling</td></tr>
+</table>
+<p><hr>
+<SMALL>Last changed 14-7-1999 14:11, <A HREF="mailto:kskaem@suse.de">Klaus Kämpf</A></SMALL><BR>
+<SMALL>Copyright &copy; by <A HREF="http://w3.suse.de">SuSE GmbH</A></SMALL>
+</BODY>
+</HTML>

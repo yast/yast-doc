@@ -1,0 +1,219 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=iso-8859-1">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="StarOffice/5.2 (Linux)">
+	<META NAME="AUTHOR" CONTENT="Siegfried Olschner">
+	<META NAME="CREATED" CONTENT="20000803;11020000">
+	<META NAME="CHANGEDBY" CONTENT="Siegfried Olschner">
+	<META NAME="CHANGED" CONTENT="20010831;13102400">
+	<STYLE>
+	<!--
+		H4 { color: #0000ff; font-family: "Helvetica", sans-serif }
+		H2 { color: #0000ff; font-family: "Helvetica", sans-serif }
+		H1 { color: #0000ff; font-family: "Helvetica", sans-serif }
+	-->
+	</STYLE>
+</HEAD>
+<BODY>
+<P><A NAME="top"></A><A NAME="up"></A><IMG SRC="Pics/yast2_heading2.png" NAME="Grafik1" ALIGN=LEFT WIDTH=800 HEIGHT=70 BORDER=0><BR CLEAR=LEFT>[<A HREF="SG_Part4.html">previous
+page</A>] --- [<A HREF="SG_index.html">back to index</A>] --- [<A HREF="SG_Part42.html">next
+page</A>]</P>
+<H1>4.1 General layout</H1>
+<P><A HREF="#with help">With help window</A><BR><A HREF="#without help">Without
+help window</A><BR><A HREF="#expert button">Place for the
+'Details'/'Expert'-button</A></P>
+<H2>YaST2 and Ncurses</H2>
+<UL>
+	<LI><P>Due to the fact YaST2 is a multi-lingual &amp; multi-platform
+	installation configuration tool, there are a lot of restrictions to
+	the general <B>and </B>the detailed design of the dialogs.</P>
+	<LI><P>The default installation of the GUI normally will provide a
+	screen resolution over 800 x 600 pixel, but it is strongly
+	recommended that YaST2 modules are usable with 640 x 480 pixel. To
+	this time there is a single exception, the YaST2 Control Center. It
+	will start with ca. 800 x 600 pixel.</P>
+	<LI><P>The 640 x 480 pixel mode will garant that the Ncurses text
+	view mode will be functional (even in times of 1280 x 1024
+	desktops).</P>
+	<LI><P>The two screen shots below are showing an identical dialog -
+	the first on the KDE desktop, the second with Ncurses in a console.
+	Both is YaST2.</P>
+</UL>
+<P><IMG SRC="Pics/printer_overview.png" NAME="Grafik4" ALIGN=LEFT WIDTH=644 HEIGHT=485 BORDER=0><BR CLEAR=LEFT>YaST2
+printer module 7.2 with 640 x 480 pixel</P>
+<P>Nearby: What's not fine in the picture above?</P>
+<UL>
+	<LI><P>Horizontal scroll bar in the help window</P>
+	<LI><P>No space between the main buttons at the bottom and the push
+	buttons to manipulate the list entry</P>
+	<LI><P>No label for the list table, so you can not jump into the
+	list with a key short cut</P>
+	<LI><P>The order of the push buttons Add, Delete ... is old, see the
+	new advice here</P>
+</UL>
+<P><BR><BR>
+</P>
+<P><IMG SRC="Pics/printer_ncurses_1.png" NAME="Grafik2" ALIGN=LEFT WIDTH=588 HEIGHT=415 BORDER=0><BR CLEAR=LEFT>The
+same YaST2 printer module 7.2 in Ncurses with 80 x 25 letters</P>
+<P>Do you really realize the problems to find a fine layout?</P>
+<P>In KDE user can increase the size of the YaST2 window. But this
+means a additional action to the user. A possible solution would be
+to ask for the screen resolution and then adjust the pop up size of
+the module.  
+</P>
+<P><BR><BR>
+</P>
+<P><IMG SRC="Pics/add_user_640x480.png" NAME="Grafik7" ALIGN=LEFT WIDTH=648 HEIGHT=507 BORDER=0><BR CLEAR=LEFT>SuSE
+Linux 7.2 YaST2 Add user module with 640 x 480 pixel</P>
+<P><BR><BR>
+</P>
+<P><IMG SRC="Pics/add_user_800x600.png" NAME="Grafik9" ALIGN=LEFT WIDTH=809 HEIGHT=611 BORDER=0><BR CLEAR=LEFT>SuSE
+Linux 7.2 YaST2 Add user module with 800 x 600 pixel</P>
+<UL>
+	<LI><P>The table list gives a better overview</P>
+	<LI><P>No scroll bars in the help window</P>
+</UL>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<H2>General layout with help window</H2>
+<P>Read the text in the examples, please. The following pictures are
+no screen shots.</P>
+<P><BR><FONT COLOR="#000000"><FONT COLOR="#000000"><IMG SRC="Pics/General_layout_01.png" NAME="Grafik3" ALIGN=BOTTOM WIDTH=646 HEIGHT=507 BORDER=1></FONT></FONT>
+</P>
+<H4>Help</H4>
+<UL>
+	<LI><P>Help is an essential feature for LINUX starters. Make short
+	and good sentences and do not make your help information at the last
+	day. 
+	</P>
+	<LI><P>YaST2 displays his help always on visible on the left side.
+	The help box uses 30% of horizontal space. 
+	</P>
+	<LI><P>To display more complex help information use an additional
+	&quot;Help&quot; button. 
+	</P>
+</UL>
+<H4>Control and dialogue elements</H4>
+<UL>
+	<LI><P>The dialogue with the user is always on the right side and
+	uses 70% of the horizontal space. 
+	</P>
+	<LI><P>There is a non visible frame around the dialogue elements on
+	the right side to make it nice (3% to the outer frame). 
+	</P>
+	<LI><P>Use the golden section to place dialogue elements. Shift them
+	towards the top if the used place is well known. 
+	</P>
+</UL>
+<H4>Buttons</H4>
+<UL>
+	<LI><P>There are three buttons for main navigation: <B>Back, Abort,
+	Next/OK/Finish.</B></P>
+	<LI><P>Sometimes the &quot;Back&quot; button will not be necessary. 
+	</P>
+	<LI><P>The user needs the feeling of control, an &quot;Abort&quot;
+	button is recommended. 
+	</P>
+	<LI><P>Sometimes an &quot;Expert&quot; button leads to another
+	dialogue screen. On this the 'Next' button is named with 'OK' or
+	'Finish'.</P>
+</UL>
+<P><BR><BR>
+</P>
+<H2>General layout without help window</H2>
+<P><BR><FONT COLOR="#000000"><FONT COLOR="#000000"><IMG SRC="Pics/General_layout_03.png" NAME="Grafik13" ALIGN=BOTTOM WIDTH=646 HEIGHT=507 BORDER=1></FONT></FONT>
+</P>
+<H4>Buttons</H4>
+<UL>
+	<LI><P>There are four main buttons: Back, Abort, Next/OK and Help.</P>
+	<LI><P>We must discuss the order and the place of the buttons.</P>
+	<LI><P>Other possible order is: [Back] [Help] [Abort] [Next]</P>
+</UL>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<H2>Location of 'Details'/'Expert'-buttons</H2>
+<P>The button <B>Details...</B> or <B>Expert settings...</B>is
+normally placed above the main buttons and it is centered. 
+</P>
+<P>The philosophy in the background is, 
+</P>
+<UL>
+	<LI><P>to provide a fine default setting 
+	</P>
+	<LI><P>to give user the overview he will need</P>
+	<LI><P>to hide not needed information and settings from his sight</P>
+	<LI><P>but to provide a possibility to make a detailed setting if he
+	wants</P>
+</UL>
+<P>The following screen shot (user module 7.2) shows a <B>Details...</B>
+button below the needed dialog elements.</P>
+<P><BR><BR>
+</P>
+<P><IMG SRC="Pics/user_start.png" NAME="Grafik5" ALIGN=LEFT WIDTH=648 HEIGHT=507 BORDER=0><BR CLEAR=LEFT>The
+button <B>Details... </B>is centered.</P>
+<P>Nerby: What's not fine in the screen shot above?</P>
+<UL>
+	<LI><P>You can not see it, but the tab order is not perfect.</P>
+	<LI><P>There is no space between the button <B>Details...</B> and
+	the main buttons.</P>
+</UL>
+<P><BR><BR>
+</P>
+<P STYLE="font-weight: medium">Another example shows a more complex
+solution. In the 7.2 it is possible to make a network setup with 4
+clicks including the start of the module.</P>
+<UL>
+	<LI><P STYLE="font-weight: medium">Start the module via
+	KDE-Startpanel and menu (2 clicks) - DHCP is default.</P>
+	<LI><P STYLE="font-weight: medium">Click onto button <B>Next</B></P>
+	<LI><P STYLE="font-weight: medium">Confirm success pop up.</P>
+</UL>
+<P STYLE="font-weight: medium">The screen shot shows two buttons with
+'expert' function: <B>Hostname and nameserver</B> and <B>Routing</B>.
+The two buttons are centered and have vertical order.</P>
+<P><BR><BR>
+</P>
+<P><IMG SRC="Pics/network_address_setup.png" NAME="Grafik8" ALIGN=LEFT WIDTH=648 HEIGHT=507 BORDER=0><BR CLEAR=LEFT><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<H2>General arrangement of button groups</H2>
+<P>Try to group buttons with functions belonging together. In the
+following design study you can easy see the group 'main buttons' at
+the bottom of the dialog area and the group 'configuration buttons'
+below the overview table. Note: The caption of this dialog is also
+separated from the radio button group that will swith the table view.</P>
+<P>The normal layout for a group of buttons is horizontally order.
+Avoid vertical order.</P>
+<P><BR><BR>
+</P>
+<P><IMG SRC="Pics/Main_buttons_1.png" NAME="Grafik6" ALIGN=LEFT WIDTH=649 HEIGHT=490 BORDER=0><BR CLEAR=LEFT><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+<P><A NAME="top1"></A><A NAME="up1"></A>[<A HREF="SG_Part4.html">previous
+page</A>] --- [<A HREF="SG_index.html">back to index</A>] --- [<A HREF="SG_Part42.html">next
+page</A>]</P>
+<HR>
+<P><A HREF="mailto:sigi@suse.de">sigi@suse.de</A> / file: <SDFIELD TYPE=FILENAME FORMAT=NAME>SG_Part41.html</SDFIELD>
+/ last change: <SDFIELD TYPE=DATETIME SDNUM="1033;1031;TT.MM.JJ">31.08.01</SDFIELD></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P><BR><BR>
+</P>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>

@@ -1,0 +1,48 @@
+<HTML>
+<HEAD>
+<TITLE>YaST2: Analysis: How Linux boots</TITLE>
+</HEAD>
+<BODY>
+<H1>YaST2: Analysis: How Linux boots</H1>
+This document describes how linux boots.
+<p>
+<H2>On Intel Hardware</H2>
+<ol>
+<li>load kernel into memory (LILO or LOADLIN)</li>
+<li>load ramdisk image into memory (LILO or LOADLIN)</li>
+<li>initialize kernel, parse arguments (init/main.c)</li>
+<li>start /linuxrc if initial ramdisk as root</li>
+<li>change root device (specified in kernel parameter)</li>
+<li>if 'init=' set, start specified program</li>
+<li>else try /sbin/init</li>
+<li>else try /etc/init</li>
+<li>else try /bin/init</li>
+<li>else try /bin/sh</li>
+<li>else panic ()</li>
+</ol>
+<H2>... On Alpha Hardware</H2>
+
+<h3>On Alpha PC (aka Jensen)</h3>
+<ol>
+<li>BIOS reads start sector and size of boot image from boot sector</li>
+<li>BIOS reads boot image</li>
+<li>BIOS starts boot image (MILO)</li>
+</ol>
+
+<H2>... On Sparc Hardware</H2>
+
+<ol>
+<li>BIOS (OpenPROM) reads boot sector</li>
+<li>BIOS reads boot image from disk</li>
+<li>BIOS starts boot image (SILO)</li>
+</ol>
+
+<H3>References</H3>
+The Loopback Root Filesystem HOWTO<br>
+Initial Ramdisk Howto (<tt>/usr/src/linux/Documentation/initrd.txt</tt>)<br>
+Ramdisk Howto (<tt>/usr/src/linux/Documentation/ramdisk.txt</tt>)<br>
+<p><hr>
+<SMALL>Last changed 16-7-1999 17:10, <A HREF="mailto:kskaem@suse.de">Klaus Kämpf</A></SMALL><BR>
+<SMALL>Copyright &copy; by <A HREF="http://w3.suse.de">SuSE GmbH</A></SMALL>
+</BODY>
+</HTML>

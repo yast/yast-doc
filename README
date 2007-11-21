@@ -1,0 +1,6 @@
+The main build script is '_build-www.sh'
+
+The current script expects some SUSE internall /work
+directory and needs to be a bit rewritten.
+
+Should be fixed soon...

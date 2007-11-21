@@ -1,0 +1,12 @@
+/**
+ * Example of testing network proposal
+ */
+{
+    import "Wizard";
+    import "Mode";
+
+    Wizard::CreateDialog ();
+
+    Mode::stage = "continue";
+    WFM::CallFunction ("inst_proposal", [true, true, `network]);
+}
