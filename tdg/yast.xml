@@ -182,7 +182,7 @@
     </bookinfo>
 
     &event-builtins;
-    &YUI_builtins;
+    &YCP_UI;
     &YCPDialogParser;
     &YCP-UI-richtext;
   </book>

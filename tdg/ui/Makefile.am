@@ -1,7 +1,7 @@
 
 
 SOURCEDIR=../../../
-references = ../../../core/libyui/doc/YUI_builtins.xml
+references = ../../../core/libyui/doc/YCP_UI.xml
 references+=  ../../../core/libyui/doc/YCPDialogParser.xml
 references+= ../../../core/libyui/doc/events/event-builtins.xml
 appendix=../../../core/libyui/doc/YCP-UI-richtext.xml
@@ -11,7 +11,7 @@ EXAMPLEDIR=../../../core/libyui/doc/examples
 
 
 all-local: xml examples
-	
+
 xml:  $(sections) $(appendix) $(references)
 	@echo " " > entities
 	@for ref in $?;\
