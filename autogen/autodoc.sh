@@ -102,12 +102,12 @@ mv -fv ./style ${OUTPUT}
 mv -fv ./images ${OUTPUT}
 
 ### Backing up
-tar -zcf ${DOCSVNDIR}/autogen/backup-of-generated-docu.tgz \
+tar --ignore-failed-read -zcf ${DOCSVNDIR}/autogen/backup-of-generated-docu.tgz \
     ${DOCSVNDIR}/modules/style ${DOCSVNDIR}/modules/images \
     ${DOCSVNDIR}/modules/ycpdoc.xml ${DOCSVNDIR}/modules/index.xml \
     ${DOCSVNDIR}/scr/style ${DOCSVNDIR}/scr/images \
     ${DOCSVNDIR}/scr/output.xml ${DOCSVNDIR}/scr/index.xml \
-    ${DOCSVNDIR}/perlmodules/conversion_output.xml ${DOCSVNDIR}/perlmodules/index.html
+    ${DOCSVNDIR}/perlmodules/conversion_output.xml ${DOCSVNDIR}/perlmodules/index.xml
 
 ### Cleaning
 rm -rf \
