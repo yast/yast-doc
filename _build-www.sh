@@ -13,14 +13,16 @@ PRODUCT=$2
 # /yast/doc/SL10.1 for product full-10.1-i386
 SEARCHPATH=$3
 
+MAKE_PARAMS=$4
+
 SEARCHDOMAIN="forgeftp.novell.com"
 
 if [ "${PRODUCT}" == "" ] || [ "$SEARCHPATH" == "" ] || [ "${SOURCES}" == "" ]; then
     echo
-    echo "Usage: ./_build-www.sh product-base-dir product-name search-path"
+    echo "Usage: ./_build-www.sh product-base-dir product-name search-path [make params]"
     echo
     echo "Path: e.g., /yast/doc/SL10.1"
-    echo "Example: ./_build-www.sh /work/CDs/all/ full-10.1-i386 /yast/doc/SL10.1"
+    echo "Example: ./_build-www.sh /work/CDs/all/ full-10.1-i386 /yast/doc/SL10.1 '-j 10'"
     echo
     if [ "${SOURCES}" != "" ]; then
 	echo "List of available products: "
@@ -54,7 +56,10 @@ checkforerrors() {
     fi
 }
 
-echo -n > ${BUILDLOG}
+echo "Building YaST documentation...
+------------------------------" > ${BUILDLOG}
+
+echo "Additional make params: "${MAKE_PARAMS} >> ${BUILDLOG}
 
 echo
 echo "*** Backing up www directory ***"
@@ -75,13 +80,16 @@ NEEDED_PACKAGES="docbook2x
     docbook-xml-slides
     docbook_3
     docbook_4
-    gettext
-    gettext-devel
     perl
     tar
     gzip
     make
-    gettext-devel"
+    gettext-tools
+    gettext-runtime
+    perl-XML-Generator"
+echo "Calling zypper install"
+zypper in $NEEDED_PACKAGES
+
 rpm -q $NEEDED_PACKAGES || (echo "1 exiting..." && exit 42)
 checkforerrors
 
@@ -97,8 +105,8 @@ rm -rf ${DOCDIR}webpage/html >> ${BUILDLOG}
 rm -rf ${DOCDIR}modules/html >> ${BUILDLOG}
 rm -rf ${DOCDIR}perlmodules/html >> ${BUILDLOG}
 rm -rf ${DOCDIR}scr/html >> ${BUILDLOG}
-make clean
-make -f Makefile.cvs
+make clean >> ${BUILDLOG}
+make -f Makefile.cvs >> ${BUILDLOG}
 
 # Cleans up the built HTML pages
 echo
@@ -107,18 +115,39 @@ echo "| Current directory: "`pwd`
 rm -rf ${TGTDIR} >> ${BUILDLOG}
 mkdir -pv ${TGTDIR} >> ${BUILDLOG}
 
-# Creates XML documentation from libyui source
+# Prepares source/core
 echo
-echo "*** CREATING XML SOURCES IN source/core/libyui/doc ***"
+echo "*** CREATING ... in source/core"
 cd ${SRCDIR}
 cd core
 echo "| Current directory: "`pwd`
-make -f Makefile.cvs >> ${BUILDLOG}
+make -f Makefile.cvs  >> ${BUILDLOG}
 checkforerrors
 make clean >> ${BUILDLOG}
-cd libyui/doc
+
+# Creates XML documentation from libyui source
+echo
+echo "*** CREATING XML SOURCES IN source/libyui/doc ***"
+cd ${SRCDIR}
+cd libyui
 echo "| Current directory: "`pwd`
-make || (echo "2 exiting..." && exit 42)
+make -f Makefile.cvs  >> ${BUILDLOG}
+make ${MAKE_PARAMS} >> ${BUILDLOG} || (echo "2 exiting..." && exit 42)
+checkforerrors
+
+# Creates XML from ycp-ui-bindings
+echo
+echo "*** CREATING XML SOURCES IN ycp-ui-bindings ***"
+cd ${SRCDIR}
+cd ycp-ui-bindings
+echo "| Current directory: "`pwd`
+# because 'doc' is missing there
+cp --force SUBDIRS SUBDIRS.doc-build-backup
+sed 's/\(.\+\)/\1 doc/' SUBDIRS.doc-build-backup > SUBDIRS
+make -f Makefile.cvs >> ${BUILDLOG}
+make ${MAKE_PARAMS} >> ${BUILDLOG} || (echo "2 exiting..." && exit 42)
+# reverting
+mv --force SUBDIRS.doc-build-backup SUBDIRS
 checkforerrors
 
 # Creates XML documentation from yast2
@@ -130,7 +159,7 @@ echo "| Current directory: "`pwd`
 make -f Makefile.cvs >> ${BUILDLOG}
 checkforerrors
 make clean >> ${BUILDLOG}
-make || (echo "2 exiting..." && exit 42)
+make ${MAKE_PARAMS} >> ${BUILDLOG} || (echo "2 exiting..." && exit 42)
 checkforerrors
 
 # Creates XML documentation from installation
@@ -142,7 +171,7 @@ echo "| Current directory: "`pwd`
 make -f Makefile.cvs >> ${BUILDLOG}
 checkforerrors
 make clean >> ${BUILDLOG}
-make || (echo "3 exiting..." && exit 42)
+make ${MAKE_PARAMS} >> ${BUILDLOG} || (echo "3 exiting..." && exit 42)
 checkforerrors
 
 # Creates XML documentation from wfm/doc
@@ -152,17 +181,14 @@ cd ${SRCDIR}
 cd core/wfm/doc
 echo "| Current directory: "`pwd`
 make clean >> ${BUILDLOG}
-cd ${SRCDIR}
-cd core/libyui/doc
-echo "| Current directory: "`pwd`
-make || (echo "4 exiting..." && exit 42)
-checkforerrors
+make ${MAKE_PARAMS} >> ${BUILDLOG} || (echo "4 exiting..." && exit 42)
 
 # Creates UI builtins
 cd ${SRCDIR}
 cd core/libycp/doc
 echo "| Current directory: "`pwd`
-make || (echo "5 exiting..." && exit 42)
+make clean  >> ${BUILDLOG}
+make ${MAKE_PARAMS} >> ${BUILDLOG} || (echo "5 exiting..." && exit 42)
 checkforerrors
 
 # Checks the main doc directory
@@ -175,7 +201,7 @@ make -f Makefile.cvs >> ${BUILDLOG}
 checkforerrors
 make clean >> ${BUILDLOG}
 checkforerrors
-make || (echo "6 exiting..." && exit 42)
+make >> ${BUILDLOG} || (echo "6 exiting..." && exit 42)
 checkforerrors
 
 # Builds the main menu with index and faq
@@ -196,7 +222,7 @@ echo "*** BUILDING AUTOYAST DOCUMENTATION ***"
 cd ${SRCDIR}autoinstallation
 echo "| Current directory: "`pwd`
 make -f Makefile.cvs >> ${BUILDLOG}
-make clean
+make clean  >> ${BUILDLOG}
 checkforerrors
 make >> ${BUILDLOG} || (echo "8 exiting..." && exit 42)
 checkforerrors
@@ -280,6 +306,7 @@ echo "*** CREATING SCR/MODULES DOC ***"
 cd ${DOCDIR}
 echo "| Current directory: "`pwd`
 echo "Running autogen/autodoc.sh ${PRODUCT} ${DOCDIR} ${TMPDIR} ${TGTDIR} ${SOURCES}"
+echo "Running autogen/autodoc.sh ${PRODUCT} ${DOCDIR} ${TMPDIR} ${TGTDIR} ${SOURCES}" >> ${BUILDLOG}
 autogen/autodoc.sh ${PRODUCT} ${DOCDIR} ${TMPDIR} ${TGTDIR} ${SOURCES} >> ${BUILDLOG}
 checkforerrors
 

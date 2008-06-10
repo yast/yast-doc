@@ -1,13 +1,15 @@
 
 
 SOURCEDIR=../../../
-references = ../../../core/libyui/doc/YCP_UI.xml
-references+=  ../../../core/libyui/doc/YCPDialogParser.xml
-references+= ../../../core/libyui/doc/events/event-builtins.xml
-appendix=../../../core/libyui/doc/YCP-UI-richtext.xml
-sections=../../../core/libyui/doc/events/event-intro.xml
-sections+=../../../core/libyui/doc/YCP-UI-layout.xml
-EXAMPLEDIR=../../../core/libyui/doc/examples
+
+references=../../../ycp-ui-bindings/doc/YCP_UI.xml
+references+=../../../ycp-ui-bindings/doc/YCPDialogParser.xml
+references+=../../../ycp-ui-bindings/doc/events/event-builtins.xml
+
+appendix=../../../ycp-ui-bindings/doc/YCP-UI-richtext.xml
+sections=../../../ycp-ui-bindings/doc/events/event-intro.xml
+sections+=../../../ycp-ui-bindings/doc/YCP-UI-layout.xml
+EXAMPLEDIR=../../../ycp-ui-bindings/examples
 
 
 all-local: xml examples

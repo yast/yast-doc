@@ -2,7 +2,7 @@
 SOURCEDIR=../../../
 sections = $(wildcard ../../../devtools/devtools/doc/*-section.xml)
 sections+= $(wildcard ../../../devtools/yast2/check_ycp/doc/*-section.xml)
-sections+=../../../core/libyui/doc/macro-recorder.xml
+sections+=../../../ycp-ui-bindings/doc/macro-recorder.xml
 sections+=../../../core/libycp/doc/logging.xml
 sections+=desktop_files.xml
 EXAMPLEDIR=
