@@ -18,20 +18,28 @@
     <xsl:template match="files">
 	<xsl:for-each select="./file_item">
 	    <xsl:sort order="ascending" select="./name"/>
-	    <sect1>
+	    <!-- Internal modules are not used for generation -->
+	    <xsl:choose>
+	    <xsl:when test="./header/internal=1">
+		<!-- Internal Module -->
+	    </xsl:when>
+	    <!-- Otherwise proceed -->
+	    <xsl:otherwise>
+		<sect1>
+		    <xsl:for-each select="./requires/requires_item">
+			<xsl:if test="./kind='module'">
+			    <xsl:attribute name="id">
+				<xsl:value-of select="./name"/>
+			    </xsl:attribute>
+			</xsl:if>
+		    </xsl:for-each>
 
-		<xsl:for-each select="./requires/requires_item">
-		    <xsl:if test="./kind='module'">
-			<xsl:attribute name="id">
-			    <xsl:value-of select="./name"/>
-			</xsl:attribute>
-		    </xsl:if>
-		</xsl:for-each>
-
-		<xsl:call-template name="module-header"/>
-		<xsl:call-template name="module-provides"/>
-		<xsl:call-template name="module-requirements"/>
-	    </sect1>
+		    <xsl:call-template name="module-header"/>
+		    <xsl:call-template name="module-provides"/>
+		    <xsl:call-template name="module-requirements"/>
+		</sect1>
+	    </xsl:otherwise>
+	    </xsl:choose>
 	</xsl:for-each>
     </xsl:template>
 

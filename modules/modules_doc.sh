@@ -2,6 +2,7 @@
 
 STYLESHEET_CSS="../style/default.css"
 
+rm -rf html
 /usr/lib/YaST2/bin/ycpdoc -f xml $1/usr/share/YaST2/modules/*.ycp
 
 /usr/bin/recode latin2..utf-8 ycpdoc.xml
