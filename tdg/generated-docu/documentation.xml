@@ -185,6 +185,9 @@ CVS          : $Id: $
 	    <para>Flags</para>
 	  </listitem>
 	  <listitem>
+	    <para>Internal</para>
+	  </listitem>
+	  <listitem>
 	    <para>Module</para>
 	  </listitem>
 	  <listitem>
@@ -260,6 +263,23 @@ CVS          : $Id: $
 	  <example id="documentation_tagFlagsEx">
 	    <title>Flags tag</title>
 	    <programlisting>Flags: Stable</programlisting>
+	  </example>
+	</section>
+
+	<section id="documentation_tagInternal">
+	  <title><literal>Internal</literal> Attribute</title>
+	  <para>
+	    If a module is marked as <emphasis>Internal</emphasis>, it will
+	    be omitted while generation the YaST overall documentation.
+	    This tag is not mandatory, by default a module is not internal.
+	  </para>
+	  
+	  <example id="documentation_tagPackageEx">
+	    <title>Package tag</title>
+	    <programlisting> *
+ * Author: Joe Example &lt;joe@example.com&gt;
+ * Internal
+ *</programlisting>
 	  </example>
 	</section>
 
