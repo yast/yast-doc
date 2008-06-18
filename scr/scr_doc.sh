@@ -26,6 +26,7 @@ TMPFILE="tmp_output.xml"
 /usr/bin/xsltproc --xinclude yast2_scr.xslt output.xml > index.xml
 /bin/mkdir -p ./html/
 /usr/bin/xsltproc --xinclude --stringparam html.stylesheet ${STYLESHEET_CSS} customize-html.xsl index.xml
+/usr/bin/xsltproc --xinclude --stringparam html.stylesheet ${STYLESHEET_CSS} ../customize-html-onefile.xsl index.xml > scr-onefile.html
 /bin/mkdir -pv style
 /bin/cp -a ../webpage/default.css style/
 /bin/mkdir -pv images
