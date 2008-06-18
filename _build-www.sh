@@ -86,7 +86,8 @@ NEEDED_PACKAGES="docbook2x
     make
     gettext-tools
     gettext-runtime
-    perl-XML-Generator"
+    perl-XML-Generator
+    fop"
 echo "Calling zypper install"
 zypper in $NEEDED_PACKAGES
 
@@ -257,7 +258,22 @@ checkforerrors
 make >> ${BUILDLOG} || (echo "11 exiting..." && exit 42)
 checkforerrors
 
+# BUILDING -onefile documents
+cd ${DOCDIR}tdg
+echo "Creating -onefile documentation in "`pwd`
+make html-onefile >> ${BUILDLOG}
+checkforerrors
+
 # Copying built docu into the directory for the final www pages
+echo "*** COPYING -onefile DOCUMENTATION ***"
+mkdir -p cd ${TGTDIR}/onefile >> ${BUILDLOG}
+cp -afv ${DOCDIR}modules/modules-onefile.html ${TGTDIR}onefile/ >> ${BUILDLOG}
+cp -afv ${DOCDIR}perlmodules/perlmodules-onefile.html ${TGTDIR}onefile/ >> ${BUILDLOG}
+cp -afv ${DOCDIR}scr/scr-onefile.html ${TGTDIR}onefile/ >> ${BUILDLOG}
+cp -afv ${DOCDIR}styleguide/style-onefile.html ${TGTDIR}onefile/ >> ${BUILDLOG}
+cp -afv ${DOCDIR}tdg/yast-onefile.html ${TGTDIR}onefile/ >> ${BUILDLOG}
+cp -afv ${DOCDIR}tdg/tutorial-onefile.html ${TGTDIR}onefile/ >> ${BUILDLOG}
+
 echo
 echo "*** COPYING MAIN MENU ***"
 echo "| Current directory: "`pwd`
