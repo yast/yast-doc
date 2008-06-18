@@ -14,6 +14,10 @@ html: $(XMLFILES) html/index.html html/examples html/screenshots html/images
 
 pdf: $(XMLFILES) yast.pdf
 
+html-onefile:
+	rm -rf yast-onefile.html
+	@XSLTPROC@ --xinclude --stringparam html.stylesheet $(STYLESHEET_CSS) ../customize-html-onefile.xsl yast.xml > yast-onefile.html
+
 validate:
 	XML_CATALOG_FILES=@XML_CATALOG@\
 	@XSLTPROC@ --xinclude --valid --noout yast.xml

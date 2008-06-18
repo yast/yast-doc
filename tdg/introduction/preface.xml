@@ -14,6 +14,8 @@ CVS          : $Id: preface.xml 164 2006-06-26 14:25:31Z locilka $
 	<title>Preface</title>
     </bookinfo>
     
+    <chapter id="id_preface_intro">
+    <title>Intro</title>
     <para>The most important thing reads: <citation>DON'T PANIC!</citation></para>
     
     <para>
@@ -85,6 +87,7 @@ CVS          : $Id: preface.xml 164 2006-06-26 14:25:31Z locilka $
       </para>
     </note>
     -->
+    </chapter>
 
     <chapter id="id_preface_inside">
       <title>What's Inside</title>

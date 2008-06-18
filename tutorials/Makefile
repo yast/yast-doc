@@ -5,6 +5,7 @@ all: html
 html: tutorial.xml
 	echo ""; \
 	xsltproc --xinclude --stringparam html.stylesheet $(STYLESHEET_CSS) customize-html.xsl tutorial.xml; \
+	xsltproc --xinclude --stringparam html.stylesheet $(STYLESHEET_CSS) ../customize-html-onefile.xsl tutorial.xml > tutorial-onefile.html; \
 	echo ""; \
 	mkdir -vp html/screenshots; \
 	cp -a tutorial-screenshots/* html/screenshots; \
