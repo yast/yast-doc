@@ -160,7 +160,8 @@ echo "| Current directory: "`pwd`
 make -f Makefile.cvs >> ${BUILDLOG}
 checkforerrors
 make clean >> ${BUILDLOG}
-make ${MAKE_PARAMS} >> ${BUILDLOG} || (echo "2 exiting..." && exit 42)
+# not needed for docu
+# make ${MAKE_PARAMS} >> ${BUILDLOG} || (echo "2 exiting..." && exit 42)
 checkforerrors
 
 # Creates XML documentation from installation
@@ -188,6 +189,7 @@ make ${MAKE_PARAMS} >> ${BUILDLOG} || (echo "4 exiting..." && exit 42)
 cd ${SRCDIR}
 cd core/libycp/doc
 echo "| Current directory: "`pwd`
+rm -rf html
 make clean  >> ${BUILDLOG}
 make ${MAKE_PARAMS} >> ${BUILDLOG} || (echo "5 exiting..." && exit 42)
 checkforerrors
@@ -255,7 +257,7 @@ cd ${DOCDIR}tutorials
 echo "| Current directory: "`pwd`
 make clean >> ${BUILDLOG}
 checkforerrors
-make >> ${BUILDLOG} || (echo "11 exiting..." && exit 42)
+make html >> ${BUILDLOG} || (echo "11 exiting..." && exit 42)
 checkforerrors
 
 # BUILDING -onefile documents
