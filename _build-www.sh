@@ -98,55 +98,60 @@ checkforerrors
 # with the previous output
 echo
 echo "*** REMOVING ALREADY BUILT DOCUMENTATION ***"
+echo "*** REMOVING ALREADY BUILT DOCUMENTATION ***" >> ${BUILDLOG} 2 >> ${BUILDLOG}
 cd ${DOCDIR}
 echo "| Current directory: "`pwd`
-rm -rf ${DOCDIR}tdg/html >> ${BUILDLOG}
-rm -rf ${DOCDIR}faq/html >> ${BUILDLOG}
-rm -rf ${DOCDIR}webpage/html >> ${BUILDLOG}
-rm -rf ${DOCDIR}modules/html >> ${BUILDLOG}
-rm -rf ${DOCDIR}perlmodules/html >> ${BUILDLOG}
-rm -rf ${DOCDIR}scr/html >> ${BUILDLOG}
-make clean >> ${BUILDLOG}
-make -f Makefile.cvs >> ${BUILDLOG}
+rm -rf ${DOCDIR}tdg/html >> ${BUILDLOG} 2 >> ${BUILDLOG}
+rm -rf ${DOCDIR}faq/html >> ${BUILDLOG} 2 >> ${BUILDLOG}
+rm -rf ${DOCDIR}webpage/html >> ${BUILDLOG} 2 >> ${BUILDLOG}
+rm -rf ${DOCDIR}modules/html >> ${BUILDLOG} 2 >> ${BUILDLOG}
+rm -rf ${DOCDIR}perlmodules/html >> ${BUILDLOG} 2 >> ${BUILDLOG}
+rm -rf ${DOCDIR}scr/html >> ${BUILDLOG} 2 >> ${BUILDLOG}
+make clean >> ${BUILDLOG} 2>>${BUILDLOG}
+make -f Makefile.cvs >> ${BUILDLOG} 2>>${BUILDLOG}
 
 # Cleans up the built HTML pages
 echo
 echo "*** CLEANING ${TGTDIR} ***"
+echo "*** CLEANING ${TGTDIR} ***" >> ${BUILDLOG} 2>>${BUILDLOG}
 echo "| Current directory: "`pwd`
-rm -rf ${TGTDIR} >> ${BUILDLOG}
-mkdir -pv ${TGTDIR} >> ${BUILDLOG}
+rm -rf ${TGTDIR} >> ${BUILDLOG} 2>>${BUILDLOG}
+mkdir -pv ${TGTDIR} >> ${BUILDLOG} 2>>${BUILDLOG}
 
 # Prepares source/core
 echo
 echo "*** CREATING ... in source/core"
+echo "*** CREATING ... in source/core" >> ${BUILDLOG} 2>>${BUILDLOG}
 cd ${SRCDIR}
 cd core
 echo "| Current directory: "`pwd`
-make -f Makefile.cvs  >> ${BUILDLOG}
+make -f Makefile.cvs  >> ${BUILDLOG} 2>>${BUILDLOG}
 checkforerrors
-make clean >> ${BUILDLOG}
+make clean >> ${BUILDLOG} 2>>${BUILDLOG}
 
 # Creates XML documentation from libyui source
 echo
 echo "*** CREATING XML SOURCES IN source/libyui/doc ***"
+echo "*** CREATING XML SOURCES IN source/libyui/doc ***" >> ${BUILDLOG} 2>>${BUILDLOG}
 cd ${SRCDIR}
 cd libyui
 echo "| Current directory: "`pwd`
-make -f Makefile.cvs  >> ${BUILDLOG}
-make ${MAKE_PARAMS} >> ${BUILDLOG} || (echo "2 exiting..." && exit 42)
+make -f Makefile.cvs  >> ${BUILDLOG} 2>>${BUILDLOG}
+make ${MAKE_PARAMS} >> ${BUILDLOG} 2>>${BUILDLOG} || (echo "2 exiting..." && exit 42)
 checkforerrors
 
 # Creates XML from ycp-ui-bindings
 echo
 echo "*** CREATING XML SOURCES IN ycp-ui-bindings ***"
+echo "*** CREATING XML SOURCES IN ycp-ui-bindings ***" >> ${BUILDLOG} 2>>${BUILDLOG}
 cd ${SRCDIR}
 cd ycp-ui-bindings
 echo "| Current directory: "`pwd`
 # because 'doc' is missing there
 cp --force SUBDIRS SUBDIRS.doc-build-backup
 sed 's/\(.\+\)/\1 doc/' SUBDIRS.doc-build-backup > SUBDIRS
-make -f Makefile.cvs >> ${BUILDLOG}
-make ${MAKE_PARAMS} >> ${BUILDLOG} || (echo "2 exiting..." && exit 42)
+make -f Makefile.cvs >> ${BUILDLOG} 2>>${BUILDLOG}
+make ${MAKE_PARAMS} >> ${BUILDLOG} 2>>${BUILDLOG} || (echo "2 exiting..." && exit 42)
 # reverting
 mv --force SUBDIRS.doc-build-backup SUBDIRS
 checkforerrors
@@ -154,144 +159,146 @@ checkforerrors
 # Creates XML documentation from yast2
 echo
 echo "*** CREATING XML SOURCES IN source/yast2 ***"
+echo "*** CREATING XML SOURCES IN source/yast2 ***" >> ${BUILDLOG} 2>>${BUILDLOG}
 cd ${SRCDIR}
 cd yast2
 echo "| Current directory: "`pwd`
-make -f Makefile.cvs >> ${BUILDLOG}
+make -f Makefile.cvs >> ${BUILDLOG} 2>>${BUILDLOG}
 checkforerrors
-make clean >> ${BUILDLOG}
+make clean >> ${BUILDLOG} 2>>${BUILDLOG}
 # not needed for docu
-# make ${MAKE_PARAMS} >> ${BUILDLOG} || (echo "2 exiting..." && exit 42)
+# make ${MAKE_PARAMS} >> ${BUILDLOG} 2>>${BUILDLOG} || (echo "2 exiting..." && exit 42)
 checkforerrors
 
 # Creates XML documentation from installation
 echo
 echo "*** CREATING XML SOURCES IN source/installation ***"
+echo "*** CREATING XML SOURCES IN source/installation ***" >> ${BUILDLOG} 2>>${BUILDLOG}
 cd ${SRCDIR}
 cd installation
 echo "| Current directory: "`pwd`
-make -f Makefile.cvs >> ${BUILDLOG}
+make -f Makefile.cvs >> ${BUILDLOG} 2>>${BUILDLOG}
 checkforerrors
-make clean >> ${BUILDLOG}
-make ${MAKE_PARAMS} >> ${BUILDLOG} || (echo "3 exiting..." && exit 42)
+make clean >> ${BUILDLOG} 2>>${BUILDLOG}
+make ${MAKE_PARAMS} >> ${BUILDLOG} 2>>${BUILDLOG} || (echo "3 exiting..." && exit 42)
 checkforerrors
 
 # Creates XML documentation from wfm/doc
 echo
 echo "*** CREATING XML SOURCES IN source/core/wfm/doc ***"
+echo "*** CREATING XML SOURCES IN source/core/wfm/doc ***" >> ${BUILDLOG} 2>>${BUILDLOG}
 cd ${SRCDIR}
 cd core/wfm/doc
 echo "| Current directory: "`pwd`
-make clean >> ${BUILDLOG}
-make ${MAKE_PARAMS} >> ${BUILDLOG} || (echo "4 exiting..." && exit 42)
+make clean >> ${BUILDLOG} 2>>${BUILDLOG}
+make ${MAKE_PARAMS} >> ${BUILDLOG} 2>>${BUILDLOG} || (echo "4 exiting..." && exit 42)
 
 # Creates UI builtins
 cd ${SRCDIR}
 cd core/libycp/doc
 echo "| Current directory: "`pwd`
 rm -rf html
-make clean  >> ${BUILDLOG}
-make ${MAKE_PARAMS} >> ${BUILDLOG} || (echo "5 exiting..." && exit 42)
+make clean  >> ${BUILDLOG} 2>>${BUILDLOG}
+make ${MAKE_PARAMS} >> ${BUILDLOG} 2>>${BUILDLOG} || (echo "5 exiting..." && exit 42)
 checkforerrors
 
 # Checks the main doc directory
 # Builds the basic html doc
 echo
 echo "*** PREPARING ENVIRONMENT ***"
+echo "*** PREPARING ENVIRONMENT ***" >> ${BUILDLOG} 2>>${BUILDLOG}
 cd ${DOCDIR}
 echo "| Current directory: "`pwd`
-make -f Makefile.cvs >> ${BUILDLOG}
+make -f Makefile.cvs >> ${BUILDLOG} 2>>${BUILDLOG}
 checkforerrors
-make clean >> ${BUILDLOG}
+make clean >> ${BUILDLOG} 2>>${BUILDLOG}
 checkforerrors
-make >> ${BUILDLOG} || (echo "6 exiting..." && exit 42)
+make >> ${BUILDLOG} 2>>${BUILDLOG} || (echo "6 exiting..." && exit 42)
 checkforerrors
 
 # Builds the main menu with index and faq
 echo
 echo "*** BUILDING MAIN MENU ***"
+echo "*** BUILDING MAIN MENU ***" >> ${BUILDLOG} 2>>${BUILDLOG}
 cd ${DOCDIR}
 cd webpage
 echo "| Current directory: "`pwd`
-make clean >> ${BUILDLOG}
-rm -rf html >> ${BUILDLOG}
+make clean >> ${BUILDLOG} 2>>${BUILDLOG}
+rm -rf html >> ${BUILDLOG} 2>>${BUILDLOG}
 # for the search form
-export SEARCHDOMAIN=${SEARCHDOMAIN}; export SEARCHPATH=${SEARCHPATH}; make >> ${BUILDLOG} || (echo "7 exiting..." && exit 42)
+export SEARCHDOMAIN=${SEARCHDOMAIN}; export SEARCHPATH=${SEARCHPATH}; make >> ${BUILDLOG} 2>>${BUILDLOG} || (echo "7 exiting..." && exit 42)
 checkforerrors
 
 # Builds autoinstallation docu in sources
 echo
 echo "*** BUILDING AUTOYAST DOCUMENTATION ***"
+echo "*** BUILDING AUTOYAST DOCUMENTATION ***" >> ${BUILDLOG} 2>>${BUILDLOG}
 cd ${SRCDIR}autoinstallation
 echo "| Current directory: "`pwd`
-make -f Makefile.cvs >> ${BUILDLOG}
-make clean  >> ${BUILDLOG}
+make -f Makefile.cvs >> ${BUILDLOG} 2>>${BUILDLOG}
+make clean  >> ${BUILDLOG} 2>>${BUILDLOG}
 checkforerrors
-make >> ${BUILDLOG} || (echo "8 exiting..." && exit 42)
+make >> ${BUILDLOG} 2>>${BUILDLOG} || (echo "8 exiting..." && exit 42)
 checkforerrors
 
 # Builds styleguide documentation
 echo
 echo "*** BUILDING STYLEGUIDE DOCUMENTATION ***"
+echo "*** BUILDING STYLEGUIDE DOCUMENTATION ***" >> ${BUILDLOG} 2>>${BUILDLOG}
 cd ${DOCDIR}styleguide
 echo "| Current directory: "`pwd`
-make clean >> ${BUILDLOG}
+make clean >> ${BUILDLOG} 2>>${BUILDLOG}
 checkforerrors
-make >> ${BUILDLOG} || (echo "9 exiting..." && exit 42)
+make >> ${BUILDLOG} 2>>${BUILDLOG} || (echo "9 exiting..." && exit 42)
 checkforerrors
 
 # Builds codingrules documentation
 echo
 echo "*** BUILDING CODINGRULES DOCUMENTATION ***"
+echo "*** BUILDING CODINGRULES DOCUMENTATION ***" >> ${BUILDLOG} 2>>${BUILDLOG}
 cd ${DOCDIR}codingrules
 echo "| Current directory: "`pwd`
-make clean >> ${BUILDLOG}
+make clean >> ${BUILDLOG} 2>>${BUILDLOG}
 checkforerrors
-make >> ${BUILDLOG} || (echo "10 exiting..." && exit 42)
+make >> ${BUILDLOG} 2>>${BUILDLOG} || (echo "10 exiting..." && exit 42)
 checkforerrors
 
 # Builds tutorials
 echo
 echo "*** BUILDING TUTORIALS ***"
+echo "*** BUILDING TUTORIALS ***" >> ${BUILDLOG} 2>>${BUILDLOG}
 cd ${DOCDIR}tutorials
 echo "| Current directory: "`pwd`
-make clean >> ${BUILDLOG}
+make clean >> ${BUILDLOG} 2>>${BUILDLOG}
 checkforerrors
-make html >> ${BUILDLOG} || (echo "11 exiting..." && exit 42)
+make html >> ${BUILDLOG} 2>>${BUILDLOG} || (echo "11 exiting..." && exit 42)
 checkforerrors
 
 # BUILDING -onefile documents
 cd ${DOCDIR}tdg
 echo "Creating -onefile documentation in "`pwd`
-make html-onefile >> ${BUILDLOG}
+make html-onefile >> ${BUILDLOG} 2>>${BUILDLOG}
 checkforerrors
-
-# Copying built docu into the directory for the final www pages
-echo "*** COPYING -onefile DOCUMENTATION ***"
-mkdir -p cd ${TGTDIR}/onefile >> ${BUILDLOG}
-cp -afv ${DOCDIR}modules/modules-onefile.html ${TGTDIR}onefile/ >> ${BUILDLOG}
-cp -afv ${DOCDIR}perlmodules/perlmodules-onefile.html ${TGTDIR}onefile/ >> ${BUILDLOG}
-cp -afv ${DOCDIR}scr/scr-onefile.html ${TGTDIR}onefile/ >> ${BUILDLOG}
-cp -afv ${DOCDIR}styleguide/style-onefile.html ${TGTDIR}onefile/ >> ${BUILDLOG}
-cp -afv ${DOCDIR}tdg/yast-onefile.html ${TGTDIR}onefile/ >> ${BUILDLOG}
-cp -afv ${DOCDIR}tdg/tutorial-onefile.html ${TGTDIR}onefile/ >> ${BUILDLOG}
 
 echo
 echo "*** COPYING MAIN MENU ***"
+echo "*** COPYING MAIN MENU ***" >> ${BUILDLOG} 2>>${BUILDLOG}
 echo "| Current directory: "`pwd`
-cp -arf ${DOCDIR}webpage/html/. ${TGTDIR} >> ${BUILDLOG}
+cp -arf ${DOCDIR}webpage/html/. ${TGTDIR} >> ${BUILDLOG} 2>>${BUILDLOG}
 
 echo
 echo "*** COPYING AUTOINSTALLATION ***"
+echo "*** COPYING AUTOINSTALLATION ***" >> ${BUILDLOG} 2>>${BUILDLOG}
 echo "| Current directory: "`pwd`
-mkdir -pv ${TGTDIR}autoinstall >> ${BUILDLOG}
-cp -arf ${SRCDIR}autoinstallation/doc/html/. ${TGTDIR}autoinstall/ >> ${BUILDLOG}
+mkdir -pv ${TGTDIR}autoinstall >> ${BUILDLOG} 2>>${BUILDLOG}
+cp -arf ${SRCDIR}autoinstallation/doc/html/. ${TGTDIR}autoinstall/ >> ${BUILDLOG} 2>>${BUILDLOG}
 
 echo
 echo "*** COPYING YCP DOCUMENTATION ***"
+echo "*** COPYING YCP DOCUMENTATION ***" >> ${BUILDLOG} 2>>${BUILDLOG}
 echo "| Current directory: "`pwd`
-mkdir -pv ${TGTDIR}tdg >> ${BUILDLOG}
-cp -arf ${DOCDIR}tdg/html/. ${TGTDIR}tdg/ >> ${BUILDLOG}
+mkdir -pv ${TGTDIR}tdg >> ${BUILDLOG} 2>>${BUILDLOG}
+cp -arf ${DOCDIR}tdg/html/. ${TGTDIR}tdg/ >> ${BUILDLOG} 2>>${BUILDLOG}
 mkdir -pv ${TGTDIR}tdg/images/navig/
 cp -arf ${DOCDIR}webpage/images/. ${TGTDIR}images/
 cp -arf ${DOCDIR}tdg/images/. ${TGTDIR}images/
@@ -299,55 +306,72 @@ cp -arf ${DOCDIR}tdg/ui/examples ${TGTDIR}images/
 
 echo
 echo "*** COPYING STYLEGUIDE ***"
+echo "*** COPYING STYLEGUIDE ***" >> ${BUILDLOG} 2>>${BUILDLOG}
 echo "| Current directory: "`pwd`
-mkdir -pv ${TGTDIR}styleguide >> ${BUILDLOG}
-cp -arf ${DOCDIR}styleguide/html/. ${TGTDIR}styleguide/ >> ${BUILDLOG}
+mkdir -pv ${TGTDIR}styleguide >> ${BUILDLOG} 2>>${BUILDLOG}
+cp -arf ${DOCDIR}styleguide/html/. ${TGTDIR}styleguide/ >> ${BUILDLOG} 2>>${BUILDLOG}
 
 echo
 echo "*** COPYING CODINGRULES ***"
+echo "*** COPYING CODINGRULES ***" >> ${BUILDLOG} 2>>${BUILDLOG}
 echo "| Current directory: "`pwd`
-mkdir -pv ${TGTDIR}codingrules >> ${BUILDLOG}
-cp -arf ${DOCDIR}codingrules/html/. ${TGTDIR}codingrules/ >> ${BUILDLOG}
+mkdir -pv ${TGTDIR}codingrules >> ${BUILDLOG} 2>>${BUILDLOG}
+cp -arf ${DOCDIR}codingrules/html/. ${TGTDIR}codingrules/ >> ${BUILDLOG} 2>>${BUILDLOG}
 
 echo
 echo "*** COPYING TUTORIALS ***"
+echo "*** COPYING TUTORIALS ***" >> ${BUILDLOG} 2>>${BUILDLOG}
 echo "| Current directory: "`pwd`
-mkdir -pv ${TGTDIR}tutorials >> ${BUILDLOG}
-cp -arf ${DOCDIR}tutorials/html/. ${TGTDIR}tutorials/ >> ${BUILDLOG}
+mkdir -pv ${TGTDIR}tutorials >> ${BUILDLOG} 2>>${BUILDLOG}
+cp -arf ${DOCDIR}tutorials/html/. ${TGTDIR}tutorials/ >> ${BUILDLOG} 2>>${BUILDLOG}
 
 # Calls a script which installs YaST-based rpm's from work to the
 # ${TMPDIR} directory, builds the YCP Modules, Perl Modules and
 # SCR Agents documentation and removes these installed packages
 # from the ${TMPDIR} directory again
 echo
-echo "*** CREATING SCR/MODULES DOC ***"
+echo "*** CREATING SCR/MODULES DOC ***" >> ${BUILDLOG} 2>>${BUILDLOG}
 cd ${DOCDIR}
 echo "| Current directory: "`pwd`
 echo "Running autogen/autodoc.sh ${PRODUCT} ${DOCDIR} ${TMPDIR} ${TGTDIR} ${SOURCES}"
-echo "Running autogen/autodoc.sh ${PRODUCT} ${DOCDIR} ${TMPDIR} ${TGTDIR} ${SOURCES}" >> ${BUILDLOG}
-autogen/autodoc.sh ${PRODUCT} ${DOCDIR} ${TMPDIR} ${TGTDIR} ${SOURCES} >> ${BUILDLOG}
+echo "Running autogen/autodoc.sh ${PRODUCT} ${DOCDIR} ${TMPDIR} ${TGTDIR} ${SOURCES}" >> ${BUILDLOG} 2>>${BUILDLOG}
+autogen/autodoc.sh ${PRODUCT} ${DOCDIR} ${TMPDIR} ${TGTDIR} ${SOURCES} >> ${BUILDLOG} 2>>${BUILDLOG}
 checkforerrors
 
 # Removes all /.svn/... directories from the www pages
 # Because they shouldn't go to the final page
 echo
 echo "*** REMOVING .svn DIRECTORIES ***"
+echo "*** REMOVING .svn DIRECTORIES ***" >> ${BUILDLOG} 2>>${BUILDLOG}
 cd ${TGTDIR}
 echo "| Current directory: "`pwd`
 for file in `find | grep "\.svn"`; do rm -rf $file; done
 
+# Copying built docu into the directory for the final www pages
+echo "*** COPYING -onefile DOCUMENTATION ***"
+echo "*** COPYING -onefile DOCUMENTATION ***" >> ${BUILDLOG} 2>>${BUILDLOG}
+mkdir -p cd ${TGTDIR}/onefile >> ${BUILDLOG} 2>>${BUILDLOG}
+cp -afv ${DOCDIR}modules/modules-onefile.html ${TGTDIR}onefile/ >> ${BUILDLOG} 2>>${BUILDLOG}
+cp -afv ${DOCDIR}perlmodules/perlmodules-onefile.html ${TGTDIR}onefile/ >> ${BUILDLOG} 2>>${BUILDLOG}
+cp -afv ${DOCDIR}scr/scr-onefile.html ${TGTDIR}onefile/ >> ${BUILDLOG} 2>>${BUILDLOG}
+cp -afv ${DOCDIR}styleguide/style-onefile.html ${TGTDIR}onefile/ >> ${BUILDLOG} 2>>${BUILDLOG}
+cp -afv ${DOCDIR}tdg/yast-onefile.html ${TGTDIR}onefile/ >> ${BUILDLOG} 2>>${BUILDLOG}
+cp -afv ${DOCDIR}tutorials/tutorial-onefile.html ${TGTDIR}onefile/ >> ${BUILDLOG} 2>>${BUILDLOG}
+
 echo
 echo "*** Creating TGZ archive '"${PRODUCT}".tgz' from all the documentation ***"
+echo "*** Creating TGZ archive '"${PRODUCT}".tgz' from all the documentation ***" >> ${BUILDLOG} 2>>${BUILDLOG}
 cd ${TGTDIR}
 echo "| Current directory: "`pwd`
-tar -zcf yast-documentation.tgz *
-mkdir -pv ${TGTDIR}download/
-mv -fv yast-documentation.tgz ${TGTDIR}download/
+tar -zcf yast-documentation.tgz * >> ${BUILDLOG} 2>>${BUILDLOG}
+mkdir -pv ${TGTDIR}download/ >> ${BUILDLOG} 2>>${BUILDLOG}
+mv -fv yast-documentation.tgz ${TGTDIR}download/ >> ${BUILDLOG} 2>>${BUILDLOG}
 
 echo
 echo "*** DONE ***"
 echo
 echo "==========================================================================="
 echo "Built webpage can be found in the ${TGTDIR} directory"
+echo "Built webpage can be found in the ${TGTDIR} directory" >> ${BUILDLOG} 2>>${BUILDLOG}
 echo "==========================================================================="
 echo
