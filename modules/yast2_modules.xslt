@@ -182,6 +182,7 @@
 	    <xsl:value-of select="descr"/>
 	</para>
 	<xsl:call-template name="global-variable-scruple"/>
+	<xsl:call-template name="global-xyz-see"/>
     </xsl:template>
 
     <!-- Global Variable Scruple //-->
@@ -210,6 +211,7 @@
 		    <xsl:call-template name="global-function-returns"/>
 		    <xsl:call-template name="global-function-scruple"/>
 		    <xsl:call-template name="global-function-example"/>
+		    <xsl:call-template name="global-xyz-see"/>
 		</sect3>
 	    </xsl:if>
 	</xsl:for-each>
@@ -299,6 +301,21 @@
 		    </programlisting>
 		</example>
 	    </para>
+	</xsl:if>
+    </xsl:template>
+
+    <!-- Function or variable @see -->
+    <xsl:template name="global-xyz-see">
+	<!-- If has some @see defined -->
+	<xsl:if test="./see!=''">
+	<para>
+	    See also: 
+	    <itemizedlist>
+		<xsl:for-each select="./see/see_item">
+		    <listitem><para><xsl:value-of select="."/></para></listitem>
+		</xsl:for-each>
+	    </itemizedlist>
+	</para>
 	</xsl:if>
     </xsl:template>
 
