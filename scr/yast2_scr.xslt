@@ -90,8 +90,10 @@
 	<!-- If has see //-->
 	<xsl:if test="./see">
 	    <para>
-		See: 
-		<xsl:value-of select="./see"/>
+		See also: 
+		<programlisting>
+		    <xsl:value-of select="./see"/>
+		</programlisting>
 	    </para>
 	</xsl:if>
     </xsl:template>
