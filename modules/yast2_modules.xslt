@@ -74,6 +74,18 @@
 	<para>
 	    <xsl:value-of select="./header/summary"/>
 	</para>
+
+	<!-- bnc #401680 - Documentation with info about maintainer -->
+	<xsl:if test="./header/authors">
+	<sect2>
+	    <title>Authors</title>
+	    <itemizedlist>
+	    <xsl:for-each select="./header/authors/ITEM">
+		<listitem><para><xsl:value-of select="."/></para></listitem>
+	    </xsl:for-each>
+	    </itemizedlist>
+	</sect2>
+	</xsl:if>
     </xsl:template>
 
     <!-- Module Provides... //-->

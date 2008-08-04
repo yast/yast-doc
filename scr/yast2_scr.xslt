@@ -34,6 +34,7 @@
 		    </xsl:choose>
 		</title>
 		<xsl:call-template name="scr-summary"/>
+		<xsl:call-template name="scr-authors"/>
 		<sect3>
 		    <title>Description</title>
 		    <xsl:call-template name="scr-general"/>
@@ -52,6 +53,21 @@
 	    <para>
 		<xsl:value-of select="./summary"/>
 	    </para>
+	</xsl:if>
+    </xsl:template>
+
+    <xsl:template name="scr-authors">
+	<!-- If has summary //-->
+	<!-- bnc #401680 - Documentation with info about maintainer -->
+	<xsl:if test="./authors">
+	    <sect3>
+		<title>Authors</title>
+		<itemizedlist>
+		<xsl:for-each select="./authors/ITEM">
+		    <listitem><para><xsl:value-of select="."/></para></listitem>
+		</xsl:for-each>
+		</itemizedlist>
+	    </sect3>
 	</xsl:if>
     </xsl:template>
 
