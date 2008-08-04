@@ -17,6 +17,7 @@
 <!ENTITY modules      SYSTEM "modules/modules.xml">
 <!ENTITY app_ref      SYSTEM "reference/app_ref.xml">
 <!ENTITY generated-docu   SYSTEM "generated-docu/documentation.xml">
+<!ENTITY generated-pkg-bindings   SYSTEM "pkg-bindings/builtins.xml">
 
 <!-- <!ENTITY % libyui-entities   SYSTEM "libyui/entities"> -->
 <!ENTITY % installation-entities   SYSTEM "installation/entities">
@@ -214,4 +215,6 @@
     </chapter>
   </book>
 -->
+
+  &generated-pkg-bindings;
 </set>
