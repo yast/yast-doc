@@ -1611,12 +1611,12 @@ and maps. Use parentheses or white space.</para></note>
     integer three = map_of_lists["a", 2]:0;
 
     list &lt;map &lt;integer, integer&gt; &gt; list_of_maps = [
-	$[1:2],
-	$[3:4],
-	$[5:6]
+	$[0:1],
+	$[2:3],
+	$[4:5]
     ];
     // returns true
-    return (list_of_maps[1,0]:0 == three);
+    return (list_of_maps[1,2]:0 == three);
 }</programlisting>
 	  </para>
 	</section>
