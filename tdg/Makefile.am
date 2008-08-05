@@ -3,7 +3,7 @@
 #
 
 XMLFILES=$(wildcard *.xml introduction/*.xml)
-SUBDIRS =  installation development ycp ui pkg-bindings library
+SUBDIRS =  installation development ycp ui library
 STYLESHEET_CSS = ../style/default.css
 
 all-local: html

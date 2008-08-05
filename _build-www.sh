@@ -202,6 +202,15 @@ make clean  >> ${BUILDLOG} 2>>${BUILDLOG}
 make ${MAKE_PARAMS} >> ${BUILDLOG} 2>>${BUILDLOG} || (echo "5 exiting..." && exit 42)
 checkforerrors
 
+# Creating pkg-bindings
+cd ${SRCDIR}
+make -f Makefile.cvs >> ${BUILDLOG} 2>>${BUILDLOG}
+cd pkg-bindings/doc
+echo "| Current directory: "`pwd`
+rm -rf html >> ${BUILDLOG} 2>>${BUILDLOG}
+make >> ${BUILDLOG} 2>>${BUILDLOG}
+checkforerrors
+
 # Checks the main doc directory
 # Builds the basic html doc
 echo
@@ -211,8 +220,10 @@ cd ${DOCDIR}
 echo "| Current directory: "`pwd`
 make -f Makefile.cvs >> ${BUILDLOG} 2>>${BUILDLOG}
 checkforerrors
+echo "*** CLEANUP ***" >> ${BUILDLOG} 2>>${BUILDLOG}
 make clean >> ${BUILDLOG} 2>>${BUILDLOG}
 checkforerrors
+echo "*** BUILDING ***" >> ${BUILDLOG} 2>>${BUILDLOG}
 make >> ${BUILDLOG} 2>>${BUILDLOG} || (echo "6 exiting..." && exit 42)
 checkforerrors
 
@@ -310,6 +321,7 @@ echo "*** COPYING STYLEGUIDE ***" >> ${BUILDLOG} 2>>${BUILDLOG}
 echo "| Current directory: "`pwd`
 mkdir -pv ${TGTDIR}styleguide >> ${BUILDLOG} 2>>${BUILDLOG}
 cp -arf ${DOCDIR}styleguide/html/. ${TGTDIR}styleguide/ >> ${BUILDLOG} 2>>${BUILDLOG}
+checkforerrors
 
 echo
 echo "*** COPYING CODINGRULES ***"
@@ -317,13 +329,16 @@ echo "*** COPYING CODINGRULES ***" >> ${BUILDLOG} 2>>${BUILDLOG}
 echo "| Current directory: "`pwd`
 mkdir -pv ${TGTDIR}codingrules >> ${BUILDLOG} 2>>${BUILDLOG}
 cp -arf ${DOCDIR}codingrules/html/. ${TGTDIR}codingrules/ >> ${BUILDLOG} 2>>${BUILDLOG}
+checkforerrors
 
 echo
 echo "*** COPYING TUTORIALS ***"
 echo "*** COPYING TUTORIALS ***" >> ${BUILDLOG} 2>>${BUILDLOG}
 echo "| Current directory: "`pwd`
 mkdir -pv ${TGTDIR}tutorials >> ${BUILDLOG} 2>>${BUILDLOG}
+checkforerrors
 cp -arf ${DOCDIR}tutorials/html/. ${TGTDIR}tutorials/ >> ${BUILDLOG} 2>>${BUILDLOG}
+checkforerrors
 
 # Calls a script which installs YaST-based rpm's from work to the
 # ${TMPDIR} directory, builds the YCP Modules, Perl Modules and
@@ -351,12 +366,29 @@ for file in `find | grep "\.svn"`; do rm -rf $file; done
 echo "*** COPYING -onefile DOCUMENTATION ***"
 echo "*** COPYING -onefile DOCUMENTATION ***" >> ${BUILDLOG} 2>>${BUILDLOG}
 mkdir -p cd ${TGTDIR}/onefile >> ${BUILDLOG} 2>>${BUILDLOG}
+checkforerrors
 cp -afv ${DOCDIR}modules/modules-onefile.html ${TGTDIR}onefile/ >> ${BUILDLOG} 2>>${BUILDLOG}
+checkforerrors
 cp -afv ${DOCDIR}perlmodules/perlmodules-onefile.html ${TGTDIR}onefile/ >> ${BUILDLOG} 2>>${BUILDLOG}
+checkforerrors
 cp -afv ${DOCDIR}scr/scr-onefile.html ${TGTDIR}onefile/ >> ${BUILDLOG} 2>>${BUILDLOG}
+checkforerrors
 cp -afv ${DOCDIR}styleguide/style-onefile.html ${TGTDIR}onefile/ >> ${BUILDLOG} 2>>${BUILDLOG}
+checkforerrors
 cp -afv ${DOCDIR}tdg/yast-onefile.html ${TGTDIR}onefile/ >> ${BUILDLOG} 2>>${BUILDLOG}
+checkforerrors
 cp -afv ${DOCDIR}tutorials/tutorial-onefile.html ${TGTDIR}onefile/ >> ${BUILDLOG} 2>>${BUILDLOG}
+checkforerrors
+
+echo "*** COPYING pkg-bindings ***"
+echo "*** COPYING pkg-bindings ***" >> ${BUILDLOG} 2>>${BUILDLOG}
+echo "| Current directory: "`pwd`
+mkdir -pv ${TGTDIR}/pkg-bindings >> ${BUILDLOG} 2>>${BUILDLOG}
+checkforerrors
+cp -arfv ${SRCDIR}/pkg-bindings/doc/html/*.html ${TGTDIR}/pkg-bindings/ >> ${BUILDLOG} 2>>${BUILDLOG}
+checkforerrors
+cp -afv ${TGTDIR}/style/default.css ${TGTDIR}/pkg-bindings/yast2docs.css >> ${BUILDLOG} 2>>${BUILDLOG}
+checkforerrors
 
 echo
 echo "*** Creating TGZ archive '"${PRODUCT}".tgz' from all the documentation ***"
