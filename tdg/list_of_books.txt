@@ -10,4 +10,3 @@ Book-YaSTInstallation
 Book-YaSTDevtools
 Book-YaSTReference
 Book-UIReference
-Book-pkg-bindings

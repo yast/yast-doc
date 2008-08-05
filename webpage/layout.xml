@@ -56,6 +56,9 @@
 	    <tocentry id="scr" href="scr/index.html">
 		<title>SCR Agents</title>
 	    </tocentry>
+	    <tocentry id="pkg-bindings" href="pkg-bindings/index.html">
+		<title>Package Bindings</title>
+	    </tocentry>
 	</tocentry>
 	<tocentry id="guides" href="index.html">
 	    <title>Guides</title>
