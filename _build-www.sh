@@ -197,8 +197,8 @@ make ${MAKE_PARAMS} >> ${BUILDLOG} 2>>${BUILDLOG} || (echo "4 exiting..." && exi
 cd ${SRCDIR}
 cd core/libycp/doc
 echo "| Current directory: "`pwd`
-rm -rf html
 make clean  >> ${BUILDLOG} 2>>${BUILDLOG}
+rm -rf html
 make ${MAKE_PARAMS} >> ${BUILDLOG} 2>>${BUILDLOG} || (echo "5 exiting..." && exit 42)
 checkforerrors
 
