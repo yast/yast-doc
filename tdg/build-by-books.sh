@@ -18,7 +18,7 @@ echo "HTML CSS: " ${HTMLCSS}
 for bookID in `cat list_of_books.txt`; do
     echo "Building Book with ID "${bookID}
     ${XSLTPROC} --xinclude \
-    --stringparam html.stylesheet ${HTMLCSS} \
+    --stringparam html.stylesheet "${HTMLCSS} ../${HTMLCSS}" \
     --stringparam rootid "${bookID}" \
     customize-html.xsl yast.xml
 done
