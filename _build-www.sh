@@ -64,6 +64,7 @@ echo "Additional make params: "${MAKE_PARAMS} >> ${BUILDLOG}
 echo
 echo "*** Backing up www directory ***"
 echo "| Current directory: "`pwd`
+rm -rf ${TGTDIR}../www.backup
 mv -fv ${TGTDIR} ${TGTDIR}../www.backup
 
 echo

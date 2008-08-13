@@ -4,6 +4,7 @@ SOURCEDIR=../../../
 sections = $(wildcard ../../../installation/control/docs/*-section.xml)
 sections+= $(wildcard ../../../installation/doc/proposal/proposal-API-section.xml)
 sections+= $(wildcard ../../../installation/doc/proposal/proposal-API-reference.xml)
+sections+= $(wildcard ../../../installation/doc/features/features.xml)
 sections+= $(wildcard ../../../firstboot/doc/*-section*.xml)
 references = $(wildcard ../../../installation/proposal/doc/*-reference.xml)
 EXAMPLEDIR=
