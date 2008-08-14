@@ -18,11 +18,28 @@ a:hover {
     color:#999
 }
 
-h5 { font:11px verdana,arial,helvetica,sans-serif; font-weight:bold; }
-h4 { font:bold 12px verdana,arial,helvetica,sans-serif; color:#333; }
-h3 { font:bold 14px/18px trebuchet ms,arial,helvetica,sans-serif; color:#C00; }
-h2 { font:16px trebuchet ms,arial,helvetica,sans-serif; color:#C00; }
-h1 { font:22px/26px trebuchet ms,arial,helvetica,sans-serif; color:#C00; }
+h5 {
+    font: 11px verdana,arial,helvetica,sans-serif; font-weight:bold;
+    padding-left: 24px;
+}
+
+h4 {
+    font: bold 12px verdana,arial,helvetica,sans-serif; color:#333;
+    padding-left: 16px;
+}
+
+h3 {
+    font: bold 16px trebuchet ms,arial,helvetica,sans-serif; color:#C00;
+    padding-left: 8px;
+}
+
+h2 {
+    font: bold 18px trebuchet ms,arial,helvetica,sans-serif; color:#C00;
+}
+
+h1 {
+    font: bold 22px trebuchet ms,arial,helvetica,sans-serif; color:#C00;
+}
 
 div.linkbar a, span.toplevel a {
   color: white;
@@ -149,7 +166,6 @@ td.map {
 }
 
 .variablelist {
-  font-style: italic;
 }
 
 .example {
@@ -200,7 +216,7 @@ span.book {
 }
 
 span.chapter {
-    padding-left: 55px;
+    padding-left: 45px;
 }
 
 span.section {
@@ -211,8 +227,20 @@ span.reference {
     padding-left: 45px;
 }
 
+dl {
+    padding-bottom: 5px;
+}
+
 span.refentrytitle {
-    padding-left: 30px;
+    padding-left: 45px;
+}
+
+div.affiliation {
+    padding-left: 8px;
+}
+
+table.funcprototype-table {
+  margin-left: 40px;
 }
 
 span.appendix {
@@ -248,7 +276,7 @@ td.menu {
   border-width: 0px 1px 0px 0px;
   padding: 10px;
   font-weight: bold;
-  font-color: white;
+  color: white;
   vertical-align: top;
   white-space: nowrap;
 }
@@ -259,7 +287,7 @@ td.menu {
   border: dashed #333;
   border-width: 1px 1px 1px 1px;
   font-weight: bold;
-  font-color: white;
+  color: white;
   vertical-align: top;
   white-space: nowrap;
 }
@@ -277,7 +305,7 @@ div.titlebar {
   border: dashed #CCC;
   border-width: 1px 0px 1px 0px;
   background-color: #2e3436;
-  #background-image: url("../images/title-bar-gradient.png");
+  ;background-image: url("../images/title-bar-gradient.png");
   height: 35px;
 }
 
@@ -373,6 +401,14 @@ table.content_table td {
     vertical-align: top;
     border: 1px #111 solid;
     padding: 5px;
+}
+
+em.parameter {
+    font-weight: bold;
+}
+
+span.type {
+    font-style: italic;
 }
 
 @media print {
