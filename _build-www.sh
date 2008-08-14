@@ -90,9 +90,8 @@ NEEDED_PACKAGES="docbook2x
     perl-XML-Generator
     fop"
 echo "Calling zypper install"
-zypper in $NEEDED_PACKAGES
 
-rpm -q $NEEDED_PACKAGES || (echo "1 exiting..." && exit 42)
+rpm -q $NEEDED_PACKAGES || zypper in $NEEDED_PACKAGES || (echo "1 exiting..." && exit 42)
 checkforerrors
 
 # This part removes all known .../html/ directories
