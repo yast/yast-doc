@@ -305,7 +305,6 @@ div.titlebar {
   border: dashed #CCC;
   border-width: 1px 0px 1px 0px;
   background-color: #2e3436;
-  ;background-image: url("../images/title-bar-gradient.png");
   height: 35px;
 }
 
