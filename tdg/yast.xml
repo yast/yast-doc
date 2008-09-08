@@ -129,6 +129,7 @@
 
       &control-section;
       &firstboot-section_mod;
+      &features;
     </chapter>
 
     <chapter id="inst_proposal_chap">
