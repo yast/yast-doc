@@ -51,7 +51,7 @@ checkforerrors() {
     TEST_X=$?
     echo "Checking for errors..."
     if [ $TEST_X != 0 ]; then
-	echo "There were some errors... exiting..."
+	echo "There were some errors... exiting... current dir: "`pwd`
 	exit 42;
     fi
 }
@@ -70,15 +70,11 @@ mv -fv ${TGTDIR} ${TGTDIR}../www.backup
 echo
 echo "*** Checking for installed packages... ***"
 NEEDED_PACKAGES="docbook2x
-    docbook-css-stylesheets
     docbook-dsssl-stylesheets
     docbook-xml-website
     docbook-xsl-stylesheets
-    docbook-simple
-    docbook-tdg
     docbook-toys
     docbook-utils
-    docbook-xml-slides
     docbook_3
     docbook_4
     perl
@@ -87,8 +83,8 @@ NEEDED_PACKAGES="docbook2x
     make
     gettext-tools
     gettext-runtime
-    perl-XML-Generator
-    fop"
+    fop
+    yast2-devtools"
 echo "Calling zypper install"
 
 rpm -q $NEEDED_PACKAGES || zypper in $NEEDED_PACKAGES || (echo "1 exiting..." && exit 42)
@@ -123,8 +119,14 @@ echo
 echo "*** CREATING ... in source/core"
 echo "*** CREATING ... in source/core" >> ${BUILDLOG} 2>>${BUILDLOG}
 cd ${SRCDIR}
+
 cd core
 echo "| Current directory: "`pwd`
+
+NEEDED_PACKAGES=`grep "^BuildRequires" yast2*.spec.in | sed 's/BuildRequires:[ \t]\+//' | sed s'/.*\.spec\.in://'`
+rpm -q $NEEDED_PACKAGES || zypper in $NEEDED_PACKAGES || (echo "1 exiting..." && exit 42)
+checkforerrors
+
 make -f Makefile.cvs  >> ${BUILDLOG} 2>>${BUILDLOG}
 checkforerrors
 make clean >> ${BUILDLOG} 2>>${BUILDLOG}
@@ -135,6 +137,11 @@ echo "*** CREATING XML SOURCES IN source/libyui/doc ***"
 echo "*** CREATING XML SOURCES IN source/libyui/doc ***" >> ${BUILDLOG} 2>>${BUILDLOG}
 cd ${SRCDIR}
 cd libyui
+
+NEEDED_PACKAGES=`grep "^BuildRequires" yast2*.spec.in | sed 's/BuildRequires:[ \t]\+//' | sed s'/.*\.spec\.in://'`
+rpm -q $NEEDED_PACKAGES || zypper in $NEEDED_PACKAGES || (echo "1 exiting..." && exit 42)
+checkforerrors
+
 echo "| Current directory: "`pwd`
 make -f Makefile.cvs  >> ${BUILDLOG} 2>>${BUILDLOG}
 make ${MAKE_PARAMS} >> ${BUILDLOG} 2>>${BUILDLOG} || (echo "2 exiting..." && exit 42)
@@ -146,6 +153,11 @@ echo "*** CREATING XML SOURCES IN ycp-ui-bindings ***"
 echo "*** CREATING XML SOURCES IN ycp-ui-bindings ***" >> ${BUILDLOG} 2>>${BUILDLOG}
 cd ${SRCDIR}
 cd ycp-ui-bindings
+
+NEEDED_PACKAGES=`grep "^BuildRequires" yast2*.spec.in | sed 's/BuildRequires:[ \t]\+//' | sed s'/.*\.spec\.in://'`
+rpm -q $NEEDED_PACKAGES || zypper in $NEEDED_PACKAGES || (echo "1 exiting..." && exit 42)
+checkforerrors
+
 echo "| Current directory: "`pwd`
 # because 'doc' is missing there
 cp --force SUBDIRS SUBDIRS.doc-build-backup
@@ -162,6 +174,11 @@ echo "*** CREATING XML SOURCES IN source/yast2 ***"
 echo "*** CREATING XML SOURCES IN source/yast2 ***" >> ${BUILDLOG} 2>>${BUILDLOG}
 cd ${SRCDIR}
 cd yast2
+
+NEEDED_PACKAGES=`grep "^BuildRequires" yast2*.spec.in | sed 's/BuildRequires:[ \t]\+//' | sed s'/.*\.spec\.in://'`
+rpm -q $NEEDED_PACKAGES || zypper in $NEEDED_PACKAGES || (echo "1 exiting..." && exit 42)
+checkforerrors
+
 echo "| Current directory: "`pwd`
 make -f Makefile.cvs >> ${BUILDLOG} 2>>${BUILDLOG}
 checkforerrors
@@ -176,6 +193,11 @@ echo "*** CREATING XML SOURCES IN source/installation ***"
 echo "*** CREATING XML SOURCES IN source/installation ***" >> ${BUILDLOG} 2>>${BUILDLOG}
 cd ${SRCDIR}
 cd installation
+
+NEEDED_PACKAGES=`grep "^BuildRequires" yast2*.spec.in | sed 's/BuildRequires:[ \t]\+//' | sed s'/.*\.spec\.in://'`
+rpm -q $NEEDED_PACKAGES || zypper in $NEEDED_PACKAGES || (echo "1 exiting..." && exit 42)
+checkforerrors
+
 echo "| Current directory: "`pwd`
 make -f Makefile.cvs >> ${BUILDLOG} 2>>${BUILDLOG}
 checkforerrors
@@ -204,8 +226,14 @@ checkforerrors
 
 # Creating pkg-bindings
 cd ${SRCDIR}
+cd pkg-bindings
+
+NEEDED_PACKAGES=`grep "^BuildRequires" yast2*.spec.in | sed 's/BuildRequires:[ \t]\+//' | sed s'/.*\.spec\.in://'`
+rpm -q $NEEDED_PACKAGES || zypper in $NEEDED_PACKAGES || (echo "1 exiting..." && exit 42)
+checkforerrors
+
 make -f Makefile.cvs >> ${BUILDLOG} 2>>${BUILDLOG}
-cd pkg-bindings/doc
+cd doc
 echo "| Current directory: "`pwd`
 rm -rf html >> ${BUILDLOG} 2>>${BUILDLOG}
 make >> ${BUILDLOG} 2>>${BUILDLOG}
