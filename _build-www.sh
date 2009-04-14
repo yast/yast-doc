@@ -4,7 +4,7 @@
 # Lukas Ocilka <locilka@suse.cz>
 
 # where available products are located
-SOURCES=$1 # /work/CDs/all/
+SOURCES=$1 # /work/CDs/all/, /media/SLE11-Media1, ...
 
 # name from ${SOURCES}
 # full-10.0-i386, full-10.0-x86_64, full-9.3-i386 etc...
@@ -19,10 +19,13 @@ SEARCHDOMAIN="forgeftp.novell.com"
 
 if [ "${PRODUCT}" == "" ] || [ "$SEARCHPATH" == "" ] || [ "${SOURCES}" == "" ]; then
     echo
-    echo "Usage: ./_build-www.sh product-base-dir product-name search-path [make params]"
+    echo "Usage: ./_build-www.sh product-basedir product-in-basedir search-path [make params]"
     echo
-    echo "Path: e.g., /yast/doc/SL10.1"
-    echo "Example: ./_build-www.sh /work/CDs/all/ full-10.1-i386 /yast/doc/SL10.1 '-j 10'"
+    echo "Examples:"
+    echo "  # With access to the current NFS /work directory containing the latest RPMs"
+    echo "  ./_build-www.sh /work/CDs/all/ full-10.1-i386 /yast/doc/SL10.1 '-j 10'"
+    echo "  # Using the locally mounted Installation DVD"
+    echo "  ./_build-www.sh /media/SLE11-DVD/ suse SLES11"
     echo
     if [ "${SOURCES}" != "" ]; then
 	echo "List of available products: "
@@ -54,6 +57,24 @@ checkforerrors() {
 	echo "There were some errors... exiting... current dir: "`pwd`
 	exit 42;
     fi
+}
+
+# @param1: which spec file to check, if not defined, the default one (all available)
+#          is used...
+function CheckAndInstallPackages () {
+    SPECFILE="yast2*.spec.in"
+    if [ -z "$1" ]; then
+	SPECFILE = $1
+    fi
+
+    CURRENTDIR=`pwd`
+    echo "Extracting required packages from: "${CURRENTDIR}"/"${SPECFILE}
+    echo "Extracting required packages from: "${CURRENTDIR}"/"${SPECFILE} >> ${BUILDLOG}
+
+    # Which packages are needed
+    NEEDED_PACKAGES=`grep "^BuildRequires" ${SPECFILE} | sed 's/BuildRequires:[ \t]\+//' | sed s'/.*\.spec\.in://'`
+    rpm -q $NEEDED_PACKAGES || zypper in $NEEDED_PACKAGES || (echo "exiting (${CURRENTDIR})..." && exit 42)
+    checkforerrors
 }
 
 echo "Building YaST documentation...
@@ -123,9 +144,7 @@ cd ${SRCDIR}
 cd core
 echo "| Current directory: "`pwd`
 
-NEEDED_PACKAGES=`grep "^BuildRequires" yast2*.spec.in | sed 's/BuildRequires:[ \t]\+//' | sed s'/.*\.spec\.in://'`
-rpm -q $NEEDED_PACKAGES || zypper in $NEEDED_PACKAGES || (echo "1 exiting..." && exit 42)
-checkforerrors
+CheckAndInstallPackages
 
 make -f Makefile.cvs  >> ${BUILDLOG} 2>>${BUILDLOG}
 checkforerrors
@@ -138,9 +157,7 @@ echo "*** CREATING XML SOURCES IN source/libyui/doc ***" >> ${BUILDLOG} 2>>${BUI
 cd ${SRCDIR}
 cd libyui
 
-NEEDED_PACKAGES=`grep "^BuildRequires" yast2*.spec.in | sed 's/BuildRequires:[ \t]\+//' | sed s'/.*\.spec\.in://'`
-rpm -q $NEEDED_PACKAGES || zypper in $NEEDED_PACKAGES || (echo "1 exiting..." && exit 42)
-checkforerrors
+
 
 echo "| Current directory: "`pwd`
 make -f Makefile.cvs  >> ${BUILDLOG} 2>>${BUILDLOG}
@@ -154,9 +171,7 @@ echo "*** CREATING XML SOURCES IN ycp-ui-bindings ***" >> ${BUILDLOG} 2>>${BUILD
 cd ${SRCDIR}
 cd ycp-ui-bindings
 
-NEEDED_PACKAGES=`grep "^BuildRequires" yast2*.spec.in | sed 's/BuildRequires:[ \t]\+//' | sed s'/.*\.spec\.in://'`
-rpm -q $NEEDED_PACKAGES || zypper in $NEEDED_PACKAGES || (echo "1 exiting..." && exit 42)
-checkforerrors
+CheckAndInstallPackages
 
 echo "| Current directory: "`pwd`
 # because 'doc' is missing there
@@ -175,9 +190,7 @@ echo "*** CREATING XML SOURCES IN source/yast2 ***" >> ${BUILDLOG} 2>>${BUILDLOG
 cd ${SRCDIR}
 cd yast2
 
-NEEDED_PACKAGES=`grep "^BuildRequires" yast2*.spec.in | sed 's/BuildRequires:[ \t]\+//' | sed s'/.*\.spec\.in://'`
-rpm -q $NEEDED_PACKAGES || zypper in $NEEDED_PACKAGES || (echo "1 exiting..." && exit 42)
-checkforerrors
+CheckAndInstallPackages
 
 echo "| Current directory: "`pwd`
 make -f Makefile.cvs >> ${BUILDLOG} 2>>${BUILDLOG}
@@ -194,9 +207,7 @@ echo "*** CREATING XML SOURCES IN source/installation ***" >> ${BUILDLOG} 2>>${B
 cd ${SRCDIR}
 cd installation
 
-NEEDED_PACKAGES=`grep "^BuildRequires" yast2*.spec.in | sed 's/BuildRequires:[ \t]\+//' | sed s'/.*\.spec\.in://'`
-rpm -q $NEEDED_PACKAGES || zypper in $NEEDED_PACKAGES || (echo "1 exiting..." && exit 42)
-checkforerrors
+CheckAndInstallPackages
 
 echo "| Current directory: "`pwd`
 make -f Makefile.cvs >> ${BUILDLOG} 2>>${BUILDLOG}
@@ -228,9 +239,7 @@ checkforerrors
 cd ${SRCDIR}
 cd pkg-bindings
 
-NEEDED_PACKAGES=`grep "^BuildRequires" yast2*.spec.in | sed 's/BuildRequires:[ \t]\+//' | sed s'/.*\.spec\.in://'`
-rpm -q $NEEDED_PACKAGES || zypper in $NEEDED_PACKAGES || (echo "1 exiting..." && exit 42)
-checkforerrors
+CheckAndInstallPackages
 
 make -f Makefile.cvs >> ${BUILDLOG} 2>>${BUILDLOG}
 cd doc
