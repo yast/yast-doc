@@ -2,6 +2,7 @@
 
 STYLESHEET_CSS="../style/default.css"
 
+echo "Calling ./pod2xml.pl ${1}/usr/share/YaST2/modules/*.pm ${1}/usr/share/YaST2/modules/YaPI/*.pm > index.xml"
 ./pod2xml.pl $1/usr/share/YaST2/modules/*.pm $1/usr/share/YaST2/modules/YaPI/*.pm > index.xml
 
 /bin/mkdir -p ./html/
