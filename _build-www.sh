@@ -25,7 +25,7 @@ if [ "${PRODUCT}" == "" ] || [ "$SEARCHPATH" == "" ] || [ "${SOURCES}" == "" ]; 
     echo "  # With access to the current NFS /work directory containing the latest RPMs"
     echo "  ./_build-www.sh /work/CDs/all/ full-10.1-i386 /yast/doc/SL10.1 '-j 10'"
     echo "  # Using the locally mounted Installation DVD"
-    echo "  ./_build-www.sh /media/SLE11-DVD/ suse SLES11"
+    echo "  ./_build-www.sh /media/ SUSE_SLES-11-0-0.001 /doc/SLES11"
     echo
     if [ "${SOURCES}" != "" ]; then
 	echo "List of available products: "
