@@ -28,7 +28,12 @@ exit 2 if (! CheckBehavior());
 
 my $XML_CONTENT = '';
 foreach my $file (@ARGV) {
-    ParseFile($file) if CheckFile($file);
+    if (CheckFile ($file)) {
+	warn "Parsing file ".$file."\n";
+	ParseFile ($file);
+    } else {
+	warn "Cannot use file: ".$file."\n";
+    }
 }
 
 $DOCUMENT =
@@ -43,7 +48,9 @@ print $DOCUMENT;
 # ---------------------------------------------------------------------------- #
 
 sub CheckBehavior {
-    my @packages_needed = ('perl-XML-Generator', 'perl-Pod-Escapes');
+    # doesn't seem to be needed anymore...
+    #my @packages_needed = ('perl-XML-Generator', 'perl-Pod-Escapes');
+    my @packages_needed = ();
     foreach my $package_needed (@packages_needed) {
 	my $check_lib = `rpm -q $package_needed`;
 	chop ($check_lib);
@@ -55,26 +62,28 @@ sub CheckBehavior {
 	    return 0;
 	}
     }
+
+    return 1;
 }
 
 sub CheckFile {
     my $file = shift || do {
-	warn "File not defined";
+	warn "File not defined\n";
 	return 0;
     };
     ### File-existency
     if (! -e $file) {
-	warn "File $file does not exist";
+	warn "File $file does not exist\n";
 	return 0;
     }
     ### File-type
     if (! -f $file) {
-	warn "File $file is not a 'file'";
+	warn "File $file is not a 'file'\n";
 	return 0;
     }
     ### File-readability
     if (! -r $file) {
-	warn "File $file cannot be read";
+	warn "File $file cannot be read\n";
     }
     
     return 1;
@@ -94,6 +103,8 @@ sub ParseFile {
     if (! -s 'conversion_output.xml') {
 	warn "Zero size output for file '$file'";
 	return 0;
+    } else {
+	warn "File conversion_output.xml has ".(-s 'conversion_output.xml')." bytes\n";
     }
 
     my $module_doc = `$xslt_conversion`;
