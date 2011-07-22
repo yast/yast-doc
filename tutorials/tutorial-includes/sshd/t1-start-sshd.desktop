@@ -6,7 +6,7 @@ Type=Application
 X-SuSE-YaST-Group=Misc
 ...
 Icon=yast-sshd
-<command>Exec=/sbin/yast2 sshd</command>
+<command>Exec=/usr/bin/xdg-su -c '/sbin/yast2 sshd'</command>
 ...
 <command>Name=Sshd</command>
 GenericName=sshd
