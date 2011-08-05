@@ -246,7 +246,6 @@ Categories=Qt;X-SuSE-YaST;X-SuSE-YaST-Security;
 # KDE-related entries
 X-KDE-SubstituteUID=true
 X-KDE-ModuleType=Library
-X-KDE-RootOnly=true
 X-KDE-HasReadOnlyMode=true
 X-KDE-Library=yast2
 
