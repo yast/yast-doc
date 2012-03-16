@@ -9,7 +9,6 @@ glibc-devel
 hwinfo-devel
 libgcj
 libstdc++-devel
-libxcrypt-devel
 libxml2-devel
 ncurses-devel
 openssl-devel
