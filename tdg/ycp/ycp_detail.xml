@@ -2441,10 +2441,10 @@ _("An error has occurred.", "Some errors have occurred", error_count)</screen>
 	  etc. include statements are ignored.
 	</para>
 	<para>
-	  The <emphasis>included file</emphasis> can be
-	  a relative or an absolute file name. Relative 
-	  names are looked up with <filename>/usr/share/YaST2/include</filename>
-	  as a base. 
+	  The <emphasis>included file</emphasis> is relative.
+	   Relative names are looked up with
+     <filename>/usr/share/YaST2/include</filename>
+	  as a base.
 	</para>
 
         <example id="id_ycp_includeex">
