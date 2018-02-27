@@ -1,4 +1,0 @@
-// run this ycp script to test the shellexample modules
-{
-  return CallModule("shellexample", [true, "/this/is/a/string", 17.8, 34]);
-}
